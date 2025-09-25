@@ -1,0 +1,54 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block addcss %}
+<link href="{% static 'css/module-css/portfolio.css' %}" rel="stylesheet">
+{% endblock addcss %}
+
+{% block content %}
+<!-- page-title -->
+<section class="page-title centred pt_190 pb_190">
+    <div class="bg-layer" style="background-image: url(../static/images/background/page-title.jpg);"></div>
+    <div class="auto-container">
+        <div class="content-box">
+            <h1>Our Memories</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="{% url 'home:index' %}">Home</a></li>
+                <li>Gallery</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- page-title end -->
+
+
+<!-- portfolio-section -->
+<section class="portfolio-section pt_150 pb_120">
+    <div class="auto-container">
+        {% if images.count > 0 %}
+        <div class="row clearfix">
+            {% for image in images %}
+            <div class="col-lg-4 col-md-6 col-sm-12 portfolio-block">
+                <div class="portfolio-block-one">
+                    <div class="inner-box">
+                        <figure class="image-box"><img src="{{image.image.url}}" alt="{{image.title}}"></figure>
+                        <div class="view-btn"><a href="{{image.image.url}}" class="lightbox-image"
+                                data-fancybox="gallery"><i class="icon-32"></i></a></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="tw:grid tw:items-center tw:justify-center tw:p-10">
+            <p class="tw:text-3xl">
+                There are no files/media uploaded for now
+            </p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+<!-- portfolio-section end -->
+
+
+{% endblock content %}

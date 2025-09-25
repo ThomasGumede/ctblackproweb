@@ -1,0 +1,78 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block addcss %}
+<link href="{% static 'css/module-css/contact.css' %}" rel="stylesheet">
+{% endblock addcss %}
+
+{% block content %}
+<!-- page-title -->
+<section class="page-title centred pt_190 pb_190">
+    <div class="bg-layer" style="background-image: url(../static/images/background/page-title.jpg);"></div>
+    <div class="auto-container">
+        <div class="content-box">
+            <h1>Club Important Documents</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="{% url 'home:index' %}">Home</a></li>
+                <li>Club Files</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- page-title end -->
+
+
+<!-- contact-info-section -->
+<section class="contact-info-section centred pt_150 pb_150">
+    <div class="auto-container">
+        <div class="sec-title centred mb_40">
+            <span class="sub-title">Club Files</span>
+            <h2>Important Informations</h2>
+        </div>
+        {% if files.count > 0 %}
+        <div class="row clearfix">
+            {% for file in files %}
+            <div class="col-lg-4 col-md-6 col-sm-12 info-block">
+                <div class="info-block-one">
+                    <div class="inner-box">
+                        <div class="icon-box"><i class="far fa-file-pdf tw:text-white"></i></div>
+                        <h3>{{file.title}}</h3>
+                        <p><a href="{% url 'accounts:download-file' file.id %}">Download</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+        {% else %}
+        <div class="tw:grid tw:items-center tw:justify-center tw:p-10">
+            <p class="tw:text-3xl">
+                There are no files/media uploaded for now
+            </p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+<!-- contact-info-section end -->
+
+
+
+
+<!-- cta-section -->
+<section class="cta-section alternat-2 centred bg-color-2 pt_140 pb_150 mb_150">
+    <div class="pattern-layer" style="background-image: url(../static/images/shape/shape-14.png);"></div>
+    <div class="auto-container">
+        <div class="content-box">
+            <div class="sec-title light mb_40">
+                <span class="sub-title">JOIN US TODAY!</span>
+                <h2>Take Your Game To The <br />Next Level.</h2>
+            </div>
+            <div class="btn-box">
+                <a href="{% url 'accounts:membership' %}" class="theme-btn btn-one">become a member</a>
+                <a href="{% url 'home:contact' %}" class="theme-btn btn-two">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- cta-section end -->
+{% endblock content %}

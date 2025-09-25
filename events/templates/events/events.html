@@ -1,0 +1,84 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block addcss %}
+<link href="{% static 'css/module-css/event.css' %}" rel="stylesheet">
+{% endblock addcss %}
+
+{% block content %}
+<!-- page-title -->
+<section class="page-title centred pt_190 pb_190">
+    <div class="bg-layer" style="background-image: url(static/images/background/page-title.jpg);"></div>
+    <div class="auto-container">
+        <div class="content-box">
+            <h1>Our Upcoming Events</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="{% url 'home:index' %}">Home</a></li>
+                <li>Events</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- page-title end -->
+
+
+<!-- event-section -->
+<section class="event-section events-page pt_150 pb_150">
+    <div class="auto-container">
+        
+        {% if events.count > 0 %}
+
+        <div class="row clearfix">
+            
+            {% for event in events %}
+            <div class="col-lg-4 col-md-6 col-sm-12 event-block">
+                <div class="event-block-one">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure class="image"><a href="{% url 'events:event-details' event.slug %}"><img
+                                        src="{% if event.image %}{{event.image.url}}{% else %}{% static 'images/no-image.png' %}{% endif %}" alt="{{event.title}}"></a></figure>
+                            <span class="location"><i class="icon-3"></i>{{event.event_address}}</span>
+                        </div>
+                        <div class="lower-content">
+                            <span class="post-date"><i class="icon-17"></i>{{event.event_startdate}}</span>
+                            <h3><a href="{% url 'events:event-details' event.slug %}">{{event.title}}</p>
+                            <div class="btn-box"><a href="{% url 'events:event-details' event.slug %}" class="theme-btn btn-two">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+
+        {% else %}
+        <div class="tw:grid tw:items-center tw:justify-center tw:p-10">
+            <p class="tw:text-3xl">
+                There are no upcoming events for now
+            </p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+<!-- event-section end -->
+
+
+<!-- cta-section -->
+<section class="cta-section alternat-2 centred bg-color-2 pt_140 pb_150 mb_150">
+    <div class="pattern-layer" style="background-image: url(static/images/shape/shape-14.png);"></div>
+    <div class="auto-container">
+        <div class="content-box">
+            <div class="sec-title light mb_40">
+                <span class="sub-title">our Facilities</span>
+                <h2>Take Your Game To The <br />Next Level.</h2>
+            </div>
+            <div class="btn-box">
+                <a href="{% url 'accounts:membership' %}" class="theme-btn btn-one">become a member</a>
+                <a href="{% url 'home:contact' %}" class="theme-btn btn-two">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- cta-section end -->
+{% endblock content %}

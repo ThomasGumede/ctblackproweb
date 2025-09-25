@@ -7,7 +7,7 @@
 <section class="banner-style-four p_relative">
     <div class="banner-carousel owl-theme owl-carousel owl-dots-none nav-style-none">
         <div class="slide-item p_relative">
-            <div class="bg-layer" id="bg-layer-1" style="background-image: url(static/images/banner/banner-7.jpg);"></div>
+            <div class="bg-layer" id="bg-layer-1" style="background-image: url(static/images/banner/banner-8.jpg);"></div>
             <div class="auto-container">
                 <div class="content-box">
                     <div class="icon-box"><i class="icon-31"></i></div>
@@ -131,7 +131,7 @@
 </section>
 <!-- chooseus-section end -->
 
-
+{% if events.count == 3 %}
 <!-- event-style-two -->
 <section class="event-style-two pt_140 pb_110">
     <div class="auto-container">
@@ -140,165 +140,101 @@
             <h2>Get Ready for These Upcoming <br />Golf Events</h2>
         </div>
         <div class="inner-container">
+            
+            {% for event in events %}
+                
             <div class="event-block-two">
                 <div class="inner-box">
-                    <figure class="image-box"><img src="{% static 'images/resource/event-4.jpg' %}" alt=""></figure>
+                    <figure class="image-box"><img src="{% if event.image %}{{event.image.url}}{% else %}{% static 'images/no-image.png' %}{% endif %}" alt="{{event.title}}"></figure>
                     <div class="content-box">
                         <ul class="post-info">
-                            <li><i class="icon-17"></i>22 August</li>
-                            <li><i class="icon-3"></i>6391 Elgin St. Celina</li>
+                            <li><i class="icon-17"></i>{{event.event_startdate}}</li>
+                            <li><i class="icon-3"></i>{{event.event_address}}</li>
                         </ul>
-                        <h3><a href="event-details.html">The Sponsorship Meetup is Returning</a></h3>
+                        <h3><a href="{% url 'events:event-details' event.slug %}">{{event.title}}</a></h3>
                     </div>
-                    <span class="price-box">$70</span>
-                    <div class="btn-box"><a href="event-details.html" class="theme-btn btn-two">View Details</a></div>
+                    <span class="price-box">R{{event.cost}}</span>
+                    <div class="btn-box"><a href="{% url 'events:event-details' event.slug %}" class="theme-btn btn-two">View Details</a></div>
                 </div>
             </div>
-            <div class="event-block-two">
-                <div class="inner-box">
-                    <figure class="image-box"><img src="{% static 'images/resource/event-5.jpg' %}" alt=""></figure>
-                    <div class="content-box">
-                        <ul class="post-info">
-                            <li><i class="icon-17"></i>21 August</li>
-                            <li><i class="icon-3"></i>6391 Elgin St. Celina</li>
-                        </ul>
-                        <h3><a href="event-details.html">Starter Golf Clinic and Casual Contest</a></h3>
-                    </div>
-                    <span class="price-box">$50</span>
-                    <div class="btn-box"><a href="event-details.html" class="theme-btn btn-two">View Details</a></div>
-                </div>
-            </div>
-            <div class="event-block-two">
-                <div class="inner-box">
-                    <figure class="image-box"><img src="{% static 'images/resource/event-6.jpg' %}" alt=""></figure>
-                    <div class="content-box">
-                        <ul class="post-info">
-                            <li><i class="icon-17"></i>20 August</li>
-                            <li><i class="icon-3"></i>6391 Elgin St. Celina</li>
-                        </ul>
-                        <h3><a href="event-details.html">Interactive Golf Play for Beginners & Experts</a></h3>
-                    </div>
-                    <span class="price-box">$90</span>
-                    <div class="btn-box"><a href="event-details.html" class="theme-btn btn-two">View Details</a></div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
 <!-- event-style-two end -->
+ {% else %}
+<!-- about-style-two -->
+<section class="about-style-two centred pt_140 pb_140">
+    <div class="auto-container">
+        <div class="content-box">
+            <div class="sec-title centred mb_35">
+                <div class="icon-box"><i class="icon-31"></i></div>
+                <span class="sub-title">Ready To CT Black Pro Golf Club Today</span>
+                <h2>Welcome to CT Black Pro Golf Club</h2>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur. Nam quis bibendum lacinia eu id in. Quisque porttitor tortor
+                blandit nunc sed ac id. Mattis in nunc libero viverra. Consectetur leo nibh ac at amet.</p>
+            <div class="tw:flex tw:flex-wrap tw:gap-7 tw:items-center">
+                <div>
+                    <a href="" class="theme-btn btn-one">View Our Membership Rates</a>
+                </div>
+                <div>
+                    <a href="" class="theme-btn btn-two">Download Membership Form</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- about-style-two end -->
+ {% endif %}
 
 
+ 
+ {% if images.count == 3 %}  
 <!-- portfolio-style-two -->
 <section class="portfolio-style-two pb_110 pl_70 pr_70">
     <div class="auto-container">
         <div class="sec-title mb_60">
             <span class="sub-title">Our Portfolio</span>
             <h2>Our Golfing Memories</h2>
-            <a href="portfolio.html" class="theme-btn btn-one">Learn More</a>
+            <a href="{% url 'home:gallery' %}" class="theme-btn btn-one">Learn More</a>
         </div>
     </div>
     <div class="outer-container">
         <div class="row clearfix">
+            {% for image in images %}
             <div class="col-lg-4 col-md-6 col-sm-12 portfolio-block">
                 <div class="portfolio-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><img src="{% static 'images/portfolio/portfolio-5.jpg' %}" alt=""></figure>
-                        <div class="view-btn"><a href="{% static 'images/portfolio/portfolio-5.jpg' %}" class="lightbox-image"
+                        <figure class="image-box"><img src="{{image.image.url}}" alt="{{image.title}}"></figure>
+                        <div class="view-btn"><a href="{{image.image.url}}" class="lightbox-image"
                                 data-fancybox="gallery"><i class="icon-32"></i></a></div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 portfolio-block">
-                <div class="portfolio-block-one">
-                    <div class="inner-box">
-                        <figure class="image-box"><img src="{% static 'images/portfolio/portfolio-6.jpg' %}" alt=""></figure>
-                        <div class="view-btn"><a href="{% static 'images/portfolio/portfolio-6.jpg' %}" class="lightbox-image"
-                                data-fancybox="gallery"><i class="icon-32"></i></a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 portfolio-block">
-                <div class="portfolio-block-one">
-                    <div class="inner-box">
-                        <figure class="image-box"><img src="{% static 'images/portfolio/portfolio-7.jpg' %}" alt=""></figure>
-                        <div class="view-btn"><a href="{% static 'images/portfolio/portfolio-7.jpg' %}" class="lightbox-image"
-                                data-fancybox="gallery"><i class="icon-32"></i></a></div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
 <!-- portfolio-style-two -->
+{% endif %}
 
-
-<!-- faq-section -->
-<section class="faq-section pt_140 pb_150">
+<!-- cta-section -->
+<section class="cta-section alternat-2 centred bg-color-2 pt_140 pb_150 mb_150">
+    <div class="pattern-layer" style="background-image: url(static/images/shape/shape-14.png);"></div>
     <div class="auto-container">
-        <div class="row clearfix">
-            <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                <div class="content_block_three">
-                    <div class="content-box mr_30">
-                        <div class="sec-title mb_60">
-                            <span class="sub-title">Faq's</span>
-                            <h2>Frequently Asked Questions</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur. Nam quis bibendum lacinia eu id in. Quisque
-                                porttitor tortor blandit nunc.</p>
-                        </div>
-                        <ul class="accordion-box">
-                            <li class="accordion block">
-                                <div class="acc-btn">
-                                    <h3>How To Purchase The Tickets For Groups?</h3>
-                                    <div class="icon-box"><i class="icon-20"></i></div>
-                                </div>
-                                <div class="acc-content">
-                                    <div class="text">
-                                        <p>Sodales posuere facilisi metus elementum ipsum egestas amet amet mattis
-                                            commodo Nunc tempor amet massa diam mauris Risus sodales interdum.</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="accordion block active-block">
-                                <div class="acc-btn active">
-                                    <h3>What Equipment Do I Need For Golfing?</h3>
-                                    <div class="icon-box"><i class="icon-20"></i></div>
-                                </div>
-                                <div class="acc-content current">
-                                    <div class="text">
-                                        <p>Sodales posuere facilisi metus elementum ipsum egestas amet amet mattis
-                                            commodo Nunc tempor amet massa diam mauris Risus sodales interdum.</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="accordion block">
-                                <div class="acc-btn">
-                                    <h3>Does Practicing Golf At Home Actually Work?</h3>
-                                    <div class="icon-box"><i class="icon-20"></i></div>
-                                </div>
-                                <div class="acc-content">
-                                    <div class="text">
-                                        <p>Sodales posuere facilisi metus elementum ipsum egestas amet amet mattis
-                                            commodo Nunc tempor amet massa diam mauris Risus sodales interdum.</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="content-box">
+            <div class="sec-title light mb_40">
+                <span class="sub-title">our Facilities</span>
+                <h2>Take Your Game To The <br />Next Level.</h2>
             </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 image-column">
-                <div class="image_block_two">
-                    <div class="image-box ml_30 pl_110">
-                        <figure class="image image-hov-two"><img src="{% static 'images/resource/faq-1.jpg' %}" alt=""></figure>
-                        <div class="award-box">
-                            <div class="icon-box"><img src="{% static 'images/icons/award-1.png' %}" alt=""></div>
-                            <h4>The Exclusive Offers</h4>
-                        </div>
-                    </div>
-                </div>
+            <div class="btn-box">
+                <a href="{% url 'accounts:membership' %}" class="theme-btn btn-one">become a member</a>
+                <a href="{% url 'home:contact' %}" class="theme-btn btn-two">Contact Us</a>
             </div>
         </div>
     </div>
 </section>
-<!-- faq-section end -->
+<!-- cta-section end -->
 {% endblock content %}

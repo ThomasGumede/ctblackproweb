@@ -7,6 +7,7 @@
   background: var(--secondary-color);
 }
 
+
 .header-top .top-inner{
   position: relative;
   display: flex;
@@ -161,127 +162,6 @@
 
 .main-header .menu-right-content .support-box a:hover{
 
-}
-
-
-/*** Search Popup ***/
-
-.search-popup {
-  position: fixed;
-  left: 0;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 99999;
-  visibility: hidden;
-  opacity: 0;
-  overflow: auto;
-  -webkit-transform: translateY(101%);
-  -ms-transform: translateY(101%);
-  transform: translateY(101%);
-  transition: all 700ms ease;
-  -moz-transition: all 700ms ease;
-  -webkit-transition: all 700ms ease;
-  -ms-transition: all 700ms ease;
-  -o-transition: all 700ms ease;
-}
-
-.search-popup.popup-visible {
-  -webkit-transform: translateY(0%);
-  -ms-transform: translateY(0%);
-  transform: translateY(0%);
-  visibility: visible;
-  opacity: 1;
-}
-
-.search-popup .popup-inner{
-  width: 100%;
-  background: rgba(0, 0, 0, 0.95);
-  height: 100%;
-}
-
-.search-popup .upper-box{
-  position: relative;
-  padding: 70px 70px;
-  z-index: 99;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.search-popup .upper-box .logo-box{
-  max-width: 236px;
-}
-
-.search-popup .overlay-layer {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  display: block;
-}
-
-.search-popup .close-search {
-  position: relative;
-  font-size: 22px;
-  color: #fff;
-  cursor: pointer;
-  z-index: 5;
-  transition: all 500ms ease;
-}
-
-.search-popup .close-search:hover {
-  color: red;
-}
-
-.search-popup .search-form {
-  position: relative;
-  width: 100%;
-  padding: 100px 0px 250px 0px;
-}
-
-.search-popup .search-form .form-group{
-  position: relative;
-  margin: 0px;
-}
-
-.search-popup .search-form fieldset input[type="search"] {
-  position: relative;
-  height: 90px;
-  padding: 20px 0px;
-  background: transparent;
-  line-height: 30px;
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.70);
-  border: none;
-  font-weight: 400;
-  border-radius: 0px;
-  padding-right: 50px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.search-popup .search-form fieldset button[type="submit"] {
-  position: absolute;
-  top: 30px;
-  right: 0px;
-  cursor: pointer;
-  font-size: 20px;
-  color: #fff;
-  transition: all 500ms ease;
-}
-
-.search-popup .search-form fieldset input[type="search"]:focus{
-  border-color: var(--theme-color);
-}
-
-.search-popup .form-control:focus{
-  box-shadow: none !important;
-}
-
-.search-popup .search-form fieldset input:focus + button,
-.search-popup .search-form fieldset button:hover{
-  
 }
 
 

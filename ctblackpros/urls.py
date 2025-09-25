@@ -7,6 +7,7 @@ urlpatterns = [
     path('ct-admin/', admin.site.urls),
     path("", include("accounts.urls", namespace="accounts")),
     path("", include("home.urls", namespace="home")),
+    path("", include("events.urls", namespace="events")),
 ]
  
 if settings.DEBUG:

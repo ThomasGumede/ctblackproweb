@@ -1,0 +1,93 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block addcss %}
+<link href="{% static 'css/module-css/contact.css' %}" rel="stylesheet">
+{% endblock addcss %}
+
+{% block content %}
+
+<!-- page-title -->
+<section class="page-title centred pt_190 pb_190">
+    <div class="bg-layer" style="background-image: url(../static/images/background/page-title.jpg);"></div>
+    <div class="auto-container">
+        <div class="content-box">
+            <h1>Membership Planning</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="{% url 'home:index' %}">Home</a></li>
+                <li>Join Us</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- page-title end -->
+
+<!-- about-style-two -->
+<section class="about-style-two centred pt_140 pb_140">
+    <div class="auto-container">
+        <div class="content-box">
+            <div class="sec-title centred mb_35">
+                <div class="icon-box"><i class="icon-31"></i></div>
+                <span class="sub-title">Ready To CT Black Pro Golf Club Today</span>
+                <h2>Welcome to CT Black Pro Golf Club</h2>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur. Nam quis bibendum lacinia eu id in. Quisque porttitor tortor
+                blandit nunc sed ac id. Mattis in nunc libero viverra. Consectetur leo nibh ac at amet.</p>
+                <div class="tw:flex tw:flex-wrap tw:gap-7 tw:items-center">
+                    <div>
+                        <a href="" class="theme-btn btn-one">View Our Membership Rates</a>
+                    </div>
+                    <div>
+                        <a href="" class="theme-btn btn-two">Download Membership Form</a>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</section>
+<!-- about-style-two end -->
+<!-- contact-section -->
+<section class="contact-section alternat-2 pt_140 pb_150 mb_150">
+    <div class="bg-layer" style="background-image: url(../static/images/background/contact-bg.jpg);"></div>
+    <div class="pattern-layer" style="background-image: url(../static/images/shape/shape-17.png);"></div>
+    <div class="decore float-bob-x"><img src="{% static 'images/resource/decore-1.png' %}" alt=""></div>
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="col-lg-6 col-md-12 col-sm-12 offset-lg-6 content-column">
+                <div class="content_block_six">
+                    <div class="content-box ml_110">
+                        <div class="sec-title mb_60">
+                            <span class="sub-title">Join Club</span>
+                            <h2>Fill The Form & We Will Get In Touch!</h2>
+                        </div>
+                        <div class="form-inner">
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="row clearfix">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <input type="text" name="name" placeholder="Your name" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <input type="email" name="email" placeholder="Email" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <input type="text" name="phone" placeholder="Phone" required>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <textarea name="message" placeholder="Message"></textarea>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <button type="submit" class="theme-btn btn-one">Send us message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- contact-section end -->
+
+{% endblock content %}

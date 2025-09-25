@@ -2,109 +2,89 @@
 {% load static tailwind_tags %}
 
 <!-- main-footer -->
-<footer class="main-footer pt_150">
-    <div class="pattern-layer" style="background-image: url(images/shape/shape-4.png);"></div>
-    <div class="auto-container">
-        <div class="footer-top">
-            <div class="row align-items-center">
-                <div class="col-lg-4 col-md-12 col-sm-12 logo-column">
-                    <figure class="footer-logo"><a href="{% url 'home:index' %}"><img src="{% static 'images/logo-3.png' %}" alt=""></a>
-                    </figure>
-                </div>
-                <div class="col-lg-8 col-md-12 col-sm-12 subscribe-column">
-                    <div class="subscribe-content">
-                        <h3>Subscribe Now</h3>
-                        <div class="form-inner">
-                            <form method="post" action="https://azim.hostlin.com/Golfer/contact.html">
-                                <div class="form-group">
-                                    <input type="email" name="email" placeholder="Your email" required>
-                                    <button type="submit" class="theme-btn btn-one">Subscribe Now</button>
-                                </div>
-                            </form>
+<div class="footer-box p_relative pl_70 pr_70 pb_70">
+    <footer class="main-footer dark-footer">
+        <div class="auto-container">
+            <div class="widget-section pt_95 pb_95">
+                <div class="row clearfix">
+                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                        <div class="about-widget footer-widget mr_40">
+                            <div class="widget-title">
+                                <h3>About</h3>
+                            </div>
+                            <div class="widget-content">
+                                <p>Lorem ipsum dolor sit amet consectetur diam ultricies leo etiam nibh tristique.</p>
+                                <p>odio feugiat vitae libero vestibu viverra elementum luctus.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-12 footer-column">
+                        <div class="links-widget footer-widget ml_30">
+                            <div class="widget-title">
+                                <h3>Links</h3>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="links-list clearfix">
+                                    <li><a href="{% url 'home:about' %}">About Us</a></li>
+                                    <li><a href="{% url 'home:contact' %}">Contact</a></li>
+                                    <li><a href="{% url 'home:about' %}">Historic Timeline</a></li>
+                                    <li><a href="{% url 'accounts:documents' %}">Club Documents</a></li>
+                                    <li><a href="{% url 'home:index' %}">Membership</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                        <div class="schedule-widget footer-widget ml_55">
+                            <div class="widget-title">
+                                <h3>Working Hours</h3>
+                            </div>
+                            <div class="widget-content">
+                                <p>Tincidunt neque pretium lectus donec risus.</p>
+                                <ul class="schedule-list clearfix">
+                                    <li>Mon - Fri: 9:00AM - 6:00PM</li>
+                                    <li>Sat - Sun: 8:00AM - 4:00PM</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                        <div class="contact-widget footer-widget">
+                            <div class="widget-title">
+                                <h3>Get In Touch</h3>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="info-list clearfix">
+                                    <li>
+                                        <div class="icon-box"><i class="icon-3"></i></div>
+                                       Cape Town, Western Cape, RSA
+                                    </li>
+                                    <li>
+                                        <div class="icon-box"><i class="icon-2"></i></div>
+                                        <a href="mailto:info@ctblackpros.co.za">info@ctblackpros.co.za</a>
+                                    </li>
+                                    <li>
+                                        <div class="icon-box"><i class="icon-5"></i></div>
+                                        <a href="tel:3336660000">333 666 0000</a>
+                                    </li>
+                                </ul>
+                                <ul class="social-links">
+                                    <li><a href="{% url 'home:index' %}"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="{% url 'home:index' %}"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="{% url 'home:index' %}"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="{% url 'home:index' %}"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="widget-section pt_95 pb_95">
-            <div class="row clearfix">
-                <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                    <div class="about-widget footer-widget mr_40">
-                        <div class="widget-title">
-                            <h3>About</h3>
-                        </div>
-                        <div class="widget-content">
-                            <p>Lorem ipsum dolor sit amet consectetur diam ultricies leo etiam nibh tristique.</p>
-                            <p>odio feugiat vitae libero vestibu viverra elementum luctus.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-12 footer-column">
-                    <div class="links-widget footer-widget ml_30">
-                        <div class="widget-title">
-                            <h3>Links</h3>
-                        </div>
-                        <div class="widget-content">
-                            <ul class="links-list clearfix">
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="courses.html">Courses</a></li>
-                                <li><a href="{% url 'home:index' %}">Historic Timeline</a></li>
-                                <li><a href="{% url 'home:index' %}">Career</a></li>
-                                <li><a href="{% url 'home:index' %}">Membership</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
-                    <div class="schedule-widget footer-widget ml_55">
-                        <div class="widget-title">
-                            <h3>Working Hours</h3>
-                        </div>
-                        <div class="widget-content">
-                            <p>Tincidunt neque pretium lectus donec risus.</p>
-                            <ul class="schedule-list clearfix">
-                                <li>Mon - Fri: 9:00AM - 6:00PM</li>
-                                <li>Sat - Sun: 8:00AM - 4:00PM</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                    <div class="contact-widget footer-widget">
-                        <div class="widget-title">
-                            <h3>Get In Touch</h3>
-                        </div>
-                        <div class="widget-content">
-                            <ul class="info-list clearfix">
-                                <li>
-                                    <div class="icon-box"><i class="icon-3"></i></div>
-                                    Add: New Hyde Park, NY 11040
-                                </li>
-                                <li>
-                                    <div class="icon-box"><i class="icon-2"></i></div>
-                                    Email: <a href="mailto:example@info.com">example@info.com</a>
-                                </li>
-                                <li>
-                                    <div class="icon-box"><i class="icon-5"></i></div>
-                                    Phone: <a href="tel:3336660000">333 666 0000</a>
-                                </li>
-                            </ul>
-                            <ul class="social-links">
-                                <li><a href="{% url 'home:index' %}"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="{% url 'home:index' %}"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="{% url 'home:index' %}"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="{% url 'home:index' %}"><i class="fab fa-linkedin-in"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+        <div class="footer-bottom centred">
+            <div class="copyright">
+                <p>Copyright 2025 by <a href="https://wedodev.co.za">WeDoDev.</a> All Right Reserved.</p>
             </div>
         </div>
-    </div>
-    <div class="footer-bottom centred">
-        <div class="copyright">
-            <p>Copyright 2024 by <a href="{% url 'home:index' %}">GolFer</a> All Right Reserved.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
+</div>
 <!-- main-footer end -->

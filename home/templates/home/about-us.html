@@ -1,1103 +1,359 @@
 {% extends '_base.html' %}
 {% load static %}
 
+{% block addcss %}
+<link href="{% static 'css/module-css/about.css' %}" rel="stylesheet">
+<link href="{% static 'css/module-css/team.css' %}" rel="stylesheet">
+<link href="{% static 'css/module-css/history.css' %}" rel="stylesheet">
+<link href="{% static 'css/module-css/testimonial.css' %}" rel="stylesheet">
+<link href="{% static 'css/module-css/fluid.css' %}" rel="stylesheet">
+<link href="{% static 'css/module-css/video.css' %}" rel="stylesheet">
+{% endblock addcss %}
 
 {% block content %}
-<!-- Page Header Section Start -->
-<div class="page-header bg-section parallaxie">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <!-- Page Header Box Start -->
-                <div class="page-header-box">
-                    <h1 class="text-anime-style-3" data-cursor="-opaque">About us</h1>
-                    <nav class="wow fadeInUp" data-wow-delay="0.25s">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">about us</li>
-                        </ol>
-                    </nav>
-                </div>
-                <!-- Page Header Box End -->
-            </div>
+<!-- page-title -->
+<section class="page-title centred pt_190 pb_190">
+    <div class="bg-layer" style="background-image: url(static/images/background/page-title.jpg);"></div>
+    <div class="auto-container">
+        <div class="content-box">
+            <h1>About CT Black Pro</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="{% url 'home:index' %}">Home</a></li>
+                <li>About</li>
+            </ul>
         </div>
     </div>
-</div>
-<!-- Page Header Section End -->
+</section>
+<!-- page-title end -->
 
-<!-- About Us Section Start -->
-<div class="about-us">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <!-- About Us Image Start -->
-                <div class="about-us-images">
-                    <!-- About Us Image 2 Start -->
-                    <div class="about-us-img-1">
-                        <figure class="image-anime reveal">
-                            <img src="{% static 'images/about-us-img-1.jpg' %}" alt="">
-                        </figure>
-                    </div>
-                    <!-- About Us Image 2 End -->
 
-                    <!-- About Us Image 2 Start -->
-                    <div class="about-us-img-2">
-                        <figure class="image-anime reveal">
-                            <img src="{% static 'images/about-us-img-2.jpg' %}" alt="">
-                        </figure>
-                    </div>
-                    <!-- About Us Image 2 End -->
-
-                    <!-- Hero Contact Circle Start -->
-                    <div class="get-membership-circle">
-                        <a href="contact.html">
-                            <img src="{% static 'images/get-membership-circle.svg' %}" alt="">
-                        </a>
-                    </div>
-                    <!-- Hero Contact Circle End -->
-                </div>
-                <!-- About Us Image End -->
-            </div>
-
-            <div class="col-lg-6">
-                <!-- About Us Content Start -->
-                <div class="about-us-content">
-                    <!-- Section Title Start -->
-                    <div class="section-title">
-                        <h3 class="wow fadeInUp">About us</h3>
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Experience excellence at our golf club</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.2s">Discover world-class courses, top-notch
-                            facilities, and a welcoming community. Enjoy an exceptional golfing experience tailored for
-                            players of all skill levels.</p>
-                    </div>
-                    <!-- Section Title End -->
-
-                    <!-- About Us Body Start -->
-                    <div class="about-us-body">
-                        <!-- About Us Body Item Start -->
-                        <div class="about-us-body-item wow fadeInUp" data-wow-delay="0.4s">
-                            <h3>Our Prestigious Golf Courses</h3>
-                            <p>Our prestigious golf courses offer a world-class golfing experience, featuring lush
-                                greens, challenging fairways, & breathtaking landscapes</p>
-                        </div>
-                        <!-- About Us Body Item End -->
-
-                        <!-- About Us Body Item Start -->
-                        <div class="about-us-body-item wow fadeInUp" data-wow-delay="0.6s">
-                            <h3>A Community of Golf Enthusiasts</h3>
-                            <p>Our prestigious golf courses offer a world-class golfing experience, featuring lush
-                                greens, challenging fairways, & breathtaking landscapes</p>
-                        </div>
-                        <!-- About Us Body Item End -->
-                    </div>
-                    <!-- About Us Body End -->
-
-                    <!-- About Us Button Start -->
-                    <div class="about-us-btn wow fadeInUp" data-wow-delay="0.8s">
-                        <a href="book-appointment.html" class="btn-default">book now</a>
-                    </div>
-                    <!-- About Us Button End -->
-                </div>
-                <!-- About Us Content End -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- About Us Section End -->
-
-<!-- Our Approach Section Start -->
-<div class="our-approach">
-    <div class="container">
+<!-- about-style-three -->
+<section class="about-style-three pt_150">
+    <div class="auto-container">
         <div class="row align-items-center">
-            <div class="col-lg-6">
-                <!-- Approach Content Start -->
-                <div class="approach-content">
-                    <!-- Section Title Start -->
-                    <div class="section-title">
-                        <h3 class="wow fadeInUp">Our Approach</h3>
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Driving excellence, inspiring passion</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.2s">At our Golf Club, we are dedicated to creating a
-                            sanctuary for those who share a passion for the game. Our meticulously designed course
-                            offers a harmonious blend of challenge.</p>
-                    </div>
-                    <!-- Section Title End -->
-
-                    <!-- Approach List Start -->
-                    <div class="approach-list wow fadeInUp" data-wow-delay="0.4s">
-                        <ul>
-                            <li>Shaping the Future of Golf with Passion and Precision.</li>
-                            <li>Where Every Swing Brings You Closer to Perfection.</li>
-                        </ul>
-                    </div>
-                    <!-- Approach List End -->
-
-                    <!-- Approach Item Box Start -->
-                    <div class="approach-item-box wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="approach-item-header">
-                            <div class="icon-box">
-                                <img src="{% static 'images/icon-mission.svg' %}" alt="">
-                            </div>
-                            <div class="approach-item-title">
-                                <h3>Our mission</h3>
+            <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                <div class="image_block_three">
+                    <div class="image-box pl_110 pr_80">
+                        <figure class="image"><img src="{% static 'images/resource/men-1.png' %}" alt=""></figure>
+                        <div class="experience-box">
+                            <div class="inner">
+                                <h2>20</h2>
+                                <span>Years of <br />expericence</span>
                             </div>
                         </div>
-                        <div class="approach-item-content">
-                            <p>Our mission is to create an exceptional golfing experience for players of all skill
-                                levels. We are dedicated to maintaining a beautifully manicured course, providing
-                                top-tier facilities & fostering a welcoming community where passion.</p>
+                        <div class="image-shape">
+                            <div class="shape-1 z_1"></div>
+                            <div class="shape-2" style="background-image: url(static/images/shape/shape-1.png);"></div>
                         </div>
                     </div>
-                    <!-- Approach Item Box End -->
                 </div>
-                <!-- Approach Content End -->
             </div>
-
-            <div class="col-lg-6">
-                <!-- Approach Images Start -->
-                <div class="approach-images">
-                    <!-- Approach Image 1 Start -->
-                    <div class="approach-img-1">
-                        <figure class="image-anime reveal">
-                            <img src="{% static 'images/approach-img-1.jpg' %}" alt="">
-                        </figure>
-                    </div>
-                    <!-- Approach Image 1 End -->
-
-                    <!-- Approach Image 2 Start -->
-                    <div class="approach-img-2">
-                        <figure class="image-anime reveal">
-                            <img src="{% static 'images/approach-img-2.jpg' %}" alt="">
-                        </figure>
-                    </div>
-                    <!-- Approach Image 2 End -->
-
-                    <!-- Get Membership Circle Start -->
-                    <div class="get-membership-circle">
-                        <a href="contact.html">
-                            <img src="{% static 'images/get-membership-circle.svg' %}" alt="">
-                        </a>
-                    </div>
-                    <!-- Get Membership Circle End -->
-                </div>
-                <!-- Approach Images End -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Our Approach Section End -->
-
-<!-- Why Choose Us Section Start -->
-<div class="why-choose-us">
-    <div class="container">
-        <div class="row section-row align-items-center">
-            <div class="col-lg-6">
-                <!-- Section Title Start -->
-                <div class="section-title">
-                    <h3 class="wow fadeInUp">Why Choose Us</h3>
-                    <h2 class="text-anime-style-3" data-cursor="-opaque">Why golfers choose us for excellence</h2>
-                </div>
-                <!-- Section Title End -->
-            </div>
-
-            <div class="col-lg-6">
-                <!-- Section Title Content Start -->
-                <div class="section-title-content wow fadeInUp" data-wow-delay="0.2s">
-                    <p>Golfers choose us for excellence because we offer world-class courses, top-tier coaching, and
-                        state-of-the-art facilities. Our commitment to impeccable course, experiences, and a vibrant
-                        golfing community ensures every player thrives, from beginners to pros.</p>
-                </div>
-                <!-- Section Title Content End -->
-            </div>
-        </div>
-
-        <div class="row align-items-center">
-            <div class="col-lg-3 col-md-6 order-1">
-                <!-- Why Choose Box Start -->
-                <div class="why-choose-box-1">
-                    <!-- Why Choose Item Start -->
-                    <div class="why-choose-item wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="icon-box">
-                            <img src="{% static 'images/icon-why-choose-1.svg' %}" alt="">
+            <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                <div class="content_block_four">
+                    <div class="content-box">
+                        <div class="sec-title mb_25">
+                            <span class="sub-title">About CT Black Pro</span>
+                            <h2>Immerse yourself in a luxury golf outing</h2>
                         </div>
-                        <div class="why-choose-item-content">
-                            <h3>Exceptional Golf Experience</h3>
-                            <p>Experience meticulously designed golf courses that challenge and inspire players of all
-                                skill levels.</p>
-                        </div>
-                    </div>
-                    <!-- Why Choose Item End -->
-
-                    <!-- Why Choose Item Start -->
-                    <div class="why-choose-item wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="icon-box">
-                            <img src="{% static 'images/icon-why-choose-2.svg' %}" alt="">
-                        </div>
-                        <div class="why-choose-item-content">
-                            <h3>Exclusive Member Benefits</h3>
-                            <p>Experience meticulously designed golf courses that challenge and inspire players of all
-                                skill levels.</p>
-                        </div>
-                    </div>
-                    <!-- Why Choose Item End -->
-                </div>
-                <!-- Why Choose Box End -->
-            </div>
-
-            <div class="col-lg-6 order-lg-2 order-md-3 order-2">
-                <!-- Why Choose Images Start-->
-                <div class="why-choose-images">
-                    <!-- Why Choose Image Circle Start-->
-                    <div class="why-choose-image-circle">
-                        <img src="{% static 'images/why-choose-image-circle.png' %}" alt="">
-                    </div>
-                    <!-- Why Choose Image Circle End-->
-
-                    <!-- Why Choose Image Start-->
-                    <div class="why-choose-image">
-                        <figure class="image-anime">
-                            <img src="{% static 'images/why-choose-image.png' %}" alt="">
-                        </figure>
-                    </div>
-                    <!-- Why Choose Image End-->
-                </div>
-                <!-- Why Choose Images End-->
-            </div>
-
-            <div class="col-lg-3 col-md-6 order-lg-3 order-md-2 order-3">
-                <!-- Why Choose Box Start -->
-                <div class="why-choose-box-2">
-                    <!-- Why Choose Item Start -->
-                    <div class="why-choose-item wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="icon-box">
-                            <img src="{% static 'images/icon-why-choose-3.svg' %}" alt="">
-                        </div>
-                        <div class="why-choose-item-content">
-                            <h3>Family-Friendly Atmosphere</h3>
-                            <p>Experience meticulously designed golf courses that challenge and inspire players of all
-                                skill levels.</p>
-                        </div>
-                    </div>
-                    <!-- Why Choose Item End -->
-
-                    <!-- Why Choose Item Start -->
-                    <div class="why-choose-item wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="icon-box">
-                            <img src="{% static 'images/icon-why-choose-4.svg' %}" alt="">
-                        </div>
-                        <div class="why-choose-item-content">
-                            <h3>Customized Treatments</h3>
-                            <p>Experience meticulously designed golf courses that challenge and inspire players of all
-                                skill levels.</p>
-                        </div>
-                    </div>
-                    <!-- Why Choose Item End -->
-                </div>
-                <!-- Why Choose Box End -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Why Choose Us Section End -->
-
-<!-- Join us Section Start -->
-<div class="join-us dark-section parallaxie">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 col-md-8">
-                <!-- Join us Content Start -->
-                <div class="join-us-content">
-                    <!-- Section Title Start -->
-                    <div class="section-title">
-                        <h3 class="wow fadeInUp">join us</h3>
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Join us for an unmatched golfing experience
-                        </h2>
-                    </div>
-                    <!-- Section Title End -->
-
-                    <!-- Join us Button Start -->
-                    <div class="join-us-btn wow fadeInUp" data-wow-delay="0.2s">
-                        <a href="contact.html" class="btn-default">contact us</a>
-                        <a href="book-appointment.html" class="btn-default btn-highlighted">join now</a>
-                    </div>
-                    <!-- Join us Button End -->
-                </div>
-                <!-- Join us Content End -->
-            </div>
-
-            <div class="col-lg-6 col-md-4">
-                <!-- Join Play Button Start -->
-                <div class="join-play-btn">
-                    <!-- Video Play Button Start -->
-                    <div class="video-play-button">
-                        <a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video"
-                            data-cursor-text="Play">
-                            <i class="fa-solid fa-play"></i>
-                        </a>
-                    </div>
-                    <!-- Video Play Button End -->
-                </div>
-                <!-- Join Play Button End -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Join us Section End -->
-
-<!-- Our Benefits Section Start -->
-<div class="our-benefits">
-    <div class="container">
-        <div class="row section-row align-items-center">
-            <div class="col-lg-6">
-                <!-- Section Title Start -->
-                <div class="section-title">
-                    <h3 class="wow fadeInUp">Elevate your game</h3>
-                    <h2 class="text-anime-style-3" data-cursor="-opaque">Exclusive golf membership & premium benefits
-                    </h2>
-                </div>
-                <!-- Section Title End -->
-            </div>
-
-            <div class="col-lg-6">
-                <!-- Section Title Content Start -->
-                <div class="section-title-content wow fadeInUp" data-wow-delay="0.2s">
-                    <p>Join Golfex and unlock a world of privileges designed for passionate golfers. Enjoy priority tee
-                        times, access to elite tournaments, personalized coaching, and state-of-the-art facilities.
-                        Whether you're here to refine your skills or simply relish the sport.</p>
-                </div>
-                <!-- Section Button End -->
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12">
-                <!-- Our Benefits Box Start -->
-                <div class="our-benefits-box">
-                    <!-- Benefits Item List Start -->
-                    <div class="benefit-item-list wow fadeInUp" data-wow-delay="0.4s">
-                        <!-- Benefits Item Start -->
-                        <div class="benefit-item">
-                            <div class="icon-box">
-                                <img src="{% static 'images/icon-benefit-1.svg' %}" alt="">
-                            </div>
-                            <div class="benefit-item-content">
-                                <h3>Unparalleled golfing journey</h3>
-                                <p>Immerse yourself in meticulously designed golf courses, crafted to challenge,
-                                    inspire, and elevate players of all skill levels.</p>
-                            </div>
-                            <div class="benefit-btn">
-                                <a href="contact.html">explore now</a>
-                            </div>
-                        </div>
-                        <!-- Benefits Item End -->
-
-                        <!-- Benefits Item Start -->
-                        <div class="benefit-item">
-                            <div class="icon-box">
-                                <img src="{% static 'images/icon-benefit-2.svg' %}" alt="">
-                            </div>
-                            <div class="benefit-item-content">
-                                <h3>Master the art of golf</h3>
-                                <p>Immerse yourself in meticulously designed golf courses, crafted to challenge,
-                                    inspire, and elevate players of all skill levels.</p>
-                            </div>
-                            <div class="benefit-list">
-                                <ul>
-                                    <li>Elevating Your Golfing Experience with.</li>
-                                    <li>Where Every Swing Meets Perfection.</li>
+                        <div class="tabs-box">
+                            <div class="tab-btn-box">
+                                <ul class="tab-btns tab-buttons">
+                                    <li class="tab-btn active-btn" data-tab="#tab-1">About</li>
+                                    <li class="tab-btn" data-tab="#tab-2">Mission</li>
+                                    <li class="tab-btn" data-tab="#tab-3">Club Documents</li>
                                 </ul>
                             </div>
-                        </div>
-                        <!-- Benefits Item End -->
-                    </div>
-                    <!-- Benefits Item List End -->
-
-                    <!-- Benefits Item List Start -->
-                    <div class="benefit-item-list wow fadeInUp" data-wow-delay="0.6s">
-                        <!-- Benefits Item Start -->
-                        <div class="benefit-item">
-                            <div class="icon-box">
-                                <img src="{% static 'images/icon-benefit-3.svg' %}" alt="">
-                            </div>
-                            <div class="benefit-item-content">
-                                <h3>The ultimate golfing experience</h3>
-                                <p>Immerse yourself in meticulously designed golf courses, crafted to challenge,
-                                    inspire, and elevate players of all skill levels.</p>
-                            </div>
-                            <div class="benefit-btn">
-                                <a href="contact.html">explore now</a>
-                            </div>
-                        </div>
-                        <!-- Benefits Item End -->
-
-                        <!-- Benefits Item Start -->
-                        <div class="benefit-item">
-                            <div class="icon-box">
-                                <img src="{% static 'images/icon-benefit-4.svg' %}" alt="">
-                            </div>
-                            <div class="benefit-item-content">
-                                <h3>Perfect your swing, elevate your game</h3>
-                                <p>Play on expertly designed courses that challenge, motivate, and enhance every
-                                    golfer's journey, delivering excellence at every swing.</p>
-                            </div>
-                            <div class="benefit-list">
-                                <ul>
-                                    <li>Unleash your potential on the green.</li>
-                                    <li>Where passion and precision come together.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Benefits Item End -->
-                    </div>
-                    <!-- Benefits Item List End -->
-                </div>
-                <!-- Our Benefits Box End -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Our Benefits Section End -->
-
-<!-- Our Facts Section Start -->
-<div class="our-facts dark-section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 order-lg-1 order-2">
-                <!-- Our Facts Image Start -->
-                <div class="our-facts-image">
-                    <figure>
-                        <img src="{% static 'images/facts-image.png' %}" alt="">
-                    </figure>
-                </div>
-                <!-- Our Facts Image End -->
-            </div>
-
-            <div class="col-lg-6 order-lg-2 order-1">
-                <!-- Our Facts Content Start -->
-                <div class="our-facts-content">
-                    <!-- Section Title Start -->
-                    <div class="section-title">
-                        <h3 class="wow fadeInUp">our-facts</h3>
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Impressive facts about our golf club</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.2s">Discover key highlights of our golf club,
-                            including world-class courses, expert, exclusive member events, and a vibrant community
-                            designed to elevate your golfing.</p>
-                    </div>
-                    <!-- Section Title End -->
-
-                    <!-- Fact Counter Box Start -->
-                    <div class="facts-counter-box">
-                        <!-- Fact Counter Item Start -->
-                        <div class="fact-counter-item">
-                            <h2><span class="counter">12</span>+</h2>
-                            <p>years of experience</p>
-                        </div>
-                        <!-- Fact Counter Item End -->
-
-                        <!-- Fact Counter Item Start -->
-                        <div class="fact-counter-item">
-                            <h2><span class="counter">10</span>K</h2>
-                            <p>Satisficed Member</p>
-                        </div>
-                        <!-- Fact Counter Item End -->
-
-                        <!-- Fact Counter Item Start -->
-                        <div class="fact-counter-item">
-                            <h2><span class="counter">98</span>%</h2>
-                            <p>Positive Result</p>
-                        </div>
-                        <!-- Fact Counter Item End -->
-                    </div>
-                    <!-- Fact Counter Box End -->
-
-                    <!-- Our Fact List Start -->
-                    <div class="our-facts-list wow fadeInUp" data-wow-delay="0.4s">
-                        <ul>
-                            <li>Eco-Friendly Course Design</li>
-                            <li>Host of National Tournament</li>
-                            <li>Vibrant Golfing Community</li>
-                            <li>Well-Maintained Fairways</li>
-                        </ul>
-                    </div>
-                    <!-- Our Fact List End -->
-
-                    <!-- Our Fact Button Start -->
-                    <div class="our-facts-btn wow fadeInUp" data-wow-delay="0.6s">
-                        <a href="contact.html" class="btn-default btn-highlighted">contact us</a>
-                    </div>
-                    <!-- Our Fact Button End -->
-                </div>
-                <!-- Our Facts Content End -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Our Facts Section End -->
-
-<!-- Our Team Section Start -->
-<div class="our-team">
-    <div class="container">
-        <div class="row section-row align-items-center">
-            <div class="col-lg-6">
-                <!-- Section Title Start -->
-                <div class="section-title">
-                    <h3 class="wow fadeInUp">team member</h3>
-                    <h2 class="text-anime-style-3" data-cursor="-opaque">We have the best instructors to teach you golf
-                    </h2>
-                </div>
-                <!-- Section Title End -->
-            </div>
-
-            <div class="col-lg-6">
-                <!-- Section Button Start -->
-                <div class="section-btn wow fadeInUp" data-wow-delay="0.2s">
-                    <a href="team.html" class="btn-default">view all member</a>
-                </div>
-                <!-- Section Button End -->
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <!-- Team Item Start -->
-                <div class="team-item wow fadeInUp">
-                    <!-- Team Image Start -->
-                    <div class="team-image">
-                        <a href="team-single.html" data-cursor-text="View">
-                            <figure class="image-anime">
-                                <img src="{% static 'images/team-1.jpg' %}" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    <!-- Team Image End -->
-
-                    <!-- Team Body Start -->
-                    <div class="team-body">
-                        <!-- Team Content Start -->
-                        <div class="team-content">
-                            <h3><a href="team-single.html">Cameron Williamson</a></h3>
-                        </div>
-                        <!-- Team Content End -->
-
-                        <!-- Team Social Icon Start -->
-                        <div class="team-social-icon">
-                            <ul>
-                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            </ul>
-                        </div>
-                        <!-- Team Social Icon End -->
-                    </div>
-                    <!-- Team Body End -->
-                </div>
-                <!-- Team Member Item Start -->
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <!-- Team Item Start -->
-                <div class="team-item wow fadeInUp" data-wow-delay="0.2s">
-                    <!-- Team Image Start -->
-                    <div class="team-image">
-                        <a href="team-single.html" data-cursor-text="View">
-                            <figure class="image-anime">
-                                <img src="{% static 'images/team-2.jpg' %}" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    <!-- Team Image End -->
-
-                    <!-- Team Body Start -->
-                    <div class="team-body">
-                        <!-- Team Content Start -->
-                        <div class="team-content">
-                            <h3><a href="team-single.html">Brooklyn Simmons</a></h3>
-                        </div>
-                        <!-- Team Content End -->
-
-                        <!-- Team Social Icon Start -->
-                        <div class="team-social-icon">
-                            <ul>
-                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            </ul>
-                        </div>
-                        <!-- Team Social Icon End -->
-                    </div>
-                    <!-- Team Body End -->
-                </div>
-                <!-- Team Member Item Start -->
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <!-- Team Item Start -->
-                <div class="team-item wow fadeInUp" data-wow-delay="0.4s">
-                    <!-- Team Image Start -->
-                    <div class="team-image">
-                        <a href="team-single.html" data-cursor-text="View">
-                            <figure class="image-anime">
-                                <img src="{% static 'images/team-3.jpg' %}" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    <!-- Team Image End -->
-
-                    <!-- Team Body Start -->
-                    <div class="team-body">
-                        <!-- Team Content Start -->
-                        <div class="team-content">
-                            <h3><a href="team-single.html">Savannah Nguyen</a></h3>
-                        </div>
-                        <!-- Team Content End -->
-
-                        <!-- Team Social Icon Start -->
-                        <div class="team-social-icon">
-                            <ul>
-                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            </ul>
-                        </div>
-                        <!-- Team Social Icon End -->
-                    </div>
-                    <!-- Team Body End -->
-                </div>
-                <!-- Team Member Item Start -->
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <!-- Team Item Start -->
-                <div class="team-item wow fadeInUp" data-wow-delay="0.6s">
-                    <!-- Team Image Start -->
-                    <div class="team-image">
-                        <a href="team-single.html" data-cursor-text="View">
-                            <figure class="image-anime">
-                                <img src="{% static 'images/team-4.jpg' %}" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    <!-- Team Image End -->
-
-                    <!-- Team Body Start -->
-                    <div class="team-body">
-                        <!-- Team Content Start -->
-                        <div class="team-content">
-                            <h3><a href="team-single.html">Darlene Robertson</a></h3>
-                        </div>
-                        <!-- Team Content End -->
-
-                        <!-- Team Social Icon Start -->
-                        <div class="team-social-icon">
-                            <ul>
-                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            </ul>
-                        </div>
-                        <!-- Team Social Icon End -->
-                    </div>
-                    <!-- Team Body End -->
-                </div>
-                <!-- Team Member Item Start -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Our Team Section End -->
-
-<!-- CTA Box Section Start -->
-<div class="cta-box">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <!-- CTA Box Content Start -->
-                <div class="cta-box-content">
-                    <!-- Section Title Start -->
-                    <div class="section-title">
-                        <h3 class="wow fadeInUp">contact now</h3>
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Join our exclusive golf club and elevate
-                            your game with premium perks!</h2>
-                    </div>
-                    <!-- Section Title End -->
-
-                    <!-- CTA Box List Start -->
-                    <div class="cta-box-list wow fadeInUp" data-wow-delay="0.2s">
-                        <ul>
-                            <li>Priority Tee Times</li>
-                            <li>Member-Only Events</li>
-                            <li>Pro Coaching & Discounts</li>
-                        </ul>
-                    </div>
-                    <!-- CTA Box List End -->
-
-                    <!-- CTA Box Button Start -->
-                    <div class="cta-box-btn wow fadeInUp" data-wow-delay="0.4s">
-                        <a href="contact.html" class="btn-default">Get Membership</a>
-                    </div>
-                    <!-- CTA Box Button End -->
-                </div>
-                <!-- CTA Box Content End -->
-
-                <!-- CTA Box Image Start -->
-                <div class="cta-box-image">
-                    <figure>
-                        <img src="{% static 'images/cta-box-image.png' %}" alt="">
-                    </figure>
-                </div>
-                <!-- CTA Box Image End -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- CTA Box Section End -->
-
-<!-- What We Do Section Start -->
-<div class="what-we-do">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <!-- What We Images Start -->
-                <div class="what-we-images">
-                    <!-- What We Image 1 Start -->
-                    <div class="what-we-img-1">
-                        <figure class="image-anime reveal">
-                            <img src="{% static 'images/what-we-img-1.jpg' %}" alt="">
-                        </figure>
-                    </div>
-                    <!-- What We Image 1 End -->
-
-                    <!-- What We Image 2 Start -->
-                    <div class="what-we-img-2">
-                        <figure class="image-anime reveal">
-                            <img src="{% static 'images/what-we-img-2.jpg' %}" alt="">
-                        </figure>
-
-                        <!-- Get Membership Circle Start -->
-                        <div class="get-membership-circle">
-                            <a href="contact.html">
-                                <img src="{% static 'images/get-membership-circle.svg' %}" alt="">
-                            </a>
-                        </div>
-                        <!-- Get Membership Circle End -->
-                    </div>
-                    <!-- What We Image 2 End -->
-
-                    <!-- Expert Coach Box Start -->
-                    <div class="expert-coach-box">
-                        <img src="{% static 'images/icon-expert-coach.svg' %}" alt="">
-                        <h3>Expert golf coaches</h3>
-                    </div>
-                    <!-- Expert Coach Box End -->
-                </div>
-                <!-- What We Images End -->
-            </div>
-
-            <div class="col-lg-6">
-                <!-- What We Content Start -->
-                <div class="what-we-content">
-                    <!-- Section Title Start -->
-                    <div class="section-title">
-                        <h3 class="wow fadeInUp">What we do</h3>
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Delivering exceptional golf experiences
-                            every day</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.2s">We provide a beautifully maintained course,
-                            top-tier facilities, and a welcoming atmosphere for golfers of all skill levels. From
-                            challenging rounds to relaxing clubhouse moments, we're dedicated to making every visit
-                            unforgettable.</p>
-                    </div>
-                    <!-- Section Title End -->
-
-                    <!-- What We Item List Start -->
-                    <div class="what-we-item-list">
-                        <!-- What We Item Start -->
-                        <div class="what-we-item wow fadeInUp" data-wow-delay="0.4s">
-                            <div class="icon-box">
-                                <img src="{% static 'images/icon-what-we-do-1.svg' %}" alt="">
-                            </div>
-                            <div class="what-we-item-content">
-                                <h3>Championship-level golf course</h3>
-                            </div>
-                        </div>
-                        <!-- What We Item End -->
-
-                        <!-- What We Item Start -->
-                        <div class="what-we-item wow fadeInUp" data-wow-delay="0.4s">
-                            <div class="icon-box">
-                                <img src="{% static 'images/icon-what-we-do-2.svg' %}" alt="">
-                            </div>
-                            <div class="what-we-item-content">
-                                <h3>Golf tournaments and leagues</h3>
-                            </div>
-                        </div>
-                        <!-- What We Item End -->
-                    </div>
-                    <!-- What We Item List End -->
-
-                    <!-- What We Do Button Start -->
-                    <div class="what-we-do-btn wow fadeInUp" data-wow-delay="0.6s">
-                        <a href="contact.html" class="btn-default">Get membership</a>
-                    </div>
-                    <!-- What We Do Button End -->
-                </div>
-                <!-- What We Content End -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- What We Do Section End -->
-
-<!-- Our Faqs Section Start -->
-<div class="our-faqs">
-    <div class="container">
-        <div class="row section-row align-items-center">
-            <div class="col-lg-6">
-                <!-- Section Title Start -->
-                <div class="section-title">
-                    <h3 class="wow fadeInUp">fAQ's</h3>
-                    <h2 class="text-anime-style-3" data-cursor="-opaque">Frequently asked questions about our golf club
-                    </h2>
-                </div>
-                <!-- Section Title End -->
-            </div>
-
-            <div class="col-lg-6">
-                <!-- Section Button Start -->
-                <div class="section-btn wow fadeInUp" data-wow-delay="0.2s">
-                    <a href="faqs.html" class="btn-default">view all FAQs</a>
-                </div>
-                <!-- Section Button End -->
-            </div>
-        </div>
-
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <!-- Our Faqs Images Start -->
-                <div class="faqs-images">
-                    <!-- Faqs Image Start -->
-                    <div class="faqs-img-1">
-                        <figure class="image-anime reveal">
-                            <img src="{% static 'images/faqs-image-1.jpg' %}" alt="">
-                        </figure>
-
-                        <!-- Need Help Box Start -->
-                        <div class="need-help-box wow fadeInUp">
-                            <div class="icon-box">
-                                <img src="{% static 'images/icon-need-help.svg' %}" alt="">
-                            </div>
-                            <div class="need-help-content">
-                                <h3>Got Questions? We're Here to Help!</h3>
-                            </div>
-                        </div>
-                        <!-- Need Help Box End -->
-                    </div>
-                    <!-- Faqs Image End -->
-
-                    <!-- Faqs Image Start -->
-                    <div class="faqs-img-2">
-                        <figure class="image-anime reveal">
-                            <img src="{% static 'images/faqs-image-2.jpg' %}" alt="">
-                        </figure>
-                    </div>
-                    <!-- Faqs Image End -->
-                </div>
-                <!-- Our Faqs Images End -->
-            </div>
-
-            <div class="col-lg-6">
-                <!-- FAQ Accordion Start -->
-                <div class="faq-accordion" id="faqaccordion">
-                    <!-- FAQ Item Start -->
-                    <div class="accordion-item wow fadeInUp">
-                        <h2 class="accordion-header" id="heading1">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                1. What are the membership options available?
-                            </button>
-                        </h2>
-                        <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1"
-                            data-bs-parent="#faqaccordion">
-                            <div class="accordion-body">
-                                <p>Yes! Our easy-to-use online booking system allows members and guests to reserve their
-                                    tee times in advance for a smooth golfing experience.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ Item End -->
-
-                    <!-- FAQ Item Start -->
-                    <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
-                        <h2 class="accordion-header" id="heading2">
-                            <button class="accordion-button " type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                2. Can I book a tee time online?
-                            </button>
-                        </h2>
-                        <div id="collapse2" class="accordion-collapse collapse show" aria-labelledby="heading2"
-                            data-bs-parent="#faqaccordion">
-                            <div class="accordion-body">
-                                <p>Yes! Our easy-to-use online booking system allows members and guests to reserve their
-                                    tee times in advance for a smooth golfing experience.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ Item End -->
-
-                    <!-- FAQ Item Start -->
-                    <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
-                        <h2 class="accordion-header" id="heading3">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                3. Do you offer golf lessons for beginners?
-                            </button>
-                        </h2>
-                        <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
-                            data-bs-parent="#faqaccordion">
-                            <div class="accordion-body">
-                                <p>Yes! Our easy-to-use online booking system allows members and guests to reserve their
-                                    tee times in advance for a smooth golfing experience.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ Item End -->
-
-                    <!-- FAQ Item Start -->
-                    <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
-                        <h2 class="accordion-header" id="heading4">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                                4. Is the course open year-round?
-                            </button>
-                        </h2>
-                        <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
-                            data-bs-parent="#faqaccordion">
-                            <div class="accordion-body">
-                                <p>Yes! Our easy-to-use online booking system allows members and guests to reserve their
-                                    tee times in advance for a smooth golfing experience.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ Item End -->
-                </div>
-                <!-- FAQ Accordion End -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Our Faqs Section End -->
-
-<!-- Our Testimonials Section Start -->
-<div class="our-testimonials">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-5">
-                <!-- Testimonials Image Box Start -->
-                <div class="testimonials-image-box">
-                    <figure class="image-anime">
-                        <img src="{% static 'images/testimonials-image.jpg' %}" alt="">
-                    </figure>
-
-                    <!-- Testimonials Rating Box Start -->
-                    <div class="testimonials-rating-box">
-                        <!-- Testimonials Rating Start -->
-                        <div class="testimonials-rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <!-- Testimonials Rating End -->
-
-                        <!-- Testimonials Rating Content Start -->
-                        <div class="testimonials-rating-content">
-                            <p><span class="counter">5.0</span> Beginner Golf Club Traniers</p>
-                        </div>
-                        <!-- Testimonials Rating Content End -->
-                    </div>
-                    <!-- Testimonials Rating Box End -->
-                </div>
-                <!-- Testimonials Image Box End -->
-            </div>
-
-            <div class="col-lg-7">
-                <!-- Testimonial Content Start -->
-                <div class="our-testimonial-content">
-                    <!-- Section Title Start -->
-                    <div class="section-title">
-                        <h3 class="wow fadeInUp">testimonials</h3>
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">What our members love about our golf club
-                        </h2>
-                    </div>
-                    <!-- Section Title End -->
-
-                    <!-- Testimonial Slider Start -->
-                    <div class="testimonial-slider">
-                        <div class="swiper">
-                            <div class="swiper-wrapper" data-cursor-text="Drag">
-                                <!-- Testimonial Slide Start -->
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        <div class="testimonial-content">
-                                            <p>"I've been a member here for over 3 years, and the experience keeps
-                                                getting better. The courses are always in perfect condition, the staff
-                                                is friendly, and the coaching has elevated my game to a whole new level
-                                                As a beginner, I felt welcomed and supported from day one. The staff
-                                                takes time to explain everything, and the lessons have really boosted my
-                                                confidence. I love being a part of this incredible community!"</p>
-                                        </div>
-                                        <div class="testimonial-author">
-                                            <div class="author-image">
-                                                <figure class="image-anime">
-                                                    <img src="{% static 'images/author-1.jpg' %}" alt="">
-                                                </figure>
-                                            </div>
-                                            <div class="author-content">
-                                                <h3>John Matthews</h3>
-                                                <p>Beginner Golfer</p>
-                                            </div>
-                                        </div>
+                            <div class="tabs-content">
+                                <div class="tab active-tab" id="tab-1">
+                                    <div class="inner-box">
+                                        <p>Lorem ipsum dolor sit amet consectetur. Nam quis bibendum lacinia. Quisque
+                                            porttitor tortor blandit nunc sed ac id. Mattis in nunc libero viverra.
+                                            Consectetur leo nibh ac at amet.</p>
+                                        <p>Nam quis bibendum lacinia. Quisque porttitor tortor blandit nunc sed ac id.
+                                        </p>
+                                        <ul class="list-style-one pb_25 clearfix">
+                                            <li><i class="fas fa-check-circle"></i>Free Guide Book</li>
+                                            <li><i class="fas fa-check-circle"></i>24/7 Full Support</li>
+                                            <li><i class="fas fa-check-circle"></i>Group Membership Level</li>
+                                        </ul>
+                                        <div class="btn-box"><a href="index-4.html" class="theme-btn btn-one">Learn
+                                                More</a></div>
                                     </div>
                                 </div>
-                                <!-- Testimonial Slide End -->
-
-                                <!-- Testimonial Slide Start -->
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        <div class="testimonial-content">
-                                            <p>"I've been a member here for over 3 years, and the experience keeps
-                                                getting better. The courses are always in perfect condition, the staff
-                                                is friendly, and the coaching has elevated my game to a whole new level
-                                                As a beginner, I felt welcomed and supported from day one. The staff
-                                                takes time to explain everything, and the lessons have really boosted my
-                                                confidence. I love being a part of this incredible community!"</p>
-                                        </div>
-                                        <div class="testimonial-author">
-                                            <div class="author-image">
-                                                <figure class="image-anime">
-                                                    <img src="{% static 'images/author-2.jpg' %}" alt="">
-                                                </figure>
-                                            </div>
-                                            <div class="author-content">
-                                                <h3>Wade Warren</h3>
-                                                <p>Beginner Golfer</p>
-                                            </div>
-                                        </div>
+                                <div class="tab" id="tab-2">
+                                    <div class="inner-box">
+                                        <p>Lorem ipsum dolor sit amet consectetur. Nam quis bibendum lacinia. Quisque
+                                            porttitor tortor blandit nunc sed ac id. Mattis in nunc libero viverra.
+                                            Consectetur leo nibh ac at amet.</p>
+                                        <p>Nam quis bibendum lacinia. Quisque porttitor tortor blandit nunc sed ac id.
+                                        </p>
+                                        <ul class="list-style-one pb_25 clearfix">
+                                            <li><i class="fas fa-check-circle"></i>Free Guide Book</li>
+                                            <li><i class="fas fa-check-circle"></i>24/7 Full Support</li>
+                                            <li><i class="fas fa-check-circle"></i>Group Membership Level</li>
+                                        </ul>
+                                        <div class="btn-box"><a href="index-4.html" class="theme-btn btn-one">Learn
+                                                More</a></div>
                                     </div>
                                 </div>
-                                <!-- Testimonial Slide End -->
-                            </div>
-                            <div class="testimonial-btn">
-                                <div class="testimonial-button-prev"></div>
-                                <div class="testimonial-button-next"></div>
+                                
+                                <div class="tab" id="tab-3">
+                                    <div class="inner-box">
+                                        <p>Lorem ipsum dolor sit amet consectetur. Nam quis bibendum lacinia. Quisque
+                                            porttitor tortor blandit nunc sed ac id. Mattis in nunc libero viverra.
+                                            Consectetur leo nibh ac at amet.</p>
+                                        <p>Nam quis bibendum lacinia. Quisque porttitor tortor blandit nunc sed ac id.
+                                        </p>
+                                        <ul class="list-style-one pb_25 clearfix">
+                                            <li><i class="fas fa-check-circle"></i>Memorandum Of Incorporation</li>
+                                            <li><i class="fas fa-check-circle"></i>Access Control</li>
+                                            <li><i class="fas fa-check-circle"></i>Club Policy</li>
+                                        </ul>
+                                        <div class="btn-box"><a href="index-4.html" class="theme-btn btn-one">Learn
+                                                More</a></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Testimonial Slider End -->
                 </div>
-                <!-- Testimonial Content End -->
             </div>
         </div>
     </div>
-</div>
-<!-- Our Testimonials Section End -->
+</section>
+<!-- about-style-three end -->
+
+
+<!-- funfact-style-two -->
+<section class="funfact-style-two pt_140 pb_100">
+    <div class="auto-container">
+        <div class="inner-container">
+            <div class="funfact-block-two">
+                <div class="inner-box">
+                    <div class="count-outer">
+                        <span class="odometer" data-count="20">00</span><span class="symble">+</span>
+                    </div>
+                    <p>Tatal Golf Holes</p>
+                </div>
+            </div>
+            <div class="funfact-block-two">
+                <div class="inner-box">
+                    <div class="count-outer">
+                        <span class="odometer" data-count="5">00</span><span class="symble">+</span>
+                    </div>
+                    <p>Total Pro Members</p>
+                </div>
+            </div>
+            <div class="funfact-block-two">
+                <div class="inner-box">
+                    <div class="count-outer">
+                        <span class="odometer" data-count="120">00</span><span class="symble">+</span>
+                    </div>
+                    <p>Total Golf Areas</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- funfact-style-two end -->
+
+
+<!-- history-section -->
+<section class="history-section pt_140 pb_150">
+    <div class="auto-container">
+        <div class="sec-title centred mb_60">
+            <span class="sub-title">Our Timeline</span>
+            <h2>History Timeline</h2>
+        </div>
+        <div class="inner-container p_relative pt_70">
+            <div class="inner-box">
+                <div class="row clearfix">
+                    <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                        <div class="content-box align-3 mr_130">
+                            <span class="year">1980 - 1981</span>
+                            <h2>CT Black Pro, which was founded in May 1980</h2>
+                            <p>Lorem ipsum dolor sit amet consectur. Nam quis bibendum lacinia quisque porttitor tortor
+                                blandit nunc sed ac id. Mattis in nunc libero viverra. Consectetur leo nibh ac at amet.
+                            </p>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                        <div class="image-box ml_130 pr_20 pb_20">
+                            <figure class="image image-hov-two"><img src="{% static 'images/resource/history-1.jpg' %}" alt="">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inner-box">
+                <div class="row clearfix">
+                    <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                        <div class="image-box mr_130 pl_20 pb_20">
+                            <figure class="image image-hov-two"><img src="{% static 'images/resource/history-2.jpg' %}" alt="">
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                        <div class="content-box ml_130">
+                            <span class="year">1986 - 1987</span>
+                            <h2>Inception of the academy took place in May, 1986</h2>
+                            <p>Lorem ipsum dolor sit amet consectur. Nam quis bibendum lacinia quisque porttitor tortor
+                                blandit nunc sed ac id. Mattis in nunc libero viverra. Consectetur leo nibh ac at amet.
+                            </p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- history-section end -->
+
+
+<!-- chooseus-section -->
+<section class="chooseus-section pt_150 pb_140 bg-color-1">
+    <div class="auto-container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                <div class="image-box mr_30">
+                    <div class="image-shape">
+                        <div class="shape-1 z_1"></div>
+                        <div class="shape-2" style="background-image: url(static/images/shape/shape-1.png);"></div>
+                    </div>
+                    <figure class="image"><img src="{% static 'images/resource/chooseus-1.png' %}" alt=""></figure>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                <div class="content_block_two">
+                    <div class="content-box ml_30 mr_60">
+                        <div class="sec-title mb_30">
+                            <span class="sub-title">Why choose us</span>
+                            <h2>Behind the Curtain with Renowned Golfers</h2>
+                        </div>
+                        <div class="text-box mb_30">
+                            <p>Lorem ipsum dolor sit amet consectetur. Nam quis bibendum lacinia eu id in. Quisque
+                                porttitor tortor blandit nunc.</p>
+                        </div>
+                        <div class="inner-box">
+                            <div class="single-item">
+                                <div class="icon-box"><i class="icon-15"></i></div>
+                                <h2>100% Success Rate</h2>
+                                <p>Amet minim mollit no duis deserut lamo sit enim.</p>
+                            </div>
+                            <div class="single-item">
+                                <div class="icon-box"><i class="icon-16"></i></div>
+                                <h2>The Exclusive Offers</h2>
+                                <p>Amet minim mollit no duis deserut lamo sit enim.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- chooseus-section end -->
+
+
+<!-- team-section -->
+<section class="team-section pt_140 pb_120">
+    <div class="auto-container">
+        <div class="sec-title centred mb_55">
+            <span class="sub-title">OUR Team</span>
+            <h2>We provide top-tier Team <br />to teach you golf</h2>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-3 col-md-6 col-sm-12 team-block">
+                <div class="team-block-one">
+                    <div class="inner-box">
+                        <figure class="image-box"><img src="{% static 'images/team/team-1.jpg' %}" alt=""></figure>
+                        <div class="lower-content">
+                            <h3><a href="index-4.html">Robert Fox</a></h3>
+                            <span class="designation">Sr. Golf Coach</span>
+                            <ul class="social-links clearfix">
+                                <li><a href="index-4.html"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="index-4.html"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="index-4.html"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="index-4.html"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 team-block">
+                <div class="team-block-one">
+                    <div class="inner-box">
+                        <figure class="image-box"><img src="{% static 'images/team/team-2.jpg' %}" alt=""></figure>
+                        <div class="lower-content">
+                            <h3><a href="index-4.html">Robert Fox</a></h3>
+                            <span class="designation">Sr. Golf Coach</span>
+                            <ul class="social-links clearfix">
+                                <li><a href="index-4.html"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="index-4.html"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="index-4.html"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="index-4.html"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 team-block">
+                <div class="team-block-one">
+                    <div class="inner-box">
+                        <figure class="image-box"><img src="{% static 'images/team/team-3.jpg' %}" alt=""></figure>
+                        <div class="lower-content">
+                            <h3><a href="index-4.html">Robert Fox</a></h3>
+                            <span class="designation">Sr. Golf Coach</span>
+                            <ul class="social-links clearfix">
+                                <li><a href="index-4.html"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="index-4.html"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="index-4.html"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="index-4.html"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 team-block">
+                <div class="team-block-one">
+                    <div class="inner-box">
+                        <figure class="image-box"><img src="{% static 'images/team/team-4.jpg' %}" alt=""></figure>
+                        <div class="lower-content">
+                            <h3><a href="index-4.html">Robert Fox</a></h3>
+                            <span class="designation">Sr. Golf Coach</span>
+                            <ul class="social-links clearfix">
+                                <li><a href="index-4.html"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="index-4.html"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="index-4.html"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="index-4.html"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- team-section end -->
+
+
+<!-- cta-section -->
+<section class="cta-section alternat-2 centred bg-color-2 pt_140 pb_150 mb_150">
+    <div class="pattern-layer" style="background-image: url(static/images/shape/shape-14.png);"></div>
+    <div class="auto-container">
+        <div class="content-box">
+            <div class="sec-title light mb_40">
+                <span class="sub-title">our Facilities</span>
+                <h2>Take Your Game To The <br />Next Level.</h2>
+            </div>
+            <div class="btn-box">
+                <a href="{% url 'accounts:membership' %}" class="theme-btn btn-one">become a member</a>
+                <a href="{% url 'home:contact' %}" class="theme-btn btn-two">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- cta-section end -->
 {% endblock content %}

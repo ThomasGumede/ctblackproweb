@@ -1,192 +1,137 @@
 {% extends '_base.html' %}
 {% load static %}
 
+{% block addcss %}
+<link href="{% static 'css/module-css/contact.css' %}" rel="stylesheet">
+{% endblock addcss %}
 
 {% block content %}
-<!-- Page Header Section Start -->
-<div class="page-header bg-section parallaxie">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <!-- Page Header Box Start -->
-                <div class="page-header-box">
-                    <h1 class="text-anime-style-3" data-cursor="-opaque">Contact us</h1>
-                    <nav class="wow fadeInUp" data-wow-delay="0.25s">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{% url 'home:index' %}">home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">contact us</li>
-                        </ol>
-                    </nav>
+<!-- page-title -->
+<section class="page-title centred pt_190 pb_190">
+    <div class="bg-layer" style="background-image: url(static/images/background/page-title.jpg);"></div>
+    <div class="auto-container">
+        <div class="content-box">
+            <h1>Contact Us</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="index-2.html">Home</a></li>
+                <li>Contact Us</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- page-title end -->
+
+
+<!-- contact-info-section -->
+<section class="contact-info-section centred pt_150">
+    <div class="auto-container">
+        <div class="sec-title centred mb_40">
+            <span class="sub-title">Contact us</span>
+            <h2>Contact Informations</h2>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-4 col-md-6 col-sm-12 info-block">
+                <div class="info-block-one">
+                    <div class="inner-box">
+                        <div class="icon-box"><i class="icon-41"></i></div>
+                        <h3>Our Location</h3>
+                        <p>1901 Thornridge Cir. Shiloh, <br />Hawaii 81063</p>
+                    </div>
                 </div>
-                <!-- Page Header Box End -->
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 info-block">
+                <div class="info-block-one">
+                    <div class="inner-box">
+                        <div class="icon-box"><i class="icon-42"></i></div>
+                        <h3>Email Address</h3>
+                        <p><a href="mailto:info@ctblackpros.co.za">info@ctblackpros.co.za</a> (Information)<br /><a
+                                href="mailto:support@ctblackpros.co.za">support@ctblackpros.co.za</a> (query)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 info-block">
+                <div class="info-block-one">
+                    <div class="inner-box">
+                        <div class="icon-box"><i class="icon-43"></i></div>
+                        <h3>Phone Number</h3>
+                        <p><a href="tel:2085550111">+208 555-0111</a> (International)<br /><a href="tel:2085550112">+208
+                                555-0112</a> (Local)</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Page Header Section End -->
+</section>
+<!-- contact-info-section end -->
 
-<!-- Page Contact Us Start -->
-<div class="page-contact-us">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <!-- Contact Us Content Start -->
-                <div class="contact-us-content">
-                    <!-- Section Title Start -->
-                    <div class="section-title">
-                        <h3 class="wow fadeInUp">contact us</h3>
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Your golf journey starts right here</h2>
+
+<!-- contact-style-two -->
+<section class="contact-style-two pt_120 pb_150">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                <div class="content-box mr_10">
+                    <div class="sec-title mb_55">
+                        <span class="sub-title">Get in touch</span>
+                        <h2>Send a Message</h2>
                     </div>
-                    <!-- Section Title End -->
-
-                    <!-- Contact Info List Start -->
-                    <div class="contact-info-list">
-                        <!-- Contact Info Item Start -->
-                        <div class="contact-info-item wow fadeInUp">
-                            <div class="contact-info-header">
-                                <div class="icon-box">
-                                    <img src="{% static 'images/icon-mail.svg' %}" alt="">
+                    <div class="form-inner">
+                        <form method="post"  id="contact-form">
+                            {% csrf_token %}
+                            <div class="row clearfix">
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <input type="text" name="username" placeholder="Your name" required>
                                 </div>
-                                <div class="contact-info-title">
-                                    <h3>email</h3>
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <input type="email" name="email" placeholder="Your email" required>
                                 </div>
-                            </div>
-                            <div class="contact-info-content">
-                                <p><a href="mailto:info@ctblackpros.co.za">info@ctblackpros.co.za</a></p>
-                                <p><a href="mailto:support@ctblackpros.co.za">support@ctblackpros.co.za</a></p>
-                            </div>
-                        </div>
-                        <!-- Contact Info Item End -->
-
-                        <!-- Contact Info Item Start -->
-                        <div class="contact-info-item wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="contact-info-header">
-                                <div class="icon-box">
-                                    <img src="{% static 'images/icon-phone.svg' %}" alt="">
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <input type="text" name="phone" placeholder="Phone" required>
                                 </div>
-                                <div class="contact-info-title">
-                                    <h3>contact us</h3>
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <input type="text" name="subject" placeholder="Subject" required>
                                 </div>
-                            </div>
-                            <div class="contact-info-content">
-                                <p><a href="tel:+91123456789">+91 123 456 789</a></p>
-                                <p><a href="tel:+91123456987">+91 123 456 987</a></p>
-                            </div>
-                        </div>
-                        <!-- Contact Info Item End -->
-
-                        <!-- Contact Info Item Start -->
-                        <div class="contact-info-item wow fadeInUp" data-wow-delay="0.4s">
-                            <div class="contact-info-header">
-                                <div class="icon-box">
-                                    <img src="{% static 'images/icon-clock.svg' %}" alt="">
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <textarea name="message" placeholder="Type message"></textarea>
                                 </div>
-                                <div class="contact-info-title">
-                                    <h3>working hours</h3>
-                                </div>
-                            </div>
-                            <div class="contact-info-content">
-                                <p>Mon - Sat :- 7:00 to 5:00</p>
-                                <p>Sunday :- Close</p>
-                            </div>
-                        </div>
-                        <!-- Contact Info Item End -->
-
-                        <!-- Contact Info Item Start -->
-                        <div class="contact-info-item wow fadeInUp" data-wow-delay="0.6s">
-                            <div class="contact-info-header">
-                                <div class="icon-box">
-                                    <img src="{% static 'images/icon-location.svg' %}" alt="">
-                                </div>
-                                <div class="contact-info-title">
-                                    <h3>location</h3>
-                                </div>
-                            </div>
-                            <div class="contact-info-content">
-                                <p>No: 58 A, East Madison Street, Baltimore, MD, USA 4508</p>
-                            </div>
-                        </div>
-                        <!-- Contact Info Item End -->
-                    </div>
-                    <!-- Contact Info List End -->
-                </div>
-                <!-- Contact Us Content End -->
-            </div>
-
-            <div class="col-lg-6">
-                <!-- Contact Us Form Start -->
-                <div class="contact-us-form">
-                    <!-- Section Title Start -->
-                    <div class="section-title">
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Get in touch with us !</h2>
-                    </div>
-                    <!-- Section Title End -->
-
-                    <!-- Contact Form Start -->
-                    <div class="contact-form">
-                        <form id="contactForm" action="#" method="POST" data-toggle="validator" class="wow fadeInUp">
-                            <div class="row">
-                                <div class="form-group col-md-6 mb-4">
-                                    <input type="text" name="fname" class="form-control" id="fname"
-                                        placeholder="First Name" required>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-
-                                <div class="form-group col-md-6 mb-4">
-                                    <input type="text" name="lname" class="form-control" id="lname"
-                                        placeholder="Last Name" required>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-
-                                <div class="form-group col-md-6 mb-4">
-                                    <input type="text" name="phone" class="form-control" id="phone"
-                                        placeholder="Phone No." required>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-
-                                <div class="form-group col-md-6 mb-4">
-                                    <input type="email" name="email" class="form-control" id="email"
-                                        placeholder="E-mail" required>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-
-                                <div class="form-group col-md-12 mb-5">
-                                    <textarea name="message" class="form-control" id="message" rows="4"
-                                        placeholder="Write Message..."></textarea>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <button type="submit" class="btn-default"><span>submit message</span></button>
-                                    <div id="msgSubmit" class="h3 hidden"></div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                    <button type="submit" class="theme-btn btn-one" name="submit-form">Send
+                                        Message</button>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <!-- Contact Form End -->
                 </div>
-                <!-- Contact Us Form End -->
             </div>
-        </div>
-    </div>
-</div>
-<!-- Page Contact Us End -->
-
-<!-- Google Map Start -->
-<div class="google-map">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <!-- Google Map Start -->
-                <div class="google-map-iframe">
+            <div class="col-lg-6 col-md-12 col-sm-12 form-column">
+                <div class="map-inner ml_10">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96737.10562045308!2d-74.08535042841811!3d40.739265258395164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1703158537552!5m2!1sen!2sin"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55945.16225505631!2d-73.90847969206546!3d40.66490264739892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1601263396347!5m2!1sen!2sbd"
+                        width="100%" height="500" frameborder="0" style="border:0; width: 100%" allowfullscreen=""
+                        aria-hidden="false" tabindex="0"></iframe>
                 </div>
-                <!-- Google Map End -->
             </div>
         </div>
     </div>
-</div>
-<!-- Google Map End -->
+</section>
+<!-- contact-style-two end -->
+
+
+<!-- cta-section -->
+<section class="cta-section alternat-2 centred bg-color-2 pt_140 pb_150 mb_150">
+    <div class="pattern-layer" style="background-image: url(static/images/shape/shape-14.png);"></div>
+    <div class="auto-container">
+        <div class="content-box">
+            <div class="sec-title light mb_40">
+                <span class="sub-title">JOIN US TODAY!</span>
+                <h2>Take Your Game To The <br />Next Level.</h2>
+            </div>
+            <div class="btn-box">
+                <a href="{% url 'accounts:membership' %}" class="theme-btn btn-one">become a member</a>
+                <a href="{% url 'home:contact' %}" class="theme-btn btn-two">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- cta-section end -->
 {% endblock content %}
