@@ -1,64 +1,111 @@
 {% load static %}
 {% load static tailwind_tags %}
-<!-- Header Start -->
+<!-- main header -->
 <header class="main-header">
-    <div class="header-sticky">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <!-- Logo Start -->
-                <a class="navbar-brand" href="index.html">
-                    <img src="{% static 'images/logo.svg' %}" alt="CT Black Pro Golf Club Logo">
-                </a>
-                <!-- Logo End -->
-
-                <!-- Main Menu Start -->
-                <div class="collapse navbar-collapse main-menu">
-                    <div class="nav-menu-wrapper">
-                        <ul class="navbar-nav mr-auto" id="menu">
-                            <li class="nav-item"><a class="nav-link" href="{% url 'home:index' %}">Home</a>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'home:about' %}">About Us</a>
-                            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                            <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
-                                <ul>
-                                    <li class="nav-item"><a class="nav-link" href="service-single.html">Service
-                                            Details</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a>
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="courses.html">Our Courses</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="course-single.html">Course
-                                            details</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="team-single.html">Team Details</a>
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing Plan</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a>
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="image-gallery.html">Image Gallery</a>
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="video-gallery.html">Video Gallery</a>
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="faqs.html">FAQs</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="404.html">404</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'home:contact' %}">Contact Us</a></li>
-                            <li class="nav-item highlighted-menu"><a class="nav-link" href="book-appointment.html">Book
-                                    a Visit</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Header Btn Start -->
-                    <div class="header-btn">
-                        <a href="book-appointment.html" class="btn-default btn-highlighted">Book a Visit</a>
-                    </div>
-                    <!-- Header Btn End -->
-                </div>
-                <!-- Main Menu End -->
-                <div class="navbar-toggle"></div>
+    <!-- header-top -->
+    <div class="header-top">
+        <div class="top-inner">
+            <ul class="info-list">
+                <li><i class="icon-1"></i>Mon-Fri 8:00 am-6:00 pm</li>
+                <li><i class="icon-2"></i><a href="mailto:info@ctblackpros.co.za">info@ctblackpros.co.za</a></li>
+                <li><i class="icon-3"></i>8302 Preston Rd. Maine 9380</li>
+            </ul>
+            <div class="header-info">
+                <div class="search-toggler pr_30 mr_30"><i class="icon-4"></i></div>
+                <div class="login-box p_relative pr_30 mr_30"><a href="login.html">Login</a></div>
+                <ul class="social-links">
+                    <li><a href="index-2.html"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="index-2.html"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="index-2.html"><i class="fab fa-linkedin-in"></i></a></li>
+                </ul>
             </div>
-        </nav>
-        <div class="responsive-menu"></div>
+        </div>
+    </div>
+    <!-- header-lower -->
+    <div class="header-lower">
+        <div class="outer-container p_relative pr_70">
+            <div class="outer-box">
+                <div class="left-column">
+                    <figure class="logo-box mr_50"><a href="index-2.html"><img src="{% static 'images/logo-2.png' %}"
+                                alt=""></a></figure>
+                    <div class="menu-area">
+                        <!--Mobile Navigation Toggler-->
+                        <div class="mobile-nav-toggler">
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                        </div>
+                        <nav class="main-menu navbar-expand-md navbar-light clearfix">
+                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix">
+                                    <li><a href="{% url 'home:index' %}">Home</a></li>
+                                    <li><a href="{% url 'home:about' %}">About</a></li>
+                                    <li><a href="{% url 'home:gallery' %}">Gallery</a></li>
+                                    <li><a href="{% url 'home:gallery' %}">Events</a></li>
+                                    <li><a href="{% url 'home:contact' %}">Contact</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="menu-right-content">
+                    <div class="support-box mr_30"><a href="tel:2395432170108"><i class="icon-5"></i>
+                            (239)-543-217-0108</a></div>
+                    <div class="btn-box"><a href="{% url 'home:contact' %}" class="theme-btn btn-one">Book A Visit</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--sticky Header-->
+    <div class="sticky-header">
+        <div class="outer-container p_relative pr_70">
+            <div class="outer-box">
+                <div class="left-column">
+                    <figure class="logo-box mr_50"><a href="index-2.html"><img src="{% static 'images/logo-2.png' %}"
+                                alt=""></a></figure>
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                        </nav>
+                    </div>
+                </div>
+                <div class="menu-right-content">
+                    <div class="support-box mr_30"><a href="tel:2395432170108"><i class="icon-5"></i>
+                            (239)-543-217-0108</a></div>
+                    <div class="btn-box"><a href="index-2.html" class="theme-btn btn-one">Book A Visit</a></div>
+                </div>
+            </div>
+        </div>
     </div>
 </header>
-<!-- Header End -->
+<!-- main-header end -->
+
+
+<!-- Mobile Menu  -->
+<div class="mobile-menu">
+    <div class="menu-backdrop"></div>
+    <div class="close-btn"><i class="fas fa-times"></i></div>
+    <nav class="menu-box">
+        <div class="nav-logo"><a href="index-2.html"><img src="{% static 'images/logo-3.png' %}" alt="" title=""></a></div>
+        <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+        <div class="contact-info">
+            <h4>Contact Info</h4>
+            <ul>
+                <li>Chicago 12, Melborne City, USA</li>
+                <li><a href="tel:+8801682648101">+88 01682648101</a></li>
+                <li><a href="mailto:info@ctblackpros.co.za">info@ctblackpros.co.za</a></li>
+            </ul>
+        </div>
+        <div class="social-links">
+            <ul class="clearfix">
+                <li><a href="index-2.html"><span class="fab fa-twitter"></span></a></li>
+                <li><a href="index-2.html"><span class="fab fa-facebook-square"></span></a></li>
+                <li><a href="index-2.html"><span class="fab fa-pinterest-p"></span></a></li>
+                <li><a href="index-2.html"><span class="fab fa-instagram"></span></a></li>
+                <li><a href="index-2.html"><span class="fab fa-youtube"></span></a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<!-- End Mobile Menu -->
