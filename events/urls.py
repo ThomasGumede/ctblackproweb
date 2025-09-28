@@ -4,7 +4,7 @@ from django.urls import path
 app_name = "events"
 urlpatterns = [
     path('events', events, name='events'),
-    path('event/some-event', event_details, name='event-details'),
+    path('event/<event_slug>', event_details, name='event-details'),
 ]
 
 

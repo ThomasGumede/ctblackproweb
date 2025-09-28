@@ -8,6 +8,7 @@ from django.urls import reverse
 from django.template.defaultfilters import slugify
 from tinymce.models import HTMLField
 
+from accounts.utilities.validators import validate_fcbk_link, validate_in_link, validate_insta_link, validate_twitter_link
 from home.utilities.file_handlers import handle_post_file_upload
 
 class BlogCategory(AbstractCreate):
@@ -87,21 +88,7 @@ class EmailModel(AbstractCreate):
 
     def save(self, *args, **kwargs):
         super(EmailModel, self).save(*args, **kwargs)
-
-class Review(AbstractCreate):
-    logo = models.ImageField( help_text="Reviewer logo or image", upload_to="home/images/reviewers", null=True, blank=True)
-    reviewer = models.CharField(max_length=350, help_text="Reviewer names")
-    role = models.CharField(help_text=_("Enter reviewer's role"), max_length=250, null=True, blank=True, default="Director")
-    review = models.TextField()
-    
-    class Meta:
-        verbose_name = 'Review'
-        verbose_name_plural = 'Reviews'
-    
-    def __str__(self):
-        return self.reviewer
         
-    
 class Sponsor(AbstractCreate):
     logo = models.ImageField(help_text="sponsor logo or image", upload_to="home/images/sponsors", null=True, blank=True)
     sponsor = models.CharField(max_length=350, help_text="sponsor names or title")
@@ -113,22 +100,16 @@ class Sponsor(AbstractCreate):
     def __str__(self):
         return self.sponsor
 
-PRIVACY_TITLES = (
-    ("Website Terms and Community Guidlines", "Website Terms and Community Guidlines"),
-    ("Cookie Policy", "Cookie Policy"),
-    ("Privacy Policy", "Privacy Policy"),
-)
-
 class Media(AbstractCreate):
-    image = models.ImageField(help_text=_("Upload media image."), upload_to=handle_post_file_upload)
-    title = models.CharField(help_text=_("Enter title for your media file"), max_length=150)
-    description = models.TextField(help_text=_("Write a short description about this media file"), max_length=200)
+    image = models.ImageField(help_text=_("Upload club image."), upload_to=handle_post_file_upload)
+    title = models.CharField(help_text=_("Enter title for your club image"), max_length=150)
+    description = models.TextField(help_text=_("Write a short description about this club image"), max_length=200)
     slug = models.SlugField(max_length=250, blank=True, unique=True)
     author = models.ForeignKey(get_user_model(), on_delete=models.SET_DEFAULT, default=None, related_name="medias", null=True)
 
     class Meta:
-        verbose_name = 'Media File'
-        verbose_name_plural = 'Media Files'
+        verbose_name = 'Club Image'
+        verbose_name_plural = 'Club Images'
 
     def save(self, *args, **kwargs):
         original_slug = slugify(self.title)
@@ -150,44 +131,15 @@ class Media(AbstractCreate):
     def get_absolute_url(self):
         return reverse("home:media-details", kwargs={"media_slug": self.slug})
 
-class Privacy(AbstractCreate):
-    title = models.CharField(max_length=150, unique=True, choices=PRIVACY_TITLES)
-    slug = models.SlugField(max_length=250, unique=True, db_index=True)
-    description = models.CharField(max_length=160)
-    content = HTMLField()
-
-    class Meta:
-        verbose_name = 'Privacy'
-        verbose_name_plural = 'Privacys'
-        ordering = ['created']
-
-    def __str__(self) -> str:
-        return self.title
-
-    def get_absolute_url(self):
-        return reverse("home:privacy", kwargs={"terms_slug": self.slug})
-    
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        super(Privacy, self).save(*args, **kwargs)
-
-class FAQ(AbstractCreate):
-    question = models.CharField(max_length=250)
-    answer = models.CharField(max_length=550)
-
-    class Meta:
-        verbose_name = 'FAQ'
-        verbose_name_plural = 'FAQs'
-
-    def __str__(self):
-        return self.question
-
 class Member(AbstractCreate):
-    image = models.ImageField(help_text = _(""), upload_to="home/images/team", null=True, blank=True)
+    image = models.ImageField(help_text = _("Upload image for this team member"), upload_to="home/images/team", null=True, blank=True)
     full_names = models.CharField(help_text=_("Enter member full names"), max_length=250)
-    slug = models.SlugField(max_length=350)
+    slug = models.SlugField(max_length=350, db_index=True, unique=True)
     role = models.CharField(help_text=_("Enter member role"), max_length=250)
-    decription = HTMLField(blank=True, null=True, help_text=_("Describe the team member"))
+    facebook = models.URLField(validators=[validate_fcbk_link], blank=True, null=True)
+    twitter = models.URLField(validators=[validate_twitter_link], blank=True, null=True)
+    instagram = models.URLField(validators=[validate_insta_link], blank=True, null=True)
+    linkedIn = models.URLField(validators=[validate_in_link], blank=True, null=True)
 
     def __str__(self):
         return self.full_names
@@ -205,6 +157,20 @@ class Member(AbstractCreate):
 
         self.slug = slug
         super(Member, self).save(*args, **kwargs)
+
+class ClubFile(AbstractCreate):
+    title = models.CharField(max_length=300, unique=True, help_text=_("Provide a title for this file"))
+    description = models.TextField(help_text=_("Write a short description about this media file"), max_length=200)
+    mediafile = models.FileField(help_text=_("Upload club file."), upload_to=handle_post_file_upload)
+    uploaded_by = models.ForeignKey(get_user_model(), on_delete=models.SET_DEFAULT, default=None, related_name="club_files", null=True, help_text=_("Select the author of this file e.g Your account"))
+    is_restricted = models.BooleanField(default=False, help_text=_("Is This File Restricted To Club Members Only?"))
+    
+    class Meta:
+        verbose_name = 'Club File'
+        verbose_name_plural = 'Club Files'
+    
+    def __str__(self):
+        return self.title
 
 @receiver(pre_delete, sender=Blog)
 def delete_Post_image_hook(sender, instance, using, **kwargs):

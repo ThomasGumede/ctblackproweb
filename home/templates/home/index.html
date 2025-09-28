@@ -12,7 +12,7 @@
                 <div class="content-box">
                     <div class="icon-box"><i class="icon-31"></i></div>
                     <span class="upper-text">Welcome To CT Black Pro</span>
-                    <h2>unparalleled premium golf experience</h2>
+                    <h2>Driving Change, One Swing at a Time.</h2>
                     <div class="btn-box"><a href="{% url 'home:about' %}" class="theme-btn btn-one">Learn More</a></div>
                 </div>
             </div>
@@ -29,8 +29,11 @@
         <div class="sec-title mb_90 centred">
             <span class="sub-title">CT Black Pro Golf Club</span>
             <h2>The golf club was established in <br />Cape Town, Western Cape, RSA, in 2010</h2>
-            <p>Lorem ipsum dolor sit amet consectetur. Nam quis bibendum lacinia eu id in. Quisque porttitor tortor
-                blandit nunc sed ac id. Mattis in nunc libero viverra. Consectetur leo nibh ac at amet.</p>
+            <p>Founded in Cape Town in 2010, CT Black Pro Golf Club stands as a proud symbol of excellence, inclusion, and community in
+            South African golf. Dedicated to nurturing talent and celebrating diversity, the club offers a welcoming space for
+            golfers of all backgrounds to refine their skills, connect through sport, and champion the spirit of unity on the
+            fairway. With a commitment to professionalism and empowerment, CT Black Pro continues to shape the future of golf—one
+            swing at a time.</p>
         </div>
         <div class="image-box">
             <div class="experience-box">
@@ -105,22 +108,24 @@
                     <div class="content-box ml_30 mr_60">
                         <div class="sec-title mb_30">
                             <span class="sub-title">Why choose us</span>
-                            <h2>Behind the Curtain with Renowned Golfers</h2>
+                            <h2>More Than a Club—A Community of Champions.</h2>
                         </div>
                         <div class="text-box mb_30">
-                            <p>Lorem ipsum dolor sit amet consectetur. Nam quis bibendum lacinia eu id in. Quisque
-                                porttitor tortor blandit nunc.</p>
+                            <p>At CT Black Pro Golf Club, we don't just play golf—we build legacy. Since 2010, we've been committed to creating an
+                            inclusive, empowering space where excellence thrives and every swing tells a story. Whether you're a seasoned pro or
+                            just starting out, our club offers mentorship, camaraderie, and a shared passion for the game. Join us, and be part of a
+                            movement that's reshaping golf in Cape Town and beyond.</p>
                         </div>
                         <div class="inner-box">
                             <div class="single-item">
-                                <div class="icon-box"><i class="icon-15"></i></div>
-                                <h2>100% Success Rate</h2>
-                                <p>Amet minim mollit no duis deserut lamo sit enim.</p>
+                                <div class="icon-box"><i class="far fa-users"></i></div>
+                                <h2>Inclusive Community</h2>
+                                <p>Connect with golfers from diverse backgrounds in a space that celebrates unity and pride.</p>
                             </div>
                             <div class="single-item">
                                 <div class="icon-box"><i class="icon-16"></i></div>
-                                <h2>The Exclusive Offers</h2>
-                                <p>Amet minim mollit no duis deserut lamo sit enim.</p>
+                                <h2>Exclusive Member Offers</h2>
+                                <p>Enjoy special discounts on event tickets, tee times, and more—just for being part of the club.</p>
                             </div>
                         </div>
                     </div>
@@ -172,14 +177,15 @@
                 <span class="sub-title">Ready To CT Black Pro Golf Club Today</span>
                 <h2>Welcome to CT Black Pro Golf Club</h2>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur. Nam quis bibendum lacinia eu id in. Quisque porttitor tortor
-                blandit nunc sed ac id. Mattis in nunc libero viverra. Consectetur leo nibh ac at amet.</p>
+            <p>We champion Black talent, foster mentorship, and create space for every swing to shape a legacy.</p>
             <div class="tw:flex tw:flex-wrap tw:gap-7 tw:items-center">
                 <div>
-                    <a href="" class="theme-btn btn-one">View Our Membership Rates</a>
+                    <a href="{% url 'memberships:download-membership-rates' %}" class="theme-btn btn-one">View Our Membership
+                        Rates</a>
                 </div>
                 <div>
-                    <a href="" class="theme-btn btn-two">Download Membership Form</a>
+                    <a href="{% url 'memberships:download-membership-form' %}" class="theme-btn btn-two">Download Membership
+                        Form</a>
                 </div>
             </div>
 
@@ -202,12 +208,12 @@
         </div>
     </div>
     <div class="outer-container">
-        <div class="row clearfix">
+        <div class="tw:grid tw:md:grid-cols-2 tw:lg:grid-cols-3 tw:items-center tw:justify-center clearfix">
             {% for image in images %}
-            <div class="col-lg-4 col-md-6 col-sm-12 portfolio-block">
+            <div class="portfolio-block">
                 <div class="portfolio-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><img src="{{image.image.url}}" alt="{{image.title}}"></figure>
+                        <figure class="image-box tw:w-80 tw:h-64 tw:overflow-hidden"><img class="tw:object-cover tw:w-80 tw:h-64" src="{{image.image.url}}" alt="{{image.title}}"></figure>
                         <div class="view-btn"><a href="{{image.image.url}}" class="lightbox-image"
                                 data-fancybox="gallery"><i class="icon-32"></i></a></div>
                     </div>
@@ -230,7 +236,7 @@
                 <h2>Take Your Game To The <br />Next Level.</h2>
             </div>
             <div class="btn-box">
-                <a href="{% url 'accounts:membership' %}" class="theme-btn btn-one">become a member</a>
+                <a href="{% url 'memberships:membership' %}" class="theme-btn btn-one">become a member</a>
                 <a href="{% url 'home:contact' %}" class="theme-btn btn-two">Contact Us</a>
             </div>
         </div>

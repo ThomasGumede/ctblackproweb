@@ -1,6 +1,14 @@
 {% extends '_base.html' %}
 {% load static %}
 
+{% block seo %}
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="CT Black Pro">
+<!-- Page Title -->
+<title>CT Black Pro Files</title>
+{% endblock seo %}
+
 {% block addcss %}
 <link href="{% static 'css/module-css/contact.css' %}" rel="stylesheet">
 {% endblock addcss %}
@@ -37,7 +45,7 @@
                     <div class="inner-box">
                         <div class="icon-box"><i class="far fa-file-pdf tw:text-white"></i></div>
                         <h3>{{file.title}}</h3>
-                        <p><a href="{% url 'accounts:download-file' file.id %}">Download</a></p>
+                        <p><a href="{% url 'home:download-file' file.id %}">Download</a></p>
                     </div>
                 </div>
             </div>
@@ -68,7 +76,7 @@
                 <h2>Take Your Game To The <br />Next Level.</h2>
             </div>
             <div class="btn-box">
-                <a href="{% url 'accounts:membership' %}" class="theme-btn btn-one">become a member</a>
+                <a href="{% url 'memberships:membership' %}" class="theme-btn btn-one">become a member</a>
                 <a href="{% url 'home:contact' %}" class="theme-btn btn-two">Contact Us</a>
             </div>
         </div>

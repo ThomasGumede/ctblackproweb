@@ -19,23 +19,23 @@ class SearchForm(forms.Form):
     query = forms.CharField(widget=forms.TextInput(attrs={"type": "search", "class": "bg-gray-50 outline-none focus:outline-none border-none p-2 py-2 rounded-md text-lg text-black focus:border-none h-full"}))
 
 class EmailForm(forms.ModelForm):
-    recaptcha_token = forms.CharField(widget=forms.HiddenInput())
+    recaptcha_token = forms.CharField(widget=forms.HiddenInput(), required=False)
     class Meta:
         model = EmailModel
         fields = ('from_email', 'name', 'message', 'subject')
 
         widgets = {
-            "from_email": forms.EmailInput(attrs={"class": "text-custom-text pl-5 pr-[50px] outline-none border-2 border-[#e4ecf2] focus:border focus:border-custom-primary h-[65px] block w-full rounded-none focus:ring-0 focus:outline-none placeholder:text-custom-text placeholder:text-sm", "placeholder": "Your email"}),
-            "subject": forms.TextInput(attrs={"class": "text-custom-text pl-5 pr-[50px] outline-none border-2 border-[#e4ecf2] focus:border focus:border-custom-primary h-[65px] block w-full rounded-none focus:ring-0 focus:outline-none placeholder:text-custom-text placeholder:text-sm", "placeholder": "Email subject"}),
-            "name": forms.TextInput(attrs={"class": "text-custom-text pl-5 pr-[50px] outline-none border-2 border-[#e4ecf2] focus:border focus:border-custom-primary h-[65px] block w-full rounded-none focus:ring-0 focus:outline-none placeholder:text-custom-text placeholder:text-sm", "placeholder": "Your name"}),
-            "phone": forms.TextInput(attrs={"class": "text-custom-text pl-5 pr-[50px] outline-none border-2 border-[#e4ecf2] focus:border focus:border-custom-primary h-[65px] block w-full rounded-none focus:ring-0 focus:outline-none placeholder:text-custom-text placeholder:text-sm", "type": "tel", "placeholder": "Your phone"}),
+            "from_email": forms.EmailInput(attrs={"class": "tw:text-custom-text tw:pl-5 tw:pr-[50px] outline-none border-2 border-[#e4ecf2] focus:border focus:border-custom-primary h-[65px] block w-full rounded-none focus:ring-0 focus:outline-none placeholder:text-custom-text placeholder:text-sm", "placeholder": "Your email"}),
+            "subject": forms.TextInput(attrs={"class": "tw:text-custom-text tw:pl-5 tw:pr-[50px] outline-none border-2 border-[#e4ecf2] focus:border focus:border-custom-primary h-[65px] block w-full rounded-none focus:ring-0 focus:outline-none placeholder:text-custom-text placeholder:text-sm", "placeholder": "Email subject"}),
+            "name": forms.TextInput(attrs={"class": "tw:text-custom-text tw:pl-5 tw:pr-[50px] outline-none border-2 border-[#e4ecf2] focus:border focus:border-custom-primary h-[65px] block w-full rounded-none focus:ring-0 focus:outline-none placeholder:text-custom-text placeholder:text-sm", "placeholder": "Your name"}),
+            "phone": forms.TextInput(attrs={"class": "tw:text-custom-text tw:pl-5 tw:pr-[50px] outline-none border-2 border-[#e4ecf2] focus:border focus:border-custom-primary h-[65px] block w-full rounded-none focus:ring-0 focus:outline-none placeholder:text-custom-text placeholder:text-sm", "type": "tel", "placeholder": "Your phone"}),
             "message": forms.Textarea(attrs={"class": "text-body-color border-custom-h focus:border-custom-primary w-full resize-none rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none", "placeholder": "Your message", "row": "6"}),
         }
 
 class MemberForm(forms.ModelForm):
     class Meta:
         model = Member
-        fields = ('image', 'full_names', 'role', 'decription')
+        fields = ('image', 'full_names', 'role')
 
         widgets = {
             "image": forms.FileInput(attrs={"class": "w-[0.1px] h-[0.1px] opacity-0 overflow-hidden absolute -z-[1]"}),

@@ -125,7 +125,6 @@
 .event-sidebar .sidebar-widget .info-list li{
   position: relative;
   display: block;
-  font-size: 16px;
   line-height: 28px;
   margin-bottom: 16px;
 }
@@ -138,7 +137,7 @@
   position: relative;
   display: inline-block;
   font-weight: 500;
-  width: 135px;
+  width: 80px;
 }
 
 .event-sidebar .sidebar-widget .info-list li a{

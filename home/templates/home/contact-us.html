@@ -1,6 +1,14 @@
 {% extends '_base.html' %}
 {% load static %}
 
+{% block seo %}
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="CT Black Pro">
+<!-- Page Title -->
+<title>Contact CT Black Pro</title>
+{% endblock seo %}
+
 {% block addcss %}
 <link href="{% static 'css/module-css/contact.css' %}" rel="stylesheet">
 {% endblock addcss %}
@@ -35,7 +43,7 @@
                     <div class="inner-box">
                         <div class="icon-box"><i class="icon-41"></i></div>
                         <h3>Our Location</h3>
-                        <p>1901 Thornridge Cir. Shiloh, <br />Hawaii 81063</p>
+                        <p>Cape Town, Western Cape <br />South Africa</p>
                     </div>
                 </div>
             </div>
@@ -54,7 +62,7 @@
                     <div class="inner-box">
                         <div class="icon-box"><i class="icon-43"></i></div>
                         <h3>Phone Number</h3>
-                        <p><a href="tel:2085550111">+208 555-0111</a> (International)<br /><a href="tel:2085550112">+208
+                        <p><a href="tel:275550111">+27 555-0111</a> (International)<br /><a href="tel:275550112">+27
                                 555-0112</a> (Local)</p>
                     </div>
                 </div>
@@ -80,19 +88,19 @@
                             {% csrf_token %}
                             <div class="row clearfix">
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <input type="text" name="username" placeholder="Your name" required>
+                                    <input type="text" name="name" id="id_name" placeholder="Your full names" required>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <input type="email" name="email" placeholder="Your email" required>
+                                    <input type="email" name="from_email" id="id_from_email" placeholder="Your email" required>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <input type="text" name="phone" placeholder="Phone" required>
+                                    <input type="text" name="phone" id="id_phone" placeholder="Phone" required>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <input type="text" name="subject" placeholder="Subject" required>
+                                    <input type="text" name="subject" id="id_subject" placeholder="Subject" required>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                    <textarea name="message" placeholder="Type message"></textarea>
+                                    <textarea id="id_message" name="message" placeholder="Type message"></textarea>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
                                     <button type="submit" class="theme-btn btn-one" name="submit-form">Send
@@ -127,7 +135,7 @@
                 <h2>Take Your Game To The <br />Next Level.</h2>
             </div>
             <div class="btn-box">
-                <a href="{% url 'accounts:membership' %}" class="theme-btn btn-one">become a member</a>
+                <a href="{% url 'memberships:membership' %}" class="theme-btn btn-one">become a member</a>
                 <a href="{% url 'home:contact' %}" class="theme-btn btn-two">Contact Us</a>
             </div>
         </div>

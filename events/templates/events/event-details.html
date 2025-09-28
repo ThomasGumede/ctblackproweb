@@ -1,6 +1,44 @@
 {% extends '_base.html' %}
 {% load static %}
 
+{% block seo %}
+<title>CT Black Pro - Join Us</title>
+<meta name="description" content="{{event.small_description|truncatechars:160}}">
+<meta name="keywords" content="CT Black Pro Cape Town, Golf Club Cape Town, Cape Town Golf, Golf Club, Golf Events Cape Town, Golf Club Membership, South African Golf">
+<meta name="author" content="CT Black Pro">
+<link rel="canonical" href="{{ request.build_absolute_uri }}" />
+<meta property="og:title" content="{{event.title}}" />
+<meta property="og:description"
+    content="{{event.small_description|truncatechars:160}}" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<meta property="og:type" content="website" />
+
+<meta property="og:image" content="{{request.scheme}}://{{request.get_host}}{% if event.image %}{{event.image.url}}{% else %}{% static 'images/ct-logo.png' %}{% endif %}">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.build_absolute_uri }}">
+<meta name="twitter:title" content="{{event.title}}">
+<meta name="twitter:description"
+    content="{{event.small_description|truncatechars:160}}">
+<meta name="twitter:image" content="{{request.scheme}}://{{request.get_host}}{% if event.image %}{{event.image.url}}{% else %}{% static 'images/ct-logo.png' %}{% endif %}">
+<meta name="twitter:creator" content="@BBGIOfficial">
+
+<!-- Google+ / Schema.org -->
+<meta itemprop="name" content="{{event.title}}">
+<meta itemprop="description"
+    content="{{event.small_description|truncatechars:160}}">
+<meta itemprop="image" content="{{request.scheme}}://{{request.get_host}}{% if event.image %}{{event.image.url}}{% else %}{% static 'images/ct-logo.png' %}{% endif %}">
+
+<!-- Additional Meta Tags -->
+<meta property="og:locale" content="en_ZA">
+<meta property="og:site_name" content="{{event.title}}">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Page Title -->
+<title>{{event.title}}</title>
+{% endblock seo %}
+
 {% block addcss %}
 <link href="{% static 'css/module-css/event-details.css' %}" rel="stylesheet">
 {% endblock addcss %}
@@ -8,12 +46,12 @@
 {% block content %}
 <!-- page-title -->
 <section class="page-title centred pt_190 pb_190">
-    <div class="bg-layer" style="background-image: url(static/images/background/page-title.jpg);"></div>
+    <div class="bg-layer" style="background-image: url({% if event.image %}{{event.image.url}}{% else %}{% static 'images/ct-logo.png' %}{% endif %});"></div>
     <div class="auto-container">
         <div class="content-box">
-            <h1>Events Details</h1>
+            <h1>{{event.title}}</h1>
             <ul class="bread-crumb clearfix">
-                <li><a href="index-2.html">Home</a></li>
+                <li><a href="{% url 'home:index' %}">Home</a></li>
                 <li>Events Details</li>
             </ul>
         </div>
@@ -25,40 +63,22 @@
 <!-- event-details -->
 <section class="event-details pt_150 pb_150">
     <div class="auto-container">
-        <figure class="big-image mb_70"><img src="{% static 'images/resource/event-12.jpg' %}" alt=""></figure>
+        <figure class="big-image mb_70 tw:h-[650px] tw:overflow-hidden tw:object-center tw:object-cover"><img class="" src="{% if event.image %}{{event.image.url}}{% else %}{% static 'images/ct-logo.png' %}{% endif %}" alt="{{event.title}}"></figure>
         <div class="row clearfix">
             <div class="col-lg-8 col-md-12 col-sm-12 content-side">
                 <div class="event-details-content mr_20">
                     <div class="content-one">
                         <ul class="post-info">
-                            <li><i class="icon-17"></i>22 August</li>
-                            <li><i class="icon-3"></i>6391 Elgin St. Celina</li>
+                            <li><i class="icon-17"></i>{{event.date_time_formatter}}</li>
+                            <li><i class="icon-3"></i>{{event.event_address}}</li>
                         </ul>
-                        <h2>Golf for Beginners Practice and Learning</h2>
+                        <h2>{{event.title}}</h2>
                         <div class="text-box mb_60">
-                            <p>Welcome to our vibrant and welcoming golf club, where every member is part of our
-                                close-knit community. Whether you're a seasoned golfer or just starting out, our club is
-                                the perfect place to hone your skills, enjoy the game, and connect with fellow golf
-                                enthusiasts.</p>
-                            <p>At our club, we believe in creating a friendly and supportive environment that fosters
-                                camaraderie and sportsmanship. Our beautifully maintained course offers challenging yet
-                                enjoyable play for golfers of all levels, with stunning landscapes and well-designed
-                                fairways that make every round a delight.</p>
+                            {{event.description|safe}}
                         </div>
                     </div>
                     <div class="content-two">
-                        <div class="text-box mb_60">
-                            <h3>Activities and Features:</h3>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                                suffered alteration in some form, by injected humour, or randomised words which don’t
-                                look even slightly believable. If you are going to use a passage of Lorem Ipsum, you
-                                need to be sure there isn’t anything embarrassing hidden in the middle of text.</p>
-                            <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as
-                                necessary, making this the first true generator on the Internet. It uses a dictionary of
-                                over 200 Latin words, combined with a handful of model sentence structures, to generate
-                                Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free
-                                from repetition, injected humour.</p>
-                        </div>
+                        
                         <div class="map-inner">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55945.16225505631!2d-73.90847969206546!3d40.66490264739892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1601263396347!5m2!1sen!2sbd"
@@ -75,11 +95,11 @@
                             <h3>Event Details</h3>
                         </div>
                         <ul class="info-list clearfix">
-                            <li><span>Organizer :</span>Devid Rock</li>
-                            <li><span>Start Date :</span>July 23, 2025</li>
-                            <li><span>End Date :</span>July 25, 2025</li>
-                            <li><span>Time :</span>12:00 PM</li>
-                            <li><span>Cost :</span>R600</li>
+                            <li class="tw:text-sm"><span>Organizer :</span>{{event.organiser}}</li>
+                            <li class="tw:text-sm"><span>Start Date :</span>{{event.start_date}}</li>
+                            <li class="tw:text-sm"><span>End Date :</span>{{event.end_date}}</li>
+                            <li class="tw:text-sm"><span>Time :</span>12:00 PM</li>
+                            <li class="tw:text-sm"><span>Cost :</span>R{{event.cost}}</li>
                         </ul>
                     </div>
                     <div class="event-venue sidebar-widget">
@@ -87,13 +107,14 @@
                             <h3>Event Venue</h3>
                         </div>
                         <ul class="info-list clearfix">
-                            <li><span>Venue :</span>Colf Club</li>
-                            <li><span>Address :</span>12, Victoria St, Australia</li>
-                            <li><span>E-mail :</span><a href="mailto:colfexample@.com">colfexample@.com</a></li>
-                            <li><span>Phone :</span><a href="tel:142585477592">+(1425) 8547-7592</a></li>
-                            <li><span>Website :</span><a href="event-details.html">https://example.com</a></li>
+                            <li class="tw:text-sm"><span>Venue :</span>{{event.venue_name}}</li>
+                            <li class="tw:text-sm"><span>Address :</span>{{event.address}}</li>
+                            <li class="tw:text-sm"><span>E-mail :</span><a href="mailto:colfexample@.com">{{event.email}}</a></li>
+                            <li class="tw:text-sm"><span>Phone :</span><a href="tel:142585477592">{{event.phone}}</a></li>
+                            <li class="tw:text-sm"><span>Website :</span><a href="event-details.html">{{event.website}}</a></li>
                         </ul>
                     </div>
+                    {% if event.form_link %}
                     <div class="form-inner">
                         <div class="widget-title">
                             <h3>Interest? Fill The Event Form Now</h3>
@@ -101,10 +122,23 @@
                         <div>
                             
                             <div class="form-group message-btn pt_20">
-                                <button type="submit" class="theme-btn btn-one">Get Form now</button>
+                                <div><a  class="theme-btn btn-one" href="{{event.form_link}}" target="_blank" rel="noopener noreferrer">Get Form now</a></div>
                             </div>
                         </div>
                     </div>
+                    {% else %}
+                    <div class="form-inner">
+                        <div class="widget-title">
+                            <h3>Interest? Contact Us For Booking Details</h3>
+                        </div>
+                        <div>
+                    
+                            <div class="form-group message-btn pt_20">
+                                <div class=""><a class="theme-btn btn-one" href="{% url 'home:contact' %}" target="_blank" rel="noopener noreferrer">Contact</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -115,7 +149,7 @@
 
 <!-- cta-section -->
 <section class="cta-section alternat-2 centred bg-color-2 pt_140 pb_150">
-    <div class="pattern-layer" style="background-image: url(static/images/shape/shape-14.png);"></div>
+    <div class="pattern-layer" style="background-image: url(../static/images/shape/shape-14.png);"></div>
     <div class="auto-container">
         <div class="content-box">
             <div class="sec-title light mb_40">
@@ -123,7 +157,7 @@
                 <h2>Take Your Game To The <br />Next Level.</h2>
             </div>
             <div class="btn-box">
-                <a href="{% url 'accounts:membership' %}" class="theme-btn btn-one">become a member</a>
+                <a href="{% url 'memberships:membership' %}" class="theme-btn btn-one">become a member</a>
                 <a href="{% url 'home:contact' %}" class="theme-btn btn-two">Contact Us</a>
             </div>
         </div>

@@ -1,6 +1,44 @@
 {% extends '_base.html' %}
 {% load static %}
 
+
+{% block seo %}
+<meta name="description"
+    content="Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro Golf Club">
+<meta name="keywords" content="">
+<meta name="author" content="CT Black Pro">
+    <link rel="canonical" href="{{ request.build_absolute_uri }}" />
+    <meta property="og:title" content="CT Black Pro - Join Us" />
+    <meta property="og:description"
+        content="Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro Golf Club" />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    <meta property="og:type" content="website" />
+    
+    <meta property="og:image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ request.build_absolute_uri }}">
+    <meta name="twitter:title" content="CT Black Pro - Join Us">
+    <meta name="twitter:description"
+        content="Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro Golf Club">
+    <meta name="twitter:image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+    <meta name="twitter:creator" content="@BBGIOfficial">
+    
+    <!-- Google+ / Schema.org -->
+    <meta itemprop="name" content="CT Black Pro - Join Us">
+    <meta itemprop="description"
+        content="Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro Golf Club">
+    <meta itemprop="image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+    
+    <!-- Additional Meta Tags -->
+    <meta property="og:locale" content="en_ZA">
+    <meta property="og:site_name" content="CT Black Pro - Join Us">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% endblock seo %}
+    
+
 {% block addcss %}
 <link href="{% static 'css/module-css/contact.css' %}" rel="stylesheet">
 {% endblock addcss %}
@@ -29,16 +67,17 @@
             <div class="sec-title centred mb_35">
                 <div class="icon-box"><i class="icon-31"></i></div>
                 <span class="sub-title">Ready To CT Black Pro Golf Club Today</span>
-                <h2>Welcome to CT Black Pro Golf Club</h2>
+                <h2>Your Swing. Your Space. Your Legacy.</h2>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur. Nam quis bibendum lacinia eu id in. Quisque porttitor tortor
-                blandit nunc sed ac id. Mattis in nunc libero viverra. Consectetur leo nibh ac at amet.</p>
+            <p>Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro
+            Golf Club—a community where excellence meets opportunity. Whether you're here to compete, connect, or grow, your journey
+            starts now.</p>
                 <div class="tw:flex tw:flex-wrap tw:gap-7 tw:items-center">
                     <div>
-                        <a href="" class="theme-btn btn-one">View Our Membership Rates</a>
+                        <a href="{% url 'memberships:download-membership-rates' %}" class="theme-btn btn-one">View Our Membership Rates</a>
                     </div>
                     <div>
-                        <a href="" class="theme-btn btn-two">Download Membership Form</a>
+                        <a href="{% url 'memberships:download-membership-form' %}" class="theme-btn btn-two">Download Membership Form</a>
                     </div>
                 </div>
             
@@ -68,7 +107,7 @@
                                         <input type="text" name="name" placeholder="Your name" required>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                        <input type="email" name="email" placeholder="Email" required>
+                                        <input type="email" name="from_email" placeholder="Email" required>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <input type="text" name="phone" placeholder="Phone" required>

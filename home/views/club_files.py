@@ -1,10 +1,10 @@
 from django.shortcuts import redirect, render, get_object_or_404
-from accounts.models import ClubFile
+from home.models import ClubFile
 from django.http import HttpResponse
 from django.contrib import messages
 import logging, mimetypes
 
-logger = logging.getLogger("accounts")
+logger = logging.getLogger("home")
 
 def get_club_files(request):
     club_files = ClubFile.objects.all()

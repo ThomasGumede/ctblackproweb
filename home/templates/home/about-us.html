@@ -1,13 +1,21 @@
 {% extends '_base.html' %}
 {% load static %}
 
+{% block seo %}
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="CT Black Pro">
+<!-- Page Title -->
+<title>About CT Black Pro</title>
+{% endblock seo %}
+
 {% block addcss %}
 <link href="{% static 'css/module-css/about.css' %}" rel="stylesheet">
 <link href="{% static 'css/module-css/team.css' %}" rel="stylesheet">
 <link href="{% static 'css/module-css/history.css' %}" rel="stylesheet">
 <link href="{% static 'css/module-css/testimonial.css' %}" rel="stylesheet">
 <link href="{% static 'css/module-css/fluid.css' %}" rel="stylesheet">
-<link href="{% static 'css/module-css/video.css' %}" rel="stylesheet">
+<link href="{% static 'css/module-css/contact.css' %}" rel="stylesheet">
 {% endblock addcss %}
 
 {% block content %}
@@ -60,59 +68,35 @@
                                 <ul class="tab-btns tab-buttons">
                                     <li class="tab-btn active-btn" data-tab="#tab-1">About</li>
                                     <li class="tab-btn" data-tab="#tab-2">Mission</li>
-                                    <li class="tab-btn" data-tab="#tab-3">Club Documents</li>
+                                    
                                 </ul>
                             </div>
                             <div class="tabs-content">
                                 <div class="tab active-tab" id="tab-1">
                                     <div class="inner-box">
-                                        <p>Lorem ipsum dolor sit amet consectetur. Nam quis bibendum lacinia. Quisque
-                                            porttitor tortor blandit nunc sed ac id. Mattis in nunc libero viverra.
-                                            Consectetur leo nibh ac at amet.</p>
-                                        <p>Nam quis bibendum lacinia. Quisque porttitor tortor blandit nunc sed ac id.
+                                        <p>Established in Cape Town in 2010, CT Black Pro Golf Club is more than a sporting institution—it's a vibrant community
+                                        dedicated to excellence, empowerment, and transformation through golf.</p>
+                                        <p>We provide a dynamic platform for Black golfers to thrive, connect, and lead, while fostering a culture of pride,
+                                        professionalism, and purpose on and off the course.
                                         </p>
                                         <ul class="list-style-one pb_25 clearfix">
-                                            <li><i class="fas fa-check-circle"></i>Free Guide Book</li>
-                                            <li><i class="fas fa-check-circle"></i>24/7 Full Support</li>
-                                            <li><i class="fas fa-check-circle"></i>Group Membership Level</li>
+                                            <li><i class="fas fa-check-circle"></i>Inclusive Environment</li>
+                                            <li><i class="fas fa-check-circle"></i>Professional Development</li>
+                                            <li><i class="fas fa-check-circle"></i>Community Impact</li>
+                                            <li><i class="fas fa-check-circle"></i>Legacy Building</li>
                                         </ul>
-                                        <div class="btn-box"><a href="index-4.html" class="theme-btn btn-one">Learn
-                                                More</a></div>
+                                        
                                     </div>
                                 </div>
                                 <div class="tab" id="tab-2">
                                     <div class="inner-box">
-                                        <p>Lorem ipsum dolor sit amet consectetur. Nam quis bibendum lacinia. Quisque
-                                            porttitor tortor blandit nunc sed ac id. Mattis in nunc libero viverra.
-                                            Consectetur leo nibh ac at amet.</p>
-                                        <p>Nam quis bibendum lacinia. Quisque porttitor tortor blandit nunc sed ac id.
-                                        </p>
-                                        <ul class="list-style-one pb_25 clearfix">
-                                            <li><i class="fas fa-check-circle"></i>Free Guide Book</li>
-                                            <li><i class="fas fa-check-circle"></i>24/7 Full Support</li>
-                                            <li><i class="fas fa-check-circle"></i>Group Membership Level</li>
-                                        </ul>
-                                        <div class="btn-box"><a href="index-4.html" class="theme-btn btn-one">Learn
-                                                More</a></div>
+                                        <p>To advance Black excellence in golf by creating inclusive opportunities, nurturing talent, and building a legacy of
+                                        pride, professionalism, and community leadership.</p>
+                                        
                                     </div>
                                 </div>
                                 
-                                <div class="tab" id="tab-3">
-                                    <div class="inner-box">
-                                        <p>Lorem ipsum dolor sit amet consectetur. Nam quis bibendum lacinia. Quisque
-                                            porttitor tortor blandit nunc sed ac id. Mattis in nunc libero viverra.
-                                            Consectetur leo nibh ac at amet.</p>
-                                        <p>Nam quis bibendum lacinia. Quisque porttitor tortor blandit nunc sed ac id.
-                                        </p>
-                                        <ul class="list-style-one pb_25 clearfix">
-                                            <li><i class="fas fa-check-circle"></i>Memorandum Of Incorporation</li>
-                                            <li><i class="fas fa-check-circle"></i>Access Control</li>
-                                            <li><i class="fas fa-check-circle"></i>Club Policy</li>
-                                        </ul>
-                                        <div class="btn-box"><a href="index-4.html" class="theme-btn btn-one">Learn
-                                                More</a></div>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -158,58 +142,7 @@
 <!-- funfact-style-two end -->
 
 
-<!-- history-section -->
-<section class="history-section pt_140 pb_150">
-    <div class="auto-container">
-        <div class="sec-title centred mb_60">
-            <span class="sub-title">Our Timeline</span>
-            <h2>History Timeline</h2>
-        </div>
-        <div class="inner-container p_relative pt_70">
-            <div class="inner-box">
-                <div class="row clearfix">
-                    <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                        <div class="content-box align-3 mr_130">
-                            <span class="year">1980 - 1981</span>
-                            <h2>CT Black Pro, which was founded in May 1980</h2>
-                            <p>Lorem ipsum dolor sit amet consectur. Nam quis bibendum lacinia quisque porttitor tortor
-                                blandit nunc sed ac id. Mattis in nunc libero viverra. Consectetur leo nibh ac at amet.
-                            </p>
-                            
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 image-column">
-                        <div class="image-box ml_130 pr_20 pb_20">
-                            <figure class="image image-hov-two"><img src="{% static 'images/resource/history-1.jpg' %}" alt="">
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="inner-box">
-                <div class="row clearfix">
-                    <div class="col-lg-6 col-md-12 col-sm-12 image-column">
-                        <div class="image-box mr_130 pl_20 pb_20">
-                            <figure class="image image-hov-two"><img src="{% static 'images/resource/history-2.jpg' %}" alt="">
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                        <div class="content-box ml_130">
-                            <span class="year">1986 - 1987</span>
-                            <h2>Inception of the academy took place in May, 1986</h2>
-                            <p>Lorem ipsum dolor sit amet consectur. Nam quis bibendum lacinia quisque porttitor tortor
-                                blandit nunc sed ac id. Mattis in nunc libero viverra. Consectetur leo nibh ac at amet.
-                            </p>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- history-section end -->
+
 
 
 <!-- chooseus-section -->
@@ -230,22 +163,24 @@
                     <div class="content-box ml_30 mr_60">
                         <div class="sec-title mb_30">
                             <span class="sub-title">Why choose us</span>
-                            <h2>Behind the Curtain with Renowned Golfers</h2>
+                            <h2>“Redefining the Game. Empowering the Player.</h2>
                         </div>
                         <div class="text-box mb_30">
-                            <p>Lorem ipsum dolor sit amet consectetur. Nam quis bibendum lacinia eu id in. Quisque
-                                porttitor tortor blandit nunc.</p>
+                            <p>At CT Black Pro Golf Club, we believe golf is more than a sport—it's a platform for transformation. Our club offers a
+                            unique blend of professional growth, cultural pride, and community connection, tailored for those who aspire to lead
+                            both on and off the course. With expert mentorship, inclusive values, and a legacy-driven spirit, we're not just shaping
+                            golfers—we're shaping changemakers.</p>
                         </div>
                         <div class="inner-box">
                             <div class="single-item">
-                                <div class="icon-box"><i class="icon-15"></i></div>
-                                <h2>100% Success Rate</h2>
-                                <p>Amet minim mollit no duis deserut lamo sit enim.</p>
+                                <div class="icon-box"><i class="far fa-users"></i></div>
+                                <h2>Inclusive Community</h2>
+                                <p>Connect with golfers from diverse backgrounds in a space that celebrates unity and pride.</p>
                             </div>
                             <div class="single-item">
                                 <div class="icon-box"><i class="icon-16"></i></div>
-                                <h2>The Exclusive Offers</h2>
-                                <p>Amet minim mollit no duis deserut lamo sit enim.</p>
+                                <h2>Exclusive Member Offers</h2>
+                                <p>Enjoy special discounts on event tickets, tee times, and more—just for being part of the club.</p>
                             </div>
                         </div>
                     </div>
@@ -256,88 +191,97 @@
 </section>
 <!-- chooseus-section end -->
 
-
-<!-- team-section -->
-<section class="team-section pt_140 pb_120">
+<section class="contact-section pt_150">
     <div class="auto-container">
-        <div class="sec-title centred mb_55">
-            <span class="sub-title">OUR Team</span>
-            <h2>We provide top-tier Team <br />to teach you golf</h2>
-        </div>
         <div class="row clearfix">
-            <div class="col-lg-3 col-md-6 col-sm-12 team-block">
-                <div class="team-block-one">
-                    <div class="inner-box">
-                        <figure class="image-box"><img src="{% static 'images/team/team-1.jpg' %}" alt=""></figure>
-                        <div class="lower-content">
-                            <h3><a href="index-4.html">Robert Fox</a></h3>
-                            <span class="designation">Sr. Golf Coach</span>
-                            <ul class="social-links clearfix">
-                                <li><a href="index-4.html"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="index-4.html"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="index-4.html"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="index-4.html"><i class="fab fa-linkedin-in"></i></a></li>
-                            </ul>
+            <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                <div class="image_block_four">
+                    <div class="image-box mr_30 pr_110">
+                        <figure class="image image-hov-one"><img src="{% static 'images/resource/contact-1.jpg' %}"
+                                alt="">
+                        </figure>
+                        <div class="link-box">
+                            <a href="https://www.google.com/maps/@23.1753974,89.6128769,13z?entry=ttu" target="_blank">
+                                <img src="{% static 'images/icons/icon-1.png' %}" alt="">
+                                <span>Locate Our <br />Address</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 team-block">
-                <div class="team-block-one">
-                    <div class="inner-box">
-                        <figure class="image-box"><img src="{% static 'images/team/team-2.jpg' %}" alt=""></figure>
-                        <div class="lower-content">
-                            <h3><a href="index-4.html">Robert Fox</a></h3>
-                            <span class="designation">Sr. Golf Coach</span>
-                            <ul class="social-links clearfix">
-                                <li><a href="index-4.html"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="index-4.html"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="index-4.html"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="index-4.html"><i class="fab fa-linkedin-in"></i></a></li>
-                            </ul>
+            <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                <div class="content_block_six">
+                    <div class="content-box ml_30">
+                        <div class="sec-title mb_60">
+                            <span class="sub-title">Join Club</span>
+                            <h2>Love To Hear From You Get In Touch!</h2>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 team-block">
-                <div class="team-block-one">
-                    <div class="inner-box">
-                        <figure class="image-box"><img src="{% static 'images/team/team-3.jpg' %}" alt=""></figure>
-                        <div class="lower-content">
-                            <h3><a href="index-4.html">Robert Fox</a></h3>
-                            <span class="designation">Sr. Golf Coach</span>
-                            <ul class="social-links clearfix">
-                                <li><a href="index-4.html"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="index-4.html"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="index-4.html"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="index-4.html"><i class="fab fa-linkedin-in"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 team-block">
-                <div class="team-block-one">
-                    <div class="inner-box">
-                        <figure class="image-box"><img src="{% static 'images/team/team-4.jpg' %}" alt=""></figure>
-                        <div class="lower-content">
-                            <h3><a href="index-4.html">Robert Fox</a></h3>
-                            <span class="designation">Sr. Golf Coach</span>
-                            <ul class="social-links clearfix">
-                                <li><a href="index-4.html"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="index-4.html"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="index-4.html"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="index-4.html"><i class="fab fa-linkedin-in"></i></a></li>
-                            </ul>
+                        <div class="form-inner">
+                            <form method="post" action="{% url 'memberships:membership' %}">
+                                {% csrf_token %}
+                                <div class="row clearfix">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <input type="text" name="name" placeholder="Your name" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <input type="email" name="from_email" placeholder="Email" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <input type="text" name="phone" placeholder="Phone" required>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <textarea name="message" placeholder="Message"></textarea>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <button type="submit" class="theme-btn btn-one">Send us message</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</section>>
+
+{% if members.count > 0 %}
+<!-- team-section -->
+<section class="team-section pt_140 pb_120">
+    <div class="auto-container">
+        <div class="sec-title centred mb_55">
+            <span class="sub-title">Our Team</span>
+            <h2>We provide top-tier Team <br />to teach you golf</h2>
+        </div>
+        <div class="row clearfix">
+            
+            {% for member in members %}
+                
+            
+                
+            <div class="col-lg-3 col-md-6 col-sm-12 team-block">
+                <div class="team-block-one">
+                    <div class="inner-box">
+                        <figure class="image-box tw:h-64 tw:w-64 tw:overflow-hidden tw:object-center tw:object-cover"><img src="{% if member.image %}{{member.image.url}}{% else %}{% static 'images/no-profile-image.png' %}{% endif %}" alt="{{member.full_names}}"></figure>
+                        <div class="lower-content">
+                            <h3><a>{{member.full_names}}</a></h3>
+                            <span class="designation">{{member.role}}</span>
+                            <ul class="social-links clearfix">
+                                <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                                <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                                <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </section>
 <!-- team-section end -->
-
+{% endif %}
 
 <!-- cta-section -->
 <section class="cta-section alternat-2 centred bg-color-2 pt_140 pb_150 mb_150">
@@ -349,7 +293,7 @@
                 <h2>Take Your Game To The <br />Next Level.</h2>
             </div>
             <div class="btn-box">
-                <a href="{% url 'accounts:membership' %}" class="theme-btn btn-one">become a member</a>
+                <a href="{% url 'memberships:membership' %}" class="theme-btn btn-one">become a member</a>
                 <a href="{% url 'home:contact' %}" class="theme-btn btn-two">Contact Us</a>
             </div>
         </div>

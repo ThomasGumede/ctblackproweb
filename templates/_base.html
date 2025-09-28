@@ -9,11 +9,44 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <meta name="description" content="">
+    {% block seo %}
+    <meta name="description" content="CT Black Pro Golf Club is a proudly inclusive golfing community based in Cape Town, committed to excellence, empowerment, and unity.">
     <meta name="keywords" content="">
     <meta name="author" content="CT Black Pro">
+    <link rel="canonical" href="{{ request.build_absolute_uri }}" />
+    <meta property="og:title" content="CT Black Pro Golf Club" />
+    <meta property="og:description"
+        content="CT Black Pro Golf Club is a proudly inclusive golfing community based in Cape Town, committed to excellence, empowerment, and unity." />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    <meta property="og:type" content="website" />
+    
+    <meta property="og:image"
+        content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ request.build_absolute_uri }}">
+    <meta name="twitter:title" content="CT Black Pro Golf Club">
+    <meta name="twitter:description"
+        content="CT Black Pro Golf Club is a proudly inclusive golfing community based in Cape Town, committed to excellence, empowerment, and unity.">
+    <meta name="twitter:image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+    <meta name="twitter:creator" content="@BBGIOfficial">
+    
+    <!-- Google+ / Schema.org -->
+    <meta itemprop="name" content="CT Black Pro Golf Club">
+    <meta itemprop="description"
+        content="CT Black Pro Golf Club is a proudly inclusive golfing community based in Cape Town, committed to excellence, empowerment, and unity.">
+    <meta itemprop="image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+    
+    <!-- Additional Meta Tags -->
+    <meta property="og:locale" content="en_ZA">
+    <meta property="og:site_name" content="CT Black Pro Golf Club">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Page Title -->
     <title>CT Black Pro Golf Club</title>
+
+    {% endblock seo %}
     <!-- Favicon Icon -->
     <!-- Fav Icon -->
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">

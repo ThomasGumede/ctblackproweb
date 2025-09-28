@@ -1,0 +1,36 @@
+{% if form.errors %}
+<div class="tw:w-full tw:mx-auto">
+    <div class="tw:bg-red-50 tw:border-l-8 tw:border-red-900">
+        <div class="tw:flex tw:items-center">
+            <div class="p_20">
+                <div class="tw:flex tw:items-center">
+                    <div class="ml_20">
+                        <svg class="tw:h-8 tw:w-8 tw:text-red-900 mr_20 tw:cursor-pointer" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <p class="px_20 py_10 tw:text-red-900 tw:font-semibold tw:text-lg">Please fix the
+                        following
+                        errors.</p>
+                </div>
+                <div class="px_16 mb_4">
+                    {% for field in form %}
+                        {% if field.errors %}
+                            <li class="tw:text-md tw:font-bold tw:text-red-500 tw:text-sm">{{field.label}}: {{field.errors.as_text}}</li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if form.non_field_errors %}
+
+                    <li class="tw:text-md tw:font-bold tw:text-red-500 tw:text-sm">{{form.non_field_errors.as_text}}
+                    </li>
+
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}

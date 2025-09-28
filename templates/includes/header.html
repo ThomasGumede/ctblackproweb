@@ -12,7 +12,12 @@
             </ul>
             <div class="header-info">
                 
-                <div class="login-box p_relative pr_30 mr_30"><a href="{% url 'accounts:login' %}">Member Login</a></div>
+                {% if request.user.is_authenticated %}
+                    <div class="login-box p_relative pr_30 mr_30"><a href="{% url 'accounts:logout' %}">Member Logout</a></div>
+                {% else %}
+                    <div class="login-box p_relative pr_30 mr_30"><a href="{% url 'accounts:login' %}">Member Login</a></div>
+                {% endif %}
+                    
                 <ul class="social-links">
                     <li><a href="{% url 'home:index' %}"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a href="{% url 'home:index' %}"><i class="fab fa-twitter"></i></a></li>
@@ -43,7 +48,11 @@
                                     <li><a href="{% url 'home:gallery' %}">Gallery</a></li>
                                     <li><a href="{% url 'events:events' %}">Events</a></li>
                                     <li><a href="{% url 'home:contact' %}">Contact</a></li>
-                                    <li class="tw:md:hidden"><a href="{% url 'home:contact' %}">Login</a></li>
+                                    {% if request.user.is_authenticated %}
+                                    <li class="tw:md:hidden"><a href="{% url 'accounts:logout' %}">Logout</a></li>
+                                    {% else %}
+                                    <li class="tw:md:hidden"><a href="{% url 'accounts:login' %}">Login</a></li>
+                                    {% endif %}
                                 </ul>
                             </div>
                         </nav>
@@ -52,7 +61,7 @@
                 <div class="menu-right-content">
                     <div class="support-box mr_30"><a href="tel:2395432170108"><i class="icon-5"></i>
                             (239)-543-217-0108</a></div>
-                    <div class="btn-box"><a href="{% url 'accounts:membership' %}" class="theme-btn btn-one">Join Us</a></div>
+                    <div class="btn-box"><a href="{% url 'memberships:membership' %}" class="theme-btn btn-one">Join Us</a></div>
                 </div>
             </div>
         </div>
@@ -74,7 +83,7 @@
                 <div class="menu-right-content">
                     <div class="support-box mr_30"><a href="tel:2395432170108"><i class="icon-5"></i>
                             (239)-543-217-0108</a></div>
-                    <div class="btn-box"><a href="{% url 'accounts:membership' %}" class="theme-btn btn-one">Join Us</a></div>
+                    <div class="btn-box"><a href="{% url 'memberships:membership' %}" class="theme-btn btn-one">Join Us</a></div>
                 </div>
             </div>
         </div>

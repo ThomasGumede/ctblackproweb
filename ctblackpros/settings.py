@@ -20,6 +20,8 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_interface',
+    'colorfield',
     'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -30,15 +32,17 @@ INSTALLED_APPS = [
     
     'home',
     'events',
+    'memberships',
     
     'tailwind',
     'theme',
-    'admin_interface',
-    'colorfield',
+    'tinymce',
+    
 ]
 
 AUTH_USER_MODEL = 'accounts.Account'
 AUTHENTICATION_BACKENDS = ['accounts.utilities.backends.EmailBackend']
+LOGIN_URL = 'accounts:login'
 
 
 TAILWIND_APP_NAME = 'theme'
@@ -145,7 +149,7 @@ STATICFILES_FINDERS = [
 
 if DEBUG:
     ALLOWED_HOSTS = []
-    
+    X_FRAME_OPTIONS = "SAMEORIGIN"
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',

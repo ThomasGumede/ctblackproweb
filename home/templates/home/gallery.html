@@ -1,6 +1,14 @@
 {% extends '_base.html' %}
 {% load static %}
 
+{% block seo %}
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="CT Black Pro">
+<!-- Page Title -->
+<title>Our Gallery CT Black Pro</title>
+{% endblock seo %}
+
 {% block addcss %}
 <link href="{% static 'css/module-css/portfolio.css' %}" rel="stylesheet">
 {% endblock addcss %}
@@ -22,6 +30,7 @@
 <!-- page-title end -->
 
 
+
 <!-- portfolio-section -->
 <section class="portfolio-section pt_150 pb_120">
     <div class="auto-container">
@@ -31,7 +40,7 @@
             <div class="col-lg-4 col-md-6 col-sm-12 portfolio-block">
                 <div class="portfolio-block-one">
                     <div class="inner-box">
-                        <figure class="image-box"><img src="{{image.image.url}}" alt="{{image.title}}"></figure>
+                        <figure class="image-box tw:w-96 tw:h-80 tw:overflow-hidden"><img src="{{image.image.url}}" alt="{{image.title}}"></figure>
                         <div class="view-btn"><a href="{{image.image.url}}" class="lightbox-image"
                                 data-fancybox="gallery"><i class="icon-32"></i></a></div>
                     </div>

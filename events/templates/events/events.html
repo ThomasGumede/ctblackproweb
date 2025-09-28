@@ -1,6 +1,43 @@
 {% extends '_base.html' %}
 {% load static %}
 
+{% block seo %}
+<meta name="description" content="We champion Black talent, foster mentorship, and create space for every swing to shape a legacy.">
+<meta name="keywords" content="">
+<meta name="author" content="CT Black Pro">
+<link rel="canonical" href="{{ request.build_absolute_uri }}" />
+<meta property="og:title" content="CT Black Pro Events" />
+<meta property="og:description"
+    content="We champion Black talent, foster mentorship, and create space for every swing to shape a legacy." />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<meta property="og:type" content="website" />
+
+<meta property="og:image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.build_absolute_uri }}">
+<meta name="twitter:title" content="CT Black Pro Events">
+<meta name="twitter:description"
+    content="We champion Black talent, foster mentorship, and create space for every swing to shape a legacy.">
+<meta name="twitter:image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+<meta name="twitter:creator" content="@BBGIOfficial">
+
+<!-- Google+ / Schema.org -->
+<meta itemprop="name" content="CT Black Pro Events">
+<meta itemprop="description"
+    content="We champion Black talent, foster mentorship, and create space for every swing to shape a legacy.">
+<meta itemprop="image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+
+<!-- Additional Meta Tags -->
+<meta property="og:locale" content="en_ZA">
+<meta property="og:site_name" content="CT Black Pro Events">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Page Title -->
+<title>CT Black Pro Events</title>
+{% endblock seo %}
+
 {% block addcss %}
 <link href="{% static 'css/module-css/event.css' %}" rel="stylesheet">
 {% endblock addcss %}
@@ -34,17 +71,18 @@
             <div class="col-lg-4 col-md-6 col-sm-12 event-block">
                 <div class="event-block-one">
                     <div class="inner-box">
-                        <div class="image-box">
+                        <div class="image-box tw:w-96 tw:h-64">
                             <figure class="image"><a href="{% url 'events:event-details' event.slug %}"><img
                                         src="{% if event.image %}{{event.image.url}}{% else %}{% static 'images/no-image.png' %}{% endif %}" alt="{{event.title}}"></a></figure>
-                            <span class="location"><i class="icon-3"></i>{{event.event_address}}</span>
+                            <span class="location"><i class="icon-3"></i>{{event.address}}</span>
                         </div>
                         <div class="lower-content">
-                            <span class="post-date"><i class="icon-17"></i>{{event.event_startdate}}</span>
-                            <h3><a href="{% url 'events:event-details' event.slug %}">{{event.title}}</p>
-                            <div class="btn-box"><a href="{% url 'events:event-details' event.slug %}" class="theme-btn btn-two">View Details</a>
-                            </div>
+                            <span class="post-date"><i class="icon-17"></i>{{event.start_date}}</span>
+                            <h3><a href="{% url 'events:event-details' event.slug %}">{{event.title}}</a></h3>
+                            <p>{{event.small_description|truncatechars:100}}</p>
+                            <div class="btn-box"><a href="{% url 'events:event-details' event.slug %}" class="theme-btn btn-two">View Details</a></div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -74,7 +112,7 @@
                 <h2>Take Your Game To The <br />Next Level.</h2>
             </div>
             <div class="btn-box">
-                <a href="{% url 'accounts:membership' %}" class="theme-btn btn-one">become a member</a>
+                <a href="{% url 'memberships:membership' %}" class="theme-btn btn-one">become a member</a>
                 <a href="{% url 'home:contact' %}" class="theme-btn btn-two">Contact Us</a>
             </div>
         </div>

@@ -36,11 +36,6 @@ class Account(AbstractUser):
     def __str__(self):
         return self.get_full_name()
 
-    def get_full_name(self):
-        if self.title:
-            return f"{self.title} {self.first_name[0]} {self.last_name}"
-        else:
-            return f"{self.first_name} {self.last_name}"
         
     def get_absolute_url(self):
         return reverse("accounts:user-details", kwargs={"username": self.username})
@@ -74,9 +69,7 @@ class Company(AbstractCreate):
     vision = models.TextField(blank=True, null=True, unique=True)
     mission = models.TextField(blank=True, null=True, unique=True)
     club_profile = models.FileField(help_text=_("Upload club profile"), upload_to=handle_profile_upload, null=True, blank=True)
-    club_membership_rates = models.FileField(help_text=_("Upload club membership rates"), upload_to=handle_profile_upload, null=True, blank=True)
-    club_membership_form = models.FileField(help_text=_("Upload club membership joining form"), upload_to=handle_profile_upload, null=True, blank=True)
-
+   
     def __str__(self):
         return self.title
     
@@ -84,12 +77,4 @@ class Company(AbstractCreate):
         verbose_name = 'About Company'
         verbose_name_plural = 'About Companys'
         
-class ClubFile(AbstractCreate):
-    title = models.CharField(max_length=300, unique=True)
-    description = models.TextField(help_text=_("Write a short description about this media file"), max_length=200)
-    mediafile = models.FileField(help_text=_("Upload club file."), upload_to=handle_profile_upload)
-    uploaded_by = models.ForeignKey(get_user_model(), on_delete=models.SET_DEFAULT, default=None, related_name="club_files", null=True)
-    
-    def __str__(self):
-        return self.title
     

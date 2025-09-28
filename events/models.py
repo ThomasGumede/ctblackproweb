@@ -20,23 +20,24 @@ from events.utilities.file_handlers import handle_event_file_upload
 PHONE_REGEX = verify_rsa_phone()
 
 class Event(AbstractCreate):
-    organiser = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, default=None, related_name="events")
-    image = models.ImageField(help_text=_("Upload campaign image."), upload_to=handle_event_file_upload, null=True, blank=True)
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name="events")
+    image = models.ImageField(help_text=_("Upload event image."), upload_to=handle_event_file_upload, null=True, blank=True)
     title = models.CharField(help_text=_("Enter title for your event"), max_length=150, unique=True)
     slug = models.SlugField(max_length=250, blank=True, unique=True)
     small_description = models.TextField(help_text=_("Small description about your event for search"), null=True, blank=True)
     description = HTMLField()
     
-    event_startdate = models.DateTimeField(validators = [MinValueValidator(timezone.now(), "Event start date and time cannot be in the past")])
-    event_enddate = models.DateTimeField(validators = [MinValueValidator(timezone.now(), "Event end date and time cannot be in the past")])
-    cost = models.DecimalField(max_digits=1000, decimal_places=2)
-    venue_name = models.CharField(max_length=400, help_text=_("Enter event venue name"))
-    event_address = models.CharField(max_length=300, help_text=_("Enter event address seperated by comma"), null=True, blank=True)
-    phone = models.CharField(help_text=_("Enter cellphone number"), max_length=15, validators=[PHONE_REGEX])
-    email = models.EmailField(blank=True, null=True)
-    website = models.URLField(blank=True, null=True)
+    organiser = models.CharField(max_length=350, help_text=_("Enter organiser's full names or title"))
+    start_date = models.DateTimeField(validators = [MinValueValidator(timezone.now(), "Event start date and time. It cannot be in the past")])
+    end_date = models.DateTimeField(validators = [MinValueValidator(timezone.now(), "Event end date and time. It cannot be in the past")])
+    cost = models.DecimalField(max_digits=1000, decimal_places=2, help_text=_("Enter the overall costs of this event"))
+    venue_name = models.CharField(max_length=400, help_text=_("Enter event's venue name"))
+    address = models.CharField(max_length=300, help_text=_("Enter event address seperated by comma e.g WaterFall Road 1234, Cape Town, WC, RSA"), null=True, blank=True)
+    phone = models.CharField(help_text=_("Enter event's cell/tele phone number"), max_length=15, validators=[PHONE_REGEX])
+    email = models.EmailField(blank=True, null=True, help_text=_("Enter event's email address for communications"))
+    website = models.URLField(blank=True, null=True, help_text=_("Enter event's website starting with 'https://"))
     map_coordinates  = models.CharField(max_length=300, blank=True, null=True)
-    
+    form_link = models.URLField(blank=True, null=True, help_text=_("Enter event's booking form link e.g Google Forms, start with https://"))
     status = models.CharField(max_length=50, choices=StatusChoices.choices, default=StatusChoices.NOT_APPROVED)
 
     class Meta:
@@ -45,15 +46,15 @@ class Event(AbstractCreate):
         ordering = ['-created']
 
     def date_time_formatter(self):
-        start_local = timezone.localtime(self.event_startdate)
-        end_local = timezone.localtime(self.event_enddate)
+        start_local = timezone.localtime(self.start_date)
+        end_local = timezone.localtime(self.end_date)
         if start_local.date() == end_local.date():
             return f"{start_local.strftime('%a %d %b %Y')}, {start_local.strftime('%H:%M')} - {end_local.strftime('%H:%M')}"
         else:
             return f"{start_local.strftime('%a %d %b %Y, %H:%M')} - {end_local.strftime('%a %d %b %Y, %H:%M')}"
         
     def sales_days_left(self):
-        date = self.event_enddate - timezone.now()
+        date = self.end_date - timezone.now()
         if date.days < 0:
             return "0 days"
         if date.days > 1:
