@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'home',
     'events',
     'memberships',
+    'dashboard',
     
     'tailwind',
     'theme',

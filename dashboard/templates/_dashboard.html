@@ -1,0 +1,400 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CT Black Pro - Admin Dashboard</title>
+    <link rel="icon" type="image/png" href="{% static 'dashboard/images/favicon.png' %}" sizes="16x16" />
+    <!-- google fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap"
+        rel="stylesheet" />
+    <!-- remix icon font css  -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/remixicon.css' %}" />
+    <!-- Apex Chart css -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/lib/apexcharts.css' %}" />
+    <!-- Data Table css -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/lib/dataTables.min.css' %}" />
+    <!-- Text Editor css -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/lib/editor-katex.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'dashboard/css/lib/editor.atom-one-dark.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'dashboard/css/lib/editor.quill.snow.css' %}" />
+    <!-- Date picker css -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/lib/flatpickr.min.css' %}" />
+    <!-- Calendar css -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/lib/full-calendar.css' %}" />
+    <!-- Vector Map css -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/lib/jquery-jvectormap-2.0.5.css' %}" />
+    <!-- Popup css -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/lib/magnific-popup.css' %}" />
+    <!-- Slick Slider css -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/lib/slick.css' %}" />
+    <!-- prism css -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/lib/prism.css' %}" />
+    <!-- file upload css -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/lib/file-upload.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'dashboard/css/lib/audioplayer.css' %}" />
+    <!-- main css -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/style_dashboard.css' %}" />
+</head>
+
+<body class="bg-neutral-100 dark:bg-neutral-800 dark:text-white"></body>
+
+<!-- Mirrored from wowdash.wowtheme7.com/tailwind/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Sep 2025 09:54:12 GMT -->
+
+</html>
+
+<aside class="sidebar">
+    <button type="button" class="sidebar-close-btn !mt-4">
+        <iconify-icon icon="radix-icons:cross-2"></iconify-icon>
+    </button>
+    <div>
+        <a href="{% url 'dashboard:dashboard' %}" class="sidebar-logo">
+            <img src="{% static 'dashboard/images/logo.png' %}" alt="ct black pro logo" class="light-logo">
+            <img src="{% static 'dashboard/images/logo-light.png' %}" alt="ct black pro logo" class="dark-logo">
+            <img src="{% static 'dashboard/images/logo-icon.png' %}" alt="ct black pro logo" class="logo-icon">
+        </a>
+    </div>
+    <div class="sidebar-menu-area">
+        <ul class="sidebar-menu" id="sidebar-menu">
+            <li>
+                <a href="{% url 'dashboard:dashboard' %}">
+                    <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon"></iconify-icon>
+                    <span>Dashboard</span>
+                </a>
+
+            </li>
+
+
+            <li class="sidebar-menu-group-title">Club Info</li>
+
+
+            <li>
+                <a href="users-list.html">
+                    <iconify-icon icon="flowbite:users-group-outline" class="menu-icon"></iconify-icon>
+                    <span>All Members</span>
+                </a>
+            </li>
+            <li>
+                <a href="gallery.html">
+                    <iconify-icon icon="solar:gallery-wide-linear" class="menu-icon"></iconify-icon>
+                    <span>Gallery</span>
+                </a>
+            </li>
+            <li>
+                <a href="users-list.html">
+                    <iconify-icon icon="flowbite:users-group-outline" class="menu-icon"></iconify-icon>
+                    <span>Events</span>
+                </a>
+            </li>
+            <li>
+                <a href="users-list.html">
+                    <iconify-icon icon="flowbite:users-group-outline" class="menu-icon"></iconify-icon>
+                    <span>Documents</span>
+                </a>
+            </li>
+            <li>
+                <a href="calendar-main.html">
+                    <iconify-icon icon="solar:calendar-outline" class="menu-icon"></iconify-icon>
+                    <span>Calendar</span>
+                </a>
+            </li>
+
+
+            <li class="sidebar-menu-group-title">Settings</li>
+            <li>
+                <a href="view-profile.html">
+                    <i class="ri-circle-fill circle-icon text-danger-600 w-auto"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="company.html">
+                    <i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i>
+                    <span>Company</span>
+                </a>
+            </li>
+            <li>
+                <a href="terms-condition.html">
+                    <iconify-icon icon="octicon:info-24" class="menu-icon"></iconify-icon>
+                    <span>Terms & Conditions</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</aside>
+
+<main class="dashboard-main">
+    <div class="navbar-header border-b border-neutral-200 dark:border-neutral-600">
+        <div class="flex items-center justify-between">
+            <div class="col-auto">
+                <div class="flex flex-wrap items-center gap-[16px]">
+                    <button type="button" class="sidebar-toggle">
+                        <iconify-icon icon="heroicons:bars-3-solid" class="icon non-active"></iconify-icon>
+                        <iconify-icon icon="iconoir:arrow-right" class="icon active"></iconify-icon>
+                    </button>
+                    <button type="button" class="sidebar-mobile-toggle d-flex !leading-[0]">
+                        <iconify-icon icon="heroicons:bars-3-solid" class="icon !text-[30px]"></iconify-icon>
+                    </button>
+                    <form class="navbar-search">
+                        <input type="text" name="search" placeholder="Search" />
+                        <iconify-icon icon="ion:search-outline" class="icon"></iconify-icon>
+                    </form>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="flex flex-wrap items-center gap-3">
+                    <button type="button" id="theme-toggle"
+                        class="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-200 dark:bg-neutral-700 dark:text-white">
+                        <span id="theme-toggle-dark-icon" class="hidden">
+                            <i class="ri-sun-line"></i>
+                        </span>
+                        <span id="theme-toggle-light-icon" class="hidden">
+                            <i class="ri-moon-line"></i>
+                        </span>
+                    </button>
+
+
+                    <!-- Notification Start  -->
+                    <button data-dropdown-toggle="dropdownNotification"
+                        class="has-indicator flex h-10 w-10 items-center justify-center rounded-full bg-neutral-200 dark:bg-neutral-700"
+                        type="button">
+                        <iconify-icon icon="iconoir:bell"
+                            class="text-xl text-neutral-900 dark:text-white"></iconify-icon>
+                    </button>
+                    <div id="dropdownNotification"
+                        class="z-10 hidden w-full max-w-[394px] overflow-hidden rounded-2xl bg-white shadow-lg dark:bg-neutral-700">
+                        <div
+                            class="m-4 flex items-center justify-between gap-2 rounded-lg bg-primary-50 px-4 py-3 dark:bg-primary-600/25">
+                            <h6 class="mb-0 text-lg font-semibold text-neutral-900">
+                                Notification
+                            </h6>
+                            <span
+                                class="flex h-10 w-10 items-center justify-center rounded-full bg-white font-bold text-primary-600 dark:bg-neutral-600 dark:text-white">05</span>
+                        </div>
+                        <div class="scroll-sm !border-t-0">
+                            <div class="max-h-[400px] overflow-y-auto">
+                                <a href="javascript:void(0)"
+                                    class="flex justify-between gap-1 px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="relative flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-success-200 text-success-600 dark:bg-success-600/25">
+                                            <iconify-icon icon="bitcoin-icons:verify-outline"
+                                                class="text-2xl"></iconify-icon>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-semibold mb-1 text-sm">Congratulations</h6>
+                                            <p class="mb-0 line-clamp-1 text-sm">
+                                                Your profile has been Verified. Your profile has been
+                                                Verified
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="shrink-0">
+                                        <span class="text-sm text-neutral-500">23 Mins ago</span>
+                                    </div>
+                                </a>
+                                <a href="javascript:void(0)"
+                                    class="flex justify-between gap-1 px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600">
+                                    <div class="flex items-center gap-3">
+                                        <div class="relative flex-shrink-0">
+                                            <img class="h-11 w-11 rounded-full"
+                                                src="{% static 'dashboard/images/notification/profile-4.png' %}" alt="Joseph image" />
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-semibold mb-1 text-sm">Ronald Richards</h6>
+                                            <p class="mb-0 line-clamp-1 text-sm">
+                                                You can stitch between artboards
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="shrink-0">
+                                        <span class="text-sm text-neutral-500">23 Mins ago</span>
+                                    </div>
+                                </a>
+                                <a href="javascript:void(0)"
+                                    class="flex justify-between gap-1 px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="relative flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-600 dark:bg-primary-600/25">
+                                            AM
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-semibold mb-1 text-sm">Arlene McCoy</h6>
+                                            <p class="mb-0 line-clamp-1 text-sm">
+                                                Invite you to prototyping
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="shrink-0">
+                                        <span class="text-sm text-neutral-500">23 Mins ago</span>
+                                    </div>
+                                </a>
+                                <a href="javascript:void(0)"
+                                    class="tw:flex justify-between gap-1 px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600">
+                                    <div class="flex items-center gap-3">
+                                        <div class="relative flex-shrink-0">
+                                            <img class="h-11 w-11 rounded-full"
+                                                src="{% static 'dashboard/images/notification/profile-6.png' %}" alt="Joseph image" />
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-semibold mb-1 text-sm">Annette Black</h6>
+                                            <p class="mb-0 line-clamp-1 text-sm">
+                                                Invite you to prototyping
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="shrink-0">
+                                        <span class="text-sm text-neutral-500">23 Mins ago</span>
+                                    </div>
+                                </a>
+                                <a href="javascript:void(0)"
+                                    class="flex justify-between gap-1 px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="relative flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-600 dark:bg-primary-600/25">
+                                            DR
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-semibold mb-1 text-sm">Darlene Robertson</h6>
+                                            <p class="mb-0 line-clamp-1 text-sm">
+                                                Invite you to prototyping
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="shrink-0">
+                                        <span class="text-sm text-neutral-500">23 Mins ago</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="px-4 py-3 text-center">
+                                <a href="javascript:void(0)"
+                                    class="text-center font-semibold text-primary-600 hover:underline dark:text-primary-600">See
+                                    All Notification
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Notification End  -->
+
+                    <button data-dropdown-toggle="dropdownProfile" class="flex items-center justify-center rounded-full"
+                        type="button">
+                        <img src="{% static 'dashboard/images/user.png' %}" alt="image" class="object-fit-cover h-10 w-10 rounded-full" />
+                    </button>
+                    <div id="dropdownProfile"
+                        class="dropdown-menu-sm z-10 hidden rounded-lg bg-white p-3 shadow-lg dark:bg-neutral-700">
+                        <div
+                            class="mb-4 flex items-center justify-between gap-2 rounded-lg bg-primary-50 px-4 py-3 dark:bg-primary-600/25">
+                            <div>
+                                <h6 class="mb-0 text-lg font-semibold text-neutral-900">
+                                    Robiul Hasan
+                                </h6>
+                                <span class="text-neutral-500">Admin</span>
+                            </div>
+                            <button type="button" class="hover:text-danger-600">
+                                <iconify-icon icon="radix-icons:cross-1" class="icon text-xl"></iconify-icon>
+                            </button>
+                        </div>
+
+                        <div class="scroll-sm max-h-[400px] overflow-y-auto pe-2">
+                            <ul class="flex flex-col">
+                                <li>
+                                    <a class="flex items-center gap-4 px-0 py-2 text-black hover:text-primary-600"
+                                        href="view-profile.html">
+                                        <iconify-icon icon="solar:user-linear" class="icon text-xl"></iconify-icon>
+                                        My Profile</a>
+                                </li>
+
+                                <li>
+                                    <a class="flex items-center gap-4 px-0 py-2 text-black hover:text-primary-600"
+                                        href="company.html">
+                                        <iconify-icon icon="icon-park-outline:setting-two"
+                                            class="icon text-xl"></iconify-icon>
+                                        Setting</a>
+                                </li>
+                                <li>
+                                    <a class="flex items-center gap-4 px-0 py-2 text-black hover:text-danger-600"
+                                        href="javascript:void(0)">
+                                        <iconify-icon icon="lucide:power" class="icon text-xl"></iconify-icon>
+                                        Log Out</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="dashboard-main-body">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-6">
+            <h6 class="font-semibold mb-0 dark:text-white">Dashboard</h6>
+            <ul class="flex items-center gap-[6px]">
+                <li class="font-medium">
+                    <a href="{% url 'dashboard:dashboard' %}"
+                        class="flex items-center gap-2 text-neutral-600 hover:text-primary-600 dark:text-white dark:hover:text-primary-600">
+                        <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="text-neutral-600 dark:text-white">-</li>
+                <li class="text-neutral-600 font-medium dark:text-white">Home</li>
+            </ul>
+        </div>
+
+        
+        {% block content %}
+            
+        {% endblock content %}
+            
+
+    </div>
+    <footer class="d-footer">
+        <div class="flex items-center justify-between gap-3 flex-wrap">
+            <p class="mb-0 text-neutral-600">&copy; 2024 CT Black Pro. All Rights Reserved.</p>
+            <p class="mb-0">Made by <a href="https://wedodev.co.za"
+                    class="text-primary-600 dark:text-primary-600 hover:underline">WeDoDev</a></p>
+        </div>
+    </footer>
+</main>
+
+<!-- jQuery library js -->
+<script src="{% static 'dashboard/js/lib/jquery-3.7.1.min.js' %}"></script>
+<!-- Apex Chart js -->
+<script src="{% static 'dashboard/js/lib/apexcharts.min.js' %}"></script>
+<!-- Data Table js -->
+<script src="{% static 'dashboard/js/lib/simple-datatables.min.js' %}"></script>
+<!-- Iconify Font js -->
+<script src="{% static 'dashboard/js/lib/iconify-icon.min.js' %}"></script>
+<!-- jQuery UI js -->
+<script src="{% static 'dashboard/js/lib/jquery-ui.min.js' %}"></script>
+<!-- Vector Map js -->
+<script src="{% static 'dashboard/js/lib/jquery-jvectormap-2.0.5.min.js' %}"></script>
+<script src="{% static 'dashboard/js/lib/jquery-jvectormap-world-mill-en.js' %}"></script>
+<!-- Popup js -->
+<script src="{% static 'dashboard/js/lib/magnifc-popup.min.js' %}"></script>
+<!-- Slick Slider js -->
+<script src="{% static 'dashboard/js/lib/slick.min.js' %}"></script>
+<!-- prism js -->
+<script src="{% static 'dashboard/js/lib/prism.js' %}"></script>
+<!-- file upload js -->
+<script src="{% static 'dashboard/js/lib/file-upload.js' %}"></script>
+<!-- audio player -->
+<script src="{% static 'dashboard/js/lib/audioplayer.js' %}"></script>
+
+<script src="{% static 'dashboard/js/flowbite.min.js' %}"></script>
+<!-- main js -->
+<script src="{% static 'dashboard/js/app.js' %}"></script>
+
+<script src="{% static 'dashboard/js/homeOneChart.js' %}"></script>
+
+</body>
+
+</html>
