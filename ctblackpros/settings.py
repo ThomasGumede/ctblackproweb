@@ -9,10 +9,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-brx^g3f$ahjhpq9k#2zwy(5u6%un4lj(@-3u@&_x#^kg_%a7lw'
+SECRET_KEY = config('SECRET', 'django-insecure-brx^g3f$ahjhpq9k#2zwy(5u6%un4lj(@-3u@&_x#^kg_%a7lw') #'django-insecure-brx^g3f$ahjhpq9k#2zwy(5u6%un4lj(@-3u@&_x#^kg_%a7lw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # ALLOWED_HOSTS = []
 
@@ -206,7 +206,7 @@ EMAIL_HOST = 'smtp.ctblackpros.co.za'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'noreply@ctblackpros.co.za'
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD_3')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = 'noreply@ctblackpros.co.za'
 
 # Default primary key field type
