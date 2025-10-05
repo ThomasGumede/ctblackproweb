@@ -13,7 +13,7 @@
             <div class="header-info">
                 
                 {% if request.user.is_authenticated %}
-                    <div class="login-box p_relative pr_30 mr_30"><a href="{% url 'accounts:logout' %}">Member Logout</a></div>
+                    <div class="login-box p_relative pr_30 mr_30"><a href="{% url 'dashboard:dashboard' %}">Dashboard</a></div>
                 {% else %}
                     <div class="login-box p_relative pr_30 mr_30"><a href="{% url 'accounts:login' %}">Member Login</a></div>
                 {% endif %}
