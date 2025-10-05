@@ -7,8 +7,11 @@
     
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CT Black Pro - Admin Dashboard</title>
-    <link rel="icon" type="image/png" href="{% static 'dashboard/images/favicon.png' %}" sizes="16x16" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/site.webmanifest' %}">
     <!-- google fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap"
@@ -41,6 +44,15 @@
     <link rel="stylesheet" href="{% static 'dashboard/css/lib/audioplayer.css' %}" />
     <!-- main css -->
     <link rel="stylesheet" href="{% static 'dashboard/css/style_dashboard.css' %}" />
+
+    {% block seo %}
+        <title>CT Black Pro - Admin Dashboard</title>
+    {% endblock seo %}
+    
+    
+    {% block add_css %}
+    
+    {% endblock add_css %}
 </head>
 
 <body class="bg-neutral-100 dark:bg-neutral-800 dark:text-white"></body>
@@ -55,8 +67,8 @@
     </button>
     <div>
         <a href="{% url 'dashboard:dashboard' %}" class="sidebar-logo">
-            <img src="{% static 'dashboard/images/logo.png' %}" alt="ct black pro logo" class="light-logo">
-            <img src="{% static 'dashboard/images/logo-light.png' %}" alt="ct black pro logo" class="dark-logo">
+            <img src="{% static 'images/ct-logo.png' %}" alt="ct black pro logo" class="light-logo">
+            <img src="{% static 'images/ct-logo.png' %}" alt="ct black pro logo" class="dark-logo">
             <img src="{% static 'dashboard/images/logo-icon.png' %}" alt="ct black pro logo" class="logo-icon">
         </a>
     </div>
@@ -75,31 +87,31 @@
 
 
             <li>
-                <a href="users-list.html">
+                <a href="{% url 'dashboard:users' %}">
                     <iconify-icon icon="flowbite:users-group-outline" class="menu-icon"></iconify-icon>
                     <span>All Members</span>
                 </a>
             </li>
-            <li>
-                <a href="gallery.html">
+            <!-- <li>
+                <a href="">
                     <iconify-icon icon="solar:gallery-wide-linear" class="menu-icon"></iconify-icon>
                     <span>Gallery</span>
                 </a>
-            </li>
+            </li> -->
             <li>
-                <a href="users-list.html">
+                <a href="{% url 'dashboard:events' %}">
                     <iconify-icon icon="flowbite:users-group-outline" class="menu-icon"></iconify-icon>
                     <span>Events</span>
                 </a>
             </li>
             <li>
-                <a href="users-list.html">
+                <a href="{% url 'dashboard:documents' %}">
                     <iconify-icon icon="flowbite:users-group-outline" class="menu-icon"></iconify-icon>
                     <span>Documents</span>
                 </a>
             </li>
             <li>
-                <a href="calendar-main.html">
+                <a href="{% url 'dashboard:calendar' %}">
                     <iconify-icon icon="solar:calendar-outline" class="menu-icon"></iconify-icon>
                     <span>Calendar</span>
                 </a>
@@ -108,23 +120,18 @@
 
             <li class="sidebar-menu-group-title">Settings</li>
             <li>
-                <a href="view-profile.html">
+                <a href="{% url 'dashboard:profile-details' request.user.username %}">
                     <i class="ri-circle-fill circle-icon text-danger-600 w-auto"></i>
                     <span>Profile</span>
                 </a>
             </li>
             <li>
-                <a href="company.html">
+                <a href="{% url 'dashboard:company' %}">
                     <i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i>
                     <span>Company</span>
                 </a>
             </li>
-            <li>
-                <a href="terms-condition.html">
-                    <iconify-icon icon="octicon:info-24" class="menu-icon"></iconify-icon>
-                    <span>Terms & Conditions</span>
-                </a>
-            </li>
+            
         </ul>
     </div>
 </aside>
@@ -285,7 +292,7 @@
 
                     <button data-dropdown-toggle="dropdownProfile" class="flex items-center justify-center rounded-full"
                         type="button">
-                        <img src="{% static 'dashboard/images/user.png' %}" alt="image" class="object-fit-cover h-10 w-10 rounded-full" />
+                        <img src="{% if request.user.profile_image %}{{request.user.profile_image.url}}{% else %}{% static 'dashboard/images/user.png' %}{% endif %}" alt="image" class="object-fit-cover h-10 w-10 rounded-full" />
                     </button>
                     <div id="dropdownProfile"
                         class="dropdown-menu-sm z-10 hidden rounded-lg bg-white p-3 shadow-lg dark:bg-neutral-700">
@@ -293,9 +300,9 @@
                             class="mb-4 flex items-center justify-between gap-2 rounded-lg bg-primary-50 px-4 py-3 dark:bg-primary-600/25">
                             <div>
                                 <h6 class="mb-0 text-lg font-semibold text-neutral-900">
-                                    Robiul Hasan
+                                    {{request.user.get_full_name}}
                                 </h6>
-                                <span class="text-neutral-500">Admin</span>
+                                <span class="text-neutral-500">{{request.user.username}}</span>
                             </div>
                             <button type="button" class="hover:text-danger-600">
                                 <iconify-icon icon="radix-icons:cross-1" class="icon text-xl"></iconify-icon>
@@ -306,21 +313,21 @@
                             <ul class="flex flex-col">
                                 <li>
                                     <a class="flex items-center gap-4 px-0 py-2 text-black hover:text-primary-600"
-                                        href="view-profile.html">
+                                        href="{% url 'dashboard:profile-details' request.user.username %}">
                                         <iconify-icon icon="solar:user-linear" class="icon text-xl"></iconify-icon>
                                         My Profile</a>
                                 </li>
 
                                 <li>
                                     <a class="flex items-center gap-4 px-0 py-2 text-black hover:text-primary-600"
-                                        href="company.html">
+                                        href="{% url 'dashboard:company' %}">
                                         <iconify-icon icon="icon-park-outline:setting-two"
                                             class="icon text-xl"></iconify-icon>
                                         Setting</a>
                                 </li>
                                 <li>
                                     <a class="flex items-center gap-4 px-0 py-2 text-black hover:text-danger-600"
-                                        href="javascript:void(0)">
+                                        href="{% url 'accounts:logout' %}">
                                         <iconify-icon icon="lucide:power" class="icon text-xl"></iconify-icon>
                                         Log Out</a>
                                 </li>
@@ -349,7 +356,7 @@
             </ul>
         </div>
 
-        
+        {% include 'includes/dashboard/messages.html' %}
         {% block content %}
             
         {% endblock content %}
@@ -368,8 +375,6 @@
 <!-- jQuery library js -->
 <script src="{% static 'dashboard/js/lib/jquery-3.7.1.min.js' %}"></script>
 <!-- Apex Chart js -->
-<script src="{% static 'dashboard/js/lib/apexcharts.min.js' %}"></script>
-<!-- Data Table js -->
 <script src="{% static 'dashboard/js/lib/simple-datatables.min.js' %}"></script>
 <!-- Iconify Font js -->
 <script src="{% static 'dashboard/js/lib/iconify-icon.min.js' %}"></script>
@@ -384,8 +389,6 @@
 <script src="{% static 'dashboard/js/lib/slick.min.js' %}"></script>
 <!-- prism js -->
 <script src="{% static 'dashboard/js/lib/prism.js' %}"></script>
-<!-- file upload js -->
-<script src="{% static 'dashboard/js/lib/file-upload.js' %}"></script>
 <!-- audio player -->
 <script src="{% static 'dashboard/js/lib/audioplayer.js' %}"></script>
 
@@ -393,8 +396,12 @@
 <!-- main js -->
 <script src="{% static 'dashboard/js/app.js' %}"></script>
 
-<script src="{% static 'dashboard/js/homeOneChart.js' %}"></script>
 
+
+{% block scripts %}
+    
+{% endblock scripts %}
+    
 </body>
 
 </html>

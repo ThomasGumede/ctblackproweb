@@ -14,7 +14,31 @@ from accounts.utilities.validators import validate_fcbk_link, validate_in_link, 
 
 PHONE_VALIDATOR = verify_rsa_phone()
 
-class Account(AbstractUser):
+PROVINCES = [
+    ("kzn", "KwaZulu-Natal"),
+    ("mp", "Mpumalanga"),
+    ("nw", "North-West"),
+    ("fs", "Free-State"),
+    ("wc", "Western Cape"),
+    ("lp", "Limpopo"),
+    ("gp", "Gauteng"),
+    ("ec", "Eastern Cape"),
+    ("nc", "Northern Cape"),
+]
+
+class AbstractProfile(models.Model):
+    address = models.CharField(max_length=300, blank=True, null=True)
+
+    phone = models.CharField(help_text=_("Enter cellphone number"), max_length=15, validators=[PHONE_VALIDATOR], unique=True, null=True, blank=True)
+    facebook = models.URLField(validators=[validate_fcbk_link], blank=True, null=True)
+    twitter = models.URLField(validators=[validate_twitter_link], blank=True, null=True)
+    instagram = models.URLField(validators=[validate_insta_link], blank=True, null=True)
+    linkedIn = models.URLField(validators=[validate_in_link], blank=True, null=True)
+
+    class Meta:
+        abstract = True
+
+class Account(AbstractUser, AbstractProfile):
     profile_image = models.ImageField(help_text=_("Upload profile image"), upload_to=handle_profile_upload, null=True, blank=True)
     title = models.CharField(max_length=30, choices=TITLE_CHOICES, default=TITLE_CHOICES[0])
     maiden_name = models.CharField(help_text=_("Enter your maiden name"), max_length=300, blank=True, null=True)
@@ -73,7 +97,7 @@ class Company(AbstractCreate):
     def __str__(self):
         return self.title
     
-    class Meta:
+    class Meta: 
         verbose_name = 'About Company'
         verbose_name_plural = 'About Companys'
         

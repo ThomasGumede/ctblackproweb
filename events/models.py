@@ -49,9 +49,9 @@ class Event(AbstractCreate):
         start_local = timezone.localtime(self.start_date)
         end_local = timezone.localtime(self.end_date)
         if start_local.date() == end_local.date():
-            return f"{start_local.strftime('%a %d %b %Y')}, {start_local.strftime('%H:%M')} - {end_local.strftime('%H:%M')}"
+            return f"{start_local.strftime('%d %b %Y')}, {start_local.strftime('%H:%M')} - {end_local.strftime('%H:%M')}"
         else:
-            return f"{start_local.strftime('%a %d %b %Y, %H:%M')} - {end_local.strftime('%a %d %b %Y, %H:%M')}"
+            return f"{start_local.strftime('%d %b %Y, %H:%M')} - {end_local.strftime('%d %b %Y, %H:%M')}"
         
     def sales_days_left(self):
         date = self.end_date - timezone.now()

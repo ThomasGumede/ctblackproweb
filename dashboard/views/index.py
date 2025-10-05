@@ -4,5 +4,13 @@ from home.models import Blog
 from events.models import Event
 
 def dashboard(request):
-    users = Account.objects.all()
-    return render(request, "dashboard/index.html", {"users": users})
+    users = Account.objects.filter(is_active=True)
+    inusers = Account.objects.filter(is_active=False)
+    events = Event.objects.all()
+    
+    context = {
+        "users": users,
+        "inusers": inusers,
+        "events": events,
+    }
+    return render(request, "dashboard/index.html", context)

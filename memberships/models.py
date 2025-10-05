@@ -4,7 +4,7 @@ from memberships.utilities.handle_file import handle_file_upload
 from django.utils.translation import gettext as _
 from django.contrib.auth import get_user_model
 from django.template.defaultfilters import slugify
-
+from django.urls import reverse
 
 MFILE_TITLES = (
     ("Membership Joining Form", "Membership Joining Form"),
@@ -29,6 +29,9 @@ class MembershipFile(AbstractCreate):
     
     def __str__(self) -> str:
         return f"{self.title}"
+    
+    def get_absolute_url(self):
+        return reverse("memberships:download-files", kwargs={"file_slug": self.slug})
 
 class MembershipEmail(AbstractCreate):
     from_email = models.EmailField()

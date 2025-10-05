@@ -1,0 +1,98 @@
+{% extends '_dashboard.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="card h-full rounded-lg border-0">
+    <div class="card-body p-10">
+        <form method="post">
+            {% csrf_token %}
+            <div class="grid md:grid-cols-2 gap-x-5">
+                <div class="mb-5">
+                    <label for="name" class="text-sm font-semibold mb-2 block text-neutral-900 dark:text-white"> Title <span class="text-danger-600">*</span></label>
+                    <input type="text" class="form-control rounded-lg" id="name" value="{{company.title}}" placeholder="Enter Full Name">
+                </div>
+                <div class="mb-5">
+                    <label for="id_slogan" class="text-sm font-semibold mb-2 block text-neutral-900 dark:text-white">Slogan
+                        </label>
+                    <input type="text" class="form-control rounded-lg" name="slogan" id="id_slogan" value="{{company.slogan}}" placeholder="Enter email address">
+                </div>
+                <div class="mb-5">
+                    <label for="id_phone" class="text-sm font-semibold mb-2 block text-neutral-900 dark:text-white">Phone
+                        Number</label>
+                    <input type="tel" class="form-control rounded-lg" name="phone" id="id_phone" placeholder="Enter phone number">
+                </div>
+                <div class="mb-5">
+                    <label for="id_email" class="text-sm font-semibold mb-2 block text-neutral-900 dark:text-white">Email</label>
+                    <input type="email" class="form-control rounded-lg" id="id_email" name="email" placeholder="Enter email">
+                </div>
+                <div class="mb-5">
+                    <label for="Website" class="text-sm font-semibold mb-2 block text-neutral-900 dark:text-white">
+                        Website</label>
+                    <input type="url" class="form-control rounded-lg" id="Website" value="https://ctblackpros.co.za">
+                </div>
+                <div class="mb-5">
+                    <label for="id_operating_hours" class="text-sm font-semibold mb-2 block text-neutral-900 dark:text-white">
+                        Operating Hours</label>
+                    <input type="text" class="form-control rounded-lg" id="id_operating_hours" placeholder="Operating hours">
+                </div>
+                <div class="mb-5">
+                    <label for="id_address" class="text-sm font-semibold mb-2 block text-neutral-900 dark:text-white">
+                        Company Address</label>
+                    <input type="number" class="form-control rounded-lg" name="address" id="id_address"
+                        placeholder="e.g Cape Town, Western Cape, RSA">
+                </div>
+
+                <div class="mb-5">
+                    <label for="id_number_of_members" class="text-sm font-semibold mb-2 block text-neutral-900 dark:text-white">
+                        Number of members</label>
+                    <input type="number" class="form-control rounded-lg" name="number_of_members" id="id_number_of_members" placeholder="Number of members">
+                </div>
+                
+                <div class="mb-5">
+                    <label for="id_number_of_golf_holes" class="text-sm font-semibold mb-2 block text-neutral-900 dark:text-white">
+                        Number of golf holes</label>
+                    <input type="number" class="form-control rounded-lg" name="number_of_golf_holes" id="id_number_of_golf_holes" placeholder="Number of golf holes">
+                </div>
+                <div class="mb-5">
+                    <label for="id_number_of_golf_areas" class="text-sm font-semibold mb-2 block text-neutral-900 dark:text-white">
+                        Number of golf areas</label>
+                    <input type="number" class="form-control rounded-lg" name="number_of_golf_areas" id="Number of golf areas"
+                        placeholder="Operating hours">
+                </div>
+
+                
+                <div class="mb-5 col-span-2">
+                    <label for="id_small_description" class="form-label">Description</label>
+                    <textarea name="small_description" id="id_small_description" class="form-control" rows="4" cols="50" placeholder="Enter a description..."></textarea>
+                </div>
+                <div class="mb-5 col-span-2">
+                    <label for="id_vision" class="form-label">Club Vision</label>
+                    <textarea id="id_vision" name="vision" class="form-control" rows="4" cols="50" placeholder="Enter a vision..."></textarea>
+                </div>
+                <div class="mb-5 col-span-2">
+                    <label for="id_mission" class="form-label">Club Mission</label>
+                    <textarea id="id_mission" name="mission" class="form-control" rows="4" cols="50"
+                        placeholder="Enter a mission..."></textarea>
+                </div>
+                <div class="mb-5 col-span-2">
+                    <label for="id_club_profile" class="form-label">Club Profile </label>
+                    <input id="id_club_profile" class="border border-neutral-200 dark:border-neutral-600 w-full rounded-lg text-lg" name="club_profile" type="file">
+                </div>
+                <div class="col-span-2 flex items-center justify-center gap-3 mt-6">
+                    <button type="reset"
+                        class="border border-danger-600 hover:bg-danger-200 text-danger-600 text-base px-10 py-[11px] rounded-lg">
+                        Reset
+                    </button>
+                    <button type="submit"
+                        class="btn btn-primary border border-primary-600 text-base px-6 py-3 !rounded-lg">
+                        Save Change
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock content %}

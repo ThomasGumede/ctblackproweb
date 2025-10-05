@@ -171,6 +171,10 @@ class ClubFile(AbstractCreate):
     
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse("home:download-file", kwargs={"file_id": self.id})
+    
 
 @receiver(pre_delete, sender=Blog)
 def delete_Post_image_hook(sender, instance, using, **kwargs):

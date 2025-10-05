@@ -1,0 +1,388 @@
+{% extends '_dashboard.html' %}
+{% load static %}
+
+
+{% block seo %}
+    <title>CT Black Pro - @{{user.username}}</title>
+{% endblock seo %}
+
+
+{% block add_css %}
+    
+{% endblock add_css %}
+    
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+    <div class="col-span-12 lg:col-span-4">
+        <div
+            class="user-grid-card relative border border-neutral-200 dark:border-neutral-600 rounded-2xl overflow-hidden bg-white dark:bg-neutral-700 h-full">
+            <img src="{% static 'dashboard/images/user-grid/user-grid-bg1.png' %}" alt="" class="w-full object-fit-cover">
+            <div class="pb-6 ms-6 mb-6 me-6 -mt-[100px]">
+                <div class="text-center border-b border-neutral-200 dark:border-neutral-600">
+                    <img src="{% if user.profile_image %}{{user.profile_image.url}}{% else %}{% static 'dashboard/images/user-grid/user-grid-img13.png' %}{% endif %}" alt="{{user.get_full_name}}"
+                        class="border br-white border-width-2-px w-200-px h-[200px] rounded-full object-fit-cover mx-auto">
+                    <h6 class="mb-0 mt-4">{{user.get_full_name}}</h6>
+                    <span class="text-secondary-light mb-4">{{user.email}}</span>
+                </div>
+                <div class="mt-6">
+                    <h6 class="text-xl mb-4">Personal Info</h6>
+                    <ul>
+                        <li class="flex items-center gap-1 mb-3">
+                            <span class="w-[30%] text-sm font-semibold text-neutral-600 dark:text-neutral-200">Full
+                                Name</span>
+                            <span class="w-[70%] text-secondary-light font-medium text-sm">: {{user.get_full_name}}</span>
+                        </li>
+                        <li class="flex items-center gap-1 mb-3">
+                            <span class="w-[30%] text-sm font-semibold text-neutral-600 dark:text-neutral-200">
+                                Email</span>
+                            <span class="w-[70%] text-secondary-light font-medium text-sm">: {{user.email}}</span>
+                        </li>
+                        <li class="flex items-center gap-1 mb-3">
+                            <span class="w-[30%] text-sm font-semibold text-neutral-600 dark:text-neutral-200"> Phone
+                                Number</span>
+                            <span class="w-[70%] text-secondary-light font-medium text-sm">: {{user.phone}}</span>
+                        </li>
+                        <li class="flex items-center gap-1 mb-3">
+                            <span class="w-[30%] text-sm font-semibold text-neutral-600 dark:text-neutral-200">
+                                Join Date</span>
+                            <span class="w-[70%] text-secondary-light font-medium text-sm">: {{user.membership_start_date|date}}</span>
+                        </li>
+                        <li class="flex items-center gap-1 mb-3">
+                            <span class="w-[30%] text-sm font-semibold text-neutral-600 dark:text-neutral-200">
+                                Last Login</span>
+                            <span class="w-[70%] text-secondary-light font-medium text-sm">: {{user.last_login|date}}</span>
+                        </li>
+                        <li class="flex items-center gap-1 mb-3">
+                            <span class="w-[30%] text-sm font-semibold text-neutral-600 dark:text-neutral-200">
+                                Designation</span>
+                            <span class="w-[70%] text-secondary-light font-medium text-sm">: Front End Developer</span>
+                        </li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-span-12 lg:col-span-8">
+        <div class="card h-full border-0">
+            <div class="card-body p-6">
+
+                <ul class="tab-style-gradient flex flex-wrap text-sm font-medium text-center mb-5" id="default-tab"
+                    data-tabs-toggle="#default-tab-content" role="tablist">
+                    <li class="" role="presentation">
+                        <button
+                            class="py-2.5 px-4 border-t-2 font-semibold text-base inline-flex items-center gap-3 text-neutral-600"
+                            id="edit-profile-tab" data-tabs-target="#edit-profile" type="button" role="tab"
+                            aria-controls="edit-profile" aria-selected="false">
+                            Edit Profile
+                        </button>
+                    </li>
+                    <li class="" role="presentation">
+                        <button
+                            class="py-2.5 px-4 border-t-2 font-semibold text-base inline-flex items-center gap-3 text-neutral-600 hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                            id="change-password-tab" data-tabs-target="#change-password" type="button" role="tab"
+                            aria-controls="change-password" aria-selected="false">
+                            Change Password
+                        </button>
+                    </li>
+                    <li class="" role="presentation">
+                        <button
+                            class="py-2.5 px-4 border-t-2 font-semibold text-base inline-flex items-center gap-3 text-neutral-600 hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                            id="notification-password-tab" data-tabs-target="#notification-password" type="button"
+                            role="tab" aria-controls="notification-password" aria-selected="false">
+                            Events
+                        </button>
+                    </li>
+                </ul>
+
+                <div id="default-tab-content">
+                    <div class="hidden" id="edit-profile" role="tabpanel" aria-labelledby="edit-profile-tab">
+                        <h6 class="text-base text-neutral-600 dark:text-neutral-200 mb-4">Profile Image</h6>
+                        <!-- Upload Image Start -->
+                        <div class="mb-6 mt-4">
+                            <div class="avatar-upload">
+                                <div class="avatar-edit absolute bottom-0 end-0 me-6 mt-4 z-[1] cursor-pointer">
+                                    <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" hidden>
+                                    <label for="imageUpload"
+                                        class="w-8 h-8 flex justify-center items-center bg-primary-100 dark:bg-primary-600/25 text-primary-600 dark:text-primary-400 border border-primary-600 hover:bg-primary-100 text-lg rounded-full">
+                                        <iconify-icon icon="solar:camera-outline" class="icon"></iconify-icon>
+                                    </label>
+                                </div>
+                                <div class="avatar-preview">
+                                    <div data-image="{% if user.profile_image %}{{user.profile_image.url}}{% endif %}" id="imagePreview">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Upload Image End -->
+                        <form action="#">
+                            <div class="grid grid-cols-1 sm:grid-cols-12 gap-x-6">
+                                <div class="col-span-12 sm:col-span-6">
+                                    <div class="mb-5">
+                                        <label for="name"
+                                            class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">First
+                                            Name <span class="text-danger-600">*</span></label>
+                                        <input type="text" class="form-control rounded-lg" id="id_first_name"
+                                            placeholder="Enter Full Name" value="{{user.first_name}}">
+                                    </div>
+                                </div>
+                                <div class="col-span-12 sm:col-span-6">
+                                    <div class="mb-5">
+                                        <label for="depart" class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">Title
+                                            <span class="text-danger-600">*</span> </label>
+                                        <select class="form-control rounded-lg form-select" id="depart">
+                                            <option>Mr </option>
+                                            <option>Mrs </option>
+                                            <option>Ms</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-span-12 sm:col-span-6">
+                                    <div class="mb-5">
+                                        <label for="name" class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">Last
+                                            Name <span class="text-danger-600">*</span></label>
+                                        <input type="text" class="form-control rounded-lg" id="id_last_name" placeholder="Enter Full Name"
+                                            value="{{user.last_name}}">
+                                    </div>
+                                </div>
+                                <div class="col-span-12 sm:col-span-6">
+                                    <div class="mb-5">
+                                        <label for="name" class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">Maindane
+                                            Name <span class="text-danger-600">*</span></label>
+                                        <input type="text" class="form-control rounded-lg" id="id_maiden_name" placeholder="Enter Full Name"
+                                            value="{{user.maiden_name}}">
+                                    </div>
+                                </div>
+                                <div class="col-span-12 sm:col-span-6">
+                                    <div class="mb-5">
+                                        <label for="email"
+                                            class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">Email
+                                            <span class="text-danger-600">*</span></label>
+                                        <input type="email" class="form-control rounded-lg" id="email"
+                                            placeholder="Enter email address" value="{{user.email}}">
+                                    </div>
+                                </div>
+                                <div class="col-span-12 sm:col-span-6">
+                                    <div class="mb-5">
+                                        <label for="number"
+                                            class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">Phone</label>
+                                        <input type="email" class="form-control rounded-lg" id="number"
+                                            placeholder="Enter phone number" value="{{user.phone}}">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-span-12 sm:col-span-6">
+                                    <div class="mb-5">
+                                        <label for="desig"
+                                            class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">Designation
+                                            <span class="text-danger-600">*</span> </label>
+                                        <select class="form-control rounded-lg form-select" id="desig">
+                                            <option>Enter Designation Title </option>
+                                            <option>Enter Designation Title One </option>
+                                            <option>Enter Designation Title Two</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-span-12 sm:col-span-6">
+                                    <div class="mb-5">
+                                        <label for="Language"
+                                            class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">Language
+                                            <span class="text-danger-600">*</span> </label>
+                                        <select class="form-control rounded-lg form-select" id="Language">
+                                            <option> English</option>
+                                            <option> Bangla </option>
+                                            <option> Hindi</option>
+                                            <option> Arabic</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-span-12">
+                                    <div class="mb-5">
+                                        <label for="desc"
+                                            class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">Description</label>
+                                        <textarea name="#0" class="form-control rounded-lg" id="desc"
+                                            placeholder="Write description...">{{user.biography}}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            {% if user == request.user %}
+                            <div class="flex items-center justify-center gap-3">
+                                <button type="button"
+                                    class="border border-danger-600 bg-hover-danger-200 text-danger-600 text-base px-14 py-[11px] rounded-lg">
+                                    Cancel
+                                </button>
+                                <button type="button"
+                                    class="btn btn-primary border border-primary-600 text-base px-14 py-3 rounded-lg">
+                                    Save
+                                </button>
+                            </div>
+                            {% endif %}
+                        </form>
+                    </div>
+                    <div class="hidden" id="change-password" role="tabpanel" aria-labelledby="change-password-tab">
+                        <div class="mb-5">
+                            <label for="your-password"
+                                class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">New
+                                Password <span class="text-danger-600">*</span></label>
+                            <div class="relative">
+                                <input type="password" class="form-control rounded-lg" id="your-password"
+                                    placeholder="Enter New Password*">
+                                <span
+                                    class="toggle-password ri-eye-line cursor-pointer absolute end-0 top-1/2 -translate-y-1/2 me-4 text-secondary-light"
+                                    data-toggle="#your-password"></span>
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <label for="confirm-password"
+                                class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">Confirmed
+                                Password <span class="text-danger-600">*</span></label>
+                            <div class="relative">
+                                <input type="password" class="form-control rounded-lg" id="confirm-password"
+                                    placeholder="Confirm Password*">
+                                <span
+                                    class="toggle-password ri-eye-line cursor-pointer absolute end-0 top-1/2 -translate-y-1/2 me-4 text-secondary-light"
+                                    data-toggle="#confirm-password"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden" id="notification-password" role="tabpanel"
+                        aria-labelledby="notification-password-tab">
+                        <div class="table-responsive">
+                            <table class="table striped-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"
+                                            class="!bg-white dark:!bg-neutral-700 border-b border-neutral-200 dark:border-neutral-600">Items
+                                        </th>
+                                        <th scope="col"
+                                            class="!bg-white dark:!bg-neutral-700 border-b border-neutral-200 dark:border-neutral-600">Price
+                                        </th>
+                                        <th scope="col"
+                                            class="!bg-white dark:!bg-neutral-700 border-b border-neutral-200 dark:border-neutral-600">Discount
+                                        </th>
+                                        <th scope="col"
+                                            class="!bg-white dark:!bg-neutral-700 border-b border-neutral-200 dark:border-neutral-600">Sold</th>
+                                        <th scope="col"
+                                            class="!bg-white dark:!bg-neutral-700 border-b border-neutral-200 dark:border-neutral-600 text-center">
+                                            Total Orders</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="odd:bg-neutral-100 dark:odd:bg-neutral-600">
+                                        <td>
+                                            <div class="flex items-center">
+                                                <img src="assets/images/product/product-img1.png" alt="" class="shrink-0 me-3 rounded-lg me-3">
+                                                <div class="grow">
+                                                    <h6 class="text-base mb-0 font-normal">Blue t-shirt</h6>
+                                                    <span class="text-sm text-secondary-light font-normal">Fashion</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>$400.00</td>
+                                        <td>15%</td>
+                                        <td>300</td>
+                                        <td class="text-center">
+                                            <span
+                                                class="bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 px-8 py-1.5 rounded-full font-medium text-sm">70</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd:bg-neutral-100 dark:odd:bg-neutral-600">
+                                        <td>
+                                            <div class="flex items-center">
+                                                <img src="assets/images/product/product-img2.png" alt="" class="shrink-0 me-3 rounded-lg me-3">
+                                                <div class="grow">
+                                                    <h6 class="text-base mb-0 font-normal">Nike Air Shoe</h6>
+                                                    <span class="text-sm text-secondary-light font-normal">Fashion</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>$150.00</td>
+                                        <td>N/A</td>
+                                        <td>200</td>
+                                        <td class="text-center">
+                                            <span
+                                                class="bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 px-8 py-1.5 rounded-full font-medium text-sm">70</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd:bg-neutral-100 dark:odd:bg-neutral-600">
+                                        <td>
+                                            <div class="flex items-center">
+                                                <img src="assets/images/product/product-img3.png" alt="" class="shrink-0 me-3 rounded-lg me-3">
+                                                <div class="grow">
+                                                    <h6 class="text-base mb-0 font-normal">Woman Dresses</h6>
+                                                    <span class="text-sm text-secondary-light font-normal">Fashion</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>$300.00</td>
+                                        <td>$50.00</td>
+                                        <td>1400</td>
+                                        <td class="text-center">
+                                            <span
+                                                class="bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 px-8 py-1.5 rounded-full font-medium text-sm">70</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd:bg-neutral-100 dark:odd:bg-neutral-600">
+                                        <td>
+                                            <div class="flex items-center">
+                                                <img src="assets/images/product/product-img4.png" alt="" class="shrink-0 me-3 rounded-lg me-3">
+                                                <div class="grow">
+                                                    <h6 class="text-base mb-0 font-normal">Smart Watch</h6>
+                                                    <span class="text-sm text-secondary-light font-normal">Fashion</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>$400.00</td>
+                                        <td>$50.00</td>
+                                        <td>700</td>
+                                        <td class="text-center">
+                                            <span
+                                                class="bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 px-8 py-1.5 rounded-full font-medium text-sm">70</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd:bg-neutral-100 dark:odd:bg-neutral-600">
+                                        <td>
+                                            <div class="flex items-center">
+                                                <img src="assets/images/product/product-img5.png" alt="" class="shrink-0 me-3 rounded-lg me-3">
+                                                <div class="grow">
+                                                    <h6 class="text-base mb-0 font-normal">Hoodie Rose</h6>
+                                                    <span class="text-sm text-secondary-light font-normal">Fashion</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>$300.00</td>
+                                        <td>25%</td>
+                                        <td>400</td>
+                                        <td class="text-center">
+                                            <span
+                                                class="bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 px-8 py-1.5 rounded-full font-medium text-sm">70</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+    <script>
+        const imageDiv = document.getElementById("imagePreview");
+        const imageUrl = imageDiv.getAttribute("data-image");
+        console.log(imageUrl)
+        if (imageUrl) {
+                document.getElementById("imagePreview").style.backgroundImage = `url('${imageUrl}')`;
+            }else {
+               
+                document.getElementById("imagePreview").style.backgroundImage = "../images/user-grid/user-grid-img13.png";
+            }
+    </script>
+{% endblock scripts %}
+    

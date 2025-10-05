@@ -18,7 +18,7 @@
             </div>
             <p class="font-medium text-sm text-neutral-600 dark:text-white mt-3 mb-0 flex items-center gap-2">
                 <span class="inline-flex items-center gap-1 text-success-600 dark:text-success-400"><iconify-icon
-                        icon="bxs:up-arrow" class="text-xs"></iconify-icon> +4000</span>
+                        icon="bxs:up-arrow" class="text-xs"></iconify-icon> +0</span>
                 Last 30 days users
             </p>
         </div>
@@ -29,7 +29,7 @@
             <div class="flex flex-wrap items-center justify-between gap-3">
                 <div>
                     <p class="font-medium text-neutral-900 dark:text-white mb-1">Total Events</p>
-                    <h6 class="mb-0 dark:text-white">15,000</h6>
+                    <h6 class="mb-0 dark:text-white">{{events.count}}</h6>
                 </div>
                 <div class="w-[50px] h-[50px] bg-purple-600 rounded-full flex justify-center items-center">
                     <iconify-icon icon="fa-solid:award" class="text-white text-2xl mb-0"></iconify-icon>
@@ -37,7 +37,7 @@
             </div>
             <p class="font-medium text-sm text-neutral-600 dark:text-white mt-3 mb-0 flex items-center gap-2">
                 <span class="inline-flex items-center gap-1 text-danger-600 dark:text-danger-400"><iconify-icon
-                        icon="bxs:down-arrow" class="text-xs"></iconify-icon> -800</span>
+                        icon="bxs:down-arrow" class="text-xs"></iconify-icon> +0</span>
                 Last 30 days Events
             </p>
         </div>
@@ -47,8 +47,8 @@
         <div class="card-body p-5">
             <div class="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                    <p class="font-medium text-neutral-900 dark:text-white mb-1">Total Free Users</p>
-                    <h6 class="mb-0 dark:text-white">5,000</h6>
+                    <p class="font-medium text-neutral-900 dark:text-white mb-1">Total Inactive Members</p>
+                    <h6 class="mb-0 dark:text-white">{{inusers.count}}</h6>
                 </div>
                 <div class="w-[50px] h-[50px] bg-blue-600 rounded-full flex justify-center items-center">
                     <iconify-icon icon="fluent:people-20-filled" class="text-white text-2xl mb-0"></iconify-icon>
@@ -67,7 +67,7 @@
             <div class="flex flex-wrap items-center justify-between gap-3">
                 <div>
                     <p class="font-medium text-neutral-900 dark:text-white mb-1">Total Income</p>
-                    <h6 class="mb-0 dark:text-white">$42,000</h6>
+                    <h6 class="mb-0 dark:text-white">R42,000</h6>
                 </div>
                 <div class="w-[50px] h-[50px] bg-success-600 rounded-full flex justify-center items-center">
                     <iconify-icon icon="solar:wallet-bold" class="text-white text-2xl mb-0"></iconify-icon>
@@ -75,7 +75,7 @@
             </div>
             <p class="font-medium text-sm text-neutral-600 dark:text-white mt-3 mb-0 flex items-center gap-2">
                 <span class="inline-flex items-center gap-1 text-success-600 dark:text-success-400"><iconify-icon
-                        icon="bxs:up-arrow" class="text-xs"></iconify-icon> +$20,000</span>
+                        icon="bxs:up-arrow" class="text-xs"></iconify-icon> R20,000</span>
                 Last 30 days income
             </p>
         </div>
@@ -86,7 +86,7 @@
             <div class="flex flex-wrap items-center justify-between gap-3">
                 <div>
                     <p class="font-medium text-neutral-900 dark:text-white mb-1">Total Expense</p>
-                    <h6 class="mb-0 dark:text-white">$30,000</h6>
+                    <h6 class="mb-0 dark:text-white">R30,000</h6>
                 </div>
                 <div class="w-[50px] h-[50px] bg-red-600 rounded-full flex justify-center items-center">
                     <iconify-icon icon="fa6-solid:file-invoice-dollar" class="text-white text-2xl mb-0"></iconify-icon>
@@ -94,7 +94,7 @@
             </div>
             <p class="font-medium text-sm text-neutral-600 dark:text-white mt-3 mb-0 flex items-center gap-2">
                 <span class="inline-flex items-center gap-1 text-success-600 dark:text-success-400"><iconify-icon
-                        icon="bxs:up-arrow" class="text-xs"></iconify-icon> +$5,000</span>
+                        icon="bxs:up-arrow" class="text-xs"></iconify-icon> +R5,000</span>
                 Last 30 days expense
             </p>
         </div>
@@ -116,7 +116,7 @@
                                 id="registered-tab" data-tabs-target="#registered" type="button" role="tab"
                                 aria-controls="registered" aria-selected="false">
                                 Active Members
-                                <span class="text-white px-2 py-0.5 bg-neutral-600 rounded-full text-sm">20</span>
+                                <span class="text-white px-2 py-0.5 bg-neutral-600 rounded-full text-sm">{{users.count}}</span>
                             </button>
                         </li>
                         <li class="" role="presentation">
@@ -125,7 +125,7 @@
                                 id="subscribe-tab" data-tabs-target="#subscribe" type="button" role="tab"
                                 aria-controls="subscribe" aria-selected="false">
                                 Inactive Members
-                                <span class="text-white px-2 py-0.5 bg-neutral-600 rounded-full text-sm">20</span>
+                                <span class="text-white px-2 py-0.5 bg-neutral-600 rounded-full text-sm">{{inusers.count}}</span>
                             </button>
                         </li>
                     </ul>
@@ -139,106 +139,32 @@
                                     <tr>
                                         <th scope="col">Users </th>
                                         <th scope="col">Registered On</th>
-                                        <th scope="col">Plan</th>
+                                        <th scope="col">Username</th>
                                         <th scope="col" class="text-center">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for user in users %}
                                     <tr>
                                         <td>
                                             <div class="flex items-center">
-                                                <img src="{% static 'dashboard/images/users/user1.png' %}" alt=""
+                                                <img src="{% if user.profile_image %}{{user.profile_image.url}}{% else %}{% static 'dashboard/images/users/user1.png' %}{% endif %}" alt="{{user.username}}"
                                                     class="w-10 h-10 rounded-full shrink-0 me-2 overflow-hidden">
                                                 <div class="grow">
-                                                    <h6 class="text-base mb-0 font-medium">Dianne Russell</h6>
+                                                    <h6 class="text-base mb-0 font-medium">{{user.get_full_name}}</h6>
                                                     <span
-                                                        class="text-sm text-secondary-light font-medium">redaniel@gmail.com</span>
+                                                        class="text-sm text-secondary-light font-medium">{{user.email}}</span>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>27 Mar 2024</td>
-                                        <td>Free</td>
+                                        <td>{{user.created|date}}</td>
+                                        <td>{{user.username}}</td>
                                         <td class="text-center">
                                             <span
                                                 class="bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 px-6 py-1.5 rounded-full font-medium text-sm">Active</span>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="flex items-center">
-                                                <img src="{% static 'dashboard/images/users/user2.png' %}" alt=""
-                                                    class="w-10 h-10 rounded-full shrink-0 me-2 overflow-hidden">
-                                                <div class="grow">
-                                                    <h6 class="text-base mb-0 font-medium">Wade Warren</h6>
-                                                    <span
-                                                        class="text-sm text-secondary-light font-medium">xterris@gmail.com</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>27 Mar 2024</td>
-                                        <td>Basic</td>
-                                        <td class="text-center">
-                                            <span
-                                                class="bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 px-6 py-1.5 rounded-full font-medium text-sm">Active</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="flex items-center">
-                                                <img src="{% static 'dashboard/images/users/user3.png' %}" alt=""
-                                                    class="w-10 h-10 rounded-full shrink-0 me-2 overflow-hidden">
-                                                <div class="grow">
-                                                    <h6 class="text-base mb-0 font-medium">Albert Flores</h6>
-                                                    <span
-                                                        class="text-sm text-secondary-light font-medium">seannand@mail.ru</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>27 Mar 2024</td>
-                                        <td>Standard</td>
-                                        <td class="text-center">
-                                            <span
-                                                class="bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 px-6 py-1.5 rounded-full font-medium text-sm">Active</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="flex items-center">
-                                                <img src="{% static 'dashboard/images/users/user4.png' %}" alt=""
-                                                    class="w-10 h-10 rounded-full shrink-0 me-2 overflow-hidden">
-                                                <div class="grow">
-                                                    <h6 class="text-base mb-0 font-medium">Bessie Cooper </h6>
-                                                    <span
-                                                        class="text-sm text-secondary-light font-medium">igerrin@gmail.com</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>27 Mar 2024</td>
-                                        <td>Business</td>
-                                        <td class="text-center">
-                                            <span
-                                                class="bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 px-6 py-1.5 rounded-full font-medium text-sm">Active</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="flex items-center">
-                                                <img src="{% static 'dashboard/images/users/user5.png' %}" alt=""
-                                                    class="w-10 h-10 rounded-full shrink-0 me-2 overflow-hidden">
-                                                <div class="grow">
-                                                    <h6 class="text-base mb-0 font-medium">Arlene McCoy</h6>
-                                                    <span
-                                                        class="text-sm text-secondary-light font-medium">fellora@mail.ru</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>27 Mar 2024</td>
-                                        <td>Enterprise </td>
-                                        <td class="text-center">
-                                            <span
-                                                class="bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 px-6 py-1.5 rounded-full font-medium text-sm">Active</span>
-                                        </td>
-                                    </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -250,106 +176,31 @@
                                     <tr>
                                         <th scope="col">Users Name </th>
                                         <th scope="col">Registered On</th>
-                                        <th scope="col">Plan</th>
+                                        <th scope="col">Username</th>
                                         <th scope="col" class="text-center">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for user in inusers %}
                                     <tr>
                                         <td>
                                             <div class="flex items-center">
-                                                <img src="{% static 'dashboard/images/users/user1.png' %}" alt=""
+                                                <img src="{% if user.profile_image %}{{user.profile_image.url}}{% else %}{% static 'dashboard/images/users/user1.png' %}{% endif %}" alt="{{user.username}}"
                                                     class="w-10 h-10 rounded-full shrink-0 me-2 overflow-hidden">
                                                 <div class="grow">
-                                                    <h6 class="text-base mb-0 font-medium">Dianne Russell</h6>
-                                                    <span
-                                                        class="text-sm text-secondary-light font-medium">redaniel@gmail.com</span>
+                                                    <h6 class="text-base mb-0 font-medium">{{user.get_full_name}}</h6>
+                                                    <span class="text-sm text-secondary-light font-medium">{{user.email}}</span>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>27 Mar 2024</td>
-                                        <td>Free</td>
+                                        <td>{{user.created|date}}</td>
+                                        <td>{{user.username}}</td>
                                         <td class="text-center">
                                             <span
                                                 class="bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 px-6 py-1.5 rounded-full font-medium text-sm">Active</span>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="flex items-center">
-                                                <img src="{% static 'dashboard/images/users/user2.png' %}" alt=""
-                                                    class="w-10 h-10 rounded-full shrink-0 me-2 overflow-hidden">
-                                                <div class="grow">
-                                                    <h6 class="text-base mb-0 font-medium">Wade Warren</h6>
-                                                    <span
-                                                        class="text-sm text-secondary-light font-medium">xterris@gmail.com</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>27 Mar 2024</td>
-                                        <td>Basic</td>
-                                        <td class="text-center">
-                                            <span
-                                                class="bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 px-6 py-1.5 rounded-full font-medium text-sm">Active</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="flex items-center">
-                                                <img src="{% static 'dashboard/images/users/user3.png' %}" alt=""
-                                                    class="w-10 h-10 rounded-full shrink-0 me-2 overflow-hidden">
-                                                <div class="grow">
-                                                    <h6 class="text-base mb-0 font-medium">Albert Flores</h6>
-                                                    <span
-                                                        class="text-sm text-secondary-light font-medium">seannand@mail.ru</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>27 Mar 2024</td>
-                                        <td>Standard</td>
-                                        <td class="text-center">
-                                            <span
-                                                class="bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 px-6 py-1.5 rounded-full font-medium text-sm">Active</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="flex items-center">
-                                                <img src="{% static 'dashboard/images/users/user4.png' %}" alt=""
-                                                    class="w-10 h-10 rounded-full shrink-0 me-2 overflow-hidden">
-                                                <div class="grow">
-                                                    <h6 class="text-base mb-0 font-medium">Bessie Cooper </h6>
-                                                    <span
-                                                        class="text-sm text-secondary-light font-medium">igerrin@gmail.com</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>27 Mar 2024</td>
-                                        <td>Business</td>
-                                        <td class="text-center">
-                                            <span
-                                                class="bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 px-6 py-1.5 rounded-full font-medium text-sm">Active</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="flex items-center">
-                                                <img src="{% static 'dashboard/images/users/user5.png' %}" alt=""
-                                                    class="w-10 h-10 rounded-full shrink-0 me-2 overflow-hidden">
-                                                <div class="grow">
-                                                    <h6 class="text-base mb-0 font-medium">Arlene McCoy</h6>
-                                                    <span
-                                                        class="text-sm text-secondary-light font-medium">fellora@mail.ru</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>27 Mar 2024</td>
-                                        <td>Enterprise </td>
-                                        <td class="text-center">
-                                            <span
-                                                class="bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 px-6 py-1.5 rounded-full font-medium text-sm">Active</span>
-                                        </td>
-                                    </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
