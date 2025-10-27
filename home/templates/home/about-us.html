@@ -20,284 +20,372 @@
 
 {% block content %}
 <!-- page-title -->
-<section class="page-title centred pt_190 pb_190">
-    <div class="bg-layer" style="background-image: url(static/images/background/page-title.jpg);"></div>
-    <div class="auto-container">
-        <div class="content-box">
-            <h1>About CT Black Pro</h1>
-            <ul class="bread-crumb clearfix">
-                <li><a href="{% url 'home:index' %}">Home</a></li>
-                <li>About</li>
+<section class="page-title">
+    <!-- banner section -->
+    <div style="background-image: url(../../static/images/background/page-title.jpg);"
+        class="w-full bg-layer bg-no-repeat bg-cover bg-center relative z-0 after:w-full after:h-full after:absolute after:top-0 after:left-0  after:bg-opacity-30 after:-z-1">
+        <div class="container py-110px ">
+            <h1 class="text-2xl  sm:text-3xl md:text-26px lg:text-3xl xl:text-4xl font-bold text-white mb-15px">
+                <span class="leading-1.3 md:leading-1.3 lg:leading-1.3 xl:leading-1.3">About CT Black Pro
+                </span>
+            </h1>
+            <ul class="breadcrumb flex gap-30px items-center text-sm lg:text-base font-bold pt-4">
+                <li class="home relative leading-1.8 lg:leading-1.8">
+                    <a href="{% url 'home:index' %}"><i class="fas fa-home text-secondary-color"></i> Home</a>
+                </li>
+                <li class="leading-1.8 lg:leading-1.8 text-white">
+
+                    About Us
+
+                </li>
             </ul>
         </div>
     </div>
 </section>
 <!-- page-title end -->
 
-
-<!-- about-style-three -->
-<section class="about-style-three pt_150">
-    <div class="auto-container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 col-md-12 col-sm-12 image-column">
-                <div class="image_block_three">
-                    <div class="image-box pl_110 pr_80">
-                        <figure class="image"><img src="{% static 'images/resource/men-1.png' %}" alt=""></figure>
-                        <div class="experience-box">
-                            <div class="inner">
-                                <h2>20</h2>
-                                <span>Years of <br />expericence</span>
-                            </div>
-                        </div>
-                        <div class="image-shape">
-                            <div class="shape-1 z_1"></div>
-                            <div class="shape-2" style="background-image: url(static/images/shape/shape-1.png);"></div>
-                        </div>
-                    </div>
+<section>
+    <div class="container pt-30 pb-[105px]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 lg:gap-x-30px">
+            <!-- details -->
+            <div class="lg:col-start-1 lg:col-span-8">
+                <!-- thumbnail -->
+                <div class="mb-10">
+                    <img src="{% static 'images/resource/about-4.jpg' %}" alt="About Ct Black Pros" class="w-full">
                 </div>
-            </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                <div class="content_block_four">
-                    <div class="content-box">
-                        <div class="sec-title mb_25">
-                            <span class="sub-title">About CT Black Pro</span>
-                            <h2>Immerse yourself in a luxury golf outing</h2>
+
+                <!-- description -->
+                <div>
+                    <h4 class="text-2xl md:text-26px lg:text-3xl xl:text-4xl font-bold text-heading-color mb-15px">
+                        <span class="leading-1.3 lg:leading-1.3 xl:leading-1.3">Immerse yourself in a luxury golf outing</span>
+                    </h4>
+                    <p class="text-sm">
+                        <span class="leading-1.8"><i class="flaticon-pin text-secondary-color"></i> Cape Town, WC, RSA</span>
+                    </p>
+                    <!-- Description -->
+                    <h4
+                        class="text-22px font-semibold leading-1.3 pl-10px border-l-2 border-secondary-color text-heading-color my-30px">
+                        About Us
+                    </h4>
+                    <p class="text-sm lg:text-base my-5">
+                        <span class="leading-1.8 lg:leading-1.8">Founded in Cape Town in 2010, CT Black Pro Golf Club stands as a proud symbol of excellence, inclusion, and community in
+                        South African golf. Dedicated to nurturing talent and celebrating diversity, the club offers a welcoming space for
+                        golfers of all backgrounds to refine their skills, connect through sport, and champion the spirit of unity on the
+                        fairway. With a commitment to professionalism and empowerment, CT Black Pro continues to shape the future of golf—one
+                        swing at a time.</span>
+                    </p>
+                
+                    <p class="text-sm lg:text-base my-5">
+                        <span class="leading-1.8 lg:leading-1.8">We provide a dynamic platform for Black golfers to thrive, connect, and lead, while fostering a culture of pride,
+                        professionalism, and purpose on and off the course.</span>
+                    </p>
+                    <!-- Property Detail -->
+                    <h4
+                        class="text-22px font-semibold leading-1.3 pl-10px border-l-2 border-secondary-color text-heading-color my-30px">
+                        Vision And Mission
+                    </h4>
+                    <p class="text-sm lg:text-base my-5">
+                        <span class="leading-1.8 lg:leading-1.8">To advance Black excellence in golf by creating inclusive opportunities, nurturing talent, and building a legacy of
+                        pride, professionalism, and community leadership.</span>
+                    </p>
+                    
+                    <h4
+                        class="text-22px font-semibold leading-1.3 pl-10px border-l-2 border-secondary-color text-heading-color my-30px">
+                        From Our Gallery
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-30px mb-60px">
+                        <div class="md:cols-start-1 md:col-span-1 leading-1">
+                            <a href="{% static 'images/resource/about-4.jpg' %}" class="glightbox w-full leading-1 md:h-full">
+                                <img src="{% static 'images/resource/about-4.jpg' %}" alt="" class="w-full md:h-full">
+                            </a>
                         </div>
-                        <div class="tabs-box">
-                            <div class="tab-btn-box">
-                                <ul class="tab-btns tab-buttons">
-                                    <li class="tab-btn active-btn" data-tab="#tab-1">About</li>
-                                    <li class="tab-btn" data-tab="#tab-2">Mission</li>
-                                    
-                                </ul>
-                            </div>
-                            <div class="tabs-content">
-                                <div class="tab active-tab" id="tab-1">
-                                    <div class="inner-box">
-                                        <p>Established in Cape Town in 2010, CT Black Pro Golf Club is more than a sporting institution—it's a vibrant community
-                                        dedicated to excellence, empowerment, and transformation through golf.</p>
-                                        <p>We provide a dynamic platform for Black golfers to thrive, connect, and lead, while fostering a culture of pride,
-                                        professionalism, and purpose on and off the course.
-                                        </p>
-                                        <ul class="list-style-one pb_25 clearfix">
-                                            <li><i class="fas fa-check-circle"></i>Inclusive Environment</li>
-                                            <li><i class="fas fa-check-circle"></i>Professional Development</li>
-                                            <li><i class="fas fa-check-circle"></i>Community Impact</li>
-                                            <li><i class="fas fa-check-circle"></i>Legacy Building</li>
-                                        </ul>
-                                        
-                                    </div>
-                                </div>
-                                <div class="tab" id="tab-2">
-                                    <div class="inner-box">
-                                        <p>To advance Black excellence in golf by creating inclusive opportunities, nurturing talent, and building a legacy of
-                                        pride, professionalism, and community leadership.</p>
-                                        
-                                    </div>
-                                </div>
-                                
-                                
-                            </div>
+                
+                        <div class="md:cols-start-1 md:col-span-1 md:row-start-2 md:row-sapn-1 leading-1">
+                            <a href="{% static 'images/resource/about-3.jpg' %}" class="glightbox w-full leading-1">
+                                <img src="{% static 'images/resource/about-3.jpg' %}" alt="" class="w-full">
+                            </a>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- about-style-three end -->
-
-
-<!-- funfact-style-two -->
-<section class="funfact-style-two pt_140 pb_100">
-    <div class="auto-container">
-        <div class="inner-container">
-            <div class="funfact-block-two">
-                <div class="inner-box">
-                    <div class="count-outer">
-                        <span class="odometer" data-count="20">00</span><span class="symble">+</span>
-                    </div>
-                    <p>Tatal Golf Holes</p>
-                </div>
-            </div>
-            <div class="funfact-block-two">
-                <div class="inner-box">
-                    <div class="count-outer">
-                        <span class="odometer" data-count="5">00</span><span class="symble">+</span>
-                    </div>
-                    <p>Total Pro Members</p>
-                </div>
-            </div>
-            <div class="funfact-block-two">
-                <div class="inner-box">
-                    <div class="count-outer">
-                        <span class="odometer" data-count="120">00</span><span class="symble">+</span>
-                    </div>
-                    <p>Total Golf Areas</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- funfact-style-two end -->
-
-
-
-
-
-<!-- chooseus-section -->
-<section class="chooseus-section pt_150 pb_140 bg-color-1">
-    <div class="auto-container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 col-md-12 col-sm-12 image-column">
-                <div class="image-box mr_30">
-                    <div class="image-shape">
-                        <div class="shape-1 z_1"></div>
-                        <div class="shape-2" style="background-image: url(static/images/shape/shape-1.png);"></div>
-                    </div>
-                    <figure class="image"><img src="{% static 'images/resource/chooseus.png' %}" alt=""></figure>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                <div class="content_block_two">
-                    <div class="content-box ml_30 mr_60">
-                        <div class="sec-title mb_30">
-                            <span class="sub-title">Why choose us</span>
-                            <h2>“Redefining the Game. Empowering the Player.</h2>
-                        </div>
-                        <div class="text-box mb_30">
-                            <p>At CT Black Pro Golf Club, we believe golf is more than a sport—it's a platform for transformation. Our club offers a
-                            unique blend of professional growth, cultural pride, and community connection, tailored for those who aspire to lead
-                            both on and off the course. With expert mentorship, inclusive values, and a legacy-driven spirit, we're not just shaping
-                            golfers—we're shaping changemakers.</p>
-                        </div>
-                        <div class="inner-box">
-                            <div class="single-item">
-                                <div class="icon-box"><i class="far fa-users"></i></div>
-                                <h2>Inclusive Community</h2>
-                                <p>Connect with golfers from diverse backgrounds in a space that celebrates unity and pride.</p>
-                            </div>
-                            <div class="single-item">
-                                <div class="icon-box"><i class="icon-16"></i></div>
-                                <h2>Exclusive Member Offers</h2>
-                                <p>Enjoy special discounts on event tickets, tee times, and more—just for being part of the club.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- chooseus-section end -->
-
-<section class="contact-section pt_150">
-    <div class="auto-container">
-        <div class="row clearfix">
-            <div class="col-lg-6 col-md-12 col-sm-12 image-column">
-                <div class="image_block_four">
-                    <div class="image-box mr_30 pr_110">
-                        <figure class="image image-hov-one"><img src="{% static 'images/resource/contact-1.jpg' %}"
-                                alt="">
-                        </figure>
-                        <div class="link-box">
-                            <a href="https://www.google.com/maps/@23.1753974,89.6128769,13z?entry=ttu" target="_blank">
-                                <img src="{% static 'images/icons/icon-1.png' %}" alt="">
-                                <span>Locate Our <br />Address</span>
+                        <div class="md:cols-start-2 md:col-span-1 md:row-start-1 md:row-span-2 leading-1">
+                            <a href="{% static 'images/resource/contact-1.jpg' %}" class="glightbox w-full leading-1 md:h-full" data-width="56vh">
+                                <img src="{% static 'images/resource/contact-1.jpg' %}" alt="" class="w-full md:h-full">
                             </a>
                         </div>
                     </div>
+                
+                    <!-- Amenities -->
+                    <h4
+                        class="text-22px font-semibold leading-1.3 pl-10px border-l-2 border-secondary-color text-heading-color my-30px">
+                        Why Choose Us?
+                    </h4>
+                    <p class="text-sm lg:text-base my-5">
+                        <span class="leading-1.8 lg:leading-1.8">At CT Black Pro Golf Club, we believe golf is more than a sport—it's a platform for transformation. Our club offers a
+                        unique blend of professional growth, cultural pride, and community connection, tailored for those who aspire to lead
+                        both on and off the course. With expert mentorship, inclusive values, and a legacy-driven spirit, we're not just shaping
+                        golfers—we're shaping changemakers.</span>
+                    </p>
+                    
+                    <!-- Location -->
+                    <h4
+                        class="text-22px font-semibold leading-1.3 pl-10px border-l-2 border-secondary-color text-heading-color my-30px">
+                        Our Location
+                    </h4>
+                    <div class="h-360px mb-60px">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9334.271551495209!2d-73.97198251485975!3d40.668170674982946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0456b5a2e7%3A0x68bdf865dda0b669!2sBrooklyn%20Botanic%20Garden%20Shop!5e0!3m2!1sen!2sbd!4v1590597267201!5m2!1sen!2sbd"
+                            style="height:100%;width:100%;border:0px;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                
+                    <!-- Floor Plans -->
+                    
                 </div>
             </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                <div class="content_block_six">
-                    <div class="content-box ml_30">
-                        <div class="sec-title mb_60">
-                            <span class="sub-title">Join Club</span>
-                            <h2>Love To Hear From You Get In Touch!</h2>
-                        </div>
-                        <div class="form-inner">
-                            <form method="post" action="{% url 'memberships:membership' %}">
-                                {% csrf_token %}
-                                <div class="row clearfix">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                        <input type="text" name="name" placeholder="Your name" required>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                        <input type="email" name="from_email" placeholder="Email" required>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                        <input type="text" name="phone" placeholder="Phone" required>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                        <textarea name="message" placeholder="Message"></textarea>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                        <button type="submit" class="theme-btn btn-one">Send us message</button>
+            <!-- sidebar -->
+            <div class="lg:col-start-9 lg:col-span-4 pt-60px lg:pt-0">
+                
+                <!-- Follow Us -->
+                <div class="px-5 pt-35px pb-10 xl:pl-35px xl:pr-30px mb-10 border-2 border-border-color-11">
+                    <h4 class="text-lg font-semibold text-heading-color mb-25px">
+                        <span class="leading-1.3 pl-10px border-l-2 border-secondary-color">Follow Us</span>
+                    </h4>
+                    <ul class="flex gap-x-15px pt-4">
+                        <li>
+                            <a href="https://www.facebook.com/"
+                                class="text-sm lg:text-base w-10 h-10 bg-section-bg-1 hover:bg-secondary-color hover:text-white flex items-center justify-center"><i
+                                    class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://x.com/"
+                                class="text-sm lg:text-base w-10 h-10 bg-section-bg-1 hover:bg-secondary-color hover:text-white flex items-center justify-center"><i
+                                    class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/"
+                                class="text-sm lg:text-base w-10 h-10 bg-section-bg-1 hover:bg-secondary-color hover:text-white flex items-center justify-center"><i
+                                    class="fab fa-linkedin"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/"
+                                class="text-sm lg:text-base w-10 h-10 bg-section-bg-1 hover:bg-secondary-color hover:text-white flex items-center justify-center"><i
+                                    class="fab fa-instagram"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="px-5 xl:px-35px pt-35px pb-10 xl:py-50px bg-primary-color relative z-0">
+                    <h4 class="text-sm md:text-15px lg:text-base text-secondary-color font-bold mb-5px">
+                        <span class="leading-1.3 md:leading-1.3 lg:leading-1.3">// Club Public Documents</span>
+                    </h4>
+                    <h4 class="text-4xl text-white font-bold mb-25px">
+                        <span class="leading-1.3">Download</span>
+                    </h4>
+                    <form class="h-[70px] w-full leading-[70px] flex text-white">
+                        <input type="text" placeholder="Search"
+                            class="text-sm font-semibold h-full flex-grow pl-25px bg-primary-color-3 focus:outline-none outline-none">
+                        <button type="submit"
+                            class="text-sm lg:text-base h-full w-[68px] flex items-center justify-center bg-secondary-color hover:bg-secondary-color-2 flex-shrink-0">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    <div class="text-[120px] text-color-1 absolute right-5 top-[15%] -z-1 opacity-10 leading-1">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                </div>
+                
+                <!-- Top Rated Product -->
+                <div class="px-5 pt-35px pb-10 xl:pl-35px xl:pr-30px mb-10 border-2 border-border-color-11">
+                    <h4 class="text-lg font-semibold text-heading-color mb-25px">
+                        <span class="leading-1.3 pl-10px border-l-2 border-secondary-color">Our Latest Events & Bookings</span>
+                    </h4>
+                    <ul>
+                        <li class="pb-25px mb-25px border-b border-white-4">
+                            <div class="flex gap-x-15px xl:gap-x-5">
+                                <div class="w-70px xl:w-90px flex-shrink-0">
+                                    <a href="product-details.html"><img src="assets/img/product/1.png" alt=""></a>
+                                </div>
+            
+                                <div>
+                                    <ul class="text-10px text-ratings flex items-center mb-5px leading-1">
+                                        <li>
+                                            <a href="#"><i class="fas fa-star"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-star"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-star"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-star"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-star"></i></a>
+                                        </li>
+                                    </ul>
+            
+                                    <h6 class="text-sm font-medium mb-1">
+                                        <a href="product-details.html" class="leading-1.3">Luxury House In Greenville</a>
+                                    </h6>
+                                    <p class="text-sm font-bold text-secondary-color">
+                                        <span class="leading-1.8">$30,000.00 </span>
+                                        <del class="text-11px opacity-60 ml-1">$35,000.00</del>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="pb-25px mb-25px border-b border-white-4">
+                            <div class="flex gap-x-15px xl:gap-x-5">
+                                <div class="w-70px xl:w-90px flex-shrink-0">
+                                    <a href="product-details.html"><img src="assets/img/product/2.png" alt=""></a>
+                                </div>
+            
+                                <div>
+                                    <ul class="text-10px text-ratings flex items-center mb-5px leading-1">
+                                        <li>
+                                            <a href="#"><i class="fas fa-star"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-star"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-star"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-star"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-star"></i></a>
+                                        </li>
+                                    </ul>
+            
+                                    <h6 class="text-sm font-medium mb-1">
+                                        <a href="product-details.html" class="leading-1.3">Apartment with Subunits</a>
+                                    </h6>
+                                    <p class="text-sm font-bold text-secondary-color">
+                                        <span class="leading-1.8">$30,000.00 </span>
+                                        <del class="text-11px opacity-60 ml-1">$35,000.00</del>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex gap-x-15px xl:gap-x-5">
+                                <div class="w-70px xl:w-90px flex-shrink-0">
+                                    <a href="product-details.html"><img src="assets/img/product/3.png" alt=""></a>
+                                </div>
+            
+                                <div>
+                                    <ul class="text-10px text-ratings flex items-center mb-5px leading-1">
+                                        <li>
+                                            <a href="#"><i class="fas fa-star"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-star"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-star"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-star-half-alt"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="far fa-star"></i></a>
+                                        </li>
+                                    </ul>
+            
+                                    <h6 class="text-sm font-medium mb-1">
+                                        <a href="product-details.html" class="leading-1.3">3 Rooms Manhattan</a>
+                                    </h6>
+                                    <p class="text-sm font-bold text-secondary-color">
+                                        <span class="leading-1.8">$30,000.00 </span>
+                                        <del class="text-11px opacity-60 ml-1">$35,000.00</del>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Top Categories-->
+                <!-- Leatest Blogs -->
+                <div class="px-5 pt-35px pb-10 xl:pl-35px xl:pr-30px mb-10 border-2 border-border-color-11">
+                    <h4 class="text-lg font-semibold text-heading-color mb-25px">
+                        <span class="leading-1.3 pl-10px border-l-2 border-secondary-color">Leatest Blogs</span>
+                    </h4>
+                    <ul>
+                        <li class="pb-5 mb-30px border-b border-border-color-1">
+                            <div class="flex gap-x-5">
+                                <div class="w-20 flex-shrink-0">
+                                    <a href="blog-details.html"><img src="assets/img/team/5.jpg" alt=""></a>
+                                </div>
+            
+                                <div>
+                                    <h6 class="text-sm font-medium mb-5px">
+                                        <a href="blog-details.html" class="leading-1.3">Lorem ipsum dolor sit cing elit, sed do.</a>
+                                    </h6>
+                                    <div class="text-xs md:text-sm font-semibold text-secondary-color">
+                                        <a href="#" class="leading-1.8 md:leading-1.8"><i class="far fa-calendar-alt"></i> June 22,
+                                            2024</a>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>>
-
-{% if members.count > 0 %}
-<!-- team-section -->
-<section class="team-section pt_140 pb_120">
-    <div class="auto-container">
-        <div class="sec-title centred mb_55">
-            <span class="sub-title">Our Team</span>
-            <h2>We provide top-tier Team <br />to teach you golf</h2>
-        </div>
-        <div class="row clearfix">
+                            </div>
+                        </li>
+                        <li class="pb-5 mb-30px border-b border-border-color-1">
+                            <div class="flex gap-x-5">
+                                <div class="w-20 flex-shrink-0">
+                                    <a href="blog-details.html"><img src="assets/img/team/6.jpg" alt=""></a>
+                                </div>
             
-            {% for member in members %}
-                
+                                <div>
+                                    <h6 class="text-sm font-medium mb-5px">
+                                        <a href="blog-details.html" class="leading-1.3">Lorem ipsum dolor sit cing elit, sed do.</a>
+                                    </h6>
+                                    <div class="text-xs md:text-sm font-semibold text-secondary-color">
+                                        <a href="#" class="leading-1.8 md:leading-1.8"><i class="far fa-calendar-alt"></i> June 22,
+                                            2024</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="pb-5 mb-30px border-b border-border-color-1">
+                            <div class="flex gap-x-5">
+                                <div class="w-20 flex-shrink-0">
+                                    <a href="blog-details.html"><img src="assets/img/team/7.jpg" alt=""></a>
+                                </div>
             
-                
-            <div class="col-lg-3 col-md-6 col-sm-12 team-block">
-                <div class="team-block-one">
-                    <div class="inner-box">
-                        <figure class="image-box tw:h-64 tw:w-64 tw:overflow-hidden tw:object-center tw:object-cover"><img src="{% if member.image %}{{member.image.url}}{% else %}{% static 'images/no-profile-image.png' %}{% endif %}" alt="{{member.full_names}}"></figure>
-                        <div class="lower-content">
-                            <h3><a>{{member.full_names}}</a></h3>
-                            <span class="designation">{{member.role}}</span>
-                            <ul class="social-links clearfix">
-                                <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                                <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                                <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
+                                <div>
+                                    <h6 class="text-sm font-medium mb-5px">
+                                        <a href="blog-details.html" class="leading-1.3">Lorem ipsum dolor sit cing elit, sed do.</a>
+                                    </h6>
+                                    <div class="text-xs md:text-sm font-semibold text-secondary-color">
+                                        <a href="#" class="leading-1.8 md:leading-1.8"><i class="far fa-calendar-alt"></i> June 22,
+                                            2024</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex gap-x-5">
+                                <div class="w-20 flex-shrink-0">
+                                    <a href="blog-details.html"><img src="assets/img/team/8.jpg" alt=""></a>
+                                </div>
+            
+                                <div>
+                                    <h6 class="text-sm font-medium mb-5px">
+                                        <a href="blog-details.html" class="leading-1.3">Lorem ipsum dolor sit cing elit, sed do.</a>
+                                    </h6>
+                                    <div class="text-xs md:text-sm font-semibold text-secondary-color">
+                                        <a href="#" class="leading-1.8 md:leading-1.8"><i class="far fa-calendar-alt"></i> June 22,
+                                            2024</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-<!-- team-section end -->
-{% endif %}
-
-<!-- cta-section -->
-<section class="cta-section alternat-2 centred bg-color-2 pt_140 pb_150 mb_150">
-    <div class="pattern-layer" style="background-image: url(static/images/shape/shape-14.png);"></div>
-    <div class="auto-container">
-        <div class="content-box">
-            <div class="sec-title light mb_40">
-                <span class="sub-title">our Facilities</span>
-                <h2>Take Your Game To The <br />Next Level.</h2>
-            </div>
-            <div class="btn-box">
-                <a href="{% url 'memberships:membership' %}" class="theme-btn btn-one">become a member</a>
-                <a href="{% url 'home:contact' %}" class="theme-btn btn-two">Contact Us</a>
+                
+                
             </div>
         </div>
     </div>
 </section>
+
 <!-- cta-section end -->
 {% endblock content %}

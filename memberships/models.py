@@ -5,6 +5,7 @@ from django.utils.translation import gettext as _
 from django.contrib.auth import get_user_model
 from django.template.defaultfilters import slugify
 from django.urls import reverse
+from django.conf import settings
 
 MFILE_TITLES = (
     ("Membership Joining Form", "Membership Joining Form"),
@@ -12,6 +13,32 @@ MFILE_TITLES = (
     ("Other", "Other"),
 
 )
+
+class StatusChoices(models.TextChoices):
+    NOT_APPROVED = ("NOT APPROVED", "Not approved")
+    PENDING = ("PENDING", "Pending")
+    APPROVED = ("APPROVED", "Approved")
+    COMPLETED = ("Awaiting Payment", "Awaiting Payment")
+    BLOCKED = ("Blocked", "Blocked")
+
+class MembershipApplication(AbstractCreate):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="membership_application"
+    )
+    application_number = models.CharField(max_length=250, unique=True, db_index=True)
+    status = models.CharField(help_text="Application Status", max_length=50, choices=StatusChoices.choices, default=StatusChoices.NOT_APPROVED)
+    date_submitted = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Application from {self.user.get_full_name()}"
+
+    # class Meta:
+    #     permissions = [
+    #         ("approve_membership", "Can approve membership applications"),
+    #     ]
+
 
 class MembershipFile(AbstractCreate):
     title = models.CharField(max_length=250, unique=True, help_text=_("Choose a title for this file"), choices=MFILE_TITLES)

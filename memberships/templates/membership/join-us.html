@@ -1,132 +1,128 @@
-{% extends '_base.html' %}
+{% extends '_application.html' %}
 {% load static %}
+    
+{% block app_title %}
+Join Us
+{% endblock app_title %}
 
-
-{% block seo %}
-<meta name="description"
-    content="Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro Golf Club">
-<meta name="keywords" content="">
-<meta name="author" content="CT Black Pro">
-    <link rel="canonical" href="{{ request.build_absolute_uri }}" />
-    <meta property="og:title" content="CT Black Pro - Join Us" />
-    <meta property="og:description"
-        content="Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro Golf Club" />
-    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
-    <meta property="og:type" content="website" />
-    
-    <meta property="og:image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
-    <meta name="twitter:card" content="summary_large_image">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="{{ request.build_absolute_uri }}">
-    <meta name="twitter:title" content="CT Black Pro - Join Us">
-    <meta name="twitter:description"
-        content="Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro Golf Club">
-    <meta name="twitter:image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
-    <meta name="twitter:creator" content="@BBGIOfficial">
-    
-    <!-- Google+ / Schema.org -->
-    <meta itemprop="name" content="CT Black Pro - Join Us">
-    <meta itemprop="description"
-        content="Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro Golf Club">
-    <meta itemprop="image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
-    
-    <!-- Additional Meta Tags -->
-    <meta property="og:locale" content="en_ZA">
-    <meta property="og:site_name" content="CT Black Pro - Join Us">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-{% endblock seo %}
-    
 
 {% block addcss %}
-<link href="{% static 'css/module-css/contact.css' %}" rel="stylesheet">
+    <style>
+        .sec-title.centred .sub-title {
+            padding-left: 15px;
+        }
+        .sec-title .sub-title
+        {
+            position: relative;
+            display: inline-block;
+            font-size: 18px;
+            line-height: 25px;
+            font-weight: 500;
+            text-transform: uppercase;
+            padding-right: 15px;
+            margin-bottom: 11px;
+        }
+
+        .sec-title .sub-title:before
+
+        {
+            position: absolute;
+            content: '';
+            background-color: #77A96A;
+            width: 5px;
+            height: 5px;
+            top: 8px;
+            right: 0px;
+            border-radius: 50%;
+        }
+
+        .sec-title.centred .sub-title:after {
+            position: absolute;
+            content: '';
+            background-color: #77A96A;
+            width: 5px;
+            height: 5px;
+            top: 8px;
+            left: 0px;
+            border-radius: 50%;
+        }
+
+        .sec-title h2 {
+            position: relative;
+            display: block;
+            font-size: 50px;
+            line-height: 60px;
+            text-transform: uppercase;
+            color: #1C3D40;
+        }
+
+        .about-style-two .content-box p
+        {
+            font-size: 18px;
+            line-height: 30px;
+            margin-bottom: 44px;
+        }
+    </style>
 {% endblock addcss %}
+    
 
-{% block content %}
+{% block app_content %}
 
-<!-- page-title -->
-<section class="page-title centred pt_190 pb_190">
-    <div class="bg-layer" style="background-image: url(../static/images/background/page-title.jpg);"></div>
-    <div class="auto-container">
-        <div class="content-box">
-            <h1>Membership Planning</h1>
-            <ul class="bread-crumb clearfix">
-                <li><a href="{% url 'home:index' %}">Home</a></li>
-                <li>Join Us</li>
-            </ul>
-        </div>
-    </div>
-</section>
-<!-- page-title end -->
 
-<!-- about-style-two -->
-<section class="about-style-two centred pt_140 pb_140">
-    <div class="auto-container">
-        <div class="content-box">
-            <div class="sec-title centred mb_35">
-                <div class="icon-box"><i class="icon-31"></i></div>
-                <span class="sub-title">Ready To CT Black Pro Golf Club Today</span>
-                <h2>Your Swing. Your Space. Your Legacy.</h2>
-            </div>
-            <p>Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro
-            Golf Club—a community where excellence meets opportunity. Whether you're here to compete, connect, or grow, your journey
-            starts now.</p>
-                <div class="tw:flex tw:flex-wrap tw:gap-7 tw:items-center">
-                    <div>
-                        <a href="{% url 'memberships:download-membership-rates' %}" class="theme-btn btn-one">View Our Membership Rates</a>
-                    </div>
-                    <div>
-                        <a href="{% url 'memberships:download-membership-form' %}" class="theme-btn btn-two">Download Membership Form</a>
-                    </div>
-                </div>
-            
-        </div>
-    </div>
-</section>
-<!-- about-style-two end -->
-<!-- contact-section -->
-<section class="contact-section alternat-2 pt_140 pb_150 mb_150">
-    <div class="bg-layer" style="background-image: url(../static/images/background/contact-bg.jpg);"></div>
-    <div class="pattern-layer" style="background-image: url(../static/images/shape/shape-17.png);"></div>
-    <div class="decore float-bob-x"><img src="{% static 'images/resource/decore-1.png' %}" alt=""></div>
-    <div class="auto-container">
-        <div class="row clearfix">
-            <div class="col-lg-6 col-md-12 col-sm-12 offset-lg-6 content-column">
-                <div class="content_block_six">
-                    <div class="content-box ml_110">
-                        <div class="sec-title mb_60">
-                            <span class="sub-title">Join Club</span>
-                            <h2>Fill The Form & We Will Get In Touch!</h2>
-                        </div>
-                        <div class="form-inner">
-                            <form method="post">
-                                {% csrf_token %}
-                                <div class="row clearfix">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                        <input type="text" name="name" placeholder="Your name" required>
+
+            <div class="tab-contents">
+                <!-- content 1 -->
+                <div class="transition-all about-style-two duration-300">
+                    <div class="text-center content-box grid items-center justify-center">
+                        <div class="w-full mx-auto">
+                            <div class="max-w-[690px]">
+                                <div class="mb-5 sec-title grid items-center justify-center text-center centred">
+                                   <i class="fa-solid fa-golf-ball-tee text-5xl  text-custom-text mb-8"></i>
+                                    <span class="sub-title text-custom-primary">Ready To CT Black Pro Golf Club Today</span>
+                                    <h2>Your Swing. Your Space. Your Legacy.</h2>
+                                </div>
+                                <p class="text-custom-text">Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of
+                                    CT Black Pro
+                                    Golf Club—a community where excellence meets opportunity. Whether you're here to compete, connect, or
+                                    grow, your journey
+                                    starts now.</p>
+                                <div class="flex flex-wrap gap-7 items-center">
+                                    <div>
+                                        <h5
+                                            class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block z-0">
+                                            <span
+                                                class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-black -z-1 group-hover:w-0 transition-all duration-300"></span>
+                                            <a href="{% url 'memberships:download-membership-rates' %}"
+                                                class="relative z-1 px-5 md:px-25px lg:px-10 py-10px md:py-15px lg:py-17px group-hover:text-heading-color leading-1.5 uppercase">
+                                                View Our
+                                                Membership Rates
+                                            </a>
+                                        </h5>
+                                        
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                        <input type="email" name="from_email" placeholder="Email" required>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                        <input type="text" name="phone" placeholder="Phone" required>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                        <textarea name="message" placeholder="Message"></textarea>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                        <button type="submit" class="theme-btn btn-one">Send us message</button>
+                                    <div>
+                                        <h5
+                                            class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block z-0">
+                                            <span
+                                                class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-black -z-1 group-hover:w-0 transition-all duration-300"></span>
+                                            <a href="{% url 'memberships:apply-membership' %}"
+                                                class="relative z-1 px-5 md:px-25px lg:px-10 py-10px md:py-15px lg:py-17px group-hover:text-heading-color leading-1.5 uppercase">
+                                                Start Your Application
+                                            </a>
+                                        </h5>
+                                        
                                     </div>
                                 </div>
-                            </form>
+                    
+                            </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
-        </div>
-    </div>
-</section>
-<!-- contact-section end -->
 
-{% endblock content %}
+
+
+{% endblock app_content %}
+
+    

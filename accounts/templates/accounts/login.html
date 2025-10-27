@@ -2,61 +2,119 @@
 {% load static %}
 
 {% block addcss %}
-<link href="{% static 'css/module-css/login.css' %}" rel="stylesheet">
+
 {% endblock addcss %}
 
 {% block content %}
-<!-- page-title -->
-<section class="page-title centred pt_190 pb_190">
-    <div class="bg-layer" style="background-image: url(../static/images/background/page-title.jpg);"></div>
-    <div class="auto-container">
-        <div class="content-box">
-            <h1>Welcome Back Member</h1>
-            <ul class="bread-crumb clearfix">
-                <li><a href="{% url 'home:index' %}">Home</a></li>
-                <li>Log In</li>
+
+
+<!-- banner section -->
+<section class="page-title">
+    <!-- banner section -->
+    <div style="background-image: url(../static/images/background/page-title.jpg);"
+        class="w-full bg-layer bg-no-repeat bg-cover bg-center relative z-0 after:w-full after:h-full after:absolute after:top-0 after:left-0  after:bg-opacity-30 after:-z-1">
+        <div class="container py-110px ">
+            <h1 class="text-2xl  sm:text-3xl md:text-26px lg:text-3xl xl:text-4xl font-bold text-white mb-15px">
+                <span class="leading-1.3 md:leading-1.3 lg:leading-1.3 xl:leading-1.3">Welcome Back Member
+                </span>
+            </h1>
+            <ul class="breadcrumb flex gap-30px items-center text-sm lg:text-base font-bold pt-4">
+                <li class="home relative leading-1.8 lg:leading-1.8">
+                    <a href="{% url 'home:index' %}"><i class="fas fa-home text-secondary-color"></i> Home</a>
+                </li>
+                <li class="leading-1.8 lg:leading-1.8 text-white">
+                    Login
+                </li>
             </ul>
         </div>
     </div>
 </section>
-<!-- page-title end -->
 
-
-<!-- sign-section -->
-<section class="sign-section pt_140 pb_150">
-    <div class="large-container">
-        <div class="sec-title centred mb_60">
-            <h2>Log in</h2>
+<!-- track order section section -->
+<section>
+    <div class="container pt-30 pb-90px lg:pb-70px">
+        <!-- heading -->
+        <div class="text-center mb-50px">
+            <h1 class="text-2xl sm:text-3xl md:text-26px lg:text-3xl xl:text-44px font-bold text-heading-color mb-15px">
+                <span class="leading-1.3 md:leading-1.3 lg:leading-1.3 xl:leading-1.3">Sign In <br>
+                    To Your Account
+                </span>
+            </h1>
+            
         </div>
-        <div class="form-inner">
-            {% include 'includes/errors.html' %}
-            <form method="post">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label>Email <span>*</span></label>
-                    <input type="email" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label>Password <span>*</span></label>
-                    <input type="password" name="password" required>
-                </div>
-                <div class="form-group message-btn">
-                    <button type="submit" class="theme-btn btn-one">Log In</button>
-                </div>
-                <div class="other-option">
-                    <div class="check-box">
-                        <input class="check" type="checkbox" id="checkbox1">
-                        <label for="checkbox1">Remember me</label>
+        <div class="flex flex-col justify-center items-center">
+            {% include "includes/errors.html" %}
+            <form method="post" class="form-primary lg:w-1/2 bg-white px-25px md:px-50px pt-10 pb-50px">
+                <!-- passwords -->
+                 {% csrf_token %}
+                <div>
+                    <div class="grid grid-cols-1 gap-30px pb-30px">
+                        <!-- email -->
+                        <div class="relative">
+                            <input type="email" placeholder="Email*" name="username" id="id_username"
+                                class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm placeholder:text-opacity-60">
+                            <span class="text-[11px] text-custom-tertiary block font-normal capitalize">{{form.username.help_text}}</span>
+                            {% if form.username.errors %}
+                            <span class="text-[11px] text-red-500 block font-normal capitalize">{{form.username.errors.as_text}}</span>
+                            {% endif %}
+                            </div>
+                        
+
+                        <!-- Confirm new password -->
+                        <div class="relative">
+                            <input type="password" placeholder="Password*" name="password" id="password"
+                                class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm placeholder:text-opacity-60 tracking-[3px]">
+                            <span class="text-[11px] text-custom-tertiary block font-normal capitalize">{{form.password.help_text}}</span>
+                            {% if form.password.errors %}
+                            <span class="text-[11px] text-red-500 block font-normal capitalize">{{form.password.errors.as_text}}</span>
+                            {% endif %}
+                        </div>
                     </div>
-                    <button class="forgot-password">Forget password?</button>
                 </div>
+                <!-- submit button -->
+
+                <div>
+                    <h5
+                        class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border bg-secondary-color border-secondary-color hover:border-primary-color hover:bg-primary-color inline-block z-0">
+                        <button type="submit"
+                            class="relative z-1 px-30px lg:px-10 py-3 md:py-15px lg:py-17px group-hover:text-white leading-23px uppercase h">
+                            SIGN IN
+                        </button>
+                    </h5>
+                </div>
+                <!-- forgotten password -->
+                <a href="#" class="uppercase mt-6 text-13px lg:text-sm">
+                    <span class="leading-1.8 lg:leading-1.8">FORGOTTEN YOUR PASSWORD?</span>
+                </a>
                 
             </form>
-            <div class="lower-text centred">
-                <p>Not a member yet? <a href="{% url 'memberships:membership' %}">Become A Member Now</a></p>
+            <!-- create account -->
+            <div class="bg-white pt-50px text-center">
+                <div>
+                    <h5 class="text-17px md:text-lg lg:text-xl font-bold leading-1.3 text-heading-color mb-15px">
+                        <span class="leading-1.3 md:leading-1.3 lg:leading-1.3">
+                            DON'T HAVE AN ACCOUNT?</span>
+                    </h5>
+                    <p class="text-sm lg:text-base">
+                        <span class="leading-1.8 lg:leading-1.8 mb-30px">Add items to your wishlistget personalised
+                            recommendations
+                            <br>
+                            check out more quickly track your orders register</span>
+                    </p>
+                </div>
+                <!-- submit button -->
+
+                <div>
+                    <h5
+                        class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border bg-secondary-color border-secondary-color hover:border-primary-color hover:bg-primary-color inline-block z-0">
+                        <a href="register.html"
+                            class="relative z-1 px-5 md:px-25px lg:px-10 py-10px md:py-15px lg:py-17px group-hover:text-white leading-23px uppercase h">
+                            CREATE ACCOUNT
+                        </a>
+                    </h5>
+                </div>
             </div>
         </div>
     </div>
 </section>
-<!-- sign-section end -->
 {% endblock content %}

@@ -9,11 +9,14 @@ from django.contrib import messages
 from django.conf import settings
 import logging, jwt
 
-
-
 logger = logging.getLogger("accounts")
 User = get_user_model()
 
+
+@login_required
+def account_details(request, username):
+    user = get_object_or_404(User, username=username)
+    return render(request, "accounts/account-details.html", {"user": user})
 
 @user_not_authenticated
 def custom_login(request):
@@ -57,3 +60,31 @@ def custom_logout(request):
     logout(request)
     messages.info(request, "Logged out successfully!")
     return redirect("home:index")
+
+
+@user_not_authenticated
+def register(request):
+    template_name = "accounts/register.html"
+    success_url = "memberships:membership"
+    if request.method == "POST":
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.is_active = True
+            user.save()
+            send_verification_email(user, request)
+            login(request, user)
+            messages.success(
+                request,
+                f"Dear {user}, please go to you email {user.email} inbox and click on \
+                    received activation link to confirm and complete the registration. Note: Check your spam folder.",
+            )
+            return redirect(success_url)
+        else:
+            messages.error(request, "Something went wrong while signing up")
+            return render(
+                request=request, template_name=template_name, context={"form": form}
+            )
+    
+    form = RegistrationForm()
+    return render(request=request, template_name=template_name, context={"form": form})

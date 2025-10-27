@@ -6,7 +6,6 @@
  */
 
 module.exports = {
-  prefix: "tw-",
   content: [
     /**
      * HTML. Paths to Django template files that will contain Tailwind CSS classes.
@@ -47,15 +46,15 @@ module.exports = {
       colors: {
         transparent: "transparent",
         current: "currentColor",
-        "custom-primary": "#D4A841",
-        "custom-secondary": "hsl(200, 69%, 14%)",
-        "custom-text": "hsl(200, 15%, 43%)",
+        "custom-primary": "#77a96a",
+        "custom-secondary": "#1C403D",
+        "custom-text": "#1C3D40",
         "custom-bg": "hsl(225, 33%, 98%)",
-        "custom-h": "hsl(188, 63%, 7%)",
+        "custom-h": "#1C3D40",
         "custom-tertiary": "hsl(200, 15%, 43%)",
         "custom-text-2": "#bfbfc0",
         "primary-color": "#000000",
-        "secondary-color": "#D4A841",
+        "secondary-color": "#D1B54B",
         "color-1": "#8cb2b2",
         "heading-color": "#071c1f",
         "paragraph-color": "#5c727d",
@@ -64,6 +63,11 @@ module.exports = {
         "section-bg-1": "#f2f6f7",
         "section-bg-2": "#171b2a",
         "border-color-9": "#e4ecf2",
+      },
+      fontFamily: {
+        sans: ["DM Sans", "sans-serif"],
+        "heading-font": '"Marcellus", sans-serif',
+        "body-font": '"Nunito Sans", sans-serif',
       },
     },
     screens: {
@@ -95,8 +99,9 @@ module.exports = {
      * for forms. If you don't like it or have own styling for forms,
      * comment the line below to disable '@tailwindcss/forms'.
      */
-    require("@tailwindcss/forms"),
-    require("@tailwindcss/typography"),
+    // require("@tailwindcss/forms"),
+    // require("@tailwindcss/typography"),
+    require("@tailwindcss/line-clamp"),
     require("@tailwindcss/aspect-ratio"),
   ],
 };

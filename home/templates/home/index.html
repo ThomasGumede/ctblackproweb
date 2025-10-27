@@ -1,246 +1,789 @@
 {% extends '_base.html' %}
 {% load static %}
 
+{% block addcss %}
+<style>
+    .sec-title.centred .sub-title {
+        padding-left: 15px;
+    }
+
+    .sec-title .sub-title {
+        position: relative;
+        display: inline-block;
+        font-size: 18px;
+        line-height: 25px;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding-right: 15px;
+        margin-bottom: 11px;
+    }
+
+    .sec-title .sub-title:before {
+        position: absolute;
+        content: '';
+        background-color: #77A96A;
+        width: 5px;
+        height: 5px;
+        top: 8px;
+        right: 0px;
+        border-radius: 50%;
+    }
+
+    .sec-title.centred .sub-title:after {
+        position: absolute;
+        content: '';
+        background-color: #77A96A;
+        width: 5px;
+        height: 5px;
+        top: 8px;
+        left: 0px;
+        border-radius: 50%;
+    }
+
+    .sec-title h2 {
+        position: relative;
+        display: block;
+        font-size: 50px;
+        line-height: 60px;
+        text-transform: uppercase;
+        color: #1C3D40;
+    }
+
+    .about-style-two .content-box p {
+        font-size: 18px;
+        line-height: 30px;
+        margin-bottom: 44px;
+    }
+</style>
+{% endblock addcss %}
 
 {% block content %}
-<!-- banner-section -->
-<section class="banner-style-four p_relative">
-    <div class="banner-carousel owl-theme owl-carousel owl-dots-none nav-style-none">
-        <div class="slide-item p_relative">
-            <div class="bg-layer" id="bg-layer-1" style="background-image: url(static/images/banner/banner-8.jpg);"></div>
-            <div class="auto-container">
-                <div class="content-box">
-                    <div class="icon-box"><i class="icon-31"></i></div>
-                    <span class="upper-text">Welcome To CT Black Pro</span>
-                    <h2>Driving Change, One Swing at a Time.</h2>
-                    <div class="btn-box"><a href="{% url 'home:about' %}" class="theme-btn btn-one">Learn More</a></div>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-</section>
-<!-- banner-section end -->
+<!-- banner section -->
+<section>
+    <!-- banner section -->
+    <div class="hero hero-primary overflow-hidden relative z-10">
+        <!-- Swiper -->
+        <div class="hero-slider-container swiper-container relative">
+            <div class="swiper hero-slider2">
+                <div class="swiper-wrapper items-stretch">
+                    <!-- Hero  1 -->
+                    <div
+                        class="swiper-slide relative z-0 pb-[104px] py-100px lg:pb-100px 4xl:min-h-[780px] overflow-hidden flex items-center bg-section-bg-1">
+                        <div class="container w-full">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-25px">
+                                <!-- banner Left -->
 
+                                <div class="slide-animation">
+                                    <p
+                                        class="text-sm md:text-15px lg:text-base text-heading-color font-bold mb-5 animated">
+                                        <i class="fas fa-home text-secondary-color"></i>
+                                        Welcome to CT Black Pro Golf Club
+                                    </p>
+                                    <h1
+                                        class="text-3xl md:text-40px lg:text-50px 4xl:text-65px leading-1 font-bold mb-5 animated">
+                                        <span class="leading-1 block"> Driving Change </span>
 
-<!-- about-style-four -->
-<section class="about-style-four pt_140">
-    <div class="auto-container">
-        <div class="sec-title mb_90 centred">
-            <span class="sub-title">CT Black Pro Golf Club</span>
-            <h2>The golf club was established in <br />Cape Town, Western Cape, RSA, in 2010</h2>
-            <p>Founded in Cape Town in 2010, CT Black Pro Golf Club stands as a proud symbol of excellence, inclusion, and community in
-            South African golf. Dedicated to nurturing talent and celebrating diversity, the club offers a welcoming space for
-            golfers of all backgrounds to refine their skills, connect through sport, and champion the spirit of unity on the
-            fairway. With a commitment to professionalism and empowerment, CT Black Pro continues to shape the future of golf—one
-            swing at a time.</p>
-        </div>
-        <div class="image-box">
-            <div class="experience-box">
-                <div class="inner">
-                    <h2>22</h2>
-                    <span>Years of <br />expericence</span>
-                </div>
-            </div>
-            <div class="row clearfix">
-                <div class="col-lg-6 col-md-6 col-sm-12 image-column">
-                    <figure class="image"><img src="{% static 'images/resource/about-3.jpg' %}" alt=""></figure>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 image-column">
-                    <figure class="image"><img src="{% static 'images/resource/about-4.jpg' %}" alt=""></figure>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- about-style-four end -->
+                                        <span class="text-secondary-color leading-1">
+                                            One Swing At A Time
+                                        </span>
 
-<!-- funfact-style-two -->
-<section class="funfact-style-two pt_140 pb_100">
-    <div class="auto-container">
-        <div class="inner-container">
-            <div class="funfact-block-two">
-                <div class="inner-box">
-                    <div class="count-outer">
-                        <span class="odometer" data-count="20">00</span><span class="symble">+</span>
-                    </div>
-                    <p>Tatal Golf Holes</p>
-                </div>
-            </div>
-            <div class="funfact-block-two">
-                <div class="inner-box">
-                    <div class="count-outer">
-                        <span class="odometer" data-count="5">00</span><span class="symble">+</span>
-                    </div>
-                    <p>Total Pro Members</p>
-                </div>
-            </div>
-            <div class="funfact-block-two">
-                <div class="inner-box">
-                    <div class="count-outer">
-                        <span class="odometer" data-count="120">00</span><span class="symble">+</span>
-                    </div>
-                    <p>Total Golf Areas</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- funfact-style-two end -->
+                                    </h1>
+                                    <p
+                                        class="text-sm lg:text-base mb-5 max-w-450px pl-15px xl:pl-30px border-l border-border-color-14 animated">
+                                        <span class="leading-25px lg:leading-1.8">
+                                            We champion Black talent, foster mentorship, and create space for every
+                                            swing to shape a legacy.
+                                        </span>
+                                    </p>
+                                    <div class="mt-5 lg:mt-10 animated">
+                                        <h5
+                                            class="capitalize text-sm md:text-base text-white relative group whitespace-nowrap font-normal transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block mr-15px mb-0">
+                                            <span
+                                                class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-primary-color z-1 group-hover:w-0 transition-all duration-300"></span>
+                                            <a href="{% url 'home:about' %}"
+                                                class="relative z-10 px-5 md:px-25px lg:px-10 py-10px md:py-3 lg:py-17px group-hover:text-heading-color leading-23px">Learn
+                                                More</a>
+                                        </h5>
 
+                                    </div>
+                                </div>
 
-
-<!-- chooseus-section -->
-<section class="chooseus-section pt_150 pb_140 bg-color-1">
-    <div class="auto-container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 col-md-12 col-sm-12 image-column">
-                <div class="image-box mr_30">
-                    <div class="image-shape">
-                        <div class="shape-1 z_1"></div>
-                        <div class="shape-2" style="background-image: url(images/shape/shape-1.png);"></div>
-                    </div>
-                    <figure class="image"><img src="{% static 'images/resource/chooseus.png' %}" alt=""></figure>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                <div class="content_block_two">
-                    <div class="content-box ml_30 mr_60">
-                        <div class="sec-title mb_30">
-                            <span class="sub-title">Why choose us</span>
-                            <h2>More Than a Club—A Community of Champions.</h2>
-                        </div>
-                        <div class="text-box mb_30">
-                            <p>At CT Black Pro Golf Club, we don't just play golf—we build legacy. Since 2010, we've been committed to creating an
-                            inclusive, empowering space where excellence thrives and every swing tells a story. Whether you're a seasoned pro or
-                            just starting out, our club offers mentorship, camaraderie, and a shared passion for the game. Join us, and be part of a
-                            movement that's reshaping golf in Cape Town and beyond.</p>
-                        </div>
-                        <div class="inner-box">
-                            <div class="single-item">
-                                <div class="icon-box"><i class="far fa-users"></i></div>
-                                <h2>Inclusive Community</h2>
-                                
-                            </div>
-                            <div class="single-item">
-                                <div class="icon-box"><i class="icon-16"></i></div>
-                                <h2>Exclusive Member Offers</h2>
-                                
+                                <!-- banner right -->
+                                <div class="lg:absolute right-0 top-0 lg:w-[45%] h-full">
+                                    <img class="lg:w-full lg:h-full 4xl:ml-auto" src="{% static 'images/resource/about-3.jpg' %}" alt="CT Black Pro Member">
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Hero  2 -->
+                    <div
+                        class="swiper-slide relative z-0 py-100px pb-110px lg:pb-100px 4xl:min-h-[780px] overflow-hidden flex items-center bg-section-bg-1">
+                        <div class="container w-full">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-30px">
+                                <!-- banner Left -->
+
+                                <div class="slide-animation">
+                                    <p
+                                        class="text-sm md:text-15px lg:text-base text-heading-color font-bold mb-5 animated">
+                                        <i class="fas fa-home text-secondary-color"></i>
+                                        Cape Town Black Golf Club
+                                    </p>
+                                    <h1
+                                        class="text-3xl md:text-40px lg:text-50px 4xl:text-65px leading-1 font-bold mb-5 animated">
+                                        <span class="leading-1">
+                                            Where Passion Meets Precision
+                                        </span>
+                                    </h1>
+                                    <p
+                                        class="text-sm lg:text-base mb-5 max-w-450px pl-15px xl:pl-30px border-l border-border-color-14 animated">
+                                        <span class="leading-25px lg:leading-1.8">
+                                            Cape Town's community for golfers driven by excellence and unity.
+                                        </span>
+                                    </p>
+                                    <div class="mt-5 lg:mt-10 animated">
+                                        <h5
+                                            class="capitalize text-sm md:text-base text-white relative group whitespace-nowrap font-normal transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block mr-15px mb-0">
+                                            <span
+                                                class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-primary-color z-1 group-hover:w-0 transition-all duration-300"></span>
+                                            <a href="{% url 'memberships:membership' %}"
+                                                class="relative z-10 px-5 md:px-25px lg:px-10 py-10px md:py-3 lg:py-17px group-hover:text-heading-color leading-23px">JOIN US</a>
+                                        </h5>
+                                        <h5
+                                            class="capitalize inline-block text-sm md:text-base text-primary-color hover:text-white hover:bg-primary-color relative group whitespace-nowrap font-normal transition-all duration-300 shadow-box-shadow-3 mb-0">
+                                            <span
+                                                class="inline-block absolute top-0 right-0 w-full h-full bg-white group-hover:bg-secondary-color z-1 group-hover:w-0 transition-all duration-300"></span>
+                                            <a href="{% url 'home:about' %}"
+                                                class="relative z-10 px-5 md:px-25px lg:px-10 py-10px md:py-3 lg:py-17px group-hover:text-white leading-23px">LEARN
+                                                MORE</a>
+                                        </h5>
+                                    </div>
+                                </div>
+
+                                <!-- banner right -->
+                                <div class="lg:absolute right-0 top-0 lg:w-[45%] h-full">
+                                    <img class="lg:w-full lg:h-full 4xl:ml-auto" src="{% static 'images/resource/about-4.jpg' %}" alt="CT Black Pro Golf Club Members">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Hero  3 -->
+                    <div
+                        class="swiper-slide relative z-0 py-100px pb-110px lg:pb-100px 4xl:min-h-[780px] overflow-hidden flex items-center bg-section-bg-1">
+                        <div class="container w-full">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-30px">
+                                <!-- banner Left -->
+
+                                <div class="slide-animation">
+                                    <p
+                                        class="text-sm md:text-15px lg:text-base text-heading-color font-bold mb-5 animated">
+                                        <i class="fas fa-home text-secondary-color"></i>
+                                        Golf Club Community
+                                    </p>
+                                    <h1
+                                        class="text-3xl md:text-40px lg:text-50px 4xl:text-65px leading-1 font-bold mb-5 animated">
+                                        <span class="leading-1">
+                                            Cape Town’s Premier Golf Experience
+                                        </span>
+                                    </h1>
+                                    <p
+                                        class="text-sm lg:text-base mb-5 max-w-450px pl-15px xl:pl-30px border-l border-border-color-14 animated">
+                                        <span class="leading-25px lg:leading-1.8">
+                                            Building skill, sportsmanship, and connection through professional golfing excellence.
+                                        </span>
+                                    </p>
+                                    <div class="mt-5 lg:mt-10 animated">
+                                        <h5
+                                            class="capitalize text-sm md:text-base text-white relative group whitespace-nowrap font-normal transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block mr-15px mb-0">
+                                            <span
+                                                class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-primary-color z-1 group-hover:w-0 transition-all duration-300"></span>
+                                            <a href="{% url 'memberships:membership' %}"
+                                                class="relative z-10 px-5 md:px-25px lg:px-10 py-10px md:py-3 lg:py-17px group-hover:text-heading-color leading-23px">OUR
+                                                MEMBERSHIP</a>
+                                        </h5>
+                                        <h5
+                                            class="capitalize inline-block text-sm md:text-base text-primary-color hover:text-white hover:bg-primary-color relative group whitespace-nowrap font-normal transition-all duration-300 shadow-box-shadow-3 mb-0">
+                                            <span
+                                                class="inline-block absolute top-0 right-0 w-full h-full bg-white group-hover:bg-secondary-color z-1 group-hover:w-0 transition-all duration-300"></span>
+                                            <a href="{% url 'home:about' %}"
+                                                class="relative z-10 px-5 md:px-25px lg:px-10 py-10px md:py-3 lg:py-17px group-hover:text-white leading-23px">LEARN
+                                                MORE</a>
+                                        </h5>
+                                    </div>
+                                </div>
+
+                                <!-- banner right -->
+                                <div class="lg:absolute right-0 top-0 lg:w-[45%] h-full">
+                                    <img class="lg:w-full lg:h-full 4xl:ml-auto" src="{% static 'images/resource/img.jpg' %}" alt="Golf Day with CT Black Pro Members">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
+
+                <!--navigation & thumbs slider -->
+                <div class="absolute bottom-[30px] right-1/2 lg:right-[10%] translate-x-1/2 lg:translate-x-0 z-xl flex">
+                    <!-- navigation -->
+                    <div class="flex flex-row-reverse xl:hidden justify-center pr-8 pt-4 gap-x-2">
+                        <div class="swiper-button-next relative ml-2">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="swiper-button-prev relative">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                    </div>
+                    <!--thumbs slider -->
+                    <div class="w-250px 4xl:w-100 4xl:px-10px">
+                        <div class="swiper hero-slider2-tumbs_slider">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide cursor-pointer">
+                                    <img src="{% static 'images/resource/about-3.jpg' %}"
+                                        class="w-full border-2 4xl:border-[5px] border-section-bg-1 box-border" alt="">
+                                </div>
+                                <div class="swiper-slide cursor-pointer">
+                                    <img src="{% static 'images/resource/about-4.jpg' %}"
+                                        class="w-full border-2 4xl:border-[5px] border-section-bg-1 box-border" alt="">
+                                </div>
+                                <div class="swiper-slide cursor-pointer">
+                                    <img src="{% static 'images/resource/img.jpg' %}"
+                                        class="w-full border-2 4xl:border-[5px] border-section-bg-1 box-border" alt="">
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- social -->
+        <div class="text-sm lg:text-base hidden 4xl:block absolute bottom-20 left-[50px] z-xxl">
+            <ul class="leading-1.8">
+                <li class="mt-4 mb-3">
+                    <a href="https://www.facebook.com/" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li class="mt-4 mb-3">
+                    <a href="https://x.com/" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li class="mt-4 mb-3">
+                    <a href="https://www.linkedin.com/" title="Linkedin"><i class="fab fa-linkedin"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- about section -->
+<section>
+    <div class="container pt-115px pb-100px">
+        <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-30px items-center">
+            <!-- about left -->
+            <div class="lg:mr-30px relative mb-10 lg:mb-0">
+                <img src="{% static 'images/resource/about-3.jpg' %}" alt="CT Black Pro Member" class="max-w-full">
+            </div>
+            <!-- about right -->
+            <div>
+                <div>
+                    <p
+                        class="text-sm md:text-15px lg:text-base text-secondary-color capitalize mb-2 inline-block font-semibold">
+                        <span class="leading-1.3">about us</span>
+                    </p>
+                    <h2
+                        class="text-2xl sm:text-3xl md:text-26px lg:text-3xl xl:text-44px text-heading-color font-bold mb-15px">
+                        <span class="leading-1.3">
+                            The golf club was established in Cape Town, Western Cape, RSA, in 2010
+                        </span>
+                    </h2>
+                    <p class="text-sm lg:text-base max-w-500px">
+                        <span class="leading-1.8 lg:leading-1.8">Founded in Cape Town in 2010, CT Black Pro Golf Club
+                            stands as a proud symbol of excellence, inclusion, and community in South African golf.
+                            Dedicated to nurturing talent and celebrating diversity, the club offers a welcoming space
+                            for golfers of all backgrounds to refine their skills, connect through sport, and champion
+                            the spirit of unity on the fairway. With a commitment to professionalism and empowerment, CT
+                            Black Pro continues to shape the future of golf—one swing at a time.</span>
+                    </p>
+                </div>
+
             </div>
         </div>
     </div>
 </section>
-<!-- chooseus-section end -->
 
-{% if events.count == 3 %}
-<!-- event-style-two -->
-<section class="event-style-two pt_140 pb_110">
-    <div class="auto-container">
-        <div class="sec-title centred mb_55">
-            <span class="sub-title">upcoming events</span>
-            <h2>Get Ready for These Upcoming <br />Golf Events</h2>
-        </div>
-        <div class="inner-container">
-            
-            {% for event in events %}
+
+<!-- Facilities section -->
+<section class="bg-section-bg-1 relative">
+    <div class="container pt-30 pb-90px">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-30px">
+            <!-- Building Facilities left -->
+            <div>
+                <div class="mb-5">
+                    <p
+                        class="text-sm md:text-15px lg:text-base text-secondary-color capitalize mb-2 inline-block font-semibold">
+                        <span class="leading-1.3">Why Join CT Black Pro Golf Club?</span>
+                    </p>
+                    <h2
+                        class="text-2xl sm:text-3xl md:text-26px lg:text-3xl xl:text-44px text-heading-color font-bold mb-15px">
+                        <span class="leading-1.3">
+                            More Than a Club—A Community of Champions.
+                        </span>
+                    </h2>
+                    <p class="text-sm lg:text-base max-w-500px">
+                        <span class="leading-1.8 lg:leading-1.8">At CT Black Pro Golf Club, we don't just play golf—we
+                            build legacy. Since 2010, we've been committed to creating an
+                            inclusive, empowering space where excellence thrives and every swing tells a story. Whether
+                            you're a seasoned pro or
+                            just starting out, our club offers mentorship, camaraderie, and a shared passion for the
+                            game. Join us, and be part of a
+                            movement that's reshaping golf in Cape Town and beyond.</span>
+                    </p>
+                </div>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-30px pt-4">
+                    <li class="text-sm lg:text-base flex items-center">
+                        <i
+                            class="icon-done text-sm text-secondary-color bg-color-6 w-8 h-8 flex items-center justify-center mr-15px rounded-100% flex-shrink-0"></i>
+                        <span class="leading-1.8">Living rooms are pre-wired for Surround</span>
+                    </li>
+
+                    <li class="text-sm lg:text-base flex items-center">
+                        <i
+                            class="icon-done text-sm text-secondary-color bg-color-6 w-8 h-8 flex items-center justify-center mr-15px rounded-100% flex-shrink-0"></i>
+                        <span class="leading-1.8">Luxurious interior design and amenities</span>
+                    </li>
+
+                    <li class="text-sm lg:text-base flex items-center">
+                        <i
+                            class="icon-done text-sm text-secondary-color bg-color-6 w-8 h-8 flex items-center justify-center mr-15px rounded-100% flex-shrink-0"></i>
+                        <span class="leading-1.8">Nestled in the Buckhead Vinings communities</span>
+                    </li>
+
+                    <li class="text-sm lg:text-base flex items-center">
+                        <i
+                            class="icon-done text-sm text-secondary-color bg-color-6 w-8 h-8 flex items-center justify-center mr-15px rounded-100% flex-shrink-0"></i>
+                        <span class="leading-1.8">Private balconies with stunning views</span>
+                    </li>
+
+                    <li class="text-sm lg:text-base flex items-center">
+                        <i
+                            class="icon-done text-sm text-secondary-color bg-color-6 w-8 h-8 flex items-center justify-center mr-15px rounded-100% flex-shrink-0"></i>
+                        <span class="leading-1.8">A rare combination of inspired architecture</span>
+                    </li>
+
+                    <li class="text-sm lg:text-base flex items-center">
+                        <i
+                            class="icon-done text-sm text-secondary-color bg-color-6 w-8 h-8 flex items-center justify-center mr-15px rounded-100% flex-shrink-0"></i>
+                        <span class="leading-1.8">Outdoor grilling with dining court</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Building Facilities right -->
+            <div class="h-full">
+                <div class="absolute right-0 top-0 w-[48%] h-full">
+                    <img src="{% static 'images/resource/chooseus.png' %}" alt="Golf player" class="w-full h-full hidden lg:block">
+                </div>
+
                 
-            <div class="event-block-two">
-                <div class="inner-box">
-                    <figure class="image-box"><img src="{% if event.image %}{{event.image.url}}{% else %}{% static 'images/no-image.png' %}{% endif %}" alt="{{event.title}}"></figure>
-                    <div class="content-box">
-                        <ul class="post-info">
-                            <li><i class="icon-17"></i>{{event.event_startdate}}</li>
-                            <li><i class="icon-3"></i>{{event.event_address}}</li>
-                        </ul>
-                        <h3><a href="{% url 'events:event-details' event.slug %}">{{event.title}}</a></h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- services section -->
+<section>
+    <div class="container pt-115px pb-90px">
+        <!-- section heading -->
+        <div class="text-center mb-50px">
+            <p
+                class="text-sm md:text-15px lg:text-base text-secondary-color capitalize mb-2 inline-block font-semibold">
+                <span class="leading-1.3">Ready To Join Us?</span>
+            </p>
+            <h2 class="text-2xl sm:text-3xl md:text-26px lg:text-3xl xl:text-44px text-heading-color font-bold">
+                <span class="leading-1.3"> Here's How To Join Us </span>
+            </h2>
+        </div>
+        <!-- services cards  -->
+
+        <div class="service-cards flex flex-wrap justify-center items-center text-center -mx-15px">
+            <!-- card 1 -->
+            <div class="service-card basis-full sm:basis-1/2 lg:basis-1/3 px-15px mb-30px">
+                <div
+                    class="border border-border-color-1 shadow-box-shadow-1 bg-white relative py-10 pb-35px px-30px transition-all duration-300">
+                    <div
+                        class="text-center mb-5 w-24 mx-auto h-24 rounded-full grid border border-custom-secondary items-center justify-center">
+                        <i
+                            class="fa-solid fa-user-plus text-6xl text-custom-secondary"></i>
                     </div>
-                    <span class="price-box">R{{event.cost}}</span>
-                    <div class="btn-box"><a href="{% url 'events:event-details' event.slug %}" class="theme-btn btn-two">View Details</a></div>
+                    <h6 class="text-lg md:text-xl lg:text-22px xl:text-2xl text-heading-color font-bold">
+                        <a class="hover:text-secondary-color leading-1.3 mb-1" href="{% url 'accounts:login' %}">Register An
+                            Acoount</a>
+                    </h6>
+                    <p class="text-sm mb-25px">
+                        <span class="leading-1.8">over 1 million+ homes for sale available on the website, we
+                            can match you with a house you will want to call home.</span>
+                    </p>
+                    <div class="text-sm text-color-1 font-bold">
+                        <a class="find-service hover:text-secondary-color flex items-center justify-center"
+                            href="{% url 'accounts:login' %}">Login / Register
+                            <i class="flaticon-right-arrow inline-block leading-1"></i></a>
+                    </div>
+                    <span
+                        class="hover-line absolute bottom-0 left-0 w-0 h-1 bg-secondary-color transition-all duration-300 block"></span>
                 </div>
             </div>
-            {% endfor %}
+            <!-- card 2 -->
+            <div class="service-card active basis-full sm:basis-1/2 lg:basis-1/3 px-15px mb-30px">
+                <div
+                    class="border border-border-color-1 shadow-box-shadow-1 bg-white relative py-10 pb-35px px-30px transition-all duration-300">
+                    <div
+                        class="text-center mb-5 w-24 mx-auto h-24 rounded-full grid border border-custom-secondary items-center justify-center">
+                        <i class="fa-solid fa-file-invoice text-6xl text-custom-secondary"></i>
+                    </div>
+                    <h6 class="text-lg md:text-xl lg:text-22px xl:text-2xl text-heading-color font-bold">
+                        <a class="hover:text-secondary-color leading-1.3 mb-1" href="{% url 'memberships:membership' %}">Fill The
+                            Application Form</a>
+                    </h6>
+                    <p class="text-sm mb-25px">
+                        <span class="leading-1.8">over 1 million+ homes for sale available on the website, we
+                            can match you with a house you will want to call home.</span>
+                    </p>
+                    <div class="text-sm text-color-1 font-bold">
+                        <a class="find-service hover:text-secondary-color flex items-center justify-center"
+                            href="{% url 'memberships:membership' %}">Join CT Black Pro
+                            <i class="flaticon-right-arrow inline-block leading-1"></i></a>
+                    </div>
+                    <span
+                        class="hover-line absolute bottom-0 left-0 w-0 h-1 bg-secondary-color transition-all duration-300 block"></span>
+                </div>
+            </div>
+            <!-- card 3 -->
+            <div class="service-card basis-full sm:basis-1/2 lg:basis-1/3 px-15px mb-30px">
+                <div
+                    class="border border-border-color-1 shadow-box-shadow-1 bg-white relative py-10 pb-35px px-30px transition-all duration-300">
+                    <div
+                        class="text-center mb-5 w-24 mx-auto h-24 rounded-full grid border border-custom-secondary items-center justify-center">
+                        <i class="fa-solid fa-hourglass-start text-6xl text-custom-secondary"></i>
+                    </div>
+                    <h6 class="text-lg md:text-xl lg:text-22px xl:text-2xl text-heading-color font-bold">
+                        <a class="hover:text-secondary-color leading-1.3 mb-1" href="{% url 'memberships:trace-application' %}">Trace Your Application</a>
+                    </h6>
+                    <p class="text-sm mb-25px">
+                        <span class="leading-1.8">over 1 million+ homes for sale available on the website, we
+                            can match you with a house you will want to call home.</span>
+                    </p>
+                    <div class="text-sm text-color-1 font-bold">
+                        <a class="find-service hover:text-secondary-color flex items-center justify-center"
+                            href="{% url 'memberships:trace-application' %}">Trace application
+                            <i class="flaticon-right-arrow inline-block leading-1"></i></a>
+                    </div>
+                    <span
+                        class="hover-line absolute bottom-0 left-0 w-0 h-1 bg-secondary-color transition-all duration-300 block"></span>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-<!-- event-style-two end -->
- {% else %}
-<!-- about-style-two -->
-<section class="about-style-two centred pt_140 pb_140">
-    <div class="auto-container">
-        <div class="content-box">
-            <div class="sec-title centred mb_35">
-                <div class="icon-box"><i class="icon-31"></i></div>
-                <span class="sub-title">Ready To CT Black Pro Golf Club Today</span>
-                <h2>Welcome to CT Black Pro Golf Club</h2>
-            </div>
-            <p>We champion Black talent, foster mentorship, and create space for every swing to shape a legacy.</p>
-            <div class="tw:flex tw:flex-wrap tw:gap-7 tw:items-center">
-                <div>
-                    <a href="{% url 'memberships:download-membership-rates' %}" class="theme-btn btn-one">View Our Membership
-                        Rates</a>
-                </div>
-                <div>
-                    <a href="{% url 'memberships:download-membership-form' %}" class="theme-btn btn-two">Download Membership
-                        Form</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-<!-- about-style-two end -->
- {% endif %}
-
 
  
- {% if images.count == 3 %}  
-<!-- portfolio-style-two -->
-<section class="portfolio-style-two pb_110 pl_70 pr_70">
-    <div class="auto-container">
-        <div class="sec-title mb_60">
-            <span class="sub-title">Our Portfolio</span>
-            <h2>Our Golfing Memories</h2>
-            <a href="{% url 'home:gallery' %}" class="theme-btn btn-one">Learn More</a>
+{% if events.count > 3 %}
+<section>
+    <div class="bg-section-bg-1">
+        <div>
+            <div class="container py-30">
+                <!-- section heading -->
+                <div class="mb-50px">
+                    <p
+                        class="text-sm md:text-15px lg:text-base text-secondary-color capitalize inline-block font-semibold mb-1.5">
+                        <span class="leading-1.3">Explore Our Events & Bookings</span>
+                    </p>
+                    <h2 class="text-2xl sm:text-3xl md:text-26px lg:text-3xl xl:text-44px text-heading-color font-bold">
+                        <span class="leading-1.3">Join Us In Our Upcoming Events <br /> & Experience Top Level Golf
+                        </span>
+                    </h2>
+                </div>
+                <!-- neighbour slider -->
+                <div class="neighbour-slider-container swiper-container relative -mx-15px">
+                    <div
+                        class="flex justify-center lg:block mb-10 lg:mb-10 lg:absolute lg:left-[35px] lg:bottom-10 lg:z-xl">
+                        <div class="w-[270px] lg:w-[420px]">
+                            <div class="swiper neighbour-slider-tumbs_slider">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide cursor-pointer">
+                                        <img src="assets/img/neighbour/1.jpg" class="w-full border-[7px] border-white"
+                                            alt="">
+                                    </div>
+                                    <div class="swiper-slide cursor-pointer">
+                                        <img src="assets/img/neighbour/2.jpg" class="w-full border-[7px] border-white"
+                                            alt="">
+                                    </div>
+                                    <div class="swiper-slide cursor-pointer">
+                                        <img src="assets/img/neighbour/3.jpg" class="w-full border-[7px] border-white"
+                                            alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper neighbour-slider">
+                        <div class="swiper-wrapper">
+                            <!-- slide 1 -->
+                            <div class="swiper-slide px-15px">
+                                <div class="grid grid-cols-1 lg:grid-cols-12 gap-30px">
+                                    <div class="lg:col-start-1 lg:col-span-8">
+                                        <img src="assets/img/neighbour/1.jpg" class="w-full" alt="">
+                                    </div>
+                                    <div class="lg:col-start-9 lg:col-span-4 mb-50px">
+                                        <div class="group p-15px shadow-box-shadow-4 bg-white">
+                                            <!-- card thumbs -->
+                                            <div class="relative leading-1">
+                                                <a href="product-details.html" class="overflow-hidden">
+                                                    <img src="assets/img/product-3/3.jpg"
+                                                        class="w-full transition-all duration-700" alt="">
+                                                </a>
+                                                <div
+                                                    class="text-13px leading-1.8 px-15px pt-6px pb-0.5 uppercase font-semibold absolute top-4 left-[10px] bg-white rounded-full">
+                                                    Golf Day
+                                                </div>
+                                            </div>
+                                            <!-- card body -->
+                                            <div class="pt-25px px-5px pb-10px">
+                                                <h4
+                                                    class="text-17px md:text-lg lg:text-xl font-semibold text-heading-color mb-3">
+                                                    <a href="product-details.html"
+                                                        class="hover:text-secondary-color leading-1.3">Cape Flat Golf
+                                                        Day</a>
+                                                </h4>
+
+                                                <p class="text-sm lg:text-base">
+                                                    <span class="leading-1.8 lg:leading-1.8 text-secondary-color">
+                                                        R4000 /
+                                                    </span>
+                                                    <span class="leading-1.8 lg:leading-1.8">
+                                                        2 holes
+                                                    </span>
+                                                </p>
+                                                <p class="text-sm lg:text-base pt-10px mb-5">
+                                                    <span class="leading-1.8 lg:leading-1.8">
+                                                        Lorem ipsum dolor sit amet, consectetur
+                                                        adipisicing elit, sed do eiusmod tempor
+                                                        incididunt ut labore Enim ullamco laboris.
+                                                    </span>
+                                                </p>
+                                                <a href="product-details.html"
+                                                    class="text-sm lg:text-base text-secondary-color">
+                                                    <span class="leading-1.8">View Property
+                                                        <i class="flaticon-right-arrow"></i></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- slide 2-->
+                            <div class="swiper-slide px-15px">
+                                <div class="grid grid-cols-1 lg:grid-cols-12 gap-30px">
+                                    <div class="lg:col-start-1 lg:col-span-8">
+                                        <img src="assets/img/neighbour/2.jpg" class="w-full" alt="">
+                                    </div>
+                                    <div class="lg:col-start-9 lg:col-span-4 mb-50px">
+                                        <div class="group p-15px shadow-box-shadow-4 bg-white">
+                                            <!-- card thumbs -->
+                                            <div class="relative leading-1">
+                                                <a href="product-details.html" class="overflow-hidden">
+                                                    <img src="assets/img/product-3/2.jpg"
+                                                        class="w-full transition-all duration-700" alt="">
+                                                </a>
+                                                <div
+                                                    class="text-13px leading-1.8 px-15px pt-6px pb-0.5 uppercase font-semibold absolute top-4 left-[10px] bg-white rounded-full">
+                                                    9 properties
+                                                </div>
+                                            </div>
+                                            <!-- card body -->
+                                            <div class="pt-25px px-5px pb-10px">
+                                                <h4
+                                                    class="text-17px md:text-lg lg:text-xl font-semibold text-heading-color mb-3">
+                                                    <a href="product-details.html"
+                                                        class="hover:text-secondary-color leading-1.3">Medical
+                                                        Hospital</a>
+                                                </h4>
+
+                                                <p class="text-sm lg:text-base">
+                                                    <span class="leading-1.8 lg:leading-1.8 text-secondary-color">
+                                                        1,500m /
+                                                    </span>
+                                                    <span class="leading-1.8 lg:leading-1.8">
+                                                        21 min. walk
+                                                    </span>
+                                                </p>
+                                                <p class="text-sm lg:text-base pt-10px mb-5">
+                                                    <span class="leading-1.8 lg:leading-1.8">
+                                                        Lorem ipsum dolor sit amet, consectetur
+                                                        adipisicing elit, sed do eiusmod tempor
+                                                        incididunt ut labore Enim ullamco laboris.
+                                                    </span>
+                                                </p>
+                                                <a href="product-details.html"
+                                                    class="text-sm lg:text-base text-secondary-color">
+                                                    <span class="leading-1.8">View Property
+                                                        <i class="flaticon-right-arrow"></i></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- slide 3-->
+                            <div class="swiper-slide px-15px">
+                                <div class="grid grid-cols-1 lg:grid-cols-12 gap-30px">
+                                    <div class="lg:col-start-1 lg:col-span-8">
+                                        <img src="assets/img/neighbour/3.jpg" class="w-full" alt="">
+                                    </div>
+                                    <div class="lg:col-start-9 lg:col-span-4 mb-50px">
+                                        <div class="group p-15px shadow-box-shadow-4 bg-white">
+                                            <!-- card thumbs -->
+                                            <div class="relative leading-1">
+                                                <a href="product-details.html" class="overflow-hidden">
+                                                    <img src="assets/img/product-3/4.jpg"
+                                                        class="w-full transition-all duration-700" alt="">
+                                                </a>
+                                                <div
+                                                    class="text-13px leading-1.8 px-15px pt-6px pb-0.5 uppercase font-semibold absolute top-4 left-[10px] bg-white rounded-full">
+                                                    9 properties
+                                                </div>
+                                            </div>
+                                            <!-- card body -->
+                                            <div class="pt-25px px-5px pb-10px">
+                                                <h4
+                                                    class="text-17px md:text-lg lg:text-xl font-semibold text-heading-color mb-3">
+                                                    <a href="product-details.html"
+                                                        class="hover:text-secondary-color leading-1.3">Children
+                                                        Playland</a>
+                                                </h4>
+
+                                                <p class="text-sm lg:text-base">
+                                                    <span class="leading-1.8 lg:leading-1.8 text-secondary-color">
+                                                        1,500m /
+                                                    </span>
+                                                    <span class="leading-1.8 lg:leading-1.8">
+                                                        21 min. walk
+                                                    </span>
+                                                </p>
+                                                <p class="text-sm lg:text-base pt-10px mb-5">
+                                                    <span class="leading-1.8 lg:leading-1.8">
+                                                        Lorem ipsum dolor sit amet, consectetur
+                                                        adipisicing elit, sed do eiusmod tempor
+                                                        incididunt ut labore Enim ullamco laboris.
+                                                    </span>
+                                                </p>
+                                                <a href="product-details.html"
+                                                    class="text-sm lg:text-base text-secondary-color">
+                                                    <span class="leading-1.8">View Property
+                                                        <i class="flaticon-right-arrow"></i></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
     </div>
-    <div class="outer-container">
-        <div class="tw:grid tw:md:grid-cols-2 tw:lg:grid-cols-3 tw:items-center tw:justify-center clearfix">
-            {% for image in images %}
-            <div class="portfolio-block">
-                <div class="portfolio-block-one">
-                    <div class="inner-box">
-                        <figure class="image-box tw:w-80 tw:h-64 tw:overflow-hidden"><img class="tw:object-cover tw:w-80 tw:h-64" src="{{image.image.url}}" alt="{{image.title}}"></figure>
-                        <div class="view-btn"><a href="{{image.image.url}}" class="lightbox-image"
-                                data-fancybox="gallery"><i class="icon-32"></i></a></div>
+</section>
+{% else %}
+<section class="about-style-two">
+    <div class="text-center content-box grid items-center justify-center">
+        <div class="w-full mx-auto container">
+            <div class="max-w-[690px]">
+                <div class="mb-5 sec-title grid items-center justify-center text-center centred">
+                    <i class="fa-solid fa-golf-ball-tee text-5xl  text-custom-text mb-8"></i>
+                    <span class="sub-title text-custom-primary">Ready To CT Black Pro Golf Club Today</span>
+                    <h2>Your Swing. Your Space. Your Legacy.</h2>
+                </div>
+                <p class="text-custom-text">Ready to take your place on the fairway? Download our membership rates and
+                    sign-up form to become part of
+                    CT Black Pro
+                    Golf Club—a community where excellence meets opportunity. Whether you're here to compete, connect, or
+                    grow, your journey
+                    starts now.</p>
+                <div class="flex flex-wrap gap-7 items-center">
+                    <div>
+                        <h5
+                            class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block z-0">
+                            <span
+                                class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-black -z-1 group-hover:w-0 transition-all duration-300"></span>
+                            <a href="{% url 'memberships:download-membership-rates' %}"
+                                class="relative z-1 px-5 md:px-25px lg:px-10 py-10px md:py-15px lg:py-17px group-hover:text-heading-color leading-1.5 uppercase">
+                                View Our
+                                Membership Rates
+                            </a>
+                        </h5>
+    
+                    </div>
+                    <div>
+                        <h5
+                            class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block z-0">
+                            <span
+                                class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-black -z-1 group-hover:w-0 transition-all duration-300"></span>
+                            <a href="{% url 'memberships:apply-membership' %}"
+                                class="relative z-1 px-5 md:px-25px lg:px-10 py-10px md:py-15px lg:py-17px group-hover:text-heading-color leading-1.5 uppercase">
+                                Start Your Application
+                            </a>
+                        </h5>
+    
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+<section>
+    <div class="container pt-30">
+        <!-- section heading -->
+        <div class="text-center mb-50px">
+            <p
+                class="text-sm md:text-15px lg:text-base text-secondary-color bg-secondary-color bg-opacity-10 capitalize 1b-15px py-0.5 px-4 rounded-full inline-block font-semibold mb-5">
+                <span class="leading-1.3">Gallery</span>
+            </p>
+            <h2 class="text-2xl sm:text-3xl md:text-26px lg:text-3xl xl:text-44px text-heading-color font-bold">
+                <span class="leading-1.3">Our Golfing Memories</span>
+            </h2>
+        </div>
+        <!-- property cards  -->
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-30px">
+           
+           {% for image in images %}
+            
+          
+            
+            <div style="background-image: url('..{{image.image.url}}');"
+                class=" h-350px bg-cover bg-no-repeat bg-center relative">
+                <div
+                    class="bg-heading-color bg-opacity-30 hover:bg-opacity-20 transition-all duration-300 absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-center cursor-pointer">
+                    <div class="p-30px">
+                        <h3 class="text-lg md:text-xl lg:text-22px xl:text-2xl font-bold text-white mb-10px">
+                            <a href="{% url 'home:gallery' %}" class="leading-1.3"> View More </a>
+                        </h3>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- card 4 -->
             {% endfor %}
         </div>
     </div>
 </section>
-<!-- portfolio-style-two -->
-{% endif %}
-
-<!-- cta-section -->
-<section class="cta-section alternat-2 centred bg-color-2 pt_140 pb_150 mb_150">
-    <div class="pattern-layer" style="background-image: url(static/images/shape/shape-14.png);"></div>
-    <div class="auto-container">
-        <div class="content-box">
-            <div class="sec-title light mb_40">
-                <span class="sub-title">our Facilities</span>
-                <h2>Take Your Game To The <br />Next Level.</h2>
-            </div>
-            <div class="btn-box">
-                <a href="{% url 'memberships:membership' %}" class="theme-btn btn-one">become a member</a>
-                <a href="{% url 'home:contact' %}" class="theme-btn btn-two">Contact Us</a>
-            </div>
+<!-- news  section -->
+<section>
+    <div>
+        <div class="container pb-70px pt-30">
+            
         </div>
     </div>
 </section>
-<!-- cta-section end -->
+
 {% endblock content %}

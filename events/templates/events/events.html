@@ -39,84 +39,488 @@
 {% endblock seo %}
 
 {% block addcss %}
-<link href="{% static 'css/module-css/event.css' %}" rel="stylesheet">
+
 {% endblock addcss %}
 
 {% block content %}
 <!-- page-title -->
-<section class="page-title centred pt_190 pb_190">
-    <div class="bg-layer" style="background-image: url(static/images/background/page-title.jpg);"></div>
-    <div class="auto-container">
-        <div class="content-box">
-            <h1>Our Upcoming Events</h1>
-            <ul class="bread-crumb clearfix">
-                <li><a href="{% url 'home:index' %}">Home</a></li>
-                <li>Events</li>
+<section class="page-title">
+    <!-- banner section -->
+    <div style="background-image: url(../../static/images/background/page-title.jpg);"
+        class="w-full bg-layer bg-no-repeat bg-cover bg-center relative z-0 after:w-full after:h-full after:absolute after:top-0 after:left-0  after:bg-opacity-30 after:-z-1">
+        <div class="container py-110px ">
+            <h1 class="text-2xl  sm:text-3xl md:text-26px lg:text-3xl xl:text-4xl font-bold text-white mb-15px">
+                <span class="leading-1.3 md:leading-1.3 lg:leading-1.3 xl:leading-1.3">Events & Bookings
+                </span>
+            </h1>
+            <ul class="breadcrumb flex gap-30px items-center text-sm lg:text-base font-bold pt-4">
+                <li class="home relative leading-1.8 lg:leading-1.8">
+                    <a href="{% url 'home:index' %}"><i class="fas fa-home text-secondary-color"></i> Home</a>
+                </li>
+                <li class="leading-1.8 lg:leading-1.8 text-white">
+
+                    Our Events
+
+                </li>
             </ul>
         </div>
     </div>
 </section>
 <!-- page-title end -->
 
+<section>
+    <div class="container modal-container tab property-tab py-30">
+        <div>
+            <!-- poperty body -->
+            <div>
+                <!-- filter top -->
+                <div class="mb-50px flex flex-col md:flex-row flex-wrap md:items-center justify-between gap-y-4">
+                    
+                    <ul class="flex items-center flex-wrap gap-y-3">
+                        <li class="pr-30px">
+                            <form class="form-primary property-form">
+                                <select class="selectize" style="opacity: 0; width: 0px; padding: 0px; height: 0px;">
+                                    <option data-display="Select" value="Default Sorting">
+                                        Default Sorting
+                                    </option>
+                                    <option value="Sort by popularity">
+                                        Sort by popularity
+                                    </option>
+                                    <option value="Sort by new arrivals">
+                                        Sort by new arrivals
+                                    </option>
+                                    <option value="Sort by price: low to high">
+                                        Sort by price: low to high
+                                    </option>
+                                    <option value="Sort by price: high to low">
+                                        Sort by price: high to low
+                                    </option>
+                                </select>
+                                
+                            </form>
+                        </li>
+                    </ul>
+                    <div>
+                        <h3 class="text-base font-medium text-paragraph-color">
+                            <span class="leading-50px"> Showing 9 of 20 results </span>
+                        </h3>
+                    </div>
+                </div>
 
-<!-- event-section -->
-<section class="event-section events-page pt_150 pb_150">
-    <div class="auto-container">
-        
-        {% if events.count > 0 %}
+                <div class="tab-contents">
+                    <!-- content 1 -->
+                    <div class="hidden">
+                        <!-- search area  -->
+                        <form class="mb-30px">
+                            <div class="flex items-center">
+                                <input type="text" placeholder="Search your keyword..."
+                                    class="flex-grow text-paragraph-color text-sm font-semibold bg-section-bg-1 px-5 outline-none border-2 border-r-0 border-border-color-9 focus:border focus:border-secondary-color h-60px placeholder:text-heading-color block rounded-none">
+                                <button type="submit"
+                                    class="flex-shrink-0 text-sm lg:text-base h-60px w-14 flex items-center justify-center text-white bg-secondary-color hover:bg-primary-color">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                        <!-- property cards -->
+                        <div class="-mx-15px">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                                <!-- card 1 -->
+                                <div class="apart-card mb-50px px-15px">
+                                    <div class="group border border-border-color-13 shadow-box-shadow-4">
+                                        <!-- card thumbs -->
+                                        <div class="relative leading-1">
+                                            <a href="product-details.html" class="overflow-hidden">
+                                                <img src="{% if event.image %}{{event.image.url}}{% else %}{% static 'images/no-image.png' %}{% endif %}"
+                                                    class="w-full group-hover:scale-110 transition-all duration-700"
+                                                    alt="">
+                                            </a>
 
-        <div class="row clearfix">
-            
-            {% for event in events %}
-            <div class="col-lg-4 col-md-6 col-sm-12 event-block">
-                <div class="event-block-one">
-                    <div class="inner-box">
-                        <div class="image-box tw:w-96 tw:h-64">
-                            <figure class="image"><a href="{% url 'events:event-details' event.slug %}"><img
-                                        src="{% if event.image %}{{event.image.url}}{% else %}{% static 'images/no-image.png' %}{% endif %}" alt="{{event.title}}"></a></figure>
-                            <span class="location"><i class="icon-3"></i>{{event.address}}</span>
+                                            <div class="absolute top-10 lg:top-5 right-[30px]">
+                                                <a href="team-details.html" class="w-50px h-50px"><img
+                                                        src="assets/img/blog/author.jpg" alt=""
+                                                        class="w-full h-full rounded-100% group-hover:scale-110 border-3px border-border-color-1 transition-all duration-300"></a>
+                                            </div>
+                                        </div>
+                                        <!-- card body -->
+                                        <div class="px-5 pt-30px lg:px-30px">
+                                            <p class="text-secondary-color font-semibold mb-15px uppercase">
+                                                <span class="leading-25px">For Rent</span>
+                                            </p>
+                                            <h4
+                                                class="text-lg md:text-xl lg:text-22px font-semibold text-heading-color mb-15px">
+                                                <a href="product-details.html"
+                                                    class="hover:text-secondary-color leading-1.3">New Apartment Nice
+                                                    View</a>
+                                            </h4>
+
+                                            <div class="text-sm">
+                                                <a href="locations.html" class="hover:text-secondary-color"><i
+                                                        class="flaticon-pin text-secondary-color mr-0.5"></i>
+                                                    Belmont Gardens, Chicago</a>
+                                            </div>
+
+                                            <ul class="flex flex-wrap gap-15px pt-4 pb-5">
+                                                <li>
+                                                    <p class="leading-1.8 font-bold text-sm">
+                                                        3 <span class="font-normal">Bed</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p class="leading-1.8 font-bold text-sm">
+                                                        2 <span class="font-normal">Bath</span>
+                                                    </p>
+                                                </li>
+
+                                                <li>
+                                                    <p class="leading-1.8 font-bold text-sm">
+                                                        3450
+                                                        <span class="font-normal">Square Ft</span>
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                            <div
+                                                class="card-quick-area flex gap-x-2 pb-30px leading-1 transition-all duration-300">
+                                                <ul class="flex gap-x-2">
+                                                    <li>
+                                                        <button data-modal-index="1"
+                                                            class="modal-open w-9 h-9 flex items-center justify-center bg-section-bg-1 text-center hover:bg-secondary-color hover:text-white font-bold">
+                                                            <i class="flaticon-expand leading-1"></i>
+                                                        </button>
+                                                    </li>
+                                                    <li>
+                                                        <button data-modal-index="2"
+                                                            class="modal-open w-9 h-9 flex items-center justify-center bg-section-bg-1 text-center hover:bg-secondary-color hover:text-white font-bold">
+                                                            <i class="flaticon-heart-1 leading-1"></i>
+                                                        </button>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-details.html"
+                                                            class="w-9 h-9 flex items-center justify-center bg-section-bg-1 text-center hover:bg-secondary-color hover:text-white font-bold"><i
+                                                                class="flaticon-add leading-1"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- cart footer -->
+                                        <div class="p-5 lg:px-30px border-t border-border-color-1">
+                                            <h5 class="text-lg text-secondary-color font-semibold mb-5px">
+                                                <span class="leading-1.8">$34,900</span>
+                                                <label class="text-sm font-normal">/Month</label>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
                         </div>
-                        <div class="lower-content">
-                            <span class="post-date"><i class="icon-17"></i>{{event.start_date}}</span>
-                            <h3><a href="{% url 'events:event-details' event.slug %}">{{event.title}}</a></h3>
-                            <p>{{event.small_description|truncatechars:100}}</p>
-                            <div class="btn-box"><a href="{% url 'events:event-details' event.slug %}" class="theme-btn btn-two">View Details</a></div>
+                    </div>
+                    <!-- content 2 -->
+                    <div>
+                        <!-- search area  -->
+                        <form class="mb-30px">
+                            <div class="flex items-center">
+                                <input type="text" placeholder="Search your keyword..."
+                                    class="flex-grow text-paragraph-color text-sm font-semibold bg-section-bg-1 px-5 outline-none border-2 border-r-0 border-border-color-9 focus:border focus:border-secondary-color h-60px block rounded-none">
+                                <button type="submit"
+                                    class="flex-shrink-0 text-sm lg:text-base h-60px w-14 flex items-center justify-center text-white bg-secondary-color hover:bg-primary-color">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                        <!-- property cards -->
+                         
+                         {% if events.count > 0 %}
+                            
+                         
+                            
+                        <div>
+                            <!-- card 1 -->
+                            {% for event in events %}
+                            <div class="mb-50px">
+                                <div
+                                    class="group border border-border-color-13 shadow-box-shadow-4 p-30px md:pb-22px flex flex-wrap">
+                                    <!-- card thumbs -->
+                                    <div class="relative leading-1 basis-full md:basis-2/5">
+                                        <div>
+                                            <a href="{% url 'events:event-details' event.slug %}" class="overflow-hidden leading-1">
+                                                <img src="{% if event.image %}{{event.image.url}}{% else %}{% static 'images/no-image.png' %}{% endif %}"
+                                                    class="w-full group-hover:scale-110 transition-all duration-700"
+                                                    alt="{{event.title}}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- card body -->
+                                    <div class="basis-full md:basis-3/5 pt-25px md:pt-0">
+                                        <div class="pl-0 md:pl-30px">
+                                            <div class="flex justify-between items-center gap-x-15px">
+                                                <p class="text-secondary-color font-semibold mb-15px uppercase">
+                                                    <span class="leading-25px">Golf Events</span>
+                                                </p>
+
+                                                <h5 class="text-lg text-secondary-color font-semibold">
+                                                    <span class="leading-1.8">R{{event.cost}}</span>
+                                                    <label class="text-sm font-normal">/Booking</label>
+                                                </h5>
+                                            </div>
+                                            <h4
+                                                class="text-lg md:text-xl lg:text-22px font-semibold text-heading-color mb-15px">
+                                                <a href="{% url 'events:event-details' event.slug %}"
+                                                    class="hover:text-secondary-color leading-1.3">{{event.title}}</a>
+                                            </h4>
+
+                                            <div class="text-sm flex flex-wrap gap-4 items-center">
+                                                <a href="locations.html" class="hover:text-secondary-color"><i
+                                                        class="flaticon-pin text-secondary-color mr-0.5"></i>
+                                                    {{event.address}}</a>
+                                                <a href="locations.html" class="hover:text-secondary-color"><i
+                                                        class="fa-regular fa-calendar-alt text-secondary-color mr-0.5"></i>
+                                                    {{event.date_time_formatter}}</a>
+                                                <a href="locations.html" class="hover:text-secondary-color"><i class="fa-regular fa-clock text-secondary-color mr-0.5"></i>
+                                                    {{event.available_slots}}</a>
+                                            </div>
+
+                                            <ul class="flex flex-wrap gap-15px pt-4 pb-5">
+                                                <li>
+                                                    <p class="leading-1.8 font-bold text-sm">
+                                                        Cap: <span class="font-normal">{{event.dress_code_cap}}</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p class="leading-1.8 font-bold text-sm">
+                                                        Top: <span class="font-normal">{{event.dress_code_top}}</span>
+                                                    </p>
+                                                </li>
+
+                                                <li>
+                                                    <p class="leading-1.8 font-bold text-sm">
+                                                        Pants:
+                                                        <span class="font-normal">{{event.dress_code_pants}}</span>
+                                                    </p>
+                                                </li>
+                                            </ul>
+
+                                            <!-- card footer -->
+                                            <div class="flex justify-between items-center flex-wrap-reverse gap-y-15px">
+                                                <!-- author -->
+                                                <div class="flex items-center gap-15px">
+                                                    <div>
+                                                        <!-- avatar -->
+                                                        <a href="team-details.html" class="w-50px h-50px"><img
+                                                                src="{% if event.author.profile_image %}{{event.author.profile_image.url}}{% else %}{% static 'images/no-image.png' %}{% endif %}" alt="{{event.author.get_full_name}}"
+                                                                class="w-full h-full rounded-100% border-3px border-border-color-1 transition-all duration-300"></a>
+                                                    </div>
+                                                    <div>
+                                                        <h3 class="text-sm font-semibold mb-1">
+                                                            <a href="team-details.html" class="leading-1.3">{{event.author.get_full_name}}</a>
+                                                        </h3>
+                                                        <p class="text-[12px]">{{event.author.role}}</p>
+                                                    </div>
+                                                </div>
+                                                <!-- quick action -->
+                                                <div
+                                                    class="flex gap-x-2 relative leading-1 transition-all duration-300">
+                                                    <ul class="flex gap-x-2">
+                                                        <!-- <li>
+                                                            <button data-modal-index="1"
+                                                                class="modal-open w-9 h-9 flex items-center justify-center bg-section-bg-1 text-center hover:bg-secondary-color hover:text-white font-bold">
+                                                                <i class="flaticon-expand leading-1"></i>
+                                                            </button>
+                                                        </li> -->
+                                                        <li>
+                                                            <a href="{% url 'events:booking' event.slug %}"
+                                                                class="modal-open w-9 h-9 flex items-center justify-center bg-section-bg-1 text-center hover:bg-secondary-color hover:text-white font-bold">
+                                                                <i class="flaticon-heart-1 leading-1"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'events:event-details' event.slug %}"
+                                                                class="w-9 h-9 flex items-center justify-center bg-section-bg-1 text-center hover:bg-secondary-color hover:text-white font-bold"><i
+                                                                    class="flaticon-add leading-1"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            
                         </div>
-                        
+                        {% else %}
+                        <div class="grid items-center justify-center p-10">
+                            <p class="text-3xl">
+                                There are no upcoming events for now
+                            </p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- modals -->
+        <!-- modal apartment details-->
+        <div
+            class="modal hidden fixed top-0 left-0 w-full h-full z-xxl transition-all duration-500 bg-lightBlack opacity-0 overflow-y-auto">
+            <div class="modal-close fixed md:absolute top-0 left-0 w-full h-full z-xsmall cursor-zoom-out"></div>
+            <div
+                class="modal-content transition-all duration-500 -translate-y-20 sm:max-w-500px lg:max-w-980px m-2 mt-150px sm:mx-auto relative z-small rounded-lg">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-30px p-30px bg-white relative">
+                    <div>
+                        <img src="assets/img/product/4.png" class="w-full" alt="">
+                    </div>
+
+                    <!-- card body -->
+                    <div class="pl-25px">
+                        <div class="absolute right-4 top-4">
+                            <button
+                                class="modal-close w-10 h-10 leading-10 text-center bg-section-bg-1 text-black text-25px inline-block">
+                                <span>×</span>
+                            </button>
+                        </div>
+                        <ul class="flex items-center mb-5px">
+                            <li>
+                                <a href="#" class="text-xs text-ratings hover:text-secondary-color"><i
+                                        class="fas fa-star leading-1.8"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-xs text-ratings hover:text-secondary-color"><i
+                                        class="fas fa-star leading-1.8"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-xs text-ratings hover:text-secondary-color"><i
+                                        class="fas fa-star leading-1.8"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-xs text-ratings hover:text-secondary-color"><i
+                                        class="fas fa-star-half-alt leading-1.8"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-xs text-ratings hover:text-secondary-color"><i
+                                        class="far fa-star leading-1.8"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-xs text-ratings hover:text-secondary-color">
+                                    ( 95 Reviews )</a>
+                            </li>
+                        </ul>
+
+                        <h4 class="text-22px md:text-2xl font-bold text-heading-color mb-0">
+                            <a href="product-details.html" class="leading-1.3 hover:text-secondary-color">3 Rooms
+                                Manhattan</a>
+                        </h4>
+                        <p class="text-34px md:text-50px text-secondary-color font-semibold mb-0 pb-0  leading-1.2">
+                            <span>$149.00</span>
+                            <del class="text-26px md:text-40px leading-1.2 opacity-60 pl-1">$165.00</del>
+                        </p>
+                        <!-- categories -->
+                        <div class="py-5 border-y border-border-color-12 mb-30px">
+                            <ul class="flex gap-x-10px items-center font-semibold">
+                                <li class="text-sm leading-1.8 font-normal"><span
+                                        class="text-heading-color w-[95px] leading-1.8 ">
+                                        Categories:
+                                    </span></li>
+                                <li class="text-sm leading-1.8"><a href="#" class=" leading-1.8">
+                                        Parts,
+                                    </a></li>
+                                <li class="text-sm leading-1.8"><a href="#" class=" leading-1.8">
+                                        Car,
+                                    </a></li>
+                                <li class="text-sm leading-1.8"><a href="#" class=" leading-1.8">
+                                        Seat,
+                                    </a></li>
+                                <li class="text-sm leading-1.8"><a href="#" class=" leading-1.8">
+                                        Cover
+                                    </a></li>
+                            </ul>
+                        </div>
+
+                        <!-- action -->
+                        <div class="flex items-center gap-4 mb-4">
+                            <form
+                                class="w-140px h-65px border-2 border-border-color-11 text-xl font-bold text-heading-color flex count-container">
+                                <div
+                                    class="mincount basis-[42px] h-full flex items-center justify-center flex-shrink-0 border-r-2 border-border-color-11 cursor-pointer">
+                                    -
+                                </div>
+                                <div class="flex-grow h-full">
+                                    <input type="text" value="02"
+                                        class="text-base text-paragraph-color outline-none border border-transparent focus:border focus:border-secondary-color h-full w-full rounded-none flex items-center text-center">
+                                </div>
+                                <div
+                                    class="maxcount basis-[42px] h-full flex items-center justify-center flex-shrink-0 border-l-2 border-border-color-11 cursor-pointer">
+                                    +
+                                </div>
+                            </form>
+
+                            <div>
+                                <h5
+                                    class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block">
+                                    <span
+                                        class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-black hover:bg-primary-cogroup-lor z-1 group-hover:w-0 transition-all duration-300"></span>
+                                    <a href="#"
+                                        class="relative z-10 px-5 md:px-25px lg:px-10 py-10px md:py-3 lg:py-17px group-hover:text-heading-color leading-23px"><i
+                                            class="fas fa-shopping-cart"></i> ADD TO CART</a>
+                                </h5>
+                            </div>
+                        </div>
+
+                        <ul class="flex flex-wrap gap-5 pb-5 mb-5 border-b border-border-color-12 border-opacity-25">
+                            <li class="text-sm">
+                                <button
+                                    class="modal-open leading-1.8 font-semibold hover:text-secondary-color transition-all duration-300"
+                                    data-modal-index="3">
+                                    <i class="far fa-heart px-0.5"></i> Add to Wishlist
+                                </button>
+                            </li>
+
+                            <li class="text-sm">
+                                <button
+                                    class="leading-1.8 font-semibold hover:text-secondary-color transition-all duration-300">
+                                    <i class="fas fa-exchange-alt px-0.5"></i> Compare
+                                </button>
+                            </li>
+                        </ul>
+                        <!-- social area -->
+                        <ul class="flex gap-x-[18px] items-center">
+                            <li>
+                                <p class="text-sm lg:text-base">
+                                    <span class="leading-1.8">Share</span>
+                                </p>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/"
+                                    class="text-sm lg:text-base hover:text-secondary-color">
+                                    <i class="fab fa-facebook-f leading-1.8"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://x.com/" class="text-sm lg:text-base hover:text-secondary-color">
+                                    <i class="fab fa-twitter leading-1.8"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/"
+                                    class="text-sm lg:text-base hover:text-secondary-color">
+                                    <i class="fab fa-linkedin leading-1.8"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/"
+                                    class="text-sm lg:text-base hover:text-secondary-color">
+                                    <i class="fab fa-instagram leading-1.8"></i>
+                                </a>
+                            </li>
+                        </ul>
+
+
                     </div>
                 </div>
             </div>
-            {% endfor %}
-            
         </div>
-
-        {% else %}
-        <div class="tw:grid tw:items-center tw:justify-center tw:p-10">
-            <p class="tw:text-3xl">
-                There are no upcoming events for now
-            </p>
-        </div>
-        {% endif %}
+        
     </div>
 </section>
-<!-- event-section end -->
 
-
-<!-- cta-section -->
-<section class="cta-section alternat-2 centred bg-color-2 pt_140 pb_150 mb_150">
-    <div class="pattern-layer" style="background-image: url(static/images/shape/shape-14.png);"></div>
-    <div class="auto-container">
-        <div class="content-box">
-            <div class="sec-title light mb_40">
-                <span class="sub-title">our Facilities</span>
-                <h2>Take Your Game To The <br />Next Level.</h2>
-            </div>
-            <div class="btn-box">
-                <a href="{% url 'memberships:membership' %}" class="theme-btn btn-one">become a member</a>
-                <a href="{% url 'home:contact' %}" class="theme-btn btn-two">Contact Us</a>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- cta-section end -->
 {% endblock content %}

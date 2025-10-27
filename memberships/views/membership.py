@@ -3,42 +3,10 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
 from home.utilities.custom_email import send_email_to_admin
-from memberships.models import MembershipEmail, MembershipFile
-from memberships.forms import MembershipEmailForm
+from memberships.models import MembershipEmail, MembershipFile, MembershipApplication
 import logging, mimetypes
 
 logger = logging.getLogger("accounts")
-
-
-def join_membership(request):
-    if request.method == 'POST':
-        form = MembershipEmailForm(request.POST)
-        if form.is_valid():
-            recaptcha_token = form.cleaned_data.get('recaptcha_token')
-            # print(recaptcha_token)
-            try:
-                
-                form.save()
-                send_email_to_admin("Interested In Joining The Club", form.cleaned_data["message"], form.cleaned_data["from_email"], form.cleaned_data["name"])
-                messages.success(request, "We have successfully receive your email, will be in touch shortly")
-                return redirect("memberships:membership")
-            
-            except ValueError as e:
-                logger.error(f"Failed to verify this due to f{e}")
-                messages.success(request, "We have successfully receive your email, will be in touch shortly")
-                return redirect("memberships:membership")
-            
-            
-        else:
-            messages.error(request, "Something went wrong, please fix errors below")
-            for field in form:
-                if field.errors:
-                    messages.error(request, f"{field.label}: {field.errors.as_text()}")
-                return redirect("memberships:membership")
-            
-    form = MembershipEmailForm()
-    
-    return render(request, 'membership/join-us.html', {"form": form})
 
 def download_files(request, file_slug):
     media = get_object_or_404(MembershipFile, slug=file_slug)

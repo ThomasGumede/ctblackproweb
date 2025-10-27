@@ -1,6 +1,8 @@
 {% extends '_dashboard.html' %}
 {% load static %}
-
+{% block dash_title %}
+Members
+{% endblock dash_title %}
 {% block content %}
 <div class="grid grid-cols-12">
     <div class="col-span-12">
@@ -86,17 +88,17 @@
                                 </td>
                                 <td class="text-center">
                                     <div class="flex items-center gap-3 justify-center">
-                                        <a href="{% url 'dashboard:user-details' user.username %}"
+                                        <a href="{{user.get_absolute_url}}"
                                             class="bg-info-100 dark:bg-info-600/25 hover:bg-info-200 text-info-600 dark:text-info-400 font-medium w-10 h-10 flex justify-center items-center rounded-full">
                                             <iconify-icon icon="majesticons:eye-line"
                                                 class="icon text-xl"></iconify-icon>
                                         </a>
                                         
                                         {% if request.user.is_staff %}
-                                        <button type="button"
+                                        <a type="button"
                                             class="bg-success-100 dark:bg-success-600/25 text-success-600 dark:text-success-400 bg-hover-success-200 font-medium w-10 h-10 flex justify-center items-center rounded-full">
                                             <iconify-icon icon="lucide:edit" class="menu-icon"></iconify-icon>
-                                        </button>
+                                        </a>
                                         <a href="{% url 'dashboard:delete-user' user.username %}"
                                             class="remove-item-btn bg-danger-100 dark:bg-danger-600/25 hover:bg-danger-200 text-danger-600 dark:text-danger-500 font-medium w-10 h-10 flex justify-center items-center rounded-full">
                                             <iconify-icon icon="fluent:delete-24-regular"

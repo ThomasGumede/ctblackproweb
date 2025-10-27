@@ -6,6 +6,9 @@
 <title>CT Black Pro - @{{user.username}}</title>
 {% endblock seo %}
 
+{% block dash_title %}
+My Profile
+{% endblock dash_title %}
 
 {% block add_css %}
 
@@ -162,14 +165,19 @@
                                 </div>
                                 <div class="col-span-12 sm:col-span-6">
                                     <div class="mb-5">
-                                        <label for="name"
-                                            class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">Maindane
-                                            Name <span class="text-danger-600"></span></label>
-                                        <input type="text" class="form-control rounded-lg" id="id_maiden_name"
-                                            placeholder="Enter Full Name" name="maiden_name" value="{% if user.maiden_name %}{{user.maiden_name}}{% endif %}">
+                                        <label for="id_race" class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">Race
+                                            <span class="text-danger-600">*</span> </label>
+                                        {{form.race}}
                                     </div>
                                 </div>
                                 <div class="col-span-12 sm:col-span-6">
+                                    <div class="mb-5">
+                                        <label for="id_gender" class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">Gender
+                                            <span class="text-danger-600">*</span> </label>
+                                        {{form.gender}}
+                                    </div>
+                                </div>
+                                <div class="col-span-12">
                                     <div class="mb-5">
                                         <label for="id_address"
                                             class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">Address</label>
@@ -194,7 +202,21 @@
                                             placeholder="Enter phone number" name="phone" value="{% if user.phone %}{{user.phone}}{% endif %}">
                                     </div>
                                 </div>
-
+                                <div class="col-span-12 sm:col-span-6">
+                                    <div class="mb-5">
+                                        <label for="id_hna_membership_number" class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">HNA
+                                            Membership Number </label>
+                                        <input type="text" class="form-control rounded-lg" id="id_hna_membership_number" placeholder="Enter Full Name"
+                                            name="hna_membership_number" value="{% if form.hna_membership_number.value %}{{user.hna_membership_number}}{% endif %}">
+                                    </div>
+                                </div>
+                                <div class="col-span-12 sm:col-span-6">
+                                    <div class="mb-5">
+                                        <label for="id_linkedIn" class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">LinkedIn Url</label>
+                                        <input type="url" class="form-control rounded-lg" id="id_linkedIn" placeholder="Enter LinkedIn Url"
+                                            name="linkedIn" value="{% if user.linkedIn %}{{user.linkedIn}}{% endif %}">
+                                    </div>
+                                </div>
                                 
                                 
                                 <div class="col-span-12">
@@ -202,7 +224,7 @@
                                         <label for="id_biography"
                                             class="inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2">Description</label>
                                         <textarea name="biography" class="form-control rounded-lg" id="id_biography"
-                                            placeholder="Write description...">{{user.biography}}</textarea>
+                                            placeholder="{{form.biography.help_text}}">{{user.biography}}</textarea>
                                     </div>
                                 </div>
                             </div>
