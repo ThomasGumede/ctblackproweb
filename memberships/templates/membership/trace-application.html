@@ -1,0 +1,203 @@
+{% extends '_base.html' %}
+{% load static %}
+
+
+{% block seo %}
+<meta name="description"
+    content="Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro Golf Club">
+<meta name="keywords" content="">
+<meta name="author" content="CT Black Pro">
+<link rel="canonical" href="{{ request.build_absolute_uri }}" />
+<meta property="og:title" content="CT Black Pro Application Tracing" />
+<meta property="og:description"
+    content="Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro Golf Club" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<meta property="og:type" content="website" />
+
+<meta property="og:image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.build_absolute_uri }}">
+<meta name="twitter:title" content="CT Black Pro Application Tracing">
+<meta name="twitter:description"
+    content="Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro Golf Club">
+<meta name="twitter:image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+<meta name="twitter:creator" content="@BBGIOfficial">
+
+<!-- Google+ / Schema.org -->
+<meta itemprop="name" content="CT Black Pro Application Tracing">
+<meta itemprop="description"
+    content="Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro Golf Club">
+<meta itemprop="image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+
+<!-- Additional Meta Tags -->
+<meta property="og:locale" content="en_ZA">
+<meta property="og:site_name" content="CT Black Pro Application Tracing">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% endblock seo %}
+
+
+{% block content %}
+<section class="page-title">
+    <!-- banner section -->
+    <div style="background-image: url(../../static/images/background/page-title.jpg);"
+        class="w-full bg-layer bg-no-repeat bg-cover bg-center relative z-0 after:w-full after:h-full after:absolute after:top-0 after:left-0  after:bg-opacity-30 after:-z-1">
+        <div class="container py-110px ">
+            <h1 class="text-2xl  sm:text-3xl md:text-26px lg:text-3xl xl:text-4xl font-bold text-white mb-15px">
+                <span class="leading-1.3 md:leading-1.3 lg:leading-1.3 xl:leading-1.3">Membership Planning
+                </span>
+            </h1>
+            <ul class="breadcrumb flex gap-30px items-center text-sm lg:text-base font-bold pt-4">
+                <li class="home relative leading-1.8 lg:leading-1.8">
+                    <a href="{% url 'home:index' %}"><i class="fas fa-home text-secondary-color"></i> Home</a>
+                </li>
+                <li class="leading-1.8 lg:leading-1.8 text-white">
+
+                    Trace Application
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container pt-30 pb-140px md:pb-30">
+        <div class="lg:w-2/3 lg:mx-auto px-25px md:px-50px pt-10 pb-50px bg-section-bg-1">
+            {% if application %}
+                <p class="text-sm lg:text-base mb-15px text-center">
+                    <span class="leading-1.8 lg:leading-1.8">
+                        Congradulations! We have received your application and we are processing it. Your current application status is <b>{{application.status}}</b>
+                    </span>
+                </p>
+            {% else %}
+            <p class="text-sm lg:text-base mb-15px text-center">
+                <span class="leading-1.8 lg:leading-1.8">
+                    To track your application please enter your Application Number in the box below
+                    and press the "Track Application" button. This was given to you on
+                    your confirmation email you should have
+                    received.
+                </span>
+            </p>
+            {% endif %}
+
+            <div>
+                <form class="form-primary" method="post">
+                    {% csrf_token %}
+                    <div class="grid grid-cols-1 gap-30px mb-30px">
+                        <!-- Order ID -->
+                        <div class="relative">
+                            <p class="text-sm lg:text-base">
+                                <span class="leading-1.8 lg:leading-1.8"> Application Number </span>
+                            </p>
+                            <input name="application_number" required type="text" placeholder="Found in your application confirmation email." value="{% if application %}{{application.application_number}}{% endif %}"
+                                class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm placeholder:opacity-70">
+                        </div>
+                        <!-- Billing email -->
+                        <div class="relative">
+                            <p class="text-sm lg:text-base">
+                                <span class="leading-1.8 lg:leading-1.8">
+                                    Your Email Address</span>
+                            </p>
+                            <input name="email" required type="email" placeholder="Email you used during application." value="{% if application %}{{application.user.email}}{% endif %}"
+                                class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm placeholder:opacity-70">
+                        </div>
+                    </div>
+
+                    <!-- submt -->
+                    <div class="flex justify-center">
+                        <h5
+                            class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block z-0">
+                            <span
+                                class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-black -z-1 group-hover:w-0 transition-all duration-300"></span>
+                            <button type="submit"
+                                class="relative z-1 px-30px lg:px-10 py-3 md:py-15px lg:py-17px group-hover:text-heading-color leading-1.5 uppercase">
+                                Trace Application
+                            </button>
+                        </h5>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% if application %}
+<section>
+    <div class="container pt-115px pb-90px">
+        <!-- section heading -->
+        <div class="text-center mb-50px">
+            <p
+                class="text-sm md:text-15px lg:text-base text-secondary-color capitalize mb-2 inline-block font-semibold">
+                <span class="leading-1.3">Trace Your Application</span>
+            </p>
+            <h2 class="text-2xl sm:text-3xl md:text-26px lg:text-3xl xl:text-44px text-heading-color font-bold">
+                <span class="leading-1.3"> Here's Your Application Progress </span>
+            </h2>
+        </div>
+        <!-- services cards  -->
+
+        <div class="service-cards flex flex-wrap justify-center items-center text-center -mx-15px">
+            <!-- card 1 -->
+            <div class="service-card basis-full sm:basis-1/2 lg:basis-1/3 px-15px mb-30px">
+                <div
+                    class="border  border-border-color-1 shadow-box-shadow-1 bg-white relative py-10 pb-35px px-30px transition-all duration-300">
+                    <div class="text-center mb-5 w-24 mx-auto h-24 rounded-full grid border border-custom-secondary items-center justify-center">
+                        <i class="fa-solid fa-check text-6xl text-custom-secondary"></i>
+                    </div>
+                    <h6 class="text-lg md:text-xl lg:text-22px xl:text-2xl text-heading-color font-bold">
+                        <a class="hover:text-secondary-color leading-1.3 mb-1" href="service-details.html">Application Submitted</a>
+                    </h6>
+                    <p class="text-sm mb-25px">
+                        <span class="leading-1.8">We Have Successfully received Your application and confirmation email was sent to your email.</span>
+                    </p>
+                    
+                    <span
+                        class="hover-line absolute bottom-0 left-0 w-0 h-1 bg-secondary-color transition-all duration-300 block"></span>
+                </div>
+            </div>
+            <!-- card 2 -->
+            <div class="service-card active basis-full sm:basis-1/2 lg:basis-1/3 px-15px mb-30px">
+                <div
+                    class="border border-border-color-1 shadow-box-shadow-1 bg-white relative py-10 pb-35px px-30px transition-all duration-300">
+                    <div
+                        class="text-center mb-5 w-24 mx-auto h-24 rounded-full grid border border-custom-secondary items-center justify-center">
+                        <i class="fa-solid {% if application.status == 'PENDING' %}fa-hourglass-half{% else %}fa-check{% endif %} text-6xl text-custom-secondary"></i>
+                    </div>
+                    <h6 class="text-lg md:text-xl lg:text-22px xl:text-2xl text-heading-color font-bold">
+                        <a class="hover:text-secondary-color leading-1.3 mb-1" href="service-details.html">Application Review</a>
+                    </h6>
+                    <p class="text-sm mb-25px">
+                        <span class="leading-1.8">We are currently Reviewing your application and will communicate the next steps. Application status is <b>{{application.status}}</b></span>
+                    </p>
+                    
+                    <span
+                        class="hover-line absolute bottom-0 left-0 w-0 h-1 bg-secondary-color transition-all duration-300 block"></span>
+                </div>
+            </div>
+            <!-- card 3 -->
+            <div class="service-card basis-full sm:basis-1/2 lg:basis-1/3 px-15px mb-30px">
+                <div
+                    class="border border-border-color-1 shadow-box-shadow-1 bg-white relative py-10 pb-35px px-30px transition-all duration-300">
+                    <div
+                        class="text-center mb-5 w-24 mx-auto h-24 rounded-full grid border border-custom-secondary items-center justify-center">
+                        <i class="fa-solid {% if application.status == 'PENDING' %}fa-hourglass-start{% elif application.status == 'Awaiting Payment' %}fa-hourglass-half{% else %}fa-check{% endif %} text-6xl text-custom-secondary"></i>
+                    </div>
+                    <h6 class="text-lg md:text-xl lg:text-22px xl:text-2xl text-heading-color font-bold">
+                        <a class="hover:text-secondary-color leading-1.3 mb-1" href="service-details.html">Final Stage: 
+                            {% if application.status == 'PENDING' %}Payments & Approval{% elif application.status == 'Awaiting Payment' %}Awaiting Payment{% elif application.status == 'NOT APPROVED' %}Not Approved{% else %}Application Blocked{% endif %}</a>
+                    </h6>
+                    <p class="text-sm mb-25px">
+                        <span class="leading-1.8">We have reviewed Your application and have communicated the next steps.</span>
+                    </p>
+                    
+                    <span
+                        class="hover-line absolute bottom-0 left-0 w-0 h-1 bg-secondary-color transition-all duration-300 block"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% endblock content %}

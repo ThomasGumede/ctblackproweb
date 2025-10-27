@@ -61,107 +61,78 @@
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&amp;display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
-    <link href="{% static 'css/font-awesome-all.css' %}" rel="stylesheet">
-    <link href="{% static 'css/flaticon.css' %}" rel="stylesheet">
-    <link href="{% static 'css/owl.css' %}" rel="stylesheet">
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/jquery.fancybox.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
-    <link href="{% static 'css/nice-select.css' %}" rel="stylesheet">
-    <link href="{% static 'css/odometer.css' %}" rel="stylesheet">
-    <link href="{% static 'css/elpath.css' %}" rel="stylesheet">
-    <link href="{% static 'css/color.css' %}" id="jssDefault" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <link href="{% static 'css/module-css/header.css' %}" rel="stylesheet">
-    <link href="{% static 'css/module-css/page-title.css' %}" rel="stylesheet">
-    <link href="{% static 'css/module-css/banner.css' %}" rel="stylesheet">
-    <link href="{% static 'css/module-css/about.css' %}" rel="stylesheet">
-    <link href="{% static 'css/module-css/funfact.css' %}" rel="stylesheet">
-    <link href="{% static 'css/module-css/chooseus.css' %}" rel="stylesheet">
-    <link href="{% static 'css/module-css/event.css' %}" rel="stylesheet">
-    <link href="{% static 'css/module-css/portfolio.css' %}" rel="stylesheet">
-    <link href="{% static 'css/module-css/cta.css' %}" rel="stylesheet">
-    <link href="{% static 'css/module-css/news.css' %}" rel="stylesheet">
-    <link href="{% static 'css/module-css/footer.css' %}" rel="stylesheet">
-    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/font-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/glightbox.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+    .bg-layer:before {
+        position: absolute;
+        content: '';
+        background: #000;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        z-index: -1000;
+    }
+
+    .z-100 {
+        z-index: 100;
+    }
+
+    .lg\:w-1\/2 {
+        @media (width >= 64rem /* 1024px */) {
+            width: calc(1/2 * 100%) /* 50% */;
+        }
+    }
+    </style>
     {% block addcss %}
     {% endblock addcss %}
 </head>
 <body>
-    <div class="boxed_wrapper ltr">
-        <!-- preloader -->
-        <div class="loader-wrap">
-            <div class="preloader">
-                <div class="preloader-close"><i class="fal fa-times"></i></div>
-                <div id="handle-preloader" class="handle-preloader">
-                    <div class="animation-preloader">
-                        <div class="spinner"></div>
-                        <div class="txt-loading">
-                            <span data-text-preloader="c" class="letters-loading">
-                                C
-                            </span>
-                            <span data-text-preloader="t" class="letters-loading">
-                                T
-                            </span>
-                            <span data-text-preloader="b" class="letters-loading">
-                                B
-                            </span>
-                            <span data-text-preloader="l" class="letters-loading">
-                                L
-                            </span>
-                            <span data-text-preloader="a" class="letters-loading">
-                                A
-                            </span>
-                            <span data-text-preloader="c" class="letters-loading">
-                                C
-                            </span>
-                            <span data-text-preloader="k" class="letters-loading">
-                                K
-                            </span>
-                            <span data-text-preloader="p" class="letters-loading">
-                                P
-                            </span>
-                            <span data-text-preloader="r" class="letters-loading">
-                                R
-                            </span>
-                            <span data-text-preloader="o" class="letters-loading">
-                                O
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    
         <!-- preloader end -->
         {% include 'includes/header.html' %}
         {% include 'includes/messages.html' %}
+        <main>
         {% block content %}
         {% endblock content %}
-        
+        </main>
         {% include 'includes/footer.html' %}
-        <!--Scroll to top-->
-        <div class="scroll-to-top">
-            <svg class="scroll-top-inner" viewBox="-1 -1 102 102">
-                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-            </svg>
-        </div>
-    </div>
-    <!-- jequery plugins -->
-    <script src="{% static 'js/jquery.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/owl.js' %}"></script>
-    <script src="{% static 'js/wow.js' %}"></script>
-    <script src="{% static 'js/validation.js' %}"></script>
-    <script src="{% static 'js/jquery.fancybox.js' %}"></script>
-    <script src="{% static 'js/appear.js' %}"></script>
-    <script src="{% static 'js/isotope.js' %}"></script>
-    <script src="{% static 'js/parallax-scroll.js' %}"></script>
-    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
-    <script src="{% static 'js/scrolltop.min.js' %}"></script>
-    <script src="{% static 'js/jquery-ui.js' %}"></script>
-    <script src="{% static 'js/odometer.js' %}"></script>
+        
+ 
+    <button
+        class="scroll-up w-30px h-30px lg:w-10 lg:h-10 lg:text-xl bg-section-bg-1 text-heading-color hover:bg-secondary-color hover:text-white rotate-[45deg] shadow-box-shadow-3 fixed bottom-[50px] lg:bottom-[70px] right-[3%] flex justify-center items-center z-xl">
+        <i class="fa fa-angle-up leading-1 -rotate-[45deg] inline-block"></i>
+    </button>
+    <script src="{% static 'js/stickyHeader.js' %}"></script>
+    <script src="{% static 'js/accordion.js' %}"></script>
+    <script src="{% static 'js/service.js' %}"></script>
+    <script src="{% static 'js/nice-select2.js' %}"></script>
+    <script src="{% static 'js/search.js' %}"></script>
+    <script src="{% static 'js/drawer.js' %}"></script>
+    <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'js/silder.js' %}"></script>
+    <script src="{% static 'js/counterup.js' %}"></script>
+    <script src="{% static 'js/modal.js' %}"></script>
+    <script src="{% static 'js/tabs.js' %}"></script>
+
+    <script src="{% static 'js/glightbox.min.js' %}"></script>
+    <script src="{% static 'js/scrollUp.js' %}"></script>
+    <script src="{% static 'js/smoothScroll.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/filter.js' %}"></script>
+    <script src="{% static 'js/nice_checkbox.js' %}"></script>
+    <script src="{% static 'js/count.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
     
-    <!-- main-js -->
-    <script src="{% static 'js/script.js' %}"></script>
+    {% block js %}
+        
+    {% endblock js %}
+        
 </body>
 </html>

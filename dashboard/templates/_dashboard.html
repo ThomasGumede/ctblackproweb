@@ -105,6 +105,12 @@
                 </a>
             </li>
             <li>
+                <a href="{% url 'dashboard:bookings' %}">
+                    <iconify-icon icon="flowbite:users-group-outline" class="menu-icon"></iconify-icon>
+                    <span>Bookings</span>
+                </a>
+            </li>
+            <li>
                 <a href="{% url 'dashboard:documents' %}">
                     <iconify-icon icon="flowbite:users-group-outline" class="menu-icon"></iconify-icon>
                     <span>Documents</span>
@@ -352,7 +358,11 @@
                     </a>
                 </li>
                 <li class="text-neutral-600 dark:text-white">-</li>
-                <li class="text-neutral-600 font-medium dark:text-white">Home</li>
+                <li class="text-neutral-600 font-medium dark:text-white">
+                {% block dash_title %}
+                    Home
+                {% endblock dash_title %}
+                    </li>
             </ul>
         </div>
 

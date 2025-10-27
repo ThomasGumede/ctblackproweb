@@ -1,0 +1,124 @@
+{% extends '_application.html' %}
+{% load static %}
+
+{% block app_title %}
+Application Done
+{% endblock app_title %}
+
+{% block addcss %}
+<style>
+    .sec-title.centred .sub-title {
+        padding-left: 15px;
+    }
+
+    .sec-title .sub-title {
+        position: relative;
+        display: inline-block;
+        font-size: 18px;
+        line-height: 25px;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding-right: 15px;
+        margin-bottom: 11px;
+    }
+
+    .sec-title .sub-title:before {
+        position: absolute;
+        content: '';
+        background-color: #77A96A;
+        width: 5px;
+        height: 5px;
+        top: 8px;
+        right: 0px;
+        border-radius: 50%;
+    }
+
+    .sec-title.centred .sub-title:after {
+        position: absolute;
+        content: '';
+        background-color: #77A96A;
+        width: 5px;
+        height: 5px;
+        top: 8px;
+        left: 0px;
+        border-radius: 50%;
+    }
+
+    .sec-title h2 {
+        position: relative;
+        display: block;
+        font-size: 50px;
+        line-height: 60px;
+        text-transform: uppercase;
+        color: #1C3D40;
+    }
+
+    .about-style-two .content-box p {
+        font-size: 18px;
+        line-height: 30px;
+        margin-bottom: 44px;
+    }
+</style>
+{% endblock addcss %}
+
+
+{% block app_content %}
+
+
+
+<div class="tab-contents">
+    <!-- content 1 -->
+    <div class="transition-all about-style-two duration-300">
+        <div class="text-center content-box grid items-center justify-center">
+            <div class="w-full mx-auto">
+                <div class="max-w-[690px]">
+                    <div class="mb-5 sec-title grid items-center justify-center text-center centred">
+                        <i class="fa-solid fa-golf-ball-tee text-5xl  text-custom-text mb-8"></i>
+                        <span class="sub-title text-custom-primary">Congradulations! Your Application Number is <b>{{application.application_number}}</b></span>
+                        <h2>Thank You For Your Application</h2>
+                    </div>
+                    <p class="text-custom-text">Ready to take your place on the fairway? Download our membership rates
+                        and sign-up form to become part of
+                        CT Black Pro
+                        Golf Club—a community where excellence meets opportunity. Whether you're here to compete,
+                        connect, or
+                        grow, your journey
+                        starts now.</p>
+                    <div class="flex flex-wrap gap-7 items-center">
+                        <div>
+                            <h5
+                                class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block z-0">
+                                <span
+                                    class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-black -z-1 group-hover:w-0 transition-all duration-300"></span>
+                                <a href="{% url 'memberships:apply-membership-with-number' application.application_number %}"
+                                    class="relative z-1 px-5 md:px-25px lg:px-10 py-10px md:py-15px lg:py-17px group-hover:text-heading-color leading-1.5 uppercase">
+                                    Update My Application
+                                </a>
+                            </h5>
+                        
+                        </div>
+                        <div>
+                            <h5
+                                class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block z-0">
+                                <span
+                                    class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-black -z-1 group-hover:w-0 transition-all duration-300"></span>
+                                <a href="{% url 'memberships:trace-application' %}"
+                                    class="relative z-1 px-5 md:px-25px lg:px-10 py-10px md:py-15px lg:py-17px group-hover:text-heading-color leading-1.5 uppercase">
+                                    Trace My Application
+                                </a>
+                            </h5>
+
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock app_content %}

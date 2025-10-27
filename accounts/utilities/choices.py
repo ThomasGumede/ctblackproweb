@@ -2,8 +2,8 @@ from django.db import models
 
 TITLE_CHOICES = (
     ("Mr", "Mr"),
-    ("Mrs", "Mrs"),
-    ("Ms", "Ms"),
+    ("Cllr", "Cllr"),
+    ("Eng", "Eng"),
     ("Dr", "Dr"),
     ("Prof", "Prof.")
 )

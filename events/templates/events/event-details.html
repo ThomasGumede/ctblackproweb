@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block seo %}
-<title>CT Black Pro - Join Us</title>
+<title>{{event.title}}</title>
 <meta name="description" content="{{event.small_description|truncatechars:160}}">
 <meta name="keywords" content="CT Black Pro Cape Town, Golf Club Cape Town, Cape Town Golf, Golf Club, Golf Events Cape Town, Golf Club Membership, South African Golf">
 <meta name="author" content="CT Black Pro">
@@ -45,123 +45,336 @@
 
 {% block content %}
 <!-- page-title -->
-<section class="page-title centred pt_190 pb_190">
-    <div class="bg-layer" style="background-image: url({% if event.image %}{{event.image.url}}{% else %}{% static 'images/ct-logo.png' %}{% endif %});"></div>
-    <div class="auto-container">
-        <div class="content-box">
-            <h1>{{event.title}}</h1>
-            <ul class="bread-crumb clearfix">
-                <li><a href="{% url 'home:index' %}">Home</a></li>
-                <li>Events Details</li>
+<section class="page-title">
+    <!-- banner section -->
+    <div style="background-image: url(../../static/images/background/page-title.jpg);"
+        class="w-full bg-layer bg-no-repeat bg-cover bg-center relative z-0 after:w-full after:h-full after:absolute after:top-0 after:left-0  after:bg-opacity-30 after:-z-1">
+        <div class="container py-110px ">
+            <h1 class="text-2xl  sm:text-3xl md:text-26px lg:text-3xl xl:text-4xl font-bold text-white mb-15px">
+                <span class="leading-1.3 md:leading-1.3 lg:leading-1.3 xl:leading-1.3">Event Details
+                </span>
+            </h1>
+            <ul class="breadcrumb flex gap-30px items-center text-sm lg:text-base font-bold pt-4">
+                <li class="home relative leading-1.8 lg:leading-1.8">
+                    <a href="{% url 'home:index' %}"><i class="fas fa-home text-secondary-color"></i> Home</a>
+                </li>
+                <li class="leading-1.8 lg:leading-1.8 text-white">
+
+                    {{event.title}}
+
+                </li>
             </ul>
         </div>
     </div>
 </section>
 <!-- page-title end -->
 
+<section>
+    <div class="container pt-30 pb-[105px]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 lg:gap-x-30px">
+            <!-- details -->
+            <div class="lg:col-start-1 lg:col-span-8">
+                <!-- thumbnail -->
+                <div class="mb-10">
+                    <img src="{% if event.image %}{{event.image.url}}{% else %}{% static 'images/ct-logo.png' %}{% endif %}" alt="{{event.title}}" class="w-full">
+                </div>
 
-<!-- event-details -->
-<section class="event-details pt_150 pb_150">
-    <div class="auto-container">
-        <figure class="big-image mb_70 tw:h-[650px] tw:overflow-hidden tw:object-center tw:object-cover"><img class="" src="{% if event.image %}{{event.image.url}}{% else %}{% static 'images/ct-logo.png' %}{% endif %}" alt="{{event.title}}"></figure>
-        <div class="row clearfix">
-            <div class="col-lg-8 col-md-12 col-sm-12 content-side">
-                <div class="event-details-content mr_20">
-                    <div class="content-one">
-                        <ul class="post-info">
-                            <li><i class="icon-17"></i>{{event.date_time_formatter}}</li>
-                            <li><i class="icon-3"></i>{{event.event_address}}</li>
-                        </ul>
-                        <h2>{{event.title}}</h2>
-                        <div class="text-box mb_60">
-                            {{event.description|safe}}
-                        </div>
+                <!-- description -->
+                <div>
+                    <ul class="flex flex-wrap gap-x-15px md:gap-x-35px gap-y-15px items-center mb-30px">
+                        <li>
+                            <ul class="flex gap-x-15px md:gap-x-30px items-center">
+                                <li>
+                                    <a class="text-xs md:text-sm uppercase text-white px-15px pt-5px pb-0.5 bg-secondary-color hover:bg-primary-color hover:text-white font-semibold"
+                                        href="#"><span class="leading-1.8 md:leading-1.8">Open</span></a>
+                                </li>
+                                <li>
+                                    <a class="text-xs md:text-sm uppercase text-white px-15px pt-5px pb-0.5 bg-orange font-semibold hover:text-white"
+                                        href="#"><span class="leading-1.8 md:leading-1.8">Golf Events</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="flex gap-x-15px md:gap-x-30px items-center">
+                                <li>
+                                    <p class="text-xs md:text-sm font-semibold">
+                                        <span class="leading-1.8 md:leading-1.8"><i
+                                                class="far fa-calendar-alt text-secondary-color mr-5px"></i>
+                                            {{event.date_time_formatter}}</span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <a class="text-xs md:text-sm font-semibold" href="#"><span class="leading-1.8 md:leading-1.8"><i
+                                                class="fa-solid fa-hourglass-start text-secondary-color mr-5px"></i>
+                                            {{event.available_slots}}</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h4 class="text-2xl md:text-26px lg:text-3xl xl:text-4xl font-bold text-heading-color mb-15px">
+                        <span class="leading-1.3 lg:leading-1.3 xl:leading-1.3">{{event.title}}</span>
+                    </h4>
+                    <p class="text-sm">
+                        <span class="leading-1.8"><i class="flaticon-pin text-secondary-color"></i> {{event.address}},  &dash; <b>{{event.venue_name}}</b></span>
+                    </p>
+                    <!-- Description -->
+                    <h4
+                        class="text-22px font-semibold leading-1.3 pl-10px border-l-2 border-secondary-color text-heading-color my-30px">
+                        Description
+                    </h4>
+                    <div class="text-sm lg:text-base my-5">
+                        {{event.description|safe}}
                     </div>
-                    <div class="content-two">
+
+                    <h4 class="text-22px font-semibold leading-1.3 pl-10px border-l-2 border-secondary-color text-heading-color my-30px">
+                        Dressing Code And Other Infor
+                    </h4>
+                    <ul class="flex flex-wrap mb-45px">
+                        <li class="text-sm pt-4 pb-10px pr-6 flex items-center gap-4">
+                            <div class="w-10 h-10 flex items-center justify-center flex-shrink-0 bg-section-bg-5">
+                                <i class="fa-brands fa-redhat text-22px text-secondary-color"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-sm text-heading-color font-normal mb-0.5">
+                                    <span class="leading-1.3">Requested Caps</span>
+                                </h6>
+                                <p class="text-[12.25px] lg:text-sm">
+                                    <span class="lg:leading-1.8"> {{event.dress_code_cap}} </span>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="text-sm pt-4 pb-10px pr-6 flex items-center gap-4">
+                            <div class="w-10 h-10 flex items-center justify-center flex-shrink-0 bg-section-bg-5">
+                                <i class="fa-solid fa-golf-ball-tee text-22px text-secondary-color"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-sm text-heading-color font-normal mb-0.5">
+                                    <span class="leading-1.3"> Requested Tops</span>
+                                </h6>
+                                <p class="text-[12.25px] lg:text-sm">
+                                    <span class="lg:leading-1.8"> {{event.dress_code_top}} </span>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="text-sm pt-4 pb-10px pr-6 flex items-center gap-4">
+                            <div class="w-10 h-10 flex items-center justify-center flex-shrink-0 bg-section-bg-5">
+                                <i class="fa-solid fa-golf-ball-tee text-22px text-secondary-color"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-sm text-heading-color font-normal mb-0.5">
+                                    <span class="leading-1.3"> Requested Pants</span>
+                                </h6>
+                                <p class="text-[12.25px] lg:text-sm">
+                                    <span class="lg:leading-1.8"> {{event.dress_code_pants}} </span>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="text-sm pt-4 pb-10px pr-6 flex items-center gap-4">
+                            <div class="w-10 h-10 flex items-center justify-center flex-shrink-0 bg-section-bg-5">
+                                <i class="fa-solid fa-golf-ball-tee text-22px text-secondary-color"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-sm text-heading-color font-normal mb-0.5">
+                                    <span class="leading-1.3"> Available Bookings</span>
+                                </h6>
+                                <p class="text-[12.25px] lg:text-sm">
+                                    <span class="lg:leading-1.8"> {{event.available_slots}} </span>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="text-sm pt-4 pb-10px pr-6 flex items-center gap-4">
+                            <div class="w-10 h-10 flex items-center justify-center flex-shrink-0 bg-section-bg-5">
+                                <i class="fa-regular fa-clock  text-22px text-secondary-color"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-sm text-heading-color font-normal mb-0.5">
+                                    <span class="leading-1.3"> Tee Off Time</span>
+                                </h6>
+                                <p class="text-[12.25px] lg:text-sm">
+                                    <span class="lg:leading-1.8"> {{event.end_date}} </span>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="text-sm pt-4 pb-10px pr-6 flex items-center gap-4">
+                            <div class="w-10 h-10 flex items-center justify-center flex-shrink-0 bg-section-bg-5">
+                                <i class="fa-solid fa-ticket text-22px text-secondary-color"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-sm text-heading-color font-normal mb-0.5">
+                                    <span class="leading-1.3"> Green Fees</span>
+                                </h6>
+                                <p class="text-[12.25px] lg:text-sm">
+                                    <span class="lg:leading-1.8"> R{{event.cost}} </span>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="text-sm pt-4 pb-10px pr-6 flex items-center gap-4">
+                            <div class="w-10 h-10 flex items-center justify-center flex-shrink-0 bg-section-bg-5">
+                                <i class="fa-solid fa-location-pin text-22px text-secondary-color"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-sm text-heading-color font-normal mb-0.5">
+                                    <span class="leading-1.3"> Venue</span>
+                                </h6>
+                                <p class="text-[12.25px] lg:text-sm">
+                                    <span class="lg:leading-1.8"> {{event.venue_name}} </span>
+                                </p>
+                            </div>
+                        </li>
                         
-                        <div class="map-inner">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55945.16225505631!2d-73.90847969206546!3d40.66490264739892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1601263396347!5m2!1sen!2sbd"
-                                width="100%" height="500" frameborder="0" style="border:0; width: 100%"
-                                allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                        </div>
-                    </div>
+                    </ul>
+
+                    <!-- Floor Plans -->
+
                 </div>
             </div>
-            <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
-                <div class="event-sidebar">
-                    <div class="event-info sidebar-widget">
-                        <div class="widget-title">
-                            <h3>Event Details</h3>
+            <!-- sidebar -->
+            <div class="lg:col-start-9 lg:col-span-4 pt-60px lg:pt-0">
+
+                <!-- Follow Us -->
+                <div class="px-5 pt-35px pb-10 xl:pl-35px xl:pr-30px mb-10 border-2 border-border-color-11">
+                    <h4 class="text-lg font-semibold text-heading-color mb-25px">
+                        <span class="leading-1.3 pl-10px border-l-2 border-secondary-color">Share Event</span>
+                    </h4>
+                    <ul class="flex gap-x-15px pt-4">
+                        <li>
+                            <a href="https://www.facebook.com/"
+                                class="text-sm lg:text-base w-10 h-10 bg-section-bg-1 hover:bg-secondary-color hover:text-white flex items-center justify-center"><i
+                                    class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://x.com/"
+                                class="text-sm lg:text-base w-10 h-10 bg-section-bg-1 hover:bg-secondary-color hover:text-white flex items-center justify-center"><i
+                                    class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/"
+                                class="text-sm lg:text-base w-10 h-10 bg-section-bg-1 hover:bg-secondary-color hover:text-white flex items-center justify-center"><i
+                                    class="fab fa-linkedin"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/"
+                                class="text-sm lg:text-base w-10 h-10 bg-section-bg-1 hover:bg-secondary-color hover:text-white flex items-center justify-center"><i
+                                    class="fab fa-instagram"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="px-5 pt-35px pb-10 xl:pl-35px xl:pr-30px mb-10 border-2 border-border-color-11">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="mb-25px">
+                            <img src="{% if event.author.profile_image %}{{event.author.profile_image.url}}{% else %}{% static 'images/no-image.png' %}{% endif %}" alt="{{event.author.get_full_name}}" class="w-140px h-140px rounded-100%">
                         </div>
-                        <ul class="info-list clearfix">
-                            <li class="tw:text-sm"><span>Organizer :</span>{{event.organiser}}</li>
-                            <li class="tw:text-sm"><span>Start Date :</span>{{event.start_date}}</li>
-                            <li class="tw:text-sm"><span>End Date :</span>{{event.end_date}}</li>
-                            <li class="tw:text-sm"><span>Time :</span>12:00 PM</li>
-                            <li class="tw:text-sm"><span>Cost :</span>R{{event.cost}}</li>
-                        </ul>
-                    </div>
-                    <div class="event-venue sidebar-widget">
-                        <div class="widget-title">
-                            <h3>Event Venue</h3>
-                        </div>
-                        <ul class="info-list clearfix">
-                            <li class="tw:text-sm"><span>Venue :</span>{{event.venue_name}}</li>
-                            <li class="tw:text-sm"><span>Address :</span>{{event.address}}</li>
-                            <li class="tw:text-sm"><span>E-mail :</span><a href="mailto:colfexample@.com">{{event.email}}</a></li>
-                            <li class="tw:text-sm"><span>Phone :</span><a href="tel:142585477592">{{event.phone}}</a></li>
-                            <li class="tw:text-sm"><span>Website :</span><a href="event-details.html">{{event.website}}</a></li>
-                        </ul>
-                    </div>
-                    {% if event.form_link %}
-                    <div class="form-inner">
-                        <div class="widget-title">
-                            <h3>Interest? Fill The Event Form Now</h3>
-                        </div>
+                        <h4 class="mb-15px lg:text-lg text-heading-color font-bold">
+                            <span class="leading-1.3 lg:leading-1.3">{{event.author.get_full_name}}</span>
+                        </h4>
+                        <p class="text-[12.25px] lg:text-sm">
+                            <span class="lg:leading-1 8"> {{event.author.role}} </span>
+                        </p>
                         <div>
-                            
-                            <div class="form-group message-btn pt_20">
-                                <div><a  class="theme-btn btn-one" href="{{event.form_link}}" target="_blank" rel="noopener noreferrer">Get Form now</a></div>
-                            </div>
+                            <ul class="text-xs text-ratings flex items-center mb-10px">
+                                
+                            </ul>
                         </div>
+                        <p class="text-sm mb-22px hyphens-none">
+                            <span class="leading-1.8">{{event.author.biography}}</span>
+                        </p>
+                        <ul class="text-sm lg:text-base flex gap-18px justify-center items-center text-color-1">
+                            
+                            <li class="leading-1.8 lg:leading-1.8">
+                                <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li class="leading-1.8 lg:leading-1.8">
+                                <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="px-5 pt-35px pb-10 xl:pl-35px xl:pr-30px mb-10 border-2 border-border-color-11">
+                    <h4 class="text-lg font-semibold text-heading-color mb-25px">
+                        <span class="leading-1.3 pl-10px border-l-2 border-secondary-color">Reserve Your Space</span>
+                    </h4>
+                    {% if event.available_slots > 0 %}
+                    <div class="">
+                        <h5
+                            class="uppercase text-sm md:text-base text-white bg-secondary-color hover:bg-primary-color relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block z-0">
+                            <a href="{% url 'events:booking' event.slug %}"
+                                class="relative z-1 px-5 md:px-25px lg:px-10 py-10px md:py-15px lg:py-17px group-hover:text-white leading-23px uppercase">
+                                Start Booking
+                            </a>
+                        </h5>
                     </div>
                     {% else %}
-                    <div class="form-inner">
-                        <div class="widget-title">
-                            <h3>Interest? Contact Us For Booking Details</h3>
-                        </div>
-                        <div>
-                    
-                            <div class="form-group message-btn pt_20">
-                                <div class=""><a class="theme-btn btn-one" href="{% url 'home:contact' %}" target="_blank" rel="noopener noreferrer">Contact</a></div>
-                            </div>
+                    <div
+                        class="px-15px py-5 md:px-10px lg:px-25px leading-1.8 block md:table-cell border-b border-border-color-17 md:border-transparent text-center md:text-end w-full md:w-auto">
+                        <div
+                            class="capitalize text-sm lg:text-base text-white relative group whitespace-nowrap font-normal transition-all duration-300 border">
+                            <button
+                                class="font-poppins relative z-10 px-5 md:px-25px lg:px-10 py-10px md:py-3 lg:py-17px group-hover:text-secondary-color transition-all duration-300 disabled:bg-primary-color disabled:opacity-65 disabled:cursor-not-allowed disabled:group-hover:text-white leading-1.5"
+                                disabled="">
+                                Event Closed
+                            </button>
                         </div>
                     </div>
                     {% endif %}
                 </div>
+                <!-- Top Rated Product -->
+                <div class="px-5 pt-35px pb-10 xl:pl-35px xl:pr-30px mb-10 border-2 border-border-color-11">
+                    <h4 class="text-lg font-semibold text-heading-color mb-25px">
+                        <span class="leading-1.3 pl-10px border-l-2 border-secondary-color">Our Latest Events &
+                            Bookings</span>
+                    </h4>
+                    <ul>
+                        
+                        {% for levent in levents %}
+                        <li class="pb-25px mb-25px border-b border-white-4">
+                            <div class="flex gap-x-15px xl:gap-x-5">
+                                <div class="w-70px xl:w-90px flex-shrink-0">
+                                    <a href="{% url 'events:event-details' event.slug %}"><img src="{% if levent.author.profile_image %}{{levent.author.profile_image.url}}{% else %}{% static 'images/no-image.png' %}{% endif %}" alt="{{levent.title}}"></a>
+                                </div>
+
+                                <div>
+                                    <ul class="text-10px text-ratings flex items-center mb-5px leading-1">
+                                        <li>
+                                            <p class="text-xs font-semibold">
+                                                <span class="leading-1.8 md:leading-1.8"><i class="far fa-calendar-alt text-secondary-color mr-5px"></i>
+                                                    {{event.date_time_formatter}}</span>
+                                            </p>
+                                        </li>
+                                        
+                                    </ul>
+
+                                    <h6 class="text-sm font-medium mb-1">
+                                        <a href="{% url 'events:event-details' event.slug %}" class="leading-1.3">{{levent.title}}</a>
+                                    </h6>
+                                    <p class="text-sm font-bold text-secondary-color">
+                                        
+                                        {% if request.user.membership_application.status == "APPROVED" %}
+                                            <span class="leading-1.8">R{{levent.get_discounted_cost}} </span>
+                                            <del class="text-11px opacity-60 ml-1">R{{levent.cost}}</del>
+                                        {% else %}
+                                            <span class="leading-1.8">R{{levent.cost}} </span>
+                                        {% endif %}
+                                            
+                                        
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        {% empty %}
+                        <li class="pb-25px mb-25px border-b border-white-4">
+                            <p>No Other Events at The Moment</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+
+
             </div>
         </div>
     </div>
 </section>
-<!-- event-details end -->
 
 
-<!-- cta-section -->
-<section class="cta-section alternat-2 centred bg-color-2 pt_140 pb_150">
-    <div class="pattern-layer" style="background-image: url(../static/images/shape/shape-14.png);"></div>
-    <div class="auto-container">
-        <div class="content-box">
-            <div class="sec-title light mb_40">
-                <span class="sub-title">our Facilities</span>
-                <h2>Take Your Game To The <br />Next Level.</h2>
-            </div>
-            <div class="btn-box">
-                <a href="{% url 'memberships:membership' %}" class="theme-btn btn-one">become a member</a>
-                <a href="{% url 'home:contact' %}" class="theme-btn btn-two">Contact Us</a>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- cta-section end -->
 {% endblock content %}

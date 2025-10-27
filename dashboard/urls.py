@@ -5,6 +5,7 @@ from dashboard.views.events import events
 from dashboard.views.documents import documents
 from dashboard.views.company import company
 from dashboard.views.calendar import index, get_events
+from dashboard.views.bookings import bookings, cancel_booking
 
 app_name = "dashboard"
 
@@ -26,4 +27,7 @@ urlpatterns = [
     
     path("dashboard/calendar", index, name="calendar"),
     path("dashboard/api/get-events", get_events, name="get-events-api"),
+    
+    path("dashboard/bookings", bookings, name="bookings"),
+    path("dashboard/cancel-booking/<booking_id>", cancel_booking, name="cancel-booking"),
 ]

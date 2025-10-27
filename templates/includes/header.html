@@ -1,121 +1,322 @@
 {% load static %}
 {% load static tailwind_tags %}
-<!-- main header -->
-<header class="main-header">
-    <!-- header-top -->
-    <div class="header-top tw:hidden tw:md:block">
-        <div class="top-inner">
-            <ul class="info-list">
-                <li><i class="icon-1"></i>Mon-Fri 8:00 am-6:00 pm</li>
-                <li><i class="icon-2"></i><a href="mailto:info@ctblackpros.co.za">info@ctblackpros.co.za</a></li>
-                <li><i class="icon-3"></i>Cape Town, Western Cape, RSA</li>
-            </ul>
-            <div class="header-info">
-                
-                {% if request.user.is_authenticated %}
-                    <div class="login-box p_relative pr_30 mr_30"><a href="{% url 'dashboard:dashboard' %}">Dashboard</a></div>
-                {% else %}
-                    <div class="login-box p_relative pr_30 mr_30"><a href="{% url 'accounts:login' %}">Member Login</a></div>
-                {% endif %}
-                    
-                <ul class="social-links">
-                    <li><a href="{% url 'home:index' %}"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="{% url 'home:index' %}"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="{% url 'home:index' %}"><i class="fab fa-linkedin-in"></i></a></li>
+
+<header>
+    <!-- header top -->
+    <div class="bg-section-bg-6">
+        <div class="container text-white text-13px md:text-sm font-bold">
+            <div class="flex justify-center md:justify-between items-center flex-wrap md:flex-nowrap">
+                <div class="flex justify-center md:block pt-2 md:pt-0">
+                    <ul class="basis-full md:basis-auto flex gap-6 lg:gap-9 items-center">
+                        <li>
+                            <a class="hover:text-secondary-color"
+                                href="mailto:info@ctblackpros.co.za?Subject=Flower%20greetings%20to%20you"><i
+                                    class="icon-mail text-secondary-color font-bold mr-0.5"></i>
+                                info@ctblackpros.co.za</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-secondary-color" href=""><i
+                                    class="icon-placeholder text-secondary-color font-bold mr-0.5"></i>
+                                Cape Town, WC, RSA</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="basis-full md:basis-auto flex justify-center md:block py-5px md:py-0">
+                    <ul class="text flex items-center gap-15px">
+                        <li>
+                            <a href="https://www.facebook.com/" title="Facebook"><i
+                                    class="fab fa-facebook-f font-bold"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.x.com/" title="Twitter"><i class="fab fa-twitter font-bold"></i></a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.instagram.com/" title="Instagram"><i
+                                    class="fab fa-instagram font-bold"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.dribbble.com/" title="Dribbble"><i
+                                    class="fab fa-dribbble font-bold"></i></a>
+                        </li>
+                        <li>
+                            
+                            {% if request.user.membership_application %}
+                            <a href="{% url 'memberships:membership' %}"
+                                class="px-4 md:px-5 py-0.5 md:py-10px ml-2 lg:ml-5 bg-secondary-color inline-block bg-opacity-100 hover:bg-opacity-60 hover:text-white">Trace Application</a>
+                            {% else %}
+                            <a href="{% url 'memberships:membership' %}"
+                                class="px-4 md:px-5 py-0.5 md:py-10px ml-2 lg:ml-5 bg-secondary-color inline-block bg-opacity-100 hover:bg-opacity-60 hover:text-white">Join
+                                Now</a>
+                            {% endif %}
+                                
+                            
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- navbar main -->
+    <div class="sticky-header z-xl bg-white transition-all duration-700">
+        <div
+            class="container flex flex-col md:flex-row justify-center md:justify-between items-center relative py-21px">
+            <!-- logo area -->
+            <div class="mt-10px mb-22px md:mt-0 md:mb-0 leading-1">
+                <a href="{% url 'home:index' %}">
+                    <img src="{% static 'images/ct-logo.png' %}" alt="Ct Black Logo">
+                </a>
+            </div>
+            <nav class="flex-grow hidden xl:block">
+                <ul class="flex items-center justify-center gap-15px xl:gap-5">
+                    <!-- item 1 -->
+                    <li>
+                        <a href="{% url 'home:index' %}"
+                            class="text-lg xl:text-15px 2xl:text-lg text-heading-color hover:text-secondary-color font-semibold whitespace-nowrap pl-10px py-22px">Home
+                        </a>
+                    </li>
+                    <!-- item 2 -->
+                    <li>
+                        <a href="{% url 'home:about' %}"
+                            class="text-lg xl:text-15px 2xl:text-lg text-heading-color hover:text-secondary-color font-semibold whitespace-nowrap pl-10px py-22px">About
+                        </a>
+                    </li>
+
+                    <!-- item 3 -->
+                    <li>
+                        <a href="{% url 'home:gallery' %}"
+                            class="text-lg xl:text-15px 2xl:text-lg text-heading-color hover:text-secondary-color font-semibold whitespace-nowrap pl-10px py-22px">Gallery
+                        </a>
+                    </li>
+
+                    <!-- item 4 -->
+                    <li>
+                        <a href="{% url 'events:events' %}"
+                            class="text-lg xl:text-15px 2xl:text-lg text-heading-color hover:text-secondary-color font-semibold whitespace-nowrap pl-10px py-22px">Events
+                            & Bookings
+                        </a>
+                    </li>
+
+                    <!-- item 6 -->
+                    <li>
+                        <a href="{% url 'home:contact' %}"
+                            class="text-lg xl:text-15px 2xl:text-lg text-heading-color hover:text-secondary-color font-semibold whitespace-nowrap pl-10px py-22px">Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- header right -->
+            <div>
+                <ul class="flex items-center gap-10px">
+                    <li class="relative search-form-container">
+                        <button
+                            class="search-toggle h-50px w-50px text-heading-color shadow-box-shadow-1 flex justify-center items-center hover:bg-secondary-color hover:text-white transition-all duration-300">
+                            <i class="icon-search for-search-show font-bold"></i>
+                            <i class="icon-cancel for-search-close font-bold hidden"></i>
+                        </button>
+                        <div
+                            class="search-form h-0 overflow-hidden absolute right-0 top-full mt-15px transition-all duration-300 shadow-box-shadow-3 z-xl bg-white">
+                            <form class="w-80 p-15px relative">
+                                <input type="text" placeholder="Search here..."
+                                    class="text-sm text-paragraph-color pl-5 pr-50px placeholder:text-paragraph-color outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-60px block w-full rounded-none">
+                                <button type="submit"
+                                    class="absolute top-1/2 -translate-y-1/2 right-7 text-heading-color">
+                                    <i class="icon-search text-lg font-bold"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </li>
+                    <li class="group relative">
+                        <a href="#"
+                            class="h-50px w-50px text-heading-color shadow-box-shadow-1 flex justify-center items-center hover:bg-secondary-color hover:text-white transition-all duration-300">
+                            <i class="icon-user font-bold text-lg"></i>
+                        </a>
+                        <!-- dropdown -->
+                        {% if request.user.is_authenticated %}
+                        <ul
+                            class="py-10px w-150px shadow-box-shadow-4 absolute right-0 top-full opacity-0 invisible translate-y-4 bg-white transition-all duration-300 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-xl">
+                            <li>
+                                <a class="whitespace-nowrap px-15px py-5px" href="{% url 'dashboard:dashboard' %}">Dashboard</a>
+                            </li>
+                            <li>
+                                <a class="whitespace-nowrap px-15px py-5px" href="{% url 'dashboard:dashboard' %}">Settings</a>
+                            </li>
+                            <li>
+                                <a class="whitespace-nowrap px-15px py-5px" href="{% url 'accounts:logout' %}">Logout</a>
+                            </li>
+                            
+                        </ul>
+                        {% else %}
+                        <ul
+                            class="py-10px w-150px shadow-box-shadow-4 absolute right-0 top-full opacity-0 invisible translate-y-4 bg-white transition-all duration-300 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-xl">
+                            <li>
+                                <a class="whitespace-nowrap px-15px py-5px" href="{% url 'accounts:login' %}">Sign in</a>
+                            </li>
+                            <li>
+                                <a class="whitespace-nowrap px-15px py-5px" href="{% url 'accounts:sign-up' %}">Register</a>
+                            </li>
+                            
+                        </ul>
+                        {% endif %}
+                    </li>
+
+                    <li class="block xl:hidden">
+                        <div
+                            class="show-drawer d-xl-none h-50px w-50px text-heading-color shadow-box-shadow-1 flex justify-center items-center transition-all duration-300 relative">
+                            <a href="#ltn__utilize-drawer " class="utilize-toggle">
+                                <svg viewBox="0 0 800 600">
+                                    <path
+                                        d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200"
+                                        id="top"></path>
+                                    <path d="M300,320 L540,320" id="middle"></path>
+                                    <path
+                                        d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190"
+                                        id="bottom" transform="translate(480, 320) scale(1, -1) translate(-480, -318) ">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
-    <!-- header-lower -->
-    <div class="header-lower">
-        <div class="outer-container p_relative pr_70">
-            <div class="outer-box">
-                <div class="left-column">
-                    <figure class="logo-box mr_50"><a href="{% url 'home:index' %}"><img src="{% static 'images/ct-logo.png' %}"
-                                alt=""></a></figure>
-                    <div class="menu-area">
-                        <!--Mobile Navigation Toggler-->
-                        <div class="mobile-nav-toggler">
-                            <i class="icon-bar"></i>
-                            <i class="icon-bar"></i>
-                            <i class="icon-bar"></i>
-                        </div>
-                        <nav class="main-menu navbar-expand-md navbar-light clearfix">
-                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                                <ul class="navigation clearfix">
-                                    <li><a href="{% url 'home:index' %}">Home</a></li>
-                                    <li><a href="{% url 'home:about' %}">About</a></li>
-                                    <li><a href="{% url 'home:gallery' %}">Gallery</a></li>
-                                    <li><a href="{% url 'events:events' %}">Events</a></li>
-                                    <li><a href="{% url 'home:contact' %}">Contact</a></li>
-                                    {% if request.user.is_authenticated %}
-                                    <li class="tw:md:hidden"><a href="{% url 'accounts:logout' %}">Logout</a></li>
-                                    {% else %}
-                                    <li class="tw:md:hidden"><a href="{% url 'accounts:login' %}">Login</a></li>
-                                    {% endif %}
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-                <div class="menu-right-content">
-                    <div class="support-box mr_30"><a href="tel:2395432170108"><i class="icon-5"></i>
-                            (239)-543-217-0108</a></div>
-                    <div class="btn-box"><a href="{% url 'memberships:membership' %}" class="theme-btn btn-one">Join Us</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- cart sidebar -->
 
-    <!--sticky Header-->
-    <div class="sticky-header">
-        <div class="outer-container p_relative pr_70">
-            <div class="outer-box">
-                <div class="left-column">
-                    <figure class="logo-box mr_50"><a href="{% url 'home:index' %}"><img src="{% static 'images/ct-logo.png' %}"
-                                alt=""></a></figure>
-                    <div class="menu-area">
-                        <nav class="main-menu clearfix">
-                            <!--Keep This Empty / Menu will come through Javascript-->
-                        </nav>
+    <!-- mobile menu -->
+    <div class="drawer-container mobile-menu-container">
+        <div
+            class="drawer-overlay fixed top-0 left-0 w-full h-full bg-black -z-1 close-drawer opacity-0 transition-all duration-300 invisible cursor-zoom-out block xl:hidden">
+        </div>
+        <div
+            class="drawer mobile-menu fixed top-0 -left-[300px] xs:-left-[400px] px-5 xs:px-10 py-50px w-300px xs:w-100 h-full transition-all duration-500 shadow-dropdown-secodary bg-whiteColor z-high block xl:hidden bg-white">
+            <div class="pr-15px overflow-auto h-full">
+                <!-- mobile menu wrapper -->
+                <div>
+                    <!-- mobile logo area -->
+                    <div
+                        class="flex justify-between items-center border-b border-border-primary pt-3px pb-10px mb-25px">
+                        <div>
+                            <a href="index-2.html">
+                                <img src="{% static 'images/ct-logo.png' %}" alt="">
+                            </a>
+                        </div>
+                        <div>
+                            <button class="close-drawer text-black text-3xl px-15px py-2">
+                                ×
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="menu-right-content">
-                    <div class="support-box mr_30"><a href="tel:2395432170108"><i class="icon-5"></i>
-                            (239)-543-217-0108</a></div>
-                    <div class="btn-box"><a href="{% url 'memberships:membership' %}" class="theme-btn btn-one">Join Us</a></div>
+
+                    <!-- search input  -->
+                    <div class="mb-50px">
+                        <form class="w-full relative">
+                            <input type="text" placeholder="Search..."
+                                class="text-sm text-paragraph-color pl-5 pr-50px placeholder:text-paragraph-color outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none">
+                            <button type="submit" class="absolute top-1/2 -translate-y-1/2 right-7 text-heading-color">
+                                <i class="icon-search text-lg font-bold"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- mobile menu accordions -->
+                    <div class="border-b border-border-primary dark:border-borderColor-dark pb-8">
+                        <ul class="accordion-container">
+                            <li class="mt-4">
+                                <!-- accordion header -->
+                                <a href="{% url 'home:index' %}"
+                                    class="accordion-controller flex items-center justify-between cursor-pointer hover:text-secondary-color uppercase text-sm lg:text-base py-2 lg:py-2.5">
+                                    HOME</a>
+                            </li>
+                            <li class="mt-4">
+                                <!-- accordion header -->
+                                <a href="{% url 'home:about' %}"
+                                    class="accordion-controller flex items-center justify-between cursor-pointer hover:text-secondary-color uppercase text-sm lg:text-base py-2 lg:py-2.5">
+                                    ABOUT</a>
+                            </li>
+                            <li class="mt-4">
+                                <!-- accordion header -->
+                                <a href="{% url 'home:gallery' %}"
+                                    class="accordion-controller flex items-center justify-between cursor-pointer hover:text-secondary-color uppercase text-sm lg:text-base py-2 lg:py-2.5">
+                                    GALLERY</a>
+                            </li>
+                            <li class="mt-4">
+                                <!-- accordion header -->
+                                <a href="{% url 'events:events' %}"
+                                    class="accordion-controller flex items-center justify-between cursor-pointer hover:text-secondary-color uppercase text-sm lg:text-base py-2 lg:py-2.5">
+                                    EVENTS & BOOKINGS</a>
+                            </li>
+
+                            <li class="mt-4">
+                                <!-- accordion header -->
+                                <a href="{% url 'home:contact' %}"
+                                    class="accordion-controller flex items-center justify-between cursor-pointer hover:text-secondary-color uppercase text-sm lg:text-base py-2 lg:py-2.5">
+                                    CONTACT</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- my account -->
+                    <div>
+                        <ul class="mb-30px pb-5 pt-5px border-b border-border-primary">
+                            {% if request.user.is_authenticated %}
+                            <li class="group mt-4">
+                                <!-- accordion header -->
+                                <a href="wishlist.html#" class="text-sm lg:text-base">
+                                    <span class="inline-block h-50px w-50px border-2 border-border-color-1 text-center leading-50px mr-3">
+                                        <i class="far fa-user"></i>
+                                    </span>
+                                    Login
+                                </a>
+                            </li>
+                            {% else %}
+                            <li class="group mt-4">
+                                <!-- accordion header -->
+                                <a href="{% url 'dashboard:dashboard' %}" class="text-sm lg:text-base">
+                                    <span
+                                        class="inline-block h-50px w-50px border-2 border-border-color-1 text-center leading-50px mr-3">
+                                        <i class="far fa-user"></i>
+                                    </span>
+                                    My Account
+                                </a>
+                            </li>
+                            <li class="group mt-4">
+                                <!-- accordion header -->
+                                <a href="{% url 'accounts:logout' %}" class="text-sm lg:text-base">
+                                    <span class="inline-block h-50px w-50px border-2 border-border-color-1 text-center leading-50px mr-3">
+                                        <i class="far fa-user"></i>
+                                    </span>
+                                    Logout
+                                </a>
+                            </li>
+                            
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <!-- Mobile menu social area -->
+                    <div>
+                        <ul class="flex gap-3 items-center pt-4">
+                            <li>
+                                <a class="h-10 w-10 bg-section-bg-1 hover:bg-secondary-color hover:text-white text-center text-sm lg:text-base"
+                                    href="https://www.facebook.com/"><i class="fab fa-facebook-f leading-10"></i></a>
+                            </li>
+                            <li>
+                                <a class="h-10 w-10 bg-section-bg-1 hover:bg-secondary-color hover:text-white text-center text-sm lg:text-base"
+                                    href="https://www.twiter.com/"><i class="fab fab fa-twitter leading-10"></i></a>
+                            </li>
+                            <li>
+                                <a class="h-10 w-10 bg-section-bg-1 hover:bg-secondary-color hover:text-white text-center text-sm lg:text-base"
+                                    href="https://www.linkedin.com/"><i class="fab fa-linkedin leading-10"></i></a>
+                            </li>
+                            <li>
+                                <a class="h-10 w-10 bg-section-bg-1 hover:bg-secondary-color hover:text-white text-center text-sm lg:text-base"
+                                    href="https://www.instagram.com/"><i class="fab fa-instagram leading-10"></i></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </header>
-<!-- main-header end -->
-
-
-<!-- Mobile Menu  -->
-<div class="mobile-menu">
-    <div class="menu-backdrop"></div>
-    <div class="close-btn"><i class="fas fa-times"></i></div>
-    <nav class="menu-box">
-        <div class="nav-logo"><a href="{% url 'home:index' %}"><img src="{% static 'images/ct-logo.png' %}" alt="" title=""></a></div>
-        <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
-        <div class="contact-info">
-            <h4>Contact Info</h4>
-            <ul>
-                <li>Cape Town, Western Cape, RSA</li>
-                <li><a href="tel:+8801682648101">+88 01682648101</a></li>
-                <li><a href="mailto:info@ctblackpros.co.za">info@ctblackpros.co.za</a></li>
-            </ul>
-        </div>
-        <div class="social-links">
-            <ul class="clearfix">
-                <li><a href="{% url 'home:index' %}"><span class="fab fa-twitter"></span></a></li>
-                <li><a href="{% url 'home:index' %}"><span class="fab fa-facebook-square"></span></a></li>
-                <li><a href="{% url 'home:index' %}"><span class="fab fa-pinterest-p"></span></a></li>
-                <li><a href="{% url 'home:index' %}"><span class="fab fa-instagram"></span></a></li>
-                <li><a href="{% url 'home:index' %}"><span class="fab fa-youtube"></span></a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
-<!-- End Mobile Menu -->

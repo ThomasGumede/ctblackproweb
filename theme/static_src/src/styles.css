@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&amp;family=Poppins:wght@400;500;600;700;800;900&amp;display=swap");
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    
+    label {
+        @apply block text-custom-text text-sm md:text-base font-normal capitalize mb-1
+    }
+
+    p {
+        @apply hyphens-auto text-sm text-custom-text 
+    }
+
+    a {
+        @apply no-underline  hover:text-custom-primary
+    }
+}
+
+@layer components {
+    .container {
+        @apply ml-auto mx-auto px-4 w-full sm:w-[33.75rem] md:w-[45rem] lg:w-[60rem] xl:w-[75rem]
+    }
+}

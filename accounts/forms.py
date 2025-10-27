@@ -12,11 +12,11 @@ class UserLoginForm(AuthenticationForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password', 'id': 'id_password'}))
 
 class RegistrationForm(UserCreationForm):
-    confirm_email = forms.EmailField(help_text="Confirm your email address", required=True, widget=forms.EmailInput(attrs={"class": "w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"}))
+    
 
     class Meta:
         model = get_user_model()
-        fields = ('email', 'first_name', 'last_name', 'password1', 'password2')
+        fields = ('email', 'first_name', 'phone', 'password1', 'password2')
 
         widgets = {
             'username': forms.TextInput(attrs={"class": "w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"}),
@@ -37,14 +37,6 @@ class RegistrationForm(UserCreationForm):
             raise forms.ValidationError(f'This email: {email} is already in use.')
         
         return email
-    
-    def clean(self):
-        clean = super().clean()
-        second_email = clean.get("confirm_email", None)
-        mail = clean.get("email", None)
-
-        if second_email and mail and mail != second_email:
-            raise forms.ValidationError(f'This email: {mail} does not match with confirmation email.')
         
         
 
@@ -62,13 +54,14 @@ class AccountUpdateForm(forms.ModelForm):
     
     class Meta:
         model = get_user_model()
-        fields = ["title", "profile_image", "first_name", "last_name", 'maiden_name', "biography", "address", "email", "phone"]
+        fields = ["title", "profile_image", "first_name", "last_name", 'gender', "biography", "race", "address", "email", "phone", "linkedIn", "hna_membership_number"]
 
         widgets = {
             'username': forms.TextInput(attrs={"class": "inline-block font-semibold text-neutral-600 dark:text-neutral-200 text-sm mb-2"}),
             'title': forms.Select(attrs={"class": "form-control rounded-lg form-select"}),
             'first_name': forms.TextInput(attrs={"class": "text-custom-text pl-5 pr-[50px] outline-none border-2 border-[#e4ecf2] focus:border focus:border-custom-primary h-[65px] block w-full rounded-none focus:ring-0 focus:outline-none placeholder:text-custom-text placeholder:text-sm"}),
-            'maiden_name': forms.TextInput(attrs={"class": "text-custom-text pl-5 pr-[50px] outline-none border-2 border-[#e4ecf2] focus:border focus:border-custom-primary h-[65px] block w-full rounded-none focus:ring-0 focus:outline-none placeholder:text-custom-text placeholder:text-sm"}),
+            'gender': forms.Select(attrs={"class": "form-control rounded-lg form-select"}),
+            'race': forms.Select(attrs={"class": "form-control rounded-lg form-select"}),
             'last_name': forms.TextInput(attrs={"class": "text-custom-text pl-5 pr-[50px] outline-none border-2 border-[#e4ecf2] focus:border focus:border-custom-primary h-[65px] block w-full rounded-none focus:ring-0 focus:outline-none placeholder:text-custom-text placeholder:text-sm"}),
             
             
