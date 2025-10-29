@@ -14,7 +14,7 @@ MFILE_TITLES = (
 
 )
 
-class StatusChoices(models.TextChoices):
+class MemberAppChoices(models.TextChoices):
     NOT_APPROVED = ("NOT APPROVED", "Not approved")
     PENDING = ("PENDING", "Pending")
     APPROVED = ("APPROVED", "Approved")
@@ -28,8 +28,12 @@ class MembershipApplication(AbstractCreate):
         related_name="membership_application"
     )
     application_number = models.CharField(max_length=250, unique=True, db_index=True)
-    status = models.CharField(help_text="Application Status", max_length=50, choices=StatusChoices.choices, default=StatusChoices.NOT_APPROVED)
+    status = models.CharField(help_text="Application Status", max_length=50, choices=MemberAppChoices.choices, default=MemberAppChoices.NOT_APPROVED)
     date_submitted = models.DateTimeField(auto_now_add=True)
+    
+    @property
+    def applicant_names(self):
+        return f"{self.user.title}. {self.user.get_full_name()}"
 
     def __str__(self):
         return f"Application from {self.user.get_full_name()}"

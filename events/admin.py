@@ -97,9 +97,6 @@ class EventAdmin(admin.ModelAdmin):
         }),
     )
 
-    
-
-
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
     list_display = ("user", "event", "payment_status", "created", "payment_referrence")

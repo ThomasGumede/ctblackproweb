@@ -36,15 +36,15 @@
                             <a href="https://www.instagram.com/" title="Instagram"><i
                                     class="fab fa-instagram font-bold"></i></a>
                         </li>
-                        <li>
-                            <a href="https://www.dribbble.com/" title="Dribbble"><i
-                                    class="fab fa-dribbble font-bold"></i></a>
-                        </li>
+                        
                         <li>
                             
-                            {% if request.user.membership_application %}
-                            <a href="{% url 'memberships:membership' %}"
+                            {% if request.user.membership_application.status == "PENDING" or request.user.membership_application.status == "Awaiting payment" %}
+                            <a href="{% url 'memberships:trace-application' %}"
                                 class="px-4 md:px-5 py-0.5 md:py-10px ml-2 lg:ml-5 bg-secondary-color inline-block bg-opacity-100 hover:bg-opacity-60 hover:text-white">Trace Application</a>
+                            {% elif request.user.membership_application.status == "APPROVED" %}
+                            <a href="{% url 'admin:index' %}"
+                                class="px-4 md:px-5 py-0.5 md:py-10px ml-2 lg:ml-5 bg-secondary-color inline-block bg-opacity-100 hover:bg-opacity-60 hover:text-white">Member Admin</a>
                             {% else %}
                             <a href="{% url 'memberships:membership' %}"
                                 class="px-4 md:px-5 py-0.5 md:py-10px ml-2 lg:ml-5 bg-secondary-color inline-block bg-opacity-100 hover:bg-opacity-60 hover:text-white">Join

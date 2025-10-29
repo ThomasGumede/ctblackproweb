@@ -7,4 +7,8 @@ class MembershipFile(admin.ModelAdmin):
     
 @admin.register(MembershipApplication)
 class ApplicationAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("applicant_names", "application_number", "status", "date_submitted")
+    list_filter = ("status", "date_submitted")
+    search_fields = ("application_number", "user__username", "user__first_name",)
+    ordering = ("-date_submitted",)
+    readonly_fields = ("user", "application_number")

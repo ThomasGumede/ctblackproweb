@@ -1,10 +1,19 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import get_user_model
+from django.db.models import Q
 from django.contrib import messages
 from events.forms import BookingForm
 from events.models import Event, Booking
-from events.utilities.choices import StatusChoices
+from memberships.models import MemberAppChoices
 from events.utilities.file_handlers import generate_booking_number
+from memberships.models import MembershipApplication
+
+USER = get_user_model()
+
+def search_member(member_details: str): 
+    member = get_user_model().objects.filter(Q(email__iexact=member_details.lower()) | Q(membership_number__iexact=member_details.upper())).first()
+    return member
 
 @login_required
 def confirm_attendance(request, event_slug):
@@ -17,7 +26,7 @@ def confirm_attendance(request, event_slug):
     application = Booking.objects.filter(event=event, user=request.user).first()
     
     if application:
-        if application.payment_status == "cancelled" or application.payment_status == "Not Completed":
+        if application.payment_status in (MemberAppChoices.BLOCKED, MemberAppChoices.NOT_APPROVED, MemberAppChoices.PENDING):
             application.delete()
         else:
             messages.info(request, "You've already confirmed attendance for this event.")
@@ -37,12 +46,23 @@ def booking_payment(request, booking_id):
     event = booking.event
     total_cost = booking.calculate_total_cost()
     form = BookingForm(instance=booking)
+    membership = MembershipApplication.objects.filter(user=request.user).first()
+    inviter = None
+    if request.method == "GET":
+        search = request.GET.get("search", None)
+        if search:
+            inviter = search_member(search)
+            if inviter:
+                messages.success(request, "We successfully found your inviter")
+            else:
+                messages.error(request, "No member was found matching the information you provided. You can continue or retry again")
+            
     if request.method == "POST":
         form = BookingForm(data=request.POST, instance=booking)
         if form.is_valid():
             booking = form.save(commit=False)
             booking.total_cost = booking.calculate_total_cost()
-            booking.payment_status = StatusChoices.PENDING
+            booking.payment_status = MemberAppChoices.PENDING
             booking.save(update_fields=["billing_name", "billing_surname", "billing_email", "billing_phone", "billing_address", "company_name", "company_address", "booking_note", "payment_method","total_cost", "payment_status"])
 
             if booking.payment_method == "Yoco":
@@ -53,10 +73,9 @@ def booking_payment(request, booking_id):
             return redirect("events:booking-success", booking.payment_referrence)
         else:
             messages.error(request, "Something Went wrong, fix errors below")
-        
-    context = {"booking": booking, "event": event, "total_cost": total_cost, "form": form}
-    return render(request, "events/bookings/checkout.html", context)
 
+    context = {"booking": booking, "event": event, "total_cost": total_cost, "form": form, "membership": membership, "inviter": inviter}
+    return render(request, "events/bookings/checkout.html", context)
 
 @login_required
 def cancel_booking(request, booking_id):

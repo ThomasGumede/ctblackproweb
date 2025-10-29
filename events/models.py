@@ -121,6 +121,9 @@ class Booking(AbstractCreate):
     company_name = models.CharField(max_length=255, blank=True, null=True)
     company_address = models.CharField(max_length=255, blank=True, null=True)
     booking_note = models.TextField(blank=True, null=True)
+    inviter_full_names = models.CharField(max_length=255, blank=True, null=True)
+    inviter_member_number = models.CharField(max_length=255, blank=True, null=True)
+    
 
     # Payment Details
     payment_method = models.CharField(max_length=30, choices=PAYMENT_METHODS, default=PAYMENT_METHODS[0])

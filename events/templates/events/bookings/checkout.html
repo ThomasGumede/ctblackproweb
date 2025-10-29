@@ -69,8 +69,8 @@
     </div>
 </section>
 <section>
-    <form method="post" class="container pt-30 pb-140px md:pb-30">
-        {% csrf_token %}
+    <div class="container pt-30 pb-140px md:pb-30">
+        
         <!-- login -->
         {% if form.errors %}
         <div class="w-full mx-auto">
@@ -109,324 +109,360 @@
         </div>
         {% endif %}
         <!-- apply  coupon -->
-        <!-- <div class="accordion-container">
-            <div class="accordion mb-30px">
-                <div class="px-30px py-5 lg:py-17px bg-section-bg-1">
-                    <h6 class="text-base lg:text-lg text-heading-color font-bold mb-0 leading-1">
-                        <span class="leading-1.3 lg:leading-1.3">Have a coupon?
-                        </span>
-                        <button
-                            class="accordion-controller text-secondary-color hover:text-secondary-color leading-1.3 lg:leading-1.3 font-poppins">
-                            Click here to enter your code
-                        </button>
-                    </h6>
-                </div>
-                <div class="accordion-content h-0 overflow-hidden transition-all duration-500">
-                    <form class="content-wrapper form-primary bg-white p-30px border border-border-color-1 mt-15px">
-                        <p class="text-sm md:text-base mb-5 lg:mb-6">
-                            <span class="leading-1.8 lg:leading-1.8">
-                                If you have a membership number, please apply it below.
+         
+         {% if membership == none or membership.status == "NOT APPROVED" or membership.status == "Awaiting Payment" or membership.status == "Blocked" %}
+            <div class="accordion-container">
+                <div class="accordion mb-30px">
+                    <div class="px-30px py-5 lg:py-17px bg-section-bg-1">
+                        <h6 class="text-base lg:text-lg text-heading-color font-bold mb-0 leading-1">
+                            <span class="leading-1.3 lg:leading-1.3">Not a member yet?
                             </span>
-                        </p>
-                        <div class="mb-30px">
-                            
-                            <div class="relative">
-                                <input type="text" placeholder="Coupon code"
-                                    class="text-base text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-sm placeholder:text-paragraph-color">
-                            </div>
-                        </div>
-
-                        
-
-                        <div>
-                            <h5
-                                class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-primary-color hover:border-secondary-color inline-block z-0">
-                                <span
-                                    class="inline-block absolute top-0 left-0 w-full h-full bg-primary-color group-hover:bg-secondary-color -z-1 group-hover:w-0 transition-all duration-300"></span>
-                                <button type="submit"
-                                    class="relative z-1 px-5 md:px-25px lg:px-10 py-10px md:py-15px lg:py-17px group-hover:text-heading-color leading-1.5 uppercase">
-                                    Apply Coupon
-                                </button>
-                            </h5>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div> -->
-        <!-- billing details -->
-        <div>
-            <h4
-                class="text-22px font-semibold leading-1.3 pl-10px border-l-2 border-secondary-color text-heading-color mb-30px mt-50px">
-                Billing Details
-            </h4>
-            <div class="form-primary bg-white border border-border-color-1 p-30px">
-                <!-- personal info -->
-                 
-                <div>
-                    <h5 class="text-sm md:text-15px lg:text-base font-bold leading-1.3 text-heading-color mb-15px">
-                        <span class="leading-1.3 md:leading-1.3 lg:leading-1.3">
-                            Personal Information</span>
-                    </h5>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-30px mb-30px">
-                        <!-- 1st name -->
-                        <div class="relative">
-                            <input type="text" value="{{request.user.first_name}}" name="billing_name" id="id_billing_name" placeholder="First name"
-                                class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
-                            <span class="absolute top-1/2 -translate-y-1/2 right-4">
-                                <i class="fas fa-user text-sm lg:text-base text-secondary-color font-bold"></i>
-                            </span>
-                        </div>
-                        <!-- last name -->
-                        <div class="relative">
-                            <input type="text" value="{{request.user.last_name}}" name="billing_surname" id="id_billing_surname" placeholder="Last name"
-                                class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
-                            <span class="absolute top-1/2 -translate-y-1/2 right-4">
-                                <i class="fas fa-user text-sm lg:text-base text-secondary-color font-bold"></i>
-                            </span>
-                        </div>
-                        <!-- email -->
-                        <div class="relative">
-                            <input type="email" value="{{request.user.email}}" name="billing_email" id="id_billing_email" placeholder="Email address"
-                                class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
-                            <span class="absolute top-1/2 -translate-y-1/2 right-4">
-                                <i class="fas fa-envelope text-sm lg:text-base text-secondary-color font-bold"></i>
-                            </span>
-                        </div>
-                        <!-- number -->
-                        <div class="relative">
-                            <input type="text" value="{{request.user.phone}}" name="billing_phone" id="id_billing_phone" placeholder="Phone number"
-                                class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
-                            <span class="absolute top-1/2 -translate-y-1/2 right-4">
-                                <i class="fas fa-phone text-sm lg:text-base text-secondary-color font-bold"></i>
-                            </span>
-                        </div>
-                        <!-- company  name -->
-                        <div class="relative">
-                            <input type="text" value="" name="company_name" id="id_company_name" placeholder="Company name (optional)"
-                                class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
-                            <span class="absolute top-1/2 -translate-y-1/2 right-4">
-                                <i class="fas fa-globe text-sm lg:text-base text-secondary-color font-bold"></i>
-                            </span>
-                        </div>
-                        <!-- company address -->
-                        <div class="relative">
-                            <input type="text" value="" name="company_address" id="id_company_address" placeholder="Company address (optional)"
-                                class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
-                            <span class="absolute top-1/2 -translate-y-1/2 right-4">
-                                <i class="fas fa-globe text-sm lg:text-base text-secondary-color font-bold"></i>
-                            </span>
-                        </div>
+                            <button
+                                class="accordion-controller text-secondary-color hover:text-secondary-color leading-1.3 lg:leading-1.3 font-poppins">
+                                Click here to search for person who invited you
+                            </button>
+                        </h6>
                     </div>
-                </div>
-                <!-- Country-->
-                
-                <!-- Address -->
-                <div>
-                    <h5 class="text-sm md:text-15px lg:text-base font-bold leading-1.3 text-heading-color mb-15px">
-                        <span class="leading-1.3 md:leading-1.3 lg:leading-1.3">
-                            Address
-                        </span>
-                    </h5>
-                    <div class=" mb-30px">
-                        <!-- House number and street name  -->
-                        <div>
-                            <input value="{{request.user.address}}" name="billing_address" id="id_billing_address" type="text" placeholder="Enter your address, seperated by a comma e.g !2th Street, Cape Town, WC, RSA"
-                                class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
-                        </div>
-                        
-                    </div>
-                </div>
-                <!-- message -->
-                <div class="mb-30px">
-                    <h5 class="text-sm md:text-15px lg:text-base font-bold leading-1.3 text-heading-color mb-15px">
-                        <span class="leading-1.3 md:leading-1.3 lg:leading-1.3">
-                            Order Notes (optional)
-                        </span>
-                    </h5>
-                    <div class="relative">
-                        <textarea name="booking_note" placeholder="Notes about your order, e.g. special notes for delivery."
-                            class="min-h-[150px] text-paragraph-color pl-5 pr-50px py-15px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">{% if form.booking_note.value %}{{form.booking_note.value}}{% endif %}</textarea>
-                        <span class="absolute top-[30px] -translate-y-1/2 right-4">
-                            <i class="fas fa-pencil text-sm lg:text-base text-secondary-color font-bold"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-30px">
-            <!-- payment methods -->
-            <div>
-                <h4
-                    class="text-22px font-semibold leading-1.3 pl-10px border-l-2 border-secondary-color text-heading-color mb-30px mt-50px">
-                    Payment Method
-                </h4>
-                <div>
-                    <ul class="accordion-container neighbour-accordion border border-b-0 border-border-color-1 mb-30px">
-                        <li class="accordion border-b border-border-color-1 p-5">
-                            <!-- accordion header -->
-                            <div class="accordion-controller cursor-pointer">
-                                <div class="text-base lg:text-lg font-bold font-poppins flex items-center">
-                                    <div class="flex-shrink-0 w-4 h-4 relative pl-1">
-                                        <input type="radio" name="payment_method" id="id_payment_method" value="EFT"
-                                            class="inline-block absolute w-0 h-0 after:w-[11px] after:h-[11px] after:m-[1px] after:absolute after:left-0 after:top-0 after:bg-white after:outline-offset-[2px] after:outline-1 after:outline after:outline-heading-color after:z-10 after:rounded-100% after:inline-block checked:after:bg-heading-color after:transition-all after:duration-300">
-                                    </div>
-                                    <label
-                                        class="flex-grow leading-1.3 lg:leading-1.3 text-heading-color cursor-pointer ml-4"
-                                        for="id_payment_method">
-                                        ETF Payment
-                                    </label>
+                    <div class="accordion-content h-0 overflow-hidden transition-all duration-500">
+                        <form class="content-wrapper form-primary bg-white p-30px border border-border-color-1 mt-15px">
+                            <p class="text-sm md:text-base mb-5 lg:mb-6">
+                                <span class="leading-1.8 lg:leading-1.8">
+                                    If you have their email or membership number, please search it below.
+                                </span>
+                            </p>
+                            <div class="mb-30px">
+            
+                                <div class="relative">
+                                    <input type="text" name="search" placeholder="Inviter email or membership number"
+                                        class="text-base text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-sm placeholder:text-paragraph-color">
                                 </div>
                             </div>
-                            <!-- accordion content -->
-                            <div class="accordion-content h-0 overflow-hidden transition-all duration-500">
-                                <div class="p-1 pt-15px content-wrapper text-sm lg:text-base">
-                                    <div class="px-30px py-15px shadow-box-shadow-3">
-                                        <p class="leading-1.8 lg:leading-1.8">
-                                            Make payment on our banking details. Note: Members have our banking details for payment
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="accordion border-b border-border-color-1 p-5 active">
-                            <!-- accordion header -->
-                            <div class="accordion-controller cursor-pointer">
-                                <div class="text-base lg:text-lg font-bold font-poppins flex items-center">
-                                    <div class="flex-shrink-0 w-4 h-4 relative pl-1">
-                                        <input type="radio" name="payment_method" id="id_payment_method" value="Cash on Arrival"
-                                            class="inline-block absolute w-0 h-0 after:w-[11px] after:h-[11px] after:m-[1px] after:absolute after:left-0 after:top-0 after:bg-white after:outline-offset-[2px] after:outline-1 after:outline after:outline-heading-color after:z-10 after:rounded-100% after:inline-block checked:after:bg-heading-color after:transition-all after:duration-300"
-                                            checked="">
-                                    </div>
-                                    <label
-                                        class="flex-grow leading-1.3 lg:leading-1.3 text-heading-color cursor-pointer ml-4"
-                                        for="id_payment_method">
-                                        Cash on arrival
-                                    </label>
-                                </div>
-                            </div>
-                            <!-- accordion content -->
-                            <div class="accordion-content h-0 overflow-hidden transition-all duration-500"
-                                style="height: 78px;">
-                                <div class="p-1 pt-15px content-wrapper text-sm lg:text-base">
-                                    <div class="px-30px py-15px shadow-box-shadow-3">
-                                        <p class="leading-1.8 lg:leading-1.8">
-                                            Pay with cash at the event venue.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- <li class="accordion border-b border-border-color-1 p-5">
-                            
-                            <div class="accordion-controller cursor-pointer">
-                                <div class="text-base lg:text-lg font-bold font-poppins flex items-center">
-                                    <div class="flex-shrink-0 w-4 h-4 relative pl-1">
-                                        <input type="radio" name="payment_method" id="id_payment_method" value="Yoco"
-                                            class="inline-block absolute w-0 h-0 after:w-[11px] after:h-[11px] after:m-[1px] after:absolute after:left-0 after:top-0 after:bg-white after:outline-offset-[2px] after:outline-1 after:outline after:outline-heading-color after:z-10 after:rounded-100% after:inline-block checked:after:bg-heading-color after:transition-all after:duration-300">
-                                    </div>
-                                    <label
-                                        class="flex-grow leading-1.3 lg:leading-1.3 text-heading-color cursor-pointer ml-4"
-                                        for="id_payment_method">
-                                        Yoco (Unavailable)
-                                        <img src="assets/img/icons/payment-3.png" alt="#"
-                                            class="max-w-[130px] inline-block ml-3">
-                                    </label>
-                                </div>
-                            </div>
-                            
-                            <div class="accordion-content h-0 overflow-hidden transition-all duration-500">
-                                <div class="p-1 pt-15px content-wrapper text-sm lg:text-base">
-                                    <div class="px-30px py-15px shadow-box-shadow-3">
-                                        <p class="leading-1.8 lg:leading-1.8">
-                                            Pay via Yoco; you can pay with your credit card or debit card.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li> -->
-                    </ul>
-                    <!-- submt -->
-                    <div>
-                        <p class="text-sm lg:text-base mb-30px">
-                            <span class="leading-1.8 lg:leading-1.8">
-                                Your personal data will be used to process your order,
-                                support your experience throughout this website, and for
-                                other purposes described in our privacy policy.
-                            </span>
-                        </p>
-                        <div class="flex items-center flex-wrap gap-5">
                             <div>
                                 <h5
-                                    class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block z-0">
+                                    class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-primary-color hover:border-secondary-color inline-block z-0">
                                     <span
-                                        class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-black -z-1 group-hover:w-0 transition-all duration-300"></span>
-                                    <button type="submit" value="submit"
-                                        class="relative z-1 px-30px lg:px-10 py-3 md:py-15px lg:py-17px group-hover:text-heading-color leading-1.5 uppercase">
-                                        Confirm Booking
+                                        class="inline-block absolute top-0 left-0 w-full h-full bg-primary-color group-hover:bg-secondary-color -z-1 group-hover:w-0 transition-all duration-300"></span>
+                                    <button type="submit"
+                                        class="relative z-1 px-5 md:px-25px lg:px-10 py-10px md:py-15px lg:py-17px group-hover:text-heading-color leading-1.5 uppercase">
+                                        Search
                                     </button>
                                 </h5>
                             </div>
-                            <div>
-                                <h5
-                                    class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block z-0">
-                                    <span
-                                        class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-black -z-1 group-hover:w-0 transition-all duration-300"></span>
-                                    <a href="{% url 'events:cancel-booking' booking.id %}"
-                                        class="relative z-1 px-30px lg:px-10 py-3 md:py-15px lg:py-17px group-hover:text-heading-color leading-1.5 uppercase">
-                                        Cancel Booking
-                                    </a>
-                                </h5>
-                            </div>
-                        </div>
-                        
+                        </form>
                     </div>
                 </div>
             </div>
-            <!-- checkout -->
-            <div class="flex justify-end">
-                <div class="max-w-450px w-full">
-                    <h4
-                        class="text-22px font-semibold leading-1.3 pl-10px border-l-2 border-secondary-color text-heading-color mb-30px mt-50px">
-                        Cart Totals
-                    </h4>
-                    <ul class="text-sm lg:text-base text-heading-color">
-                        <li class="p-2 border-b border-border-color-17 bg-table-bg">
-                            <div class="flex justify-between items-center">
-                                <span class="leading-1.8 lg:leading-1.8">
-                                    {{event.title}} <strong> × 1</strong></span>
-                                <span class="leading-1.8 lg:leading-1.8"> R{{event.cost}}</span>
+         {% endif %}
+            
+        
+        <!-- billing details -->
+         <form method="post" >
+            {% csrf_token %}
+            <div>
+                <h4
+                    class="text-22px font-semibold leading-1.3 pl-10px border-l-2 border-secondary-color text-heading-color mb-30px mt-50px">
+                    Billing Details
+                </h4>
+                <div class="form-primary bg-white border border-border-color-1 p-30px">
+                    <!-- personal info -->
+                    
+                    <div>
+                        <h5 class="text-sm md:text-15px lg:text-base font-bold leading-1.3 text-heading-color mb-15px">
+                            <span class="leading-1.3 md:leading-1.3 lg:leading-1.3">
+                                Personal Information</span>
+                        </h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-30px mb-30px">
+                            <!-- 1st name -->
+                            <div class="relative">
+                                <input type="text" value="{% if request.user.first_name %}{{request.user.first_name}}{% endif %}" name="billing_name" id="id_billing_name" placeholder="First name"
+                                    class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
+                                <span class="absolute top-1/2 -translate-y-1/2 right-4">
+                                    <i class="fas fa-user text-sm lg:text-base text-secondary-color font-bold"></i>
+                                </span>
                             </div>
-                        </li>
-
+                            <!-- last name -->
+                            <div class="relative">
+                                <input type="text" value="{% if request.user.last_name %}{{request.user.last_name}}{% endif %}" name="billing_surname" id="id_billing_surname" placeholder="Last name"
+                                    class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
+                                <span class="absolute top-1/2 -translate-y-1/2 right-4">
+                                    <i class="fas fa-user text-sm lg:text-base text-secondary-color font-bold"></i>
+                                </span>
+                            </div>
+                            <!-- email -->
+                            <div class="relative">
+                                <input type="email" value="{% if request.user.email %}{{request.user.email}}{% endif %}" name="billing_email" id="id_billing_email" placeholder="Email address"
+                                    class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
+                                <span class="absolute top-1/2 -translate-y-1/2 right-4">
+                                    <i class="fas fa-envelope text-sm lg:text-base text-secondary-color font-bold"></i>
+                                </span>
+                            </div>
+                            <!-- number -->
+                            <div class="relative">
+                                <input type="text" value="{% if request.user.phone %}{{request.user.phone}}{% endif %}" name="billing_phone" id="id_billing_phone" placeholder="Phone number"
+                                    class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
+                                <span class="absolute top-1/2 -translate-y-1/2 right-4">
+                                    <i class="fas fa-phone text-sm lg:text-base text-secondary-color font-bold"></i>
+                                </span>
+                            </div>
+                            <!-- company  name -->
+                            <div class="relative">
+                                <input type="text" value="" name="company_name" id="id_company_name" placeholder="Company name (optional)"
+                                    class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
+                                <span class="absolute top-1/2 -translate-y-1/2 right-4">
+                                    <i class="fas fa-globe text-sm lg:text-base text-secondary-color font-bold"></i>
+                                </span>
+                            </div>
+                            <!-- company address -->
+                            <div class="relative">
+                                <input type="text" value="" name="company_address" id="id_company_address" placeholder="Company address (optional)"
+                                    class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
+                                <span class="absolute top-1/2 -translate-y-1/2 right-4">
+                                    <i class="fas fa-globe text-sm lg:text-base text-secondary-color font-bold"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Country-->
+                    
+                    <!-- Address -->
+                    <div>
+                        <h5 class="text-sm md:text-15px lg:text-base font-bold leading-1.3 text-heading-color mb-15px">
+                            <span class="leading-1.3 md:leading-1.3 lg:leading-1.3">
+                                Your Address
+                            </span>
+                        </h5>
+                        <div class=" mb-30px">
+                            <!-- House number and street name  -->
+                            <div>
+                                <input value="{% if request.user.address %}{{request.user.address}}{% endif %}" name="billing_address" id="id_billing_address" type="text" placeholder="Enter your address, seperated by a comma e.g !2th Street, Cape Town, WC, RSA"
+                                    class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    {% if inviter %}
+                    <div>
+                        <h5 class="text-sm md:text-15px lg:text-base font-bold leading-1.3 text-heading-color mb-15px">
+                            <span class="leading-1.3 md:leading-1.3 lg:leading-1.3">
+                                Inviter Details
+                            </span>
+                        </h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-30px mb-30px">
+                            <!-- 1st name -->
+                            <div class="relative">
+                                <input type="text" value="{{inviter.get_full_name}}"
+                                    name="inviter_full_names" id="id_inviter_full_names" placeholder="First name"
+                                    class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
+                                <span class="absolute top-1/2 -translate-y-1/2 right-4">
+                                    <i class="fas fa-user text-sm lg:text-base text-secondary-color font-bold"></i>
+                                </span>
+                            </div>
+                            <!-- last name -->
+                            <div class="relative">
+                                <input type="text" value="{{inviter.membership_number}}"
+                                    name="inviter_member_number" id="id_inviter_member_number" placeholder="Last name"
+                                    class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
+                                <span class="absolute top-1/2 -translate-y-1/2 right-4">
+                                    <i class="fas fa-user text-sm lg:text-base text-secondary-color font-bold"></i>
+                                </span>
+                            </div>
+                            
+                        </div>
                         
-
-                        <li class="p-2 border-b border-border-color-17">
-                            <div class="flex justify-between items-center">
-                                <span class="leading-1.8 lg:leading-1.8">
-                                    Admin Fees</span>
-                                <span class="leading-1.8 lg:leading-1.8"> R{{event.admin_fee}}</span>
-                            </div>
-                        </li>
-
-                        <li class="p-2 border-b border-border-color-17 bg-table-bg">
-                            <div class="flex justify-between items-center">
-                                <span class="leading-1.8 lg:leading-1.8"> Member Discount ({{event.member_discount}}%)</span>
-                                <span class="leading-1.8 lg:leading-1.8"> R{{event.get_discounted_cost}}</span>
-                            </div>
-                        </li>
-
-                        <li class="p-2 border-b border-border-color-17">
-                            <div class="flex justify-between items-center font-bold">
-                                <span class="leading-1.8 lg:leading-1.8">
-                                    Order Total</span>
-                                <span class="leading-1.8 lg:leading-1.8"> R{{total_cost}}</span>
-                            </div>
-                        </li>
-                    </ul>
+                    </div>
+                    {% endif %}
+                    <!-- message -->
+                    <div class="mb-30px">
+                        <h5 class="text-sm md:text-15px lg:text-base font-bold leading-1.3 text-heading-color mb-15px">
+                            <span class="leading-1.3 md:leading-1.3 lg:leading-1.3">
+                                Order Notes (optional)
+                            </span>
+                        </h5>
+                        <div class="relative">
+                            <textarea name="booking_note" placeholder="Notes about your order, e.g. special notes for delivery."
+                                class="min-h-[150px] text-paragraph-color pl-5 pr-50px py-15px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">{% if form.booking_note.value %}{{form.booking_note.value}}{% endif %}</textarea>
+                            <span class="absolute top-[30px] -translate-y-1/2 right-4">
+                                <i class="fas fa-pencil text-sm lg:text-base text-secondary-color font-bold"></i>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-30px">
+                <!-- payment methods -->
+                <div>
+                    <h4
+                        class="text-22px font-semibold leading-1.3 pl-10px border-l-2 border-secondary-color text-heading-color mb-30px mt-50px">
+                        Payment Method
+                    </h4>
+                    <div>
+                        <ul class="accordion-container neighbour-accordion border border-b-0 border-border-color-1 mb-30px">
+                            <li class="accordion border-b border-border-color-1 p-5">
+                                <!-- accordion header -->
+                                <div class="accordion-controller cursor-pointer">
+                                    <div class="text-base lg:text-lg font-bold font-poppins flex items-center">
+                                        <div class="flex-shrink-0 w-4 h-4 relative pl-1">
+                                            <input type="radio" name="payment_method" id="id_payment_method" value="EFT"
+                                                class="inline-block absolute w-0 h-0 after:w-[11px] after:h-[11px] after:m-[1px] after:absolute after:left-0 after:top-0 after:bg-white after:outline-offset-[2px] after:outline-1 after:outline after:outline-heading-color after:z-10 after:rounded-100% after:inline-block checked:after:bg-heading-color after:transition-all after:duration-300">
+                                        </div>
+                                        <label
+                                            class="flex-grow leading-1.3 lg:leading-1.3 text-heading-color cursor-pointer ml-4"
+                                            for="id_payment_method">
+                                            ETF Payment
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- accordion content -->
+                                <div class="accordion-content h-0 overflow-hidden transition-all duration-500">
+                                    <div class="p-1 pt-15px content-wrapper text-sm lg:text-base">
+                                        <div class="px-30px py-15px shadow-box-shadow-3">
+                                            <p class="leading-1.8 lg:leading-1.8">
+                                                Make payment on our banking details. Note: Members have our banking details for payment
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="accordion border-b border-border-color-1 p-5 active">
+                                <!-- accordion header -->
+                                <div class="accordion-controller cursor-pointer">
+                                    <div class="text-base lg:text-lg font-bold font-poppins flex items-center">
+                                        <div class="flex-shrink-0 w-4 h-4 relative pl-1">
+                                            <input type="radio" name="payment_method" id="id_payment_method" value="Cash on Arrival"
+                                                class="inline-block absolute w-0 h-0 after:w-[11px] after:h-[11px] after:m-[1px] after:absolute after:left-0 after:top-0 after:bg-white after:outline-offset-[2px] after:outline-1 after:outline after:outline-heading-color after:z-10 after:rounded-100% after:inline-block checked:after:bg-heading-color after:transition-all after:duration-300"
+                                                checked="">
+                                        </div>
+                                        <label
+                                            class="flex-grow leading-1.3 lg:leading-1.3 text-heading-color cursor-pointer ml-4"
+                                            for="id_payment_method">
+                                            Cash on arrival
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- accordion content -->
+                                <div class="accordion-content h-0 overflow-hidden transition-all duration-500"
+                                    style="height: 78px;">
+                                    <div class="p-1 pt-15px content-wrapper text-sm lg:text-base">
+                                        <div class="px-30px py-15px shadow-box-shadow-3">
+                                            <p class="leading-1.8 lg:leading-1.8">
+                                                Pay with cash at the event venue.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- <li class="accordion border-b border-border-color-1 p-5">
+                                
+                                <div class="accordion-controller cursor-pointer">
+                                    <div class="text-base lg:text-lg font-bold font-poppins flex items-center">
+                                        <div class="flex-shrink-0 w-4 h-4 relative pl-1">
+                                            <input type="radio" name="payment_method" id="id_payment_method" value="Yoco"
+                                                class="inline-block absolute w-0 h-0 after:w-[11px] after:h-[11px] after:m-[1px] after:absolute after:left-0 after:top-0 after:bg-white after:outline-offset-[2px] after:outline-1 after:outline after:outline-heading-color after:z-10 after:rounded-100% after:inline-block checked:after:bg-heading-color after:transition-all after:duration-300">
+                                        </div>
+                                        <label
+                                            class="flex-grow leading-1.3 lg:leading-1.3 text-heading-color cursor-pointer ml-4"
+                                            for="id_payment_method">
+                                            Yoco (Unavailable)
+                                            <img src="assets/img/icons/payment-3.png" alt="#"
+                                                class="max-w-[130px] inline-block ml-3">
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-content h-0 overflow-hidden transition-all duration-500">
+                                    <div class="p-1 pt-15px content-wrapper text-sm lg:text-base">
+                                        <div class="px-30px py-15px shadow-box-shadow-3">
+                                            <p class="leading-1.8 lg:leading-1.8">
+                                                Pay via Yoco; you can pay with your credit card or debit card.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li> -->
+                        </ul>
+                        <!-- submt -->
+                        <div>
+                            <p class="text-sm lg:text-base mb-30px">
+                                <span class="leading-1.8 lg:leading-1.8">
+                                    Your personal data will be used to process your order,
+                                    support your experience throughout this website, and for
+                                    other purposes described in our privacy policy.
+                                </span>
+                            </p>
+                            <div class="flex items-center flex-wrap gap-5">
+                                <div>
+                                    <h5
+                                        class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block z-0">
+                                        <span
+                                            class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-black -z-1 group-hover:w-0 transition-all duration-300"></span>
+                                        <button type="submit" value="submit"
+                                            class="relative z-1 px-30px lg:px-10 py-3 md:py-15px lg:py-17px group-hover:text-heading-color leading-1.5 uppercase">
+                                            Confirm Booking
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div>
+                                    <h5
+                                        class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block z-0">
+                                        <span
+                                            class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-black -z-1 group-hover:w-0 transition-all duration-300"></span>
+                                        <a href="{% url 'events:cancel-booking' booking.id %}"
+                                            class="relative z-1 px-30px lg:px-10 py-3 md:py-15px lg:py-17px group-hover:text-heading-color leading-1.5 uppercase">
+                                            Cancel Booking
+                                        </a>
+                                    </h5>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- checkout -->
+                <div class="flex justify-end">
+                    <div class="max-w-450px w-full">
+                        <h4
+                            class="text-22px font-semibold leading-1.3 pl-10px border-l-2 border-secondary-color text-heading-color mb-30px mt-50px">
+                            Cart Totals
+                        </h4>
+                        <ul class="text-sm lg:text-base text-heading-color">
+                            <li class="p-2 border-b border-border-color-17 bg-table-bg">
+                                <div class="flex justify-between items-center">
+                                    <span class="leading-1.8 lg:leading-1.8">
+                                        {{event.title}} <strong> × 1</strong></span>
+                                    <span class="leading-1.8 lg:leading-1.8"> R{{event.cost}}</span>
+                                </div>
+                            </li>
+
+                            
+
+                            <li class="p-2 border-b border-border-color-17">
+                                <div class="flex justify-between items-center">
+                                    <span class="leading-1.8 lg:leading-1.8">
+                                        Admin Fees</span>
+                                    <span class="leading-1.8 lg:leading-1.8"> R{{event.admin_fee}}</span>
+                                </div>
+                            </li>
+
+                            <li class="p-2 border-b border-border-color-17 bg-table-bg">
+                                <div class="flex justify-between items-center">
+                                    <span class="leading-1.8 lg:leading-1.8"> Member Discount ({{event.member_discount}}%)</span>
+                                    <span class="leading-1.8 lg:leading-1.8"> R{{event.get_discounted_cost}}</span>
+                                </div>
+                            </li>
+
+                            <li class="p-2 border-b border-border-color-17">
+                                <div class="flex justify-between items-center font-bold">
+                                    <span class="leading-1.8 lg:leading-1.8">
+                                        Order Total</span>
+                                    <span class="leading-1.8 lg:leading-1.8"> R{{total_cost}}</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </section>
 
 {% endblock content %}

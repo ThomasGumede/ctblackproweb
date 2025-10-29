@@ -1,0 +1,216 @@
+{% extends '_base.html' %}
+{% load static %}
+
+
+{% block seo %}
+<meta name="description"
+    content="Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro Golf Club">
+<meta name="keywords" content="">
+<meta name="author" content="CT Black Pro">
+<link rel="canonical" href="{{ request.build_absolute_uri }}" />
+<meta property="og:title" content="CT Black Pro - Join Us" />
+<meta property="og:description"
+    content="Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro Golf Club" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<meta property="og:type" content="website" />
+
+<meta property="og:image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.build_absolute_uri }}">
+<meta name="twitter:title" content="CT Black Pro - Join Us">
+<meta name="twitter:description"
+    content="Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro Golf Club">
+<meta name="twitter:image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+<meta name="twitter:creator" content="@BBGIOfficial">
+
+<!-- Google+ / Schema.org -->
+<meta itemprop="name" content="CT Black Pro - Join Us">
+<meta itemprop="description"
+    content="Ready to take your place on the fairway? Download our membership rates and sign-up form to become part of CT Black Pro Golf Club">
+<meta itemprop="image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+
+<!-- Additional Meta Tags -->
+<meta property="og:locale" content="en_ZA">
+<meta property="og:site_name" content="CT Black Pro - Join Us">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% endblock seo %}
+
+
+{% block addcss %}
+    <link href="{% static 'css/pricing.css' %}" rel="stylesheet">
+    <style>
+        .sec-title.centred .sub-title {
+            padding-left: 15px;
+        }
+    
+        .sec-title .sub-title {
+            position: relative;
+            display: inline-block;
+            font-size: 18px;
+            line-height: 25px;
+            font-weight: 500;
+            text-transform: uppercase;
+            padding-right: 15px;
+            margin-bottom: 11px;
+        }
+    
+        .sec-title .sub-title:before {
+            position: absolute;
+            content: '';
+            background-color: #77A96A;
+            width: 5px;
+            height: 5px;
+            top: 8px;
+            right: 0px;
+            border-radius: 50%;
+        }
+    
+        .sec-title.centred .sub-title:after {
+            position: absolute;
+            content: '';
+            background-color: #77A96A;
+            width: 5px;
+            height: 5px;
+            top: 8px;
+            left: 0px;
+            border-radius: 50%;
+        }
+    
+        .sec-title h2 {
+            position: relative;
+            display: block;
+            font-size: 50px;
+            line-height: 60px;
+            text-transform: uppercase;
+            color: #1C3D40;
+        }
+    
+        .about-style-two .content-box p {
+            font-size: 18px;
+            line-height: 30px;
+            margin-bottom: 44px;
+        }
+    </style>
+{% endblock addcss %}
+    
+
+{% block content %}
+<section class="page-title">
+    <!-- banner section -->
+    <div style="background-image: url(../../static/images/background/page-title.jpg);"
+        class="w-full bg-layer bg-no-repeat bg-cover bg-center relative z-0 after:w-full after:h-full after:absolute after:top-0 after:left-0  after:bg-opacity-30 after:-z-1">
+        <div class="container py-110px ">
+            <h1 class="text-2xl  sm:text-3xl md:text-26px lg:text-3xl xl:text-4xl font-bold text-white mb-15px">
+                <span class="leading-1.3 md:leading-1.3 lg:leading-1.3 xl:leading-1.3">Membership Planning
+                </span>
+            </h1>
+            <ul class="breadcrumb flex gap-30px items-center text-sm lg:text-base font-bold pt-4">
+                <li class="home relative leading-1.8 lg:leading-1.8">
+                    <a href="{% url 'home:index' %}"><i class="fas fa-home text-secondary-color"></i> Home</a>
+                </li>
+                <li class="leading-1.8 lg:leading-1.8 text-white">
+
+                    {% block app_title %}
+
+                    {% endblock app_title %}
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="pricing-section py-30">
+    <div class="container">
+        <div class="sec-title text-center centred mb-8">
+            <span class="sub-title">Pricing Table</span>
+            <h2>Simple, flexible pricing</h2>
+        </div>
+        <div class="tabs-box">
+            
+            <div class="tabs-content">
+                
+                <div class="tab active-tab" id="tab-2" style="display: block;">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 clearfix">
+                        <div class="pricing-block">
+                            <div class="pricing-block-one">
+                                <div class="pricing-table">
+                                    <div class="table-header">
+                                        <span class="title">Cape Town Membership</span>
+                                        <h2>R4500</h2>
+                                        <span class="text">Per Year</span>
+                                    </div>
+                                    <div class="table-content mb_45">
+                                        <p>For individuals and small teams trying out for an unlimited period.</p>
+                                        <ul class="feature-list clearfix">
+                                            <li><i class="fa-solid fa-check"></i> Free Guide Book</li>
+                                            <li><i class="fa-solid fa-check"></i> Group Membership Level</li>
+                                            <li><i class="fa-solid fa-check"></i> 24/7 Full Support</li>
+                                            <li class="cancel"><i class="fa-solid fa-check"></i> Discount Events</li>
+                                            <li class="cancel"><i class="fa-solid fa-check"></i> Free Fitness Center</li>
+                                        </ul>
+                                    </div>
+                                    <div class="table-footer">
+                                        <a href="{% url 'memberships:apply-membership' %}" class="theme-btn btn-two">Choose A Plan</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-block">
+                            <div class="pricing-block-one">
+                                <div class="pricing-table">
+                                    <div class="table-header">
+                                        <span class="title">Country Membership</span>
+                                        <h2>R2250.00</h2>
+                                        <span class="text">Per Year</span>
+                                    </div>
+                                    <div class="table-content mb_45">
+                                        <p>For individuals and small teams trying out for an unlimited period.</p>
+                                        <ul class="feature-list clearfix">
+                                            <li><i class="fa-solid fa-check"></i> Free Guide Book</li>
+                                            <li><i class="fa-solid fa-check"></i> Group Membership Level</li>
+                                            <li><i class="fa-solid fa-check"></i> 24/7 Full Support</li>
+                                            <li><i class="fa-solid fa-check"></i> Discount Events</li>
+                                            <li class="cancel"><i class="fa-solid fa-check"></i> Free Fitness Center</li>
+                                        </ul>
+                                    </div>
+                                    <div class="table-footer">
+                                        <a href="{% url 'memberships:apply-membership' %}" class="theme-btn btn-two">Choose A Plan</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-block">
+                            <div class="pricing-block-one">
+                                <div class="pricing-table">
+                                    <div class="table-header">
+                                        <span class="title">ESwatini Membership</span>
+                                        <h2>R1200.00</h2>
+                                        <span class="text">Per Year</span>
+                                    </div>
+                                    <div class="table-content mb_45">
+                                        <p>For individuals and small teams trying out for an unlimited period.</p>
+                                        <ul class="feature-list clearfix">
+                                            <li><i class="fa-solid fa-check"></i> Free Guide Book</li>
+                                            <li><i class="fa-solid fa-check"></i> Group Membership Level</li>
+                                            <li><i class="fa-solid fa-check"></i> 24/7 Full Support</li>
+                                            <li><i class="fa-solid fa-check"></i> Discount Events</li>
+                                            <li><i class="fa-solid fa-check"></i> Free Fitness Center</li>
+                                        </ul>
+                                    </div>
+                                    <div class="table-footer">
+                                        <a href="{% url 'memberships:apply-membership' %}" class="theme-btn btn-two">Choose A Plan</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

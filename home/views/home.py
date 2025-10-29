@@ -20,7 +20,8 @@ def index(request):
 
 def about(request):
     members = Member.objects.all()
-    return render(request, 'home/about-us.html', {"members": members})
+    events = Event.objects.all()[:3]
+    return render(request, 'home/about-us.html', {"members": members, "events": events})
 
 def contact(request):
     if request.method == 'POST':

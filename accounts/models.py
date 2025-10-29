@@ -11,6 +11,7 @@ from django.utils.translation import gettext as _
 from accounts.utilities.choices import TITLE_CHOICES
 from accounts.utilities.file_handlers import handle_profile_upload
 from accounts.utilities.validators import validate_fcbk_link, validate_in_link, validate_insta_link, validate_twitter_link, verify_rsa_phone
+# from memberships.models import MemberAppChoices
 
 PHONE_VALIDATOR = verify_rsa_phone()
 
@@ -103,6 +104,7 @@ class Account(AbstractUser, AbstractProfile):
         help_text=_("Male Only Club"),
     )
     race = models.CharField(max_length=50, choices=RACE_CHOICES)
+    membership_number = models.CharField(max_length=50, null=True, blank=True, unique=True, db_index=True)
     hna_membership_number = models.CharField(max_length=50, blank=True, null=True)
     biography = models.TextField(
         blank=True,
@@ -127,14 +129,16 @@ class Account(AbstractUser, AbstractProfile):
 
     def get_full_user_address(self):
         return self.address or _("No address provided")
+    
 
     @property
     def is_approved(self):
         """
         Returns True if user’s application has been approved.
-        (Assumes you will add an 'approval' or 'application_status' field elsewhere.)
         """
-        return hasattr(self, "application") and self.application.status == "approved"
+        return hasattr(self, "membership_application") and self.membership_application.status == "APPROVED"
+    
+    
 
 class Company(AbstractCreate):
     title = models.CharField(max_length=300, null=True, blank=True, unique=True)

@@ -40,46 +40,67 @@
                         Your Account
                     </span>
                 </h1>
-                <p class="text-sm lg:text-base">
-                    <span class="leading-1.8 lg:leading-1.8">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        <br>
-                        Sit aliquid, Non distinctio vel iste.</span>
-                </p>
+                
             </div>
             <!-- form -->
             <div>
-                <form class="form-primary bg-white px-25px md:px-50px pt-10 pb-50px">
+                <form method="post" class="form-primary bg-white px-25px md:px-50px pt-10 pb-50px">
                     <!-- passwords -->
+                     {% csrf_token %}
                     <div>
                         <div class="grid grid-cols-1 gap-30px pb-30px">
                             <!-- 1st name -->
                             <div class="relative">
                                 <input type="text" name="first_name" id="id_first_name" placeholder="First Name"
                                     class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm placeholder:text-opacity-60">
+                                <span class="text-[11px] text-custom-tertiary block font-normal capitalize">{{form.first_name.help_text}}</span>
+                                {% if form.first_name.errors %}
+                                <span class="text-[11px] text-red-500 block font-normal capitalize">{{form.first_name.errors.as_text}}</span>
+                                {% endif %}
                             </div>
                             <!-- 2nd name -->
                             <div class="relative">
-                                <input type="email" placeholder="Last Name" name="last_name" id="id_last_name"
+                                <input type="text" placeholder="Last Name" name="last_name" id="id_last_name"
                                     class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm placeholder:text-opacity-60">
+                                    <span class="text-[11px] text-custom-tertiary block font-normal capitalize">{{form.last_name.help_text}}</span>
+                                    {% if form.last_name.errors %}
+                                    <span class="text-[11px] text-red-500 block font-normal capitalize">{{form.last_name.errors.as_text}}</span>
+                                    {% endif %}
                             </div>
                             <!-- email -->
                             <div class="relative">
                                 <input type="email" placeholder="Email*" name="email" id="id_email"
                                     class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm placeholder:text-opacity-60">
+                                    <span class="text-[11px] text-custom-tertiary block font-normal capitalize">{{form.email.help_text}}</span>
+                                    {% if form.email.errors %}
+                                    <span class="text-[11px] text-red-500 block font-normal capitalize">{{form.email.errors.as_text}}</span>
+                                    {% endif %}
                             </div>
                             <div class="relative">
-                                <input type="tel" placeholder="Cell phone*" name="phone" id="id_phone"
+                                <input type="text" placeholder="Cell phone*" name="phone" id="id_phone"
                                     class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm placeholder:text-opacity-60">
+                                    <span class="text-[11px] text-custom-tertiary block font-normal capitalize">{{form.phone.help_text}}</span>
+                                    {% if form.phone.errors %}
+                                    <span class="text-[11px] text-red-500 block font-normal capitalize">{{form.phone.errors.as_text}}</span>
+                                    {% endif %}
                             </div>
                             <!-- password -->
                             <div class="relative">
                                 <input type="password" placeholder="Password*" name="password1" id="id_password1"
                                     class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm placeholder:text-opacity-60 tracking-[3px]">
+                                    <span class="text-[11px] text-custom-tertiary block font-normal capitalize">{{form.password1.help_text}}</span>
+                                    {% if form.password1.errors %}
+                                    <span class="text-[11px] text-red-500 block font-normal capitalize">{{form.password1.errors.as_text}}</span>
+                                    {% endif %}
                             </div>
                             <!-- Confirm new password -->
                             <div class="relative">
                                 <input type="password" placeholder="Confirm Password*" name="password2" id="id_password2"
                                     class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm placeholder:text-opacity-60 tracking-[3px]">
+                                    <span class="text-[11px] text-custom-tertiary block font-normal capitalize">{{form.password2.help_text}}</span>
+                                    {% if form.password2.errors %}
+                                    <span class="text-[11px] text-red-500 block font-normal capitalize">{{form.password2.errors.as_text}}</span>
+                                    {% endif %}
                             </div>
                         </div>
                     </div>
@@ -124,7 +145,7 @@
                                 PRIVACY
                                 POLICY</span>
                         </a>
-                        <a href="login.html" class="uppercase text-sm lg:text-base mt-50px">
+                        <a href="{% url 'accounts:login' %}" class="uppercase text-sm lg:text-base mt-50px">
                             <span class="leading-1.8 lg:leading-1.8">ALREADY HAVE AN ACCOUNT ?</span>
                         </a>
                     </div>

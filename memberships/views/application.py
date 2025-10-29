@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 from home.utilities.custom_email import send_email_to_admin
-from memberships.models import MembershipApplication, StatusChoices
+from memberships.models import MembershipApplication, MemberAppChoices
 from memberships.forms import ApplicationForm, TraceApplicationForm
 import logging
 from memberships.utilities.decorators import restrict_approved_members
@@ -10,7 +10,10 @@ from memberships.utilities.handle_file import generate_application_number
 
 logger = logging.getLogger("accounts")
 
-@login_required
+def pricing(request):
+    return render(request, "membership/pricing.html")
+
+
 def join_membership(request):
     return render(request, 'membership/join-us.html')
 
@@ -20,9 +23,6 @@ def apply_for_membership(request, application_number=None):
     application = None
     if application_number:
         application = get_object_or_404(MembershipApplication, application_number=application_number, user=request.user)
-    if request.user.membership_application:
-        if request.user.membership_application.status == None:
-            pass
       
     application_form = ApplicationForm(instance=request.user)
     if request.method == 'POST':
@@ -31,8 +31,12 @@ def apply_for_membership(request, application_number=None):
             app_number = generate_application_number(MembershipApplication)
             try:
                 form.save()
+                request.user.membership_number = app_number
+                request.user.save(update_fields=["membership_number"])
+                
                 if application is None:
-                    application = MembershipApplication.objects.create(user=request.user, application_number=app_number, status=StatusChoices.PENDING)
+                    application = MembershipApplication.objects.create(user=request.user, application_number=app_number, status=MemberAppChoices.PENDING)
+                
                 send_email_to_admin("Interested In Joining The Club", "Kindly Review The Application Below", form.cleaned_data["email"], form.cleaned_data["first_name"])
                 messages.success(request, "We have successfully receive your application, will be in touch shortly")
                 return redirect("memberships:application-done", application_id=application.id)

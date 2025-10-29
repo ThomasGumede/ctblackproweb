@@ -65,7 +65,10 @@ def custom_logout(request):
 @user_not_authenticated
 def register(request):
     template_name = "accounts/register.html"
-    success_url = "memberships:membership"
+    success_url = request.GET.get("next", None)
+    if success_url == None:
+        success_url = "memberships:membership"
+    
     if request.method == "POST":
         form = RegistrationForm(request.POST)
         if form.is_valid():

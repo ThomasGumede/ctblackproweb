@@ -238,15 +238,15 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide cursor-pointer">
                                     <img src="{% static 'images/resource/about-3.jpg' %}"
-                                        class="w-full border-2 4xl:border-[5px] border-section-bg-1 box-border" alt="">
+                                        class="w-full border-2 4xl:border-[5px] border-section-bg-1 box-border lg:w-[77px] lg:h-[66px]" alt="CT Black Pro Member playing gold">
                                 </div>
                                 <div class="swiper-slide cursor-pointer">
                                     <img src="{% static 'images/resource/about-4.jpg' %}"
-                                        class="w-full border-2 4xl:border-[5px] border-section-bg-1 box-border" alt="">
+                                        class="w-full border-2 4xl:border-[5px] border-section-bg-1 box-border lg:w-[77px] lg:h-[66px]" alt="CT Black Pro Members">
                                 </div>
                                 <div class="swiper-slide cursor-pointer">
                                     <img src="{% static 'images/resource/img.jpg' %}"
-                                        class="w-full border-2 4xl:border-[5px] border-section-bg-1 box-border" alt="">
+                                        class="w-full border-2 4xl:border-[5px] border-section-bg-1 box-border lg:w-[77px] lg:h-[66px]" alt="CT Black Pro Member">
                                 </div>
                                 
                             </div>
@@ -272,43 +272,54 @@
     </div>
 </section>
 
-<!-- about section -->
-<section>
-    <div class="container pt-115px pb-100px">
-        <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-30px items-center">
-            <!-- about left -->
-            <div class="lg:mr-30px relative mb-10 lg:mb-0">
-                <img src="{% static 'images/resource/about-3.jpg' %}" alt="CT Black Pro Member" class="max-w-full">
-            </div>
-            <!-- about right -->
-            <div>
-                <div>
-                    <p
-                        class="text-sm md:text-15px lg:text-base text-secondary-color capitalize mb-2 inline-block font-semibold">
-                        <span class="leading-1.3">about us</span>
-                    </p>
-                    <h2
-                        class="text-2xl sm:text-3xl md:text-26px lg:text-3xl xl:text-44px text-heading-color font-bold mb-15px">
-                        <span class="leading-1.3">
-                            The golf club was established in Cape Town, Western Cape, RSA, in 2010
-                        </span>
-                    </h2>
-                    <p class="text-sm lg:text-base max-w-500px">
-                        <span class="leading-1.8 lg:leading-1.8">Founded in Cape Town in 2010, CT Black Pro Golf Club
-                            stands as a proud symbol of excellence, inclusion, and community in South African golf.
-                            Dedicated to nurturing talent and celebrating diversity, the club offers a welcoming space
-                            for golfers of all backgrounds to refine their skills, connect through sport, and champion
-                            the spirit of unity on the fairway. With a commitment to professionalism and empowerment, CT
-                            Black Pro continues to shape the future of golf—one swing at a time.</span>
-                    </p>
+<!-- services section -->
+<section class="about-style-two">
+    <div class="text-center py-30 content-box grid items-center justify-center">
+        <div class="w-full mx-auto container">
+            <div class="max-w-[690px]">
+                <div class="mb-5 sec-title grid items-center justify-center text-center centred">
+                    <i class="fa-solid fa-golf-ball-tee text-5xl  text-custom-text mb-8"></i>
+                    <span class="sub-title text-custom-primary">Ready To CT Black Pro Golf Club Today</span>
+                    <h2>Your Swing. Your Space. Your Legacy.</h2>
                 </div>
+                <p class="text-custom-text">Ready to take your place on the fairway? Download our membership rates and
+                    sign-up form to become part of
+                    CT Black Pro
+                    Golf Club—a community where excellence meets opportunity. Whether you're here to compete, connect,
+                    or
+                    grow, your journey
+                    starts now.</p>
+                <div class="flex flex-wrap gap-7 items-center">
+                    <div>
+                        <h5
+                            class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block z-0">
+                            <span
+                                class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-black -z-1 group-hover:w-0 transition-all duration-300"></span>
+                            <a href="{% url 'memberships:pricing' %}"
+                                class="relative z-1 px-5 md:px-25px lg:px-10 py-10px md:py-15px lg:py-17px group-hover:text-heading-color leading-1.5 uppercase">
+                                View Our
+                                Membership Rates
+                            </a>
+                        </h5>
 
+                    </div>
+                    <div>
+                        <h5
+                            class="uppercase text-sm md:text-base text-white relative group whitespace-nowrap font-normal mb-0 transition-all duration-300 border border-secondary-color hover:border-heading-color inline-block z-0">
+                            <span
+                                class="inline-block absolute top-0 right-0 w-full h-full bg-secondary-color group-hover:bg-black -z-1 group-hover:w-0 transition-all duration-300"></span>
+                            <a href="{% url 'memberships:apply-membership' %}"
+                                class="relative z-1 px-5 md:px-25px lg:px-10 py-10px md:py-15px lg:py-17px group-hover:text-heading-color leading-1.5 uppercase">
+                                Start Your Application
+                            </a>
+                        </h5>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
-
-
 <!-- Facilities section -->
 <section class="bg-section-bg-1 relative">
     <div class="container pt-30 pb-90px">
@@ -361,129 +372,63 @@
                         <span class="leading-1.8">Private balconies with stunning views</span>
                     </li>
 
-                    <li class="text-sm lg:text-base flex items-center">
-                        <i
-                            class="icon-done text-sm text-secondary-color bg-color-6 w-8 h-8 flex items-center justify-center mr-15px rounded-100% flex-shrink-0"></i>
-                        <span class="leading-1.8">A rare combination of inspired architecture</span>
-                    </li>
 
-                    <li class="text-sm lg:text-base flex items-center">
-                        <i
-                            class="icon-done text-sm text-secondary-color bg-color-6 w-8 h-8 flex items-center justify-center mr-15px rounded-100% flex-shrink-0"></i>
-                        <span class="leading-1.8">Outdoor grilling with dining court</span>
-                    </li>
                 </ul>
             </div>
 
             <!-- Building Facilities right -->
             <div class="h-full">
                 <div class="absolute right-0 top-0 w-[48%] h-full">
-                    <img src="{% static 'images/resource/chooseus.png' %}" alt="Golf player" class="w-full h-full hidden lg:block">
+                    <img src="{% static 'images/resource/chooseus.png' %}" alt="Golf player"
+                        class="w-full h-full hidden lg:block">
                 </div>
 
-                
+
             </div>
         </div>
     </div>
 </section>
-
-<!-- services section -->
+<!-- about section -->
 <section>
-    <div class="container pt-115px pb-90px">
-        <!-- section heading -->
-        <div class="text-center mb-50px">
-            <p
-                class="text-sm md:text-15px lg:text-base text-secondary-color capitalize mb-2 inline-block font-semibold">
-                <span class="leading-1.3">Ready To Join Us?</span>
-            </p>
-            <h2 class="text-2xl sm:text-3xl md:text-26px lg:text-3xl xl:text-44px text-heading-color font-bold">
-                <span class="leading-1.3"> Here's How To Join Us </span>
-            </h2>
-        </div>
-        <!-- services cards  -->
+    <div class="container pt-115px pb-100px">
+        <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-30px items-center">
+            <!-- about left -->
+            <div class="lg:mr-30px relative mb-10 lg:mb-0">
+                <img src="{% static 'images/resource/about-3.jpg' %}" alt="CT Black Pro Member" class="max-w-full">
+            </div>
+            <!-- about right -->
+            <div>
+                <div>
+                    <p
+                        class="text-sm md:text-15px lg:text-base text-secondary-color capitalize mb-2 inline-block font-semibold">
+                        <span class="leading-1.3">about us</span>
+                    </p>
+                    <h2
+                        class="text-2xl sm:text-3xl md:text-26px lg:text-3xl xl:text-44px text-heading-color font-bold mb-15px">
+                        <span class="leading-1.3">
+                            The golf club was established in Cape Town, Western Cape, RSA, in 2010
+                        </span>
+                    </h2>
+                    <p class="text-sm lg:text-base max-w-500px">
+                        <span class="leading-1.8 lg:leading-1.8">Founded in Cape Town in 2010, CT Black Pro Golf Club
+                            stands as a proud symbol of excellence, inclusion, and community in South African golf.
+                            Dedicated to nurturing talent and celebrating diversity, the club offers a welcoming space
+                            for golfers of all backgrounds to refine their skills, connect through sport, and champion
+                            the spirit of unity on the fairway. With a commitment to professionalism and empowerment, CT
+                            Black Pro continues to shape the future of golf—one swing at a time.</span>
+                    </p>
+                </div>
 
-        <div class="service-cards flex flex-wrap justify-center items-center text-center -mx-15px">
-            <!-- card 1 -->
-            <div class="service-card basis-full sm:basis-1/2 lg:basis-1/3 px-15px mb-30px">
-                <div
-                    class="border border-border-color-1 shadow-box-shadow-1 bg-white relative py-10 pb-35px px-30px transition-all duration-300">
-                    <div
-                        class="text-center mb-5 w-24 mx-auto h-24 rounded-full grid border border-custom-secondary items-center justify-center">
-                        <i
-                            class="fa-solid fa-user-plus text-6xl text-custom-secondary"></i>
-                    </div>
-                    <h6 class="text-lg md:text-xl lg:text-22px xl:text-2xl text-heading-color font-bold">
-                        <a class="hover:text-secondary-color leading-1.3 mb-1" href="{% url 'accounts:login' %}">Register An
-                            Acoount</a>
-                    </h6>
-                    <p class="text-sm mb-25px">
-                        <span class="leading-1.8">over 1 million+ homes for sale available on the website, we
-                            can match you with a house you will want to call home.</span>
-                    </p>
-                    <div class="text-sm text-color-1 font-bold">
-                        <a class="find-service hover:text-secondary-color flex items-center justify-center"
-                            href="{% url 'accounts:login' %}">Login / Register
-                            <i class="flaticon-right-arrow inline-block leading-1"></i></a>
-                    </div>
-                    <span
-                        class="hover-line absolute bottom-0 left-0 w-0 h-1 bg-secondary-color transition-all duration-300 block"></span>
-                </div>
-            </div>
-            <!-- card 2 -->
-            <div class="service-card active basis-full sm:basis-1/2 lg:basis-1/3 px-15px mb-30px">
-                <div
-                    class="border border-border-color-1 shadow-box-shadow-1 bg-white relative py-10 pb-35px px-30px transition-all duration-300">
-                    <div
-                        class="text-center mb-5 w-24 mx-auto h-24 rounded-full grid border border-custom-secondary items-center justify-center">
-                        <i class="fa-solid fa-file-invoice text-6xl text-custom-secondary"></i>
-                    </div>
-                    <h6 class="text-lg md:text-xl lg:text-22px xl:text-2xl text-heading-color font-bold">
-                        <a class="hover:text-secondary-color leading-1.3 mb-1" href="{% url 'memberships:membership' %}">Fill The
-                            Application Form</a>
-                    </h6>
-                    <p class="text-sm mb-25px">
-                        <span class="leading-1.8">over 1 million+ homes for sale available on the website, we
-                            can match you with a house you will want to call home.</span>
-                    </p>
-                    <div class="text-sm text-color-1 font-bold">
-                        <a class="find-service hover:text-secondary-color flex items-center justify-center"
-                            href="{% url 'memberships:membership' %}">Join CT Black Pro
-                            <i class="flaticon-right-arrow inline-block leading-1"></i></a>
-                    </div>
-                    <span
-                        class="hover-line absolute bottom-0 left-0 w-0 h-1 bg-secondary-color transition-all duration-300 block"></span>
-                </div>
-            </div>
-            <!-- card 3 -->
-            <div class="service-card basis-full sm:basis-1/2 lg:basis-1/3 px-15px mb-30px">
-                <div
-                    class="border border-border-color-1 shadow-box-shadow-1 bg-white relative py-10 pb-35px px-30px transition-all duration-300">
-                    <div
-                        class="text-center mb-5 w-24 mx-auto h-24 rounded-full grid border border-custom-secondary items-center justify-center">
-                        <i class="fa-solid fa-hourglass-start text-6xl text-custom-secondary"></i>
-                    </div>
-                    <h6 class="text-lg md:text-xl lg:text-22px xl:text-2xl text-heading-color font-bold">
-                        <a class="hover:text-secondary-color leading-1.3 mb-1" href="{% url 'memberships:trace-application' %}">Trace Your Application</a>
-                    </h6>
-                    <p class="text-sm mb-25px">
-                        <span class="leading-1.8">over 1 million+ homes for sale available on the website, we
-                            can match you with a house you will want to call home.</span>
-                    </p>
-                    <div class="text-sm text-color-1 font-bold">
-                        <a class="find-service hover:text-secondary-color flex items-center justify-center"
-                            href="{% url 'memberships:trace-application' %}">Trace application
-                            <i class="flaticon-right-arrow inline-block leading-1"></i></a>
-                    </div>
-                    <span
-                        class="hover-line absolute bottom-0 left-0 w-0 h-1 bg-secondary-color transition-all duration-300 block"></span>
-                </div>
             </div>
         </div>
     </div>
 </section>
 
- 
-{% if events.count > 3 %}
+
+
+
+
+{% if events.count > 1 %}
 <section>
     <div class="bg-section-bg-1">
         <div>
@@ -506,18 +451,12 @@
                         <div class="w-[270px] lg:w-[420px]">
                             <div class="swiper neighbour-slider-tumbs_slider">
                                 <div class="swiper-wrapper">
+                                    {% for levent in events %}
                                     <div class="swiper-slide cursor-pointer">
-                                        <img src="assets/img/neighbour/1.jpg" class="w-full border-[7px] border-white"
-                                            alt="">
+                                        <img src="{% if levent.image %}{{levent.image.url}}{% else %}{% static 'images/ct-logo.png' %}{% endif %}" class="w-full border-[7px] border-white lg:w-[135px] lg:h-[99px]"
+                                            alt="{{levent.title}}">
                                     </div>
-                                    <div class="swiper-slide cursor-pointer">
-                                        <img src="assets/img/neighbour/2.jpg" class="w-full border-[7px] border-white"
-                                            alt="">
-                                    </div>
-                                    <div class="swiper-slide cursor-pointer">
-                                        <img src="assets/img/neighbour/3.jpg" class="w-full border-[7px] border-white"
-                                            alt="">
-                                    </div>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -525,18 +464,19 @@
                     <div class="swiper neighbour-slider">
                         <div class="swiper-wrapper">
                             <!-- slide 1 -->
+                             {% for event in events %}
                             <div class="swiper-slide px-15px">
                                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-30px">
                                     <div class="lg:col-start-1 lg:col-span-8">
-                                        <img src="assets/img/neighbour/1.jpg" class="w-full" alt="">
+                                        <img src="{% if event.image %}{{event.image.url}}{% else %}{% static 'images/ct-logo.png' %}{% endif %}" class="w-full h-full lg:w-[770px] lg:h-[550px]" alt="{{event.title}}">
                                     </div>
                                     <div class="lg:col-start-9 lg:col-span-4 mb-50px">
                                         <div class="group p-15px shadow-box-shadow-4 bg-white">
                                             <!-- card thumbs -->
                                             <div class="relative leading-1">
-                                                <a href="product-details.html" class="overflow-hidden">
-                                                    <img src="assets/img/product-3/3.jpg"
-                                                        class="w-full transition-all duration-700" alt="">
+                                                <a href="{{event.author.get_absolute_url}}" class="overflow-hidden">
+                                                    <img src="{% if event.image %}{{event.image.url}}{% else %}{% static 'images/ct-logo.png' %}{% endif %}"
+                                                        class="w-full transition-all duration-700 lg:w-[340px] lg:h-[260px]" alt="{{event.author.get_full_name}}">
                                                 </a>
                                                 <div
                                                     class="text-13px leading-1.8 px-15px pt-6px pb-0.5 uppercase font-semibold absolute top-4 left-[10px] bg-white rounded-full">
@@ -547,29 +487,26 @@
                                             <div class="pt-25px px-5px pb-10px">
                                                 <h4
                                                     class="text-17px md:text-lg lg:text-xl font-semibold text-heading-color mb-3">
-                                                    <a href="product-details.html"
-                                                        class="hover:text-secondary-color leading-1.3">Cape Flat Golf
-                                                        Day</a>
+                                                    <a href="{{event.get_absolute_url}}"
+                                                        class="hover:text-secondary-color leading-1.3">{{event.title}}</a>
                                                 </h4>
 
                                                 <p class="text-sm lg:text-base">
                                                     <span class="leading-1.8 lg:leading-1.8 text-secondary-color">
-                                                        R4000 /
+                                                        R{{event.cost}} /
                                                     </span>
                                                     <span class="leading-1.8 lg:leading-1.8">
-                                                        2 holes
+                                                        Booking
                                                     </span>
                                                 </p>
                                                 <p class="text-sm lg:text-base pt-10px mb-5">
                                                     <span class="leading-1.8 lg:leading-1.8">
-                                                        Lorem ipsum dolor sit amet, consectetur
-                                                        adipisicing elit, sed do eiusmod tempor
-                                                        incididunt ut labore Enim ullamco laboris.
+                                                        {{event.small_description}}
                                                     </span>
                                                 </p>
-                                                <a href="product-details.html"
+                                                <a href="{{event.get_absolute_url}}"
                                                     class="text-sm lg:text-base text-secondary-color">
-                                                    <span class="leading-1.8">View Property
+                                                    <span class="leading-1.8">View Event
                                                         <i class="flaticon-right-arrow"></i></span>
                                                 </a>
                                             </div>
@@ -577,112 +514,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- slide 2-->
-                            <div class="swiper-slide px-15px">
-                                <div class="grid grid-cols-1 lg:grid-cols-12 gap-30px">
-                                    <div class="lg:col-start-1 lg:col-span-8">
-                                        <img src="assets/img/neighbour/2.jpg" class="w-full" alt="">
-                                    </div>
-                                    <div class="lg:col-start-9 lg:col-span-4 mb-50px">
-                                        <div class="group p-15px shadow-box-shadow-4 bg-white">
-                                            <!-- card thumbs -->
-                                            <div class="relative leading-1">
-                                                <a href="product-details.html" class="overflow-hidden">
-                                                    <img src="assets/img/product-3/2.jpg"
-                                                        class="w-full transition-all duration-700" alt="">
-                                                </a>
-                                                <div
-                                                    class="text-13px leading-1.8 px-15px pt-6px pb-0.5 uppercase font-semibold absolute top-4 left-[10px] bg-white rounded-full">
-                                                    9 properties
-                                                </div>
-                                            </div>
-                                            <!-- card body -->
-                                            <div class="pt-25px px-5px pb-10px">
-                                                <h4
-                                                    class="text-17px md:text-lg lg:text-xl font-semibold text-heading-color mb-3">
-                                                    <a href="product-details.html"
-                                                        class="hover:text-secondary-color leading-1.3">Medical
-                                                        Hospital</a>
-                                                </h4>
-
-                                                <p class="text-sm lg:text-base">
-                                                    <span class="leading-1.8 lg:leading-1.8 text-secondary-color">
-                                                        1,500m /
-                                                    </span>
-                                                    <span class="leading-1.8 lg:leading-1.8">
-                                                        21 min. walk
-                                                    </span>
-                                                </p>
-                                                <p class="text-sm lg:text-base pt-10px mb-5">
-                                                    <span class="leading-1.8 lg:leading-1.8">
-                                                        Lorem ipsum dolor sit amet, consectetur
-                                                        adipisicing elit, sed do eiusmod tempor
-                                                        incididunt ut labore Enim ullamco laboris.
-                                                    </span>
-                                                </p>
-                                                <a href="product-details.html"
-                                                    class="text-sm lg:text-base text-secondary-color">
-                                                    <span class="leading-1.8">View Property
-                                                        <i class="flaticon-right-arrow"></i></span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- slide 3-->
-                            <div class="swiper-slide px-15px">
-                                <div class="grid grid-cols-1 lg:grid-cols-12 gap-30px">
-                                    <div class="lg:col-start-1 lg:col-span-8">
-                                        <img src="assets/img/neighbour/3.jpg" class="w-full" alt="">
-                                    </div>
-                                    <div class="lg:col-start-9 lg:col-span-4 mb-50px">
-                                        <div class="group p-15px shadow-box-shadow-4 bg-white">
-                                            <!-- card thumbs -->
-                                            <div class="relative leading-1">
-                                                <a href="product-details.html" class="overflow-hidden">
-                                                    <img src="assets/img/product-3/4.jpg"
-                                                        class="w-full transition-all duration-700" alt="">
-                                                </a>
-                                                <div
-                                                    class="text-13px leading-1.8 px-15px pt-6px pb-0.5 uppercase font-semibold absolute top-4 left-[10px] bg-white rounded-full">
-                                                    9 properties
-                                                </div>
-                                            </div>
-                                            <!-- card body -->
-                                            <div class="pt-25px px-5px pb-10px">
-                                                <h4
-                                                    class="text-17px md:text-lg lg:text-xl font-semibold text-heading-color mb-3">
-                                                    <a href="product-details.html"
-                                                        class="hover:text-secondary-color leading-1.3">Children
-                                                        Playland</a>
-                                                </h4>
-
-                                                <p class="text-sm lg:text-base">
-                                                    <span class="leading-1.8 lg:leading-1.8 text-secondary-color">
-                                                        1,500m /
-                                                    </span>
-                                                    <span class="leading-1.8 lg:leading-1.8">
-                                                        21 min. walk
-                                                    </span>
-                                                </p>
-                                                <p class="text-sm lg:text-base pt-10px mb-5">
-                                                    <span class="leading-1.8 lg:leading-1.8">
-                                                        Lorem ipsum dolor sit amet, consectetur
-                                                        adipisicing elit, sed do eiusmod tempor
-                                                        incididunt ut labore Enim ullamco laboris.
-                                                    </span>
-                                                </p>
-                                                <a href="product-details.html"
-                                                    class="text-sm lg:text-base text-secondary-color">
-                                                    <span class="leading-1.8">View Property
-                                                        <i class="flaticon-right-arrow"></i></span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -694,7 +526,7 @@
 </section>
 {% else %}
 <section class="about-style-two">
-    <div class="text-center content-box grid items-center justify-center">
+    <div class="text-center py-30 content-box grid items-center justify-center">
         <div class="w-full mx-auto container">
             <div class="max-w-[690px]">
                 <div class="mb-5 sec-title grid items-center justify-center text-center centred">

@@ -17,12 +17,12 @@ class AccountAdmin(UserAdmin):
     # Columns in list view
     list_display = (
         "username", "email", "first_name", "last_name", 
-        "phone", "gender", "race", "role", "is_staff", "created", "profile_image_tag"
+        "membership_number", "gender", "race", "role", "is_staff", "created", "profile_image_tag"
     )
     list_filter = ("gender", "race", "role", "is_staff", "is_superuser", "created")
-    search_fields = ("username", "email", "first_name", "last_name", "phone")
+    search_fields = ("username", "email", "first_name", "last_name", "phone", "membership_number")
     ordering = ("-created",)
-    readonly_fields = ("created", "updated", "profile_image_tag")
+    readonly_fields = ("created", "updated", "profile_image_tag", "email", "username")
 
     # Add password entry field to add form
     # add_fieldsets = (
@@ -74,6 +74,7 @@ class AccountAdmin(UserAdmin):
             "fields": (
                 "hna_membership_number",
                 "biography",
+                 "membership_number"
                 
             ),
         }),
@@ -134,13 +135,15 @@ class AccountAdmin(UserAdmin):
             "fields": (
                 "hna_membership_number",
                 "biography",
-                "role",
+                 "membership_number",
+                
                 "is_technical",
                 "is_email_activated",
             ),
         }),
         ("Permissions", {
             "fields": (
+                "role",
                 "is_active",
                 "is_staff",
                 "is_superuser",
