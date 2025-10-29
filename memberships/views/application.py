@@ -37,7 +37,7 @@ def apply_for_membership(request, application_number=None):
                 if application is None:
                     application = MembershipApplication.objects.create(user=request.user, application_number=app_number, status=MemberAppChoices.PENDING)
                 
-                send_email_to_admin("Interested In Joining The Club", "Kindly Review The Application Below", form.cleaned_data["email"], form.cleaned_data["first_name"])
+               a
                 messages.success(request, "We have successfully receive your application, will be in touch shortly")
                 return redirect("memberships:application-done", application_id=application.id)
             
