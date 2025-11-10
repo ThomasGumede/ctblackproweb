@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
 from accounts.models import Account
-from home.models import Blog
-from events.models import Event
+from events.models import Event, Booking
+from memberships.models import MembershipApplication
+from django.contrib.auth.decorators import login_required
 
 def dashboard(request):
     users = Account.objects.filter(is_active=True)
     inusers = Account.objects.filter(is_active=False)
+    bookings = MembershipApplication.objects.all()
     events = Event.objects.all()
     
     context = {

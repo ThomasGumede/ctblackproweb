@@ -97,6 +97,22 @@
                             & Bookings
                         </a>
                     </li>
+                    <li class="relative group">
+                        <a href="#"
+                            class="text-lg xl:text-15px 2xl:text-lg text-heading-color hover:text-secondary-color font-semibold whitespace-nowrap pl-10px py-22px">Members
+                            <span class="text-sm font-extrabold -ml-0.5">+</span></a>
+                        <!-- dropdown -->
+                        <ul
+                            class="py-15px border-t-[5px] border-secondary-color bg-white w-dropdown shadow-box-shadow-4 absolute left-0 top-full opacity-0 invisible translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-xl">
+                            <li>
+                                <a class="whitespace-nowrap px-30px py-2" href="{% url 'accounts:login' %}">Login</a>
+                            </li>
+                            <li>
+                                <a class="whitespace-nowrap px-30px py-2" href="{% url 'memberships:membership' %}">Join Now</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
 
                     <!-- item 6 -->
                     <li>
@@ -130,7 +146,11 @@
                     <li class="group relative">
                         <a href="#"
                             class="h-50px w-50px text-heading-color shadow-box-shadow-1 flex justify-center items-center hover:bg-secondary-color hover:text-white transition-all duration-300">
-                            <i class="icon-user font-bold text-lg"></i>
+                            
+                            {% if request.user.profile_image %}
+                            <img src="{% if request.user.profile_image %}{{request.user.profile_image.url}}{% else %}{% static 'imgs/R.png' %}{% endif %}"
+                                alt="{{request.user.get_full_name}}" class="w-10 h-10 object-cover">
+                            {% else %}<i class="fa-regular fa-user font-bold text-lg"></i>{% endif %}
                         </a>
                         <!-- dropdown -->
                         {% if request.user.is_authenticated %}
@@ -151,10 +171,10 @@
                         <ul
                             class="py-10px w-150px shadow-box-shadow-4 absolute right-0 top-full opacity-0 invisible translate-y-4 bg-white transition-all duration-300 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-xl">
                             <li>
-                                <a class="whitespace-nowrap px-15px py-5px" href="{% url 'accounts:login' %}">Sign in</a>
+                                <a class="whitespace-nowrap px-15px py-5px" href="{% url 'accounts:login' %}">Member Sign In</a>
                             </li>
                             <li>
-                                <a class="whitespace-nowrap px-15px py-5px" href="{% url 'accounts:sign-up' %}">Register</a>
+                                <a class="whitespace-nowrap px-15px py-5px" href="{% url 'admin:index' %}">Executive Sign In</a>
                             </li>
                             
                         </ul>

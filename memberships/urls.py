@@ -8,7 +8,7 @@ urlpatterns = [
     path('membership/pricing', pricing, name='pricing'),
     path('membership/membership-application', apply_for_membership, name='apply-membership'),
     path('membership/membership-application/application=<application_number>', apply_for_membership, name='apply-membership-with-number'),
-    path('membership/membership-application/<application_id>', application_submitted, name='application-done'),
+    path('membership/membership-application/<application_number>', application_submitted, name='application-done'),
     path('membership/trace-application', trace_application, name='trace-application'),
     
     path('membership/download-file/<file_slug>', download_files, name='download-files'),

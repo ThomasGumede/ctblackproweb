@@ -77,13 +77,15 @@ Application Done
                         <span class="sub-title text-custom-primary">Congradulations! Your Application Number is <b>{{application.application_number}}</b></span>
                         <h2>Thank You For Your Application</h2>
                     </div>
-                    <p class="text-custom-text">Ready to take your place on the fairway? Download our membership rates
-                        and sign-up form to become part of
-                        CT Black Pro
-                        Golf Club—a community where excellence meets opportunity. Whether you're here to compete,
-                        connect, or
-                        grow, your journey
-                        starts now.</p>
+                    <div class="text-center text-custom-text">
+                        We have received your application and currently processing it. 
+                        You have chosen to join our <strong>{{application.get_membership_choice_display}}</strong>and the <strong>amount to be paid</strong> is: <strong>R{{application.cost}}</strong>
+                        An email with these details has also been sent to <strong>{{application.user.email}}</strong>. Please check your inbox to
+                            proceed with payment.
+                        Thank you for applying!</p>
+                    </div>
+                    
+                    
                     <div class="flex flex-wrap gap-7 items-center">
                         <div>
                             <h5

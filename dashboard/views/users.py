@@ -39,9 +39,11 @@ def update_profile(request, username):
 
 @login_required
 def update_profile_password(request, username):
+    
     user = get_object_or_404(Account, username=username, id=request.user.id)
+    form = PasswordChangeForm(user)
     if request.method == "POST":
-        form = PasswordChangeForm(instance = user, data=request.POST)
+        form = PasswordChangeForm(user, data=request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, "Profile password updated successfully")

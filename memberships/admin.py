@@ -5,10 +5,11 @@ from memberships.models import MembershipEmail, MembershipFile, MembershipApplic
 class MembershipFile(admin.ModelAdmin):
     prepopulated_fields = {"slug": ["title"]}
     
+
 @admin.register(MembershipApplication)
 class ApplicationAdmin(admin.ModelAdmin):
-    list_display = ("applicant_names", "application_number", "status", "date_submitted")
-    list_filter = ("status", "date_submitted")
-    search_fields = ("application_number", "user__username", "user__first_name",)
+    list_display = ("full_name", "application_number", "membership_choice", "status", "date_submitted")
+    list_filter = ("status", "date_submitted", "membership_choice")
+    search_fields = ("application_number", "first_name", "last_name", "email")
     ordering = ("-date_submitted",)
-    readonly_fields = ("user", "application_number")
+    readonly_fields = ("application_number", "date_submitted")

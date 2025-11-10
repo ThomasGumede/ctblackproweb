@@ -1,6 +1,6 @@
 from django.urls import path
 from accounts.views.accounts import custom_login, custom_logout, register, account_details
-from accounts.views.password import password_reset_request, password_reset_sent, passwordResetConfirm
+from accounts.views.password import password_reset_request, password_reset_sent, passwordResetConfirm, password_change
 from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm, SetPasswordForm
 
 app_name = 'accounts'

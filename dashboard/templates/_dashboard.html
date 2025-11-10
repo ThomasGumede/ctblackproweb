@@ -85,35 +85,63 @@
 
             <li class="sidebar-menu-group-title">Club Info</li>
 
-
-            <li>
-                <a href="{% url 'dashboard:users' %}">
+            <li class="dropdown">
+                <a href="javascript:void(0)">
                     <iconify-icon icon="flowbite:users-group-outline" class="menu-icon"></iconify-icon>
-                    <span>All Members</span>
+                    <span>Members</span>
                 </a>
+                <ul class="sidebar-submenu">
+                    <li>
+                        <a href="{% url 'dashboard:users' %}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i>
+                            Members</a>
+                    </li>
+            
+                    <li>
+                        <a href="#"><i class="ri-circle-fill circle-icon text-danger-600 w-auto"></i>Add Members </a>
+                    </li>
+            
+                </ul>
             </li>
-            <!-- <li>
-                <a href="">
-                    <iconify-icon icon="solar:gallery-wide-linear" class="menu-icon"></iconify-icon>
-                    <span>Gallery</span>
-                </a>
-            </li> -->
-            <li>
-                <a href="{% url 'dashboard:events' %}">
-                    <iconify-icon icon="flowbite:users-group-outline" class="menu-icon"></iconify-icon>
+            <li class="dropdown">
+                <a href="javascript:void(0)">
+                    <iconify-icon icon="solar:calendar-mark-linear" class="menu-icon"></iconify-icon>
                     <span>Events</span>
                 </a>
+                <ul class="sidebar-submenu">
+                    <li>
+                        <a href="{% url 'dashboard:users' %}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i>
+                            List</a>
+                    </li>
+            
+                    <li>
+                        <a href="#"><i class="ri-circle-fill circle-icon text-danger-600 w-auto"></i>Add Event </a>
+                    </li>
+            
+                </ul>
+            </li>
+            
+            
+            <li class="dropdown">
+                <a href="javascript:void(0)">
+                    <iconify-icon icon="solar:document-linea" class="menu-icon"></iconify-icon>
+                    <span>Documents</span>
+                </a>
+                <ul class="sidebar-submenu">
+                    <li>
+                        <a href="{% url 'dashboard:documents' %}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i>
+                            All</a>
+                    </li>
+            
+                    <li>
+                        <a href="#"><i class="ri-circle-fill circle-icon text-danger-600 w-auto"></i>Add File </a>
+                    </li>
+            
+                </ul>
             </li>
             <li>
                 <a href="{% url 'dashboard:bookings' %}">
-                    <iconify-icon icon="flowbite:users-group-outline" class="menu-icon"></iconify-icon>
+                    <iconify-icon icon="solar:calendar-linear" class="menu-icon"></iconify-icon>
                     <span>Bookings</span>
-                </a>
-            </li>
-            <li>
-                <a href="{% url 'dashboard:documents' %}">
-                    <iconify-icon icon="flowbite:users-group-outline" class="menu-icon"></iconify-icon>
-                    <span>Documents</span>
                 </a>
             </li>
             <li>
@@ -123,7 +151,49 @@
                 </a>
             </li>
 
-
+            <li class="sidebar-menu-group-title">Personal Info</li>
+                <li>
+                    <a href="#">
+                        <iconify-icon icon="flowbite:user-outline" class="menu-icon"></iconify-icon>
+                        <span>Overview</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)">
+                        <iconify-icon icon="flowbite:credit-card-outline" class="menu-icon"></iconify-icon>
+                        <span>Invoices</span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a href="#"><i
+                                    class="ri-circle-fill circle-icon text-primary-600 w-auto"></i>
+                                View invoices</a>
+                        </li>
+                
+                        <li>
+                            <a href="#"><i
+                                    class="ri-circle-fill circle-icon text-danger-600 w-auto"></i>Pay Invoices </a>
+                        </li>
+                
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)">
+                        <iconify-icon icon="lucide:calendar-days" class="menu-icon"></iconify-icon>
+                        <span>My Bookings</span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a href="#"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i>
+                                Bookings</a>
+                        </li>
+                
+                        <li>
+                            <a href="#"><i class="ri-circle-fill circle-icon text-danger-600 w-auto"></i>Teetime Sheet</a>
+                        </li>
+                
+                    </ul>
+                </li>
             <li class="sidebar-menu-group-title">Settings</li>
             <li>
                 <a href="{% url 'dashboard:profile-details' request.user.username %}">

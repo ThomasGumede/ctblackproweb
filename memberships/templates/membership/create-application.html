@@ -4,6 +4,45 @@
 Personal Information
 {% endblock app_title %}
 
+{% block seo %}
+<meta name="description"
+    content="CT Black Pro Golf Club is a proudly inclusive golfing community based in Cape Town, committed to excellence, empowerment, and unity.">
+<meta name="keywords" content="">
+<meta name="author" content="CT Black Pro">
+<link rel="canonical" href="{{ request.build_absolute_uri }}" />
+<meta property="og:title" content="CT Black Pro Golf Club - Start Membership" />
+<meta property="og:description"
+    content="CT Black Pro Golf Club is a proudly inclusive golfing community based in Cape Town, committed to excellence, empowerment, and unity." />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<meta property="og:type" content="website" />
+
+<meta property="og:image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.build_absolute_uri }}">
+<meta name="twitter:title" content="CT Black Pro Golf Club - Start Membership">
+<meta name="twitter:description"
+    content="CT Black Pro Golf Club is a proudly inclusive golfing community based in Cape Town, committed to excellence, empowerment, and unity.">
+<meta name="twitter:image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+<meta name="twitter:creator" content="@BBGIOfficial">
+
+<!-- Google+ / Schema.org -->
+<meta itemprop="name" content="CT Black Pro Golf Club - Start Membership">
+<meta itemprop="description"
+    content="CT Black Pro Golf Club is a proudly inclusive golfing community based in Cape Town, committed to excellence, empowerment, and unity.">
+<meta itemprop="image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/ct-logo.png' %}">
+
+<!-- Additional Meta Tags -->
+<meta property="og:locale" content="en_ZA">
+<meta property="og:site_name" content="CT Black Pro Golf Club">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Page Title -->
+<title>CT Black Pro Golf Club - Start Membership</title>
+
+{% endblock seo %}
+
 {% block app_content %}
 
 <div class="tab-contents">
@@ -108,7 +147,7 @@ Personal Information
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-30px mb-35px">
                     <div class="relative">
                         <input type="text" placeholder="First Name*" id="id_first_name" name="first_name"
-                            value="{% if user.first_name %}{{user.first_name}}{% endif %}"
+                            value="{{ form.first_name.value }}"
                             class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
                         <span class="absolute top-1/2 -translate-y-1/2 right-4">
                             <i class="fas fa-pencil text-sm lg:text-base text-secondary-color font-bold"></i>
@@ -123,7 +162,7 @@ Personal Information
 
                     <div class="relative">
                         <input type="text" id="id_last_name" name="last_name"
-                            value="{% if user.last_name %}{{user.last_name}}{% endif %}" placeholder="Last Name*"
+                            value="{{ form.last_name.value }}" placeholder="Last Name*"
                             class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
                         <span class="absolute top-1/2 -translate-y-1/2 right-4">
                             <i class="fas fa-pencil text-sm lg:text-base text-secondary-color font-bold"></i>
@@ -166,7 +205,7 @@ Personal Information
                     <div class="relative">
                         <input type="text" placeholder="HNA Membership number" id="id_hna_membership_number"
                             name="hna_membership_number"
-                            value="{% if user.hna_membership_number %}{{user.hna_membership_number}}{% endif %}"
+                            value="{{ form.hna_membership_number.value }}"
                             class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
                         <span class="absolute top-1/2 -translate-y-1/2 right-4">
                             <i class="fas fa-pencil text-sm lg:text-base text-secondary-color font-bold"></i>
@@ -181,7 +220,7 @@ Personal Information
 
                     <div class="relative">
                         <input type="email" placeholder="Email*" id="id_email" name="email"
-                            value="{% if user.email %}{{user.email}}{% endif %}"
+                            value="{{ form.email.value }}"
                             class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
                         <span class="absolute top-1/2 -translate-y-1/2 right-4">
                             <i class="fas fa-pencil text-sm lg:text-base text-secondary-color font-bold"></i>
@@ -196,7 +235,7 @@ Personal Information
 
                     <div class="relative">
                         <input type="text" placeholder="Cell Phone" id="id_phone" name="phone"
-                            value="{% if user.phone %}{{user.phone}}{% endif %}"
+                            value="{{ form.phone.value }}"
                             class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
                         <span class="absolute top-1/2 -translate-y-1/2 right-4">
                             <i class="fas fa-pencil text-sm lg:text-base text-secondary-color font-bold"></i>
@@ -214,7 +253,7 @@ Personal Information
                 <div class="relative mb-35px">
                     <textarea placeholder="Tell us a little bit about your professional or business" id="id_biography"
                         name="biography"
-                        class="min-h-[150px] text-paragraph-color pl-5 pr-50px py-15px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">{% if user.biography %}{{user.biography}}{% endif %}</textarea>
+                        class="min-h-[150px] text-paragraph-color pl-5 pr-50px py-15px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">{{ form.biography.value }}</textarea>
                     <span class="absolute top-[30px] -translate-y-1/2 right-4">
                         <i class="fas fa-pencil text-sm lg:text-base text-secondary-color font-bold"></i>
                     </span>
@@ -224,6 +263,29 @@ Personal Information
                     <span
                         class="text-[11px] text-red-500 block font-normal lowercase">{{form.biography.errors.as_text}}</span>
                     {% endif %}
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-30px mb-35px">
+                    
+                    <div class="relative block">
+                        {{form.membership_choice}}
+                        <span class="text-[11px] text-custom-tertiary block font-normal lowercase">Select
+                            Membership Choice. {{form.membership_choice.help_text}}</span>
+                        {% if form.membership_choice.errors %}
+                        <span class="text-[11px] text-red-500 block font-normal lowercase">{{form.membership_choice.errors.as_text}}</span>
+                        {% endif %}
+                    </div>
+                    <div class="relative mb-35px">
+                        <input type="url" placeholder="LinkedIn Profile Url e.g https://linked.com/@profile" id="id_linkedIn"
+                            name="linkedIn" value="{{form.linkedIn.value}}"
+                            class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
+                        <span class="absolute top-1/2 -translate-y-1/2 right-4">
+                            <i class="fas fa-pencil text-sm lg:text-base text-secondary-color font-bold"></i>
+                        </span>
+                        <span class="text-[11px] text-custom-tertiary block font-normal lowercase">{{form.linkedIn.help_text}}</span>
+                        {% if form.linkedIn.errors %}
+                        <span class="text-[11px] text-red-500 block font-normal lowercase">{{form.linkedIn.errors.as_text}}</span>
+                        {% endif %}
+                    </div>
                 </div>
                 <div class="relative mb-35px">
                     <input type="text" placeholder="*Address (mandatory)" id="id_address" name="address" value="{{form.address.value}}"
@@ -238,20 +300,7 @@ Personal Information
                         class="text-[11px] text-red-500 block font-normal lowercase">{{form.address.errors.as_text}}</span>
                     {% endif %}
                 </div>
-                <div class="relative mb-35px">
-                    <input type="url" placeholder="LinkedIn Profile Url e.g https://linked.com/@profile"
-                        id="id_linkedIn" name="linkedIn" value="{{form.linkedIn.value}}"
-                        class="text-paragraph-color pl-5 pr-50px outline-none border-2 border-border-color-9 focus:border focus:border-secondary-color h-65px block w-full rounded-none placeholder:text-paragraph-color placeholder:text-sm">
-                    <span class="absolute top-1/2 -translate-y-1/2 right-4">
-                        <i class="fas fa-pencil text-sm lg:text-base text-secondary-color font-bold"></i>
-                    </span>
-                    <span
-                        class="text-[11px] text-custom-tertiary block font-normal lowercase">{{form.linkedIn.help_text}}</span>
-                    {% if form.linkedIn.errors %}
-                    <span
-                        class="text-[11px] text-red-500 block font-normal lowercase">{{form.linkedIn.errors.as_text}}</span>
-                    {% endif %}
-                </div>
+                
             </div>
 
             

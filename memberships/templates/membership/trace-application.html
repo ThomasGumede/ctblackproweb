@@ -68,7 +68,7 @@
             {% if application %}
                 <p class="text-sm lg:text-base mb-15px text-center">
                     <span class="leading-1.8 lg:leading-1.8">
-                        Congradulations! We have received your application and we are processing it. Your current application status is <b>{{application.status}}</b>
+                        Congradulations! We have received your application and we are processing it. Your current application status is <b>{{application.status}}</b>. You can also update your upplication her <strong><a href="{% url 'memberships:apply-membership-with-number' application.application_number %}">Update upplication</a></strong>
                     </span>
                 </p>
             {% else %}
